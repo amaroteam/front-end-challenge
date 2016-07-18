@@ -1,6 +1,6 @@
 # Desafio front-end da AMARO
 
-Esse repositório é o nosso teste para avaliar o quão bom desenvolvedor front-end você é.
+Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
 
 Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
 
@@ -26,18 +26,18 @@ O que nós esperamos que você aprenda sobre a AMARO:
 ## Próximos passos
 
 1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. No seu repositório local, faça o _checkout_ para a _branch_ `desafio` que conterá o arquivo Markdown com a descrição do teste.
-3. Resolva o desafio da forma que você julgar mais adequada.
-4. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
+2. As instruções do desafio se encontram no arquivo [`challenge-description`](/challenge-description.md).
+2. Resolva o desafio da forma que você julgar mais adequada.
+3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
 
 ## Considerações
 
 - Nós não iremos limitar a sua escolha por ferramentas e bilbiotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
+- Apesar de não haver um limite de tempo, recomendamos que você não gaste mais do que **6 a 8 horas** trabalhando no desafio.
 - Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
+
 ## Dúvidas?
 
-Ficou com alguma dúvida sobre como irá funcionar o processo? Abra uma [issue]() e nós te ajudaremos com o processo.
+Ficou com alguma dúvida sobre como irá funcionar o processo? Abra uma [issue](https://github.com/amaroteam/front-end-challenge/issues) e nós te ajudaremos com o processo.
 
-###### Refs
-
-- [Talkdesk](https://github.com/talkdesk-challenges/challenges)
+**Boa sorte!**
