@@ -32,7 +32,7 @@ O que nós esperamos que você aprenda sobre a AMARO:
 
 ## Considerações
 
-- Nós não iremos limitar a sua escolha por ferramentas e bilbiotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
+- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
 - Apesar de não haver um limite de tempo, recomendamos que você não gaste mais do que **6 a 8 horas** trabalhando no desafio.
 - Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
 
