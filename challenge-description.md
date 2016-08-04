@@ -1,43 +1,45 @@
-# Desafio front-end da AMARO
+# AMARO front-end challenge
 
-O objetivo do desafio é construir uma página de catálogo para alguns dos _best-sellers_ da história da [AMARO](https://amaro.com).
+The objective of this challenge is to build a catalog page for some _best-sellers_ of AMARO history.
 
-## Algumas regras
+**NOTE:** Portuguese version available [here](o-desafio.md).
 
-- A página não pode ser estática. Ela deve possuir alguma inteligência para exibir todos os produtos dinamicamente.
-- Todos os produtos do arquivo `products.json` devem ser exibidos no catálogo.
-- Caso você opte por utilizar alguma ferramenta de _build_ (Grunt, Gulp, npm, etc), não se esqueça de criar um arquivo com instruções para rodarmos o projeto.
-- Se você estiver com dúvidas, busque por referências no Google, ou pergunte para amigos. Mas não peça para eles resolverem o desafio para você.
+## Rules
 
-## Requisitos
+- The page can't be static. It needs some logic to show all products dinamically.
+- All products from `products.json` must be shown.
+- In case you choose to use some _build_ tool (Grunt, Gulp, npm, Webpack, etc), don't forget to create an instructions guide to allow us to run the project.
+- If you got some questions, Google them or ask your friends. But do not ask them to solve the challenge for you.
 
-- A página deve ser responsiva. Se possível, utilize a abordagem _mobile-first_.
-- Para cada item de produto, as seguintes informações devem estar presentes na página de catálogo:
-    - Imagem
-    - Nome
-    - Preço
-    - Status de promoção
-    - Preço promocional (se houver)
-    - Tamanhos disponíveis
-- Deve ser possível adicionar produtos ao carrinho do usuário.
-- Deve ser possível verificar quantos e quais produtos do carrinho.
+## Requirements
 
-## Diferenciais
+- The page must be responsive. If possible, use a _mobile-first_ approach.
+- FOr each item on the catalog, the following information must be present on the page:
+    - Image
+    - Name
+    - Price
+    - Promo Status
+    - Promo price (if there's one)
+    - Available Sizes
+- It must be possible to add products to the cart.
+- It must be possible to verify how much and what items are on the cart.
 
-- Foi moleza? Então permita que os usuários interajam com o carrinho adicionando e removendo produtos e alterando a quantidade de itens.
-- Ah! Não se esqueça de mostrar o valor total do carrinho.
-- Achou o teste até aqui fácil? Que tal adicionar um filtro para mostrar só os produtos em promoção (`on_sale`)?
-- Alguns produtos não tem sua grade completa (todos os tamanhos disponíveis). Mostre somente os tamanhos em estoque.
-- Todos gostamos de código limpo e testável, certo? Sinceramente, nós mesmos não fazemos um trabalho excelente com testes, então esse é um grande diferencial.
+## Bonus points
 
-## Critérios de avaliação
+- Easy as pie? So add more functionality to cart allowing users to add, remove and change quantity of cart items.
+- Oh! Don't forget to show total value of cart.
+- Want more challenges? Add a filter to show only products `on_sale`.
+- Some products don't have all sizes available. Show only the ones on stock.
+- We like clean and testable code, right? Sincerely, we don't do an excellent code on this department, so this is a big bonus point.
 
-- O código será avaliado considerando: semântica, estruturação, legibilidade, tamanho, entre outros fatores.
-- O histórico do `git` também será avaliado.
-- Nossa stack aqui na **AMARO** é baseada em React, Redux, Sass e Webpack. Caso você tenha familiaridade com ela, pode utilizá-la para resolver o desafio.
-- Estamos buscando um desenvolvedor front-end que saiba montar um _layout_ bonito e que também saiba programar em JavaScript, por isso aproveite a oportunidade para nos mostrar que você tem conhecimento nas duas áreas.
-- Não esqueça da documentação. Ou como nós iremos conseguir avaliar o trabalho se não for possível inicializar o projeto em nossas máquinas? :thinking_face:
+## How we'll evaluate
 
-## Encontrou alguma dificuldade?
+- Your code will be evaluated by: semantics, structure, legibility, size, among other factors.
+- The `git` history will be avaluated.
+- Our stack here is React based (React, Redux, Sass, Webpack). In case you are familiar with it, you can use it to solve the challenge.
+- We're looking for a front-end developer who knows how to build a layout and also knows how to programming in JavaScript. Use this as an opportunity to show us how good you are on both areas.
+- Do not forget documentation. Or how are we going to evaluate your work if we can't init the project on our machines? :thinking_face:
 
-- O desafio é mais difícil do que você pensou a princípio? Entre em contato com a gente através de uma _issue_ no repositório. Nós estamos buscando alguém que possa contribuir com o projeto logo de cara, mas iremos considerar quem está começando e quer aprender mais.
+## Got questions?
+
+- The challenge is harder than you anticipated? Contact us opening an _issue_. We're looking for a more experienced developer but we'll also consider someone who is eager to learn.
