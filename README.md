@@ -1,43 +1,45 @@
-# Desafio front-end da AMARO
+# AMARO front-end challenge
 
-Esse repositório é o nosso desafio para avaliar o quão bom desenvolvedor front-end você é.
+This repository holds our challenge to evaluate how good of a front-end developer you are.
 
-Provavelmente você já está participando do nosso processo de contratação, mas se você caiu aqui por acaso, leia o documento até o final e caso haja interesse, você pode começar daqui mesmo.
+You're probably already participating in our hiring process. But if you fell here by accident, read the document to the end and if you are interested, you can start the process from here.
 
-Se você não é desenvolvedor, pode conferir nossas outras oportunidades em: [amaro.com/jobs](https://amaro.com/jobs).
+If you are not a developer, you can have a look at our other opportunities at: [amaro.com/jobs](https;//amaro.com/jobs)
 
-## Sobre o desafio
+**NOTE:** Portuguese version available [here](README_pt.md).
 
-Esse é um desafio, não um teste ou uma prova de faculdade, portanto não há uma única resposta certa.
+## About the challenge
 
-Daremos a você alguns requisitos que devem ser cumpridos, e pelos quais você será avaliado, mas deixamos livre a escolha do método de solução.
+This is a challenge, not a college test, so there's multiple correct answers.
 
-O que nós esperamos aprender de você com o desafio:
+We'll give you some requirements that must be done and for which you'll be evaluated, but you're free to choose a solution method.
 
-- Seu estilo de trabalho
-- Como você pensa e resolve problemas
-- Como você se comunica
+What we expect to learn from you with this challenge:
 
-O que nós esperamos que você aprenda sobre a AMARO:
+- Your work style.
+- How you think and solve problems.
+- How you communicate.
 
-- Como nós trabalhamos como um time.
-- Tenha uma visão próxima dos desafios que enfrentamos no dia-a-dia.
+What we expect that you learn from us:
 
-## Próximos passos
+- How we work as a team.
+- Have a close look at some of the problems we face daily.
 
-1. Faça um _fork_ desse repositório para sua conta pessoal.
-2. As instruções do desafio se encontram no arquivo [`challenge-description`](/challenge-description.md).
-2. Resolva o desafio da forma que você julgar mais adequada.
-3. Preferencialmente utilize uma _branch_ chamada `desafio` ou com o seu nome (`nome-sobrenome`) para o desenvolvimento. E submeta o _pull-request_ para essa mesma _branch_.
+## Next steps
 
-## Considerações
+1. Fork this repository to your personal account.
+2. Follow the instructions on [`challenge-description`](/challenge-description.md) file.
+3. Solve the challenge in the best way you can.
+4. Save your work in a new branch called `desafio` or with your name (`nome-sobrenome`). Send us a pull-request to the same branch.
 
-- Nós não iremos limitar a sua escolha por ferramentas e bibliotecas. Porém faça escolhas que sejam condizentes com o desafio apresentado. Para que utilizar uma bazuca para matar uma formiga?
-- Apesar de não haver um limite de tempo, recomendamos que você não gaste mais do que **6 a 8 horas** trabalhando no desafio.
-- Tente escrever o melhor código possível para que possamos avaliar o seu _pull-request_ com mais facilidade. E lembre-se: Você vai ter que explicar pessoalmente para nós depois.
+## Considerations
 
-## Dúvidas?
+- We won't limit your choice of tools or libraries. But make choices that suits your needs. There's no need to use a bazooka to kill an ant.
+- Despite not having a time limit, we recommend that you don't spend more than **6 to 8 hours** working on this challenge.
+- Try to write the best code you possibly can. It will make our life easier when evaluating your solution. And remember: you'll have to explain it in person for us.
 
-Ficou com alguma dúvida sobre como irá funcionar o processo? Abra uma [issue](https://github.com/amaroteam/front-end-challenge/issues) e nós te ajudaremos com o processo.
+## Doubts?
 
-**Boa sorte!**
+Do you have in doubt related to the process? Open an [issue](https://github.com/amaroteam/front-end-challenge/issues) and we'll be happy to help.
+
+**Break a leg!**
