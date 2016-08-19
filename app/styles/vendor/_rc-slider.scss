@@ -1,0 +1,38 @@
+$rc-slider-default: desaturate(lighten($brand-primary, 30), 30);
+$rc-slider-active: lighten($brand-primary, 10);
+
+.rc-slider {
+  &-handle {
+    border-color: $rc-slider-default;
+
+    &:hover {
+      border-color: $rc-slider-default;
+    }
+  }
+
+  &-track {
+    background-color: $rc-slider-default;
+  }
+
+  &-dot-active {
+    border-color: $rc-slider-default;
+  }
+
+  &.active {
+    .rc-slider-handle {
+      border-color: $rc-slider-active;
+
+      &:hover {
+        border-color: $rc-slider-active;
+      }
+    }
+
+    .rc-slider-track {
+      background-color: $rc-slider-active;
+    }
+
+    .rc-slider-dot-active {
+      border-color: $rc-slider-active;
+    }
+  }
+}

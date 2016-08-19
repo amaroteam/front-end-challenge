@@ -1,0 +1,84 @@
+.app {
+  min-height: 100vh;
+
+  &__content {
+    min-height: calc(100vh - #{$footer-height});
+    padding-top: $header-height;
+  }
+
+  &__container {
+    @include app-container();
+    margin: 0 auto;
+  }
+
+  &__route {
+    padding-top: $grid-gutter-width;
+  }
+
+  &__logo {
+    display: inline-block;
+
+    .isvg {
+      display: block;
+      line-height: 0;
+
+
+
+      svg {
+        height: auto;
+        max-height: 100%;
+        width: 20rem;
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: $grid-gutter-width;
+    text-transform: uppercase;
+
+    &:not(&--input):empty {
+      display: none;
+    }
+
+    &--input {
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 0.1rem solid transparent;
+      padding: 0;
+      width: 100%;
+
+      &:focus {
+        border-bottom-color: #ccc;
+        outline: none;
+      }
+    }
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-left: -($grid-gutter-width / 2);
+    margin-right: -($grid-gutter-width / 2);
+    padding-left: 0;
+
+    > * {
+      padding: ($grid-gutter-width / 2);
+      width: 100%;
+
+      @include sm {
+        width: percentage(1 / 2);
+      }
+
+      @include md {
+        width: percentage(1 / 3);
+      }
+
+      @include lg {
+        width: percentage(1 / 4);
+      }
+    }
+  }
+}

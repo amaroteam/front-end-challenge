@@ -1,0 +1,109 @@
+$xy-handle-size: 2rem;
+$color-active: $brand-primary;
+$color-bg: $brand-primary;
+$size: 1rem;
+$border-radius: $size / 2;
+$fix: 0.2rem;
+
+.u-slider {
+  background-color: $color-bg;
+  border-radius: $border-radius;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  .value {
+    background-color: #fff;
+    border-radius: $border-radius;
+    position: absolute;
+  }
+
+  .handle {
+    height: $size;
+    position: absolute;
+    width: $size;
+
+    &:after {
+      content: '';
+      display: block;
+      position: relative;
+    }
+  }
+}
+
+.u-slider-x,
+.u-slider-y {
+  .handle:after {
+    background-color: #fff;
+    border: 2px solid $color-active;
+    border-radius: 50%;
+    height: $size + $fix;
+    width: $size + $fix;
+  }
+}
+
+.u-slider-x {
+  border-radius: $border-radius;
+  height: $size;
+  min-width: 3rem;
+  width: 100%;
+
+  .handle {
+    height: 100%;
+
+    &:after {
+      left: -($size + $fix) / 2;
+      top: -($fix / 2);
+    }
+  }
+
+  .value {
+    border-radius: $border-radius;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.u-slider-y {
+  min-height: 3rem;
+  width: $size;
+
+  .handle {
+    width: 100%;
+
+    &:after {
+      left: -($fix / 2);
+      top: -($size + $fix) / 2;
+    }
+  }
+
+  .value {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.u-slider-xy {
+  background-color: $color-active;
+  border-radius: 0;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .handle {
+    position: absolute;
+
+    &:after {
+      background-color: rgba(0, 0, 0, 0);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: $xy-handle-size;
+      left: -($xy-handle-size / 2);
+      position: relative;
+      top: -($xy-handle-size / 2);
+      width: $xy-handle-size;
+    }
+  }
+}

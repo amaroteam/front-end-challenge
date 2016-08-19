@@ -1,0 +1,14 @@
+.app__home {
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  position: relative;
+
+  .app__container {
+    position: relative;
+    z-index: 10;
+  }
+
+  h1 {
+    line-height: 1.4;
+    text-align: center;
+  }
+}
