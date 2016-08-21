@@ -4,15 +4,15 @@ export default class ProductBox extends React.Component {
   static propTypes = {
     cart: React.PropTypes.object.isRequired,
     dispatch: React.PropTypes.func.isRequired,
+    onClickProduct: React.PropTypes.func.isRequired,
     product: React.PropTypes.object.isRequired
   };
 
   render() {
+    const props = this.props;
     const cart = this.props.cart;
     const product = this.props.product;
     const output = {};
-
-    console.log(product);
 
     if (product.on_sale) {
       output.sale = (
@@ -25,12 +25,22 @@ export default class ProductBox extends React.Component {
 
     return (
       <div className="app__box">
-        <div
+        <a
+          href={`/product/${product.id}`}
+          onClick={props.onClickProduct}
+          data-id={product.id}
           className="app__box__image">
           {product.image ? (<img src={product.image} alt={product.name} />) : (<div>{product.name}</div>)}
-        </div>
+        </a>
         <div className="app__box__body">
-          <h3>{product.name}</h3>
+          <h3>
+            <a
+              href={`/product/${product.id}`}
+              data-id={product.id}
+              onClick={props.onClickProduct}>
+              {product.name}
+            </a>
+          </h3>
           <div className="app__box__price">
             <div>{product.actual_price}</div>
             <div>{product.installments}</div>

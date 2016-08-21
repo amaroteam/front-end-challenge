@@ -1,11 +1,19 @@
+// Polyfills
+import 'core-js/shim';
+import 'classlist-polyfill';
+import 'utils/polyfills.js';
+
+import 'expose?$!expose?jQuery!jquery';
+import 'bootstrap/dist/js/umd/modal';
+// import 'bootstrap/dist/js/umd/dropdown';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from 'containers/Root';
 import { browserHistory } from 'react-router';
-import { AppContainer } from 'react-hot-loader';
 import { syncHistoryWithStore } from 'react-router-redux';
-// import 'expose?$!expose?jQuery!jquery';
+import { AppContainer } from 'react-hot-loader';
 
+import Root from 'containers/Root';
 import store from 'store';
 import '../styles/main.scss';
 

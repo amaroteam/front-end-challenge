@@ -9,45 +9,8 @@ import shallowEqual from 'fbjs/lib/shallowEqual';
 import store from 'store/index';
 import { refreshAccessToken, restoreUser } from 'actions';
 
-const errorHandler = {
-  action: undefined,
-  count: 0
-};
-
-/**
- *
- * @param {Object} err
- * @param {Object} options
- * @returns {Promise.<*>}
- */
-export function handleSpotifyErrors(err, options) {
-  if (err.statusCode === 401) {
-    if (errorHandler.action === options.action.prototype.constructor.name && errorHandler.count > 2) {
-      return Promise.reject();
-    }
-
-    return store.dispatch(refreshAccessToken())
-      .then(() => {
-        errorHandler.action = undefined;
-        errorHandler.count = 0;
-
-        return store.dispatch(restoreUser());
-      })
-      .then(() =>
-        store.dispatch(options.action(options.payload))
-      )
-      .catch(() => {
-        errorHandler.action = options.action.prototype.constructor.name;
-        errorHandler.count++;
-      });
-  }
-
-  store.dispatch({
-    type: options.type,
-    payload: err
-  });
-
-  return Promise.reject(err);
+export function parsePrice(value) {
+  return parseFloat(value.replace(/[R$ ]+/, '').replace(',', '.'));
 }
 
 /**
@@ -60,7 +23,7 @@ export function handleSpotifyErrors(err, options) {
  *
  * @returns {boolean}
  */
-export function shouldComponentUpdate(instance:Object, nextProps:Object, nextState:Object, nextContext:Object) {
+export function shouldComponentUpdate(instance, nextProps, nextState, nextContext) {
   return !shallowEqual(instance.props, nextProps)
     || !shallowEqual(instance.state, nextState)
     || !shallowEqual(instance.context, nextContext);
@@ -73,7 +36,7 @@ export function shouldComponentUpdate(instance:Object, nextProps:Object, nextSta
  * @param {Object} handlers
  * @returns {function}
  */
-export function createReducer(initialState:Object, handlers:Object) {
+export function createReducer(initialState, handlers) {
   return function reducer(state = initialState, action) {
     if ({}.hasOwnProperty.call(handlers, action.type)) {
       return handlers[action.type](state, action);
@@ -91,7 +54,7 @@ export function createReducer(initialState:Object, handlers:Object) {
  *
  * @returns {string}
  */
-export function param(data:Object) {
+export function param(data) {
   /**
    * @param {Object} obj
    * @param {Array} topLevel
@@ -142,7 +105,7 @@ export function param(data:Object) {
  *
  * @returns {Object}
  */
-export function deparam(params:string, coerce:boolean) {
+export function deparam(params, coerce) {
   const obj = {};
   const coerceTypes = { true: !0, false: !1, null: null };
 
@@ -244,7 +207,7 @@ export function deparam(params:string, coerce:boolean) {
  * @param {Element} elem
  * @returns {{}}
  */
-export function datasetToObject(elem:Element) {
+export function datasetToObject(elem) {
   const data = {};
   [].forEach.call(elem.attributes, (attr) => {
     if (/^data-/.test(attr.name)) {

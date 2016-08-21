@@ -20,7 +20,10 @@ export default {
       return { ...state };
     },
     [ActionTypes.LOAD_PRODUCTS](state, action) {
-      const items = [...action.payload];
+      const items = [...action.payload].map((d, i) => {
+        d.id = i + 1;
+        return d;
+      });
 
       return Object.assign({}, state, { items });
     }
