@@ -1,6 +1,12 @@
 .app {
   min-height: 100vh;
 
+  &__wrapper {
+    @at-root .cssfilters .blurify & {
+      filter: blur(3px);
+    }
+  }
+
   &__content {
     min-height: calc(100vh - #{$footer-height});
     padding-top: $header-height;
@@ -21,8 +27,6 @@
     .isvg {
       display: block;
       line-height: 0;
-
-
 
       svg {
         height: auto;

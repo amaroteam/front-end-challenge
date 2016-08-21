@@ -1,32 +1,34 @@
 // *** Vendor
 @import '~sass-mediaqueries/media-queries';
-@import '~bricklayer/src/bricklayer';
 
-// *** Base
-@import 'base/variables';
-@import 'base/icons';
-@import 'base/typography';
-
-// *** Utilities
-@import 'utilities/functions';
-@import 'utilities/mixins';
-@import 'utilities/grid';
+// *** Helpers
+@import 'helpers/variables';
+@import 'helpers/functions';
 
 // *** Vendor
 @import 'vendor/bootstrap';
-@import 'vendor/bootstrap-theme';
 @import 'vendor/input-slider';
 @import 'vendor/rc-slider';
 
+@import 'helpers/mixins';
+@import 'helpers/grid';
+
+// *** Base
+@import 'base/global';
+@import 'base/icons';
+@import 'base/typography';
+
 // *** Layout
-@import 'layout/global';
 @import 'layout/app';
+@import 'layout/bootstrap-theme';
 
 // *** Components
+@import 'components/box';
+@import 'components/cart';
 @import 'components/footer';
 @import 'components/header';
 @import 'components/loader';
-@import 'components/box';
+@import 'components/product';
 @import 'components/system-notifications';
 
 // *** Containers

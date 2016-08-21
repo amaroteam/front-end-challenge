@@ -5,6 +5,7 @@
     background-color: #f7f7f7;
     display: block;
     padding-bottom: percentage(1 / $image-ratio);
+    perspective: 2000px;
     position: relative;
 
     img {
@@ -28,7 +29,7 @@
 
     &:hover {
       img {
-        transform: perspective(2000px) rotateY(180deg);
+        transform: rotateY(180deg);
       }
     }
   }
@@ -78,6 +79,4 @@
       color: #ab2929;
     }
   }
-
-
 }
