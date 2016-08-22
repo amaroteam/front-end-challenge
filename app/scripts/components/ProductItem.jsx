@@ -2,7 +2,8 @@ import React from 'react';
 import { autobind } from 'core-decorators';
 import classNames from 'classnames';
 
-import { addToCart } from 'actions';
+import { addToCart, toggleCart } from 'actions';
+import { parseMoney } from 'utils/helpers';
 
 export default class ProductItem extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class ProductItem extends React.Component {
 
     if (product.sizes.length === 1) {
       this.setState({
-        size: product.sizes[0]
+        size: product.sizes[0].size
       });
     }
   }
@@ -48,6 +49,7 @@ export default class ProductItem extends React.Component {
 
     e.preventDefault();
     const product = this.props.product;
+    const sku = product.sizes.find(d => d.size === state.size).sku;
 
     if (!state.size) {
       return this.setState({
@@ -56,23 +58,24 @@ export default class ProductItem extends React.Component {
     }
 
     return this.props.dispatch(addToCart({
-      color: product.color_slug,
-      id: product.id,
-      on_sale: true,
-      price: product.actual_price,
+      color: product.color,
+      discount_percentage: product.discount_percentage,
+      image: product.image,
+      name: product.name,
+      on_sale: product.on_sale,
+      price: parseMoney(product.actual_price),
+      quantity: 1,
       size: state.size,
-      style: state.style
+      sku,
+      style: product.style
     }))
-      .then(this.props.onHideModal);
+      .then(() => this.props.onHideModal(() => { this.props.dispatch(toggleCart(true)); }));
   }
 
   render() {
     const state = this.state;
-    const cart = this.props.cart;
     const product = this.props.product;
     const output = {};
-
-    console.log(product);
 
     if (product.on_sale) {
       output.regular_price = (<div className="app__product__regular-price">{product.regular_price}</div>);

@@ -1,17 +1,22 @@
 .app__item {
   border-bottom: 0.1rem solid #ddd;
   display: flex;
-  padding: ($grid-gutter-width / 6) 0;
+  padding: ($grid-gutter-width / 6) ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 6);
 
   &__image {
-    padding-left: $grid-gutter-width / 2;
+    position: relative;
     width: 6rem;
+
+    > div {
+      background-color: #ddd;
+      padding-bottom: percentage(1 / $image-ratio);
+    }
   }
 
   &__body {
     flex-grow: 1;
     padding-left: $grid-gutter-width / 6;
-    padding-right: $grid-gutter-width / 2;
     position: relative;
 
     h3 {
@@ -25,8 +30,8 @@
     font-size: $font-size-xs;
     line-height: 1;
     position: absolute;
-    right: $grid-gutter-width / 2;
-    top: $grid-gutter-width / 6;
+    right: 0;
+    top: 0;
   }
 
   &__info,

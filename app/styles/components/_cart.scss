@@ -72,6 +72,11 @@
     }
   }
 
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__subtotal,
   &__shipping,
   &__total {

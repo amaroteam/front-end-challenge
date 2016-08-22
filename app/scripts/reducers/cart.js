@@ -59,7 +59,7 @@ export default {
       return { ...state, items, ...parseData(items) };
     },
     [ActionTypes.REMOVE_FROM_CART](state, action) {
-      const items = [...state.items].filter(d => d.sku === action.payload.sku);
+      const items = [...state.items].filter(d => d.sku !== action.payload.sku);
 
       return { ...state, items, ...parseData(items) };
     },

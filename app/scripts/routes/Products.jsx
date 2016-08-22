@@ -43,10 +43,16 @@ export class Products extends React.Component {
   }
 
   @autobind
-  onHideModal() {
+  onHideModal(cb) {
     this.setState({
       productId: undefined,
       showModal: false
+    }, () => {
+      if (typeof cb === 'function') {
+        setTimeout(() => {
+          cb();
+        }, 500);
+      }
     });
   }
 

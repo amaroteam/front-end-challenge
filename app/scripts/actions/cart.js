@@ -17,7 +17,7 @@ export function toggleCart(payload) {
 /**
  * Add product to cart
  * @param {Object} payload
- * @returns {Object}
+ * @returns {function}
  */
 export function addToCart(payload) {
   return dispatch =>
@@ -30,7 +30,7 @@ export function addToCart(payload) {
 /**
  * Remove product from cart
  * @param {Object} payload
- * @returns {Object}
+ * @returns {function}
  */
 export function removeFromCart(payload) {
   return dispatch =>

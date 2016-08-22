@@ -9,9 +9,9 @@
   }
 
   &__image {
+    display: flex;
     position: relative;
-    text-align: center;
-
+    justify-content: center;
     @include md {
       width: 60%;
     }

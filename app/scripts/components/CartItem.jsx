@@ -2,6 +2,8 @@ import React from 'react';
 import { autobind } from 'core-decorators';
 import { shouldComponentUpdate, formatMoney } from 'utils/helpers';
 
+import { removeFromCart } from 'actions';
+
 export default class CartItem extends React.Component {
   static propTypes = {
     cart: React.PropTypes.object.isRequired,
@@ -20,6 +22,13 @@ export default class CartItem extends React.Component {
     console.log(el.dataset);
   }
 
+  @autobind
+  onClickRemove(e) {
+    e.preventDefault();
+
+    this.props.dispatch(removeFromCart({ sku: this.props.data.sku }));
+  }
+
   render() {
     const props = this.props;
     const data = props.data;
@@ -27,7 +36,7 @@ export default class CartItem extends React.Component {
     return (
       <div className="app__item">
         <div className="app__item__image">
-          <img src={data.image} alt={data.name} />
+          {data.image ? <img src={data.image} alt={data.name} /> : <div />}
         </div>
         <div className="app__item__body">
           <h3>{data.name}</h3>

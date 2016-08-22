@@ -2,7 +2,7 @@ import React from 'react';
 import { autobind } from 'core-decorators';
 import { shouldComponentUpdate } from 'utils/helpers';
 
-import { goTo } from 'actions';
+import { goTo, toggleCart } from 'actions';
 
 import Logo from 'components/Logo';
 
@@ -26,9 +26,8 @@ export default class Header extends React.Component {
   @autobind
   onClickCart(e) {
     e.preventDefault();
-    const el = e.currentTarget;
 
-    this.props.dispatch(goTo(el.getAttribute('href')));
+    this.props.dispatch(toggleCart(true));
   }
 
   render() {
@@ -44,6 +43,7 @@ export default class Header extends React.Component {
 
           <a href="/cart" className="app__header__cart" onClick={this.onClickCart}>
             <i className="i-shopping-cart" />
+            <span>{cart.items.length}</span>
           </a>
         </div>
       </header>

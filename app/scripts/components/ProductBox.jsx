@@ -10,7 +10,6 @@ export default class ProductBox extends React.Component {
 
   render() {
     const props = this.props;
-    const cart = this.props.cart;
     const product = this.props.product;
     const output = {};
 
