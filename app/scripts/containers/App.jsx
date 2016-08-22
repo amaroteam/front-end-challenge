@@ -6,6 +6,7 @@ import { loadProducts } from 'actions';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import Cart from 'components/Cart';
 import SystemNotifications from 'components/SystemNotifications';
 
 export class App extends React.Component {
@@ -31,15 +32,18 @@ export class App extends React.Component {
 
     return (
       <div className="app">
-        <Header
-          cart={props.cart}
-          dispatch={props.dispatch}
-          location={props.location} />
-        <main className="app__content">
-          {this.props.children}
-        </main>
-        <Footer />
-        <SystemNotifications app={props.app} dispatch={props.dispatch} />
+        <div className="app__wrapper">
+          <Header
+            cart={props.cart}
+            dispatch={props.dispatch}
+            location={props.location} />
+          <main className="app__content">
+            {this.props.children}
+          </main>
+          <Footer />
+          <SystemNotifications app={props.app} dispatch={props.dispatch} />
+        </div>
+        <Cart cart={props.cart} dispatch={props.dispatch} />
       </div>
     );
   }

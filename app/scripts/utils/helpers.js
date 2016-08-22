@@ -4,13 +4,15 @@
  * Helper functions
  * @module tools
  */
-
 import shallowEqual from 'fbjs/lib/shallowEqual';
-import store from 'store/index';
-import { refreshAccessToken, restoreUser } from 'actions';
+import accounting from 'accounting';
 
-export function parsePrice(value) {
-  return parseFloat(value.replace(/[R$ ]+/, '').replace(',', '.'));
+export function parseMoney(value) {
+  return accounting.unformat(value, ',');
+}
+
+export function formatMoney(value) {
+  return accounting.formatMoney(value, 'R$ ', 2, '.', ',');
 }
 
 /**
