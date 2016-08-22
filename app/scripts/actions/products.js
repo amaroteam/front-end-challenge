@@ -6,8 +6,9 @@ import { ActionTypes } from 'constants/index';
  * @returns {Object}
  */
 export function loadProducts(payload) {
-  return {
-    type: ActionTypes.LOAD_PRODUCTS,
-    payload
-  };
+  return dispatch =>
+    dispatch({
+      type: ActionTypes.LOAD_PRODUCTS,
+      payload
+    });
 }
