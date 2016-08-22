@@ -48,7 +48,7 @@ export function removeFromCart(payload) {
 export function updateCart(payload) {
   return dispatch =>
     Promise.resolve(dispatch({
-      type: ActionTypes.UPDATE_CART,
+      type: ActionTypes.UPDATE_CART_QUANTITY,
       payload
     }));
 }

@@ -63,6 +63,20 @@ export default {
 
       return { ...state, items, ...parseData(items) };
     },
+    [ActionTypes.UPDATE_CART_QUANTITY](state, action) {
+      const items = [];
+      [...state.items].forEach(d => {
+        if (d.sku === action.payload.sku) {
+          d.quantity += action.payload.value;
+        }
+
+        if (d.quantity) {
+          items.push(d);
+        }
+      });
+
+      return { ...state, items, ...parseData(items) };
+    },
     [ActionTypes.RESET_CART](state) {
       return { ...state, items: cartState.items };
     },

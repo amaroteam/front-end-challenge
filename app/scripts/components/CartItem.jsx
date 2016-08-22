@@ -2,7 +2,7 @@ import React from 'react';
 import { autobind } from 'core-decorators';
 import { shouldComponentUpdate, formatMoney } from 'utils/helpers';
 
-import { removeFromCart } from 'actions';
+import { removeFromCart, updateCart } from 'actions';
 
 export default class CartItem extends React.Component {
   static propTypes = {
@@ -16,10 +16,9 @@ export default class CartItem extends React.Component {
   @autobind
   onClickUpdate(e) {
     e.preventDefault();
-
     const el = e.currentTarget;
 
-    console.log(el.dataset);
+    this.props.dispatch(updateCart({ sku: this.props.data.sku, value: parseInt(el.dataset.value, 10) }));
   }
 
   @autobind

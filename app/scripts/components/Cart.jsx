@@ -49,13 +49,23 @@ export default class Cart extends React.Component {
   render() {
     const props = this.props;
     const cart = props.cart;
+    const output = {};
+
+    if (cart.items.length) {
+      output.shipping = (
+        <div className="app__cart__shipping">
+          <span>Frete</span>
+          <span>{formatMoney(cart.frete)}</span>
+        </div>
+      );
+    }
 
     return (
       <div className={classNames('app__cart', { visible: cart.visible })}>
         <a href="#hide" className="app__cart__overlay" onClick={this.onClickClose} />
         <div className="app__cart__wrapper">
           <div className="app__cart__header">
-            <h5>Sacola {cart.items.length ? `(${cart.items.length})` : ''}</h5>
+            <h5>Sacola ({cart.items.length})</h5>
             <a href="#close" onClick={this.onClickClose}><i className="i-close" /></a>
           </div>
           <div className="app__cart__body">
@@ -69,10 +79,7 @@ export default class Cart extends React.Component {
             <span>Subtotal</span>
             <span>{formatMoney(cart.subtotal)}</span>
           </div>
-          <div className="app__cart__shipping">
-            <span>Frete</span>
-            <span>{formatMoney(cart.frete)}</span>
-          </div>
+          {output.shipping}
           <div className="app__cart__total">
             <span>Total</span>
             <span>{formatMoney(cart.total)}</span>
