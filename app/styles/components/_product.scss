@@ -10,9 +10,12 @@
 
   &__image {
     display: flex;
-    position: relative;
+    height: 62vh;
     justify-content: center;
+    position: relative;
+
     @include md {
+      height: auto;
       width: 60%;
     }
 
@@ -21,6 +24,16 @@
     }
 
     > div {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100%;
+      max-height: 50rem;
+      width: 100%;
+    }
+
+    > span {
+      display: block;
       font-size: 3rem;
       left: 50%;
       position: absolute;
@@ -36,7 +49,6 @@
   }
 
   &__body {
-    margin-top: $grid-gutter-width;
     padding: $grid-gutter-width ($grid-gutter-width / 3) ($grid-gutter-width / 2);
 
     @include md {

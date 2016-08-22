@@ -45,17 +45,17 @@ export default class ProductItem extends React.Component {
 
   @autobind
   onClickBuy(e) {
-    const state = this.state;
-
     e.preventDefault();
-    const product = this.props.product;
-    const sku = product.sizes.find(d => d.size === state.size).sku;
+    const state = this.state;
 
     if (!state.size) {
       return this.setState({
         sizeError: true
       });
     }
+
+    const product = this.props.product;
+    const sku = product.sizes.find(d => d.size === state.size).sku;
 
     return this.props.dispatch(addToCart({
       color: product.color,
@@ -86,7 +86,7 @@ export default class ProductItem extends React.Component {
       <div className="app__product">
         <div
           className="app__product__image">
-          {product.image ? (<img src={product.image} alt={product.name} />) : (<div>{product.name}</div>)}
+          {product.image ? (<div style={{ backgroundImage: `url('${product.image}')` }} />) : (<span>{product.name}</span>)}
         </div>
         <div className="app__product__body">
           <h3>{product.name}</h3>
