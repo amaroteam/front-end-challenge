@@ -9,9 +9,16 @@
   }
 
   &__image {
-    background-color: #f7f7f7;
     position: relative;
     text-align: center;
+
+    @include md {
+      width: 60%;
+    }
+
+    @include lg {
+      width: 70%;
+    }
 
     > div {
       font-size: 3rem;
@@ -23,14 +30,6 @@
       width: 80%;
     }
 
-    @include md {
-      width: 60%;
-    }
-
-    @include lg {
-      width: 70%;
-    }
-
     img {
       max-height: 100%;
     }
@@ -38,7 +37,7 @@
 
   &__body {
     margin-top: $grid-gutter-width;
-    padding: 0 ($grid-gutter-width / 3);
+    padding: $grid-gutter-width ($grid-gutter-width / 3) ($grid-gutter-width / 2);
 
     @include md {
       width: 40%;
@@ -152,12 +151,5 @@
 
   &__actions {
     margin-top: $grid-gutter-width / 2;
-    padding-bottom: $grid-gutter-width / 2;
-
-    .btn {
-      font-size: $font-size-xs;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
   }
 }

@@ -18,7 +18,11 @@
       font-size: $grid-gutter-width;
 
       + a {
-        margin-left: $grid-gutter-width;
+        margin-left: $grid-gutter-width / 2;
+
+        @include ix {
+          margin-left: $grid-gutter-width;
+        }
       }
     }
   }

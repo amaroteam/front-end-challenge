@@ -13,6 +13,10 @@ html {
 
 body {
   min-height: 100%;
+
+  &.disable-scroll {
+    overflow: hidden;
+  }
 }
 
 img {

@@ -24,6 +24,12 @@
   }
 }
 
+.btn-lg {
+  font-size: $font-size-xs;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .modal {
   margin: 0;
   transform: translate3d(0, 0, 0);

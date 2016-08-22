@@ -27,6 +27,20 @@
   }
 
   &__cart {
+    align-items: center;
+    display: flex;
     font-size: $grid-gutter-width;
+
+    span {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin-left: 0.5rem;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
