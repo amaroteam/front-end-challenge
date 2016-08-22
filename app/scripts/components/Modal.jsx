@@ -111,11 +111,11 @@ class Modal extends React.Component {
     });
 
     this.$modal.on('hidden.bs.modal', () => {
+      $('body').removeClass('blurify');
+
       if (typeof props.onHide === 'function') {
         props.onHide();
       }
-
-      $('body').removeClass('blurify');
     });
 
     this.$modal.find('.modal-body__wrapper').on('scroll', (e) => {

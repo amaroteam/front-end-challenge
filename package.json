@@ -15,8 +15,8 @@
   },
   "homepage": "https://github.com/gilbarbara/front-end-challenge#readme",
   "dependencies": {
+    "accounting": "^0.4",
     "bootstrap": "4.0.0-alpha.2",
-    "bricklayer": "^0.4",
     "classlist-polyfill": "^1.0",
     "classnames": "^2.2",
     "core-decorators": "^0.12",

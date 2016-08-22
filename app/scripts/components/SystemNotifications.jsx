@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { autobind } from 'core-decorators';
 import { shouldComponentUpdate } from 'utils/helpers';
 
