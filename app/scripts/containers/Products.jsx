@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { autobind } from 'core-decorators';
+import classNames from 'classnames';
 import { shouldComponentUpdate } from 'utils/helpers';
 
 import Modal from 'components/Modal';
 import ProductBox from 'components/ProductBox';
-import ProductItem from 'components/ProductItem';
+import ProductItem from 'components/Product';
 
 export class Products extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      filter: false,
       productId: undefined,
       showModal: false
     };
@@ -26,9 +28,10 @@ export class Products extends React.Component {
   @autobind
   onClickSale(e) {
     e.preventDefault();
-    const el = e.currentTarget;
 
-    console.log(el);
+    this.setState({
+      filter: !this.state.filter
+    });
   }
 
   @autobind
@@ -59,8 +62,8 @@ export class Products extends React.Component {
   render() {
     const state = this.state;
     const props = this.props;
-    const items = props.products.items;
     const output = {};
+    let items = props.products.items;
 
     if (state.productId) {
       output.product = (
@@ -71,11 +74,21 @@ export class Products extends React.Component {
           product={items.find(d => d.id === state.productId)} />);
     }
 
+    if (state.filter) {
+      items = props.products.items.filter(d => d.on_sale === true);
+    }
+
     return (
       <div key="Products" className="app__products app__route">
         <div className="app__container">
           <div className="app__products__menu">
-            <a href="#sale" onClick={this.onClickSale}>
+            <h6>FILTRO:</h6>
+            <a
+              href="#sale"
+              className={classNames({
+                active: state.filter
+              })}
+              onClick={this.onClickSale}>
               SALE
             </a>
           </div>

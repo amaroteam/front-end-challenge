@@ -4,8 +4,8 @@ import { Route, IndexRoute } from 'react-router';
 import { scrollBefore } from 'utils/routerInterceptor';
 
 import App from 'containers/App';
-import Products from 'routes/Products';
-import NotFound from 'routes/NotFound';
+import Products from 'containers/Products';
+import NotFound from 'containers/NotFound';
 
 export default function createRoutes() {
   return (

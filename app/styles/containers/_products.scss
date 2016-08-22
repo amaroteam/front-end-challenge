@@ -1,14 +1,25 @@
-.app__home {
-  min-height: calc(100vh - #{$header-height} - #{$footer-height});
-  position: relative;
+.app__products {
+  &__menu {
+    align-items: center;
+    display: flex;
 
-  .app__container {
-    position: relative;
-    z-index: 10;
-  }
+    h6 {
+      margin: 0;
+    }
 
-  h1 {
-    line-height: 1.4;
-    text-align: center;
+    a {
+      border-radius: 0.2rem;
+      color: #ab2929;
+      display: block;
+      line-height: 1;
+      margin-left: $grid-gutter-width / 6;
+      padding: 0.3rem;
+      text-decoration: none;
+
+      &.active {
+        background-color: #ab2929;
+        color: #fff;
+      }
+    }
   }
 }
