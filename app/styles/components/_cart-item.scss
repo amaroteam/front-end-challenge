@@ -5,8 +5,8 @@
   padding-left: ($grid-gutter-width / 6);
 
   &__image {
+    flex: 0 1 6rem;
     position: relative;
-    width: 6rem;
 
     > div {
       background-color: #ddd;
@@ -15,7 +15,8 @@
   }
 
   &__body {
-    flex-grow: 1;
+    flex: 1 1 auto;
+    min-width: 0;
     padding-left: $grid-gutter-width / 6;
     position: relative;
 

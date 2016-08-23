@@ -22,6 +22,8 @@
     background-color: #fff;
     border-top-left-radius: 0.5rem;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     right: 0;
     top: $header-height;
@@ -58,17 +60,18 @@
   }
 
   &__body {
-    height: 15rem;
+    flex: 0 1 15rem;
     overflow-y: scroll;
     padding-left: 0;
     padding-right: 0;
 
-    @include md {
-      height: 20rem;
+
+    @include min-screen-height(500px) {
+      flex: 0 1 20rem;
     }
 
-    @include lg {
-      height: 25rem;
+    @include min-screen-height(580px) {
+      flex: 1 1 auto;
     }
   }
 
@@ -90,12 +93,9 @@
   }
 
   &__actions {
-    bottom: $grid-gutter-width / 3;
     display: flex;
     justify-content: space-between;
-    left: 0;
-    position: absolute;
-    right: 0;
+    padding: $grid-gutter-width / 2;
   }
 
   &.visible {

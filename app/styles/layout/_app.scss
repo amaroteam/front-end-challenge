@@ -70,11 +70,7 @@
 
     > * {
       padding: ($grid-gutter-width / 2);
-      width: 100%;
-
-      @include sm {
-        width: percentage(1 / 2);
-      }
+      width: percentage(1 / 2);
 
       @include md {
         width: percentage(1 / 3);
