@@ -1,11 +1,11 @@
-/*eslint-disable no-console, no-prototype-builtins, no-continue */
-const jsdom = require('jsdom');
+/*eslint-disable no-console, no-prototype-builtins, no-continue, no-var, vars-on-top */
+var jsdom = require('jsdom');
 require('source-map-support').install({
   environment: 'node'
 });
 
-const doc = jsdom.jsdom('<!doctype html><html><body></body></html>', { url: 'http://localhost:3000' });
-const win = doc.defaultView; // get the window object out of the document
+var doc = jsdom.jsdom('<!doctype html><html><body></body></html>', { url: 'http://localhost:3000' });
+var win = doc.defaultView; // get the window object out of the document
 
 global.document = doc;
 global.window = win;
@@ -22,7 +22,7 @@ global.Verios = {
  * @returns {string}
  */
 function _attrToDataKey(val) {
-  const out = val.substr(5);
+  var out = val.substr(5);
   return out.split('-').map((part, inx) => {
     if (!inx) {
       return part;
@@ -38,17 +38,17 @@ function _attrToDataKey(val) {
  * @returns {Object}
  */
 function _getNodeDataAttrs(el) {
-  const atts = el.attributes;
-  const len = atts.length;
-  const _datasetMap = [];
+  var atts = el.attributes;
+  var len = atts.length;
+  var _datasetMap = [];
   // represents el.dataset
-  const proxy = {};
+  var proxy = {};
 
-  for (let i = 0; i < len; i++) {
-    const attr = atts[i].nodeName;
+  for (var i = 0; i < len; i++) {
+    var attr = atts[i].nodeName;
 
     if (attr.indexOf('data-') === 0) {
-      const datakey = _attrToDataKey(attr);
+      var datakey = _attrToDataKey(attr);
       if (typeof _datasetMap[datakey] !== 'undefined') {
         break;
       }
@@ -76,7 +76,7 @@ Object.defineProperty(global.window.Element.prototype, 'dataset', {
 
 // from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
 function propagateToGlobal(window) {
-  for (const key in window) {
+  for (var key in window) {
     if (!window.hasOwnProperty(key)) {
       continue;
     }
