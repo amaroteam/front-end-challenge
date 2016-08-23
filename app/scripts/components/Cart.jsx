@@ -66,13 +66,13 @@ export default class Cart extends React.Component {
         <a href="#hide" className="app__cart__overlay" onClick={this.onClickClose} />
         <div className="app__cart__wrapper">
           <div className="app__cart__header">
-            <h5>Sacola ({cart.items.length})</h5>
+            <h5>{`Sacola (${cart.items.length})`}</h5>
             <a href="#close" onClick={this.onClickClose}><i className="i-close" /></a>
           </div>
           <div className="app__cart__body">
             <div className="app__cart__items">
               {cart.items.map((d, i) =>
-                (<CartItem key={i} cart={props.cart} data={d} dispatch={props.dispatch} />)
+                (<CartItem key={i} data={d} dispatch={props.dispatch} />)
               )}
             </div>
           </div>

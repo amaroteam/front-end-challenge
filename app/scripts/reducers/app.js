@@ -1,8 +1,6 @@
-import { REHYDRATE } from 'redux-persist/constants';
 import { createReducer } from 'utils/helpers';
 
 import { ActionTypes } from 'constants/index';
-import config from 'config';
 
 export const appState = {
   notifications: {
@@ -16,16 +14,6 @@ export const appState = {
 
 export default {
   app: createReducer(appState, {
-    [REHYDRATE](state, action) {
-      if (action.payload.app && action.payload.app.storageVersion === config.storageVersion) {
-        return Object.assign({}, state, action.payload.app, {
-          notifications: appState.notifications,
-          rehydrated: true
-        });
-      }
-
-      return { ...state };
-    },
     [ActionTypes.SHOW_ALERT](state, action) {
       const notifications = {
         ...state.notifications,

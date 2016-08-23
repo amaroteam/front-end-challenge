@@ -37,7 +37,7 @@ export default class SystemNotifications extends React.Component {
   render() {
     const notifications = this.props.app.notifications;
 
-    const classes = `system-notifications${(notifications.visible ? ' active' : '')}${(notifications.status ? ` ${notifications.status}` : '')}`;
+    const classes = `app__notifications${(notifications.visible ? ' active' : '')}${(notifications.status ? ` ${notifications.status}` : '')}`;
     const iconClass = {
       success: 'i-thumbs-up',
       warning: 'i-exclamation-circle',
@@ -49,7 +49,7 @@ export default class SystemNotifications extends React.Component {
       <div key="SystemNotification" className={classes} onClick={this.onClick}>
         <div>
           <i className={iconClass[notifications.status]} />
-          <div>{notifications.message}</div>
+          <div className="app__notifications__message">{notifications.message}</div>
         </div>
       </div>
     );

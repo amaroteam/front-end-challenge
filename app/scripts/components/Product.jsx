@@ -16,7 +16,6 @@ export default class ProductItem extends React.Component {
   }
 
   static propTypes = {
-    cart: React.PropTypes.object.isRequired,
     dispatch: React.PropTypes.func.isRequired,
     onHideModal: React.PropTypes.func.isRequired,
     product: React.PropTypes.object.isRequired
@@ -78,7 +77,7 @@ export default class ProductItem extends React.Component {
     const output = {};
 
     if (product.on_sale) {
-      output.regular_price = (<div className="app__product__regular-price">{product.regular_price}</div>);
+      output.regular_price = (<div className="app__product__regular_price">{product.regular_price}</div>);
       output.discount = (<div className="app__product__discount">({product.discount_percentage} off)</div>);
     }
 
@@ -86,15 +85,18 @@ export default class ProductItem extends React.Component {
       <div className="app__product">
         <div
           className="app__product__image">
-          {product.image ? (<div style={{ backgroundImage: `url('${product.image}')` }} />) : (<span>{product.name}</span>)}
+          {product.image ? (<div style={{ backgroundImage: `url('${product.image}')` }} />) : (
+            <span>{product.name}</span>)}
         </div>
         <div className="app__product__body">
-          <h3>{product.name}</h3>
-          <div className="app__product__price">
-            {output.regular_price}
-            <div className="app__product__actual_price">{product.actual_price}</div>
-            {output.discount}
-            <div className="app__product__installments">{product.installments}</div>
+          <div className="app__product__header">
+            <h3>{product.name}</h3>
+            <div className="app__product__price">
+              {output.regular_price}
+              <div className="app__product__actual_price">{product.actual_price}</div>
+              {output.discount}
+              <div className="app__product__installments">{product.installments}</div>
+            </div>
           </div>
           <div className="app__product__colors">
             <div><span>Cor:</span><span>{product.color}</span></div>

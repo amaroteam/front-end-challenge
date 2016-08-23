@@ -1,20 +1,6 @@
 import { ActionTypes } from 'constants/index';
 
 /**
- * Toggle Cart visibility
- * @param {Boolean} [payload]
- *
- * @returns {function}
- */
-export function toggleCart(payload) {
-  return dispatch =>
-    Promise.resolve(dispatch({
-      type: ActionTypes.TOGGLE_CART,
-      payload
-    }));
-}
-
-/**
  * Add product to cart
  * @param {Object} payload
  * @returns {function}
@@ -53,7 +39,6 @@ export function updateCart(payload) {
     }));
 }
 
-
 /**
  * Reset cart
  * @returns {Object}
@@ -65,3 +50,16 @@ export function resetCart() {
     }));
 }
 
+/**
+ * Toggle Cart visibility
+ * @param {Boolean} [payload]
+ *
+ * @returns {function}
+ */
+export function toggleCart(payload) {
+  return dispatch =>
+    Promise.resolve(dispatch({
+      type: ActionTypes.TOGGLE_CART,
+      payload
+    }));
+}

@@ -1,5 +1,5 @@
 import { REHYDRATE } from 'redux-persist/constants';
-import { createReducer } from 'utils/helpers';
+import { createReducer, round } from 'utils/helpers';
 
 import { ActionTypes } from 'constants/index';
 import config from 'config';
@@ -23,11 +23,11 @@ function parseData(items) {
 
   items.forEach(d => {
     data.quantity += d.quantity;
-    data.subtotal += d.quantity * d.price;
+    data.subtotal += round(d.quantity * d.price);
   });
 
   if (items.length) {
-    data.total = data.subtotal + cartState.frete;
+    data.total = round(data.subtotal + cartState.frete);
   }
 
   return data;

@@ -6,7 +6,7 @@ import { shouldComponentUpdate } from 'utils/helpers';
 
 import Modal from 'components/Modal';
 import ProductBox from 'components/ProductBox';
-import ProductItem from 'components/Product';
+import Product from 'components/Product';
 
 export class Products extends React.Component {
   constructor(props) {
@@ -20,7 +20,9 @@ export class Products extends React.Component {
   }
 
   static propTypes = {
-    location: React.PropTypes.object.isRequired
+    cart: React.PropTypes.object.isRequired,
+    location: React.PropTypes.object.isRequired,
+    products: React.PropTypes.object.isRequired
   };
 
   shouldComponentUpdate = shouldComponentUpdate;
@@ -67,8 +69,7 @@ export class Products extends React.Component {
 
     if (state.productId) {
       output.product = (
-        <ProductItem
-          cart={props.cart}
+        <Product
           dispatch={props.dispatch}
           onHideModal={this.onHideModal}
           product={items.find(d => d.id === state.productId)} />);
@@ -97,7 +98,6 @@ export class Products extends React.Component {
               items.map((d, i) => (
                 <ProductBox
                   key={i}
-                  cart={props.cart}
                   dispatch={props.dispatch}
                   product={d}
                   onClickProduct={this.onClickProduct} />

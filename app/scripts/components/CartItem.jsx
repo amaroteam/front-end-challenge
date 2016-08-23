@@ -6,7 +6,6 @@ import { removeFromCart, updateCart } from 'actions';
 
 export default class CartItem extends React.Component {
   static propTypes = {
-    cart: React.PropTypes.object.isRequired,
     data: React.PropTypes.object.isRequired,
     dispatch: React.PropTypes.func.isRequired
   };
@@ -38,9 +37,11 @@ export default class CartItem extends React.Component {
           {data.image ? <img src={data.image} alt={data.name} /> : <div />}
         </div>
         <div className="app__item__body">
-          <h3>{data.name}</h3>
-          <a href="#remove" className="app__item__remove" onClick={this.onClickRemove}><i
-            className="i-trash-o" /></a>
+          <div className="app__item__header">
+            <h3>{data.name}</h3>
+            <a href="#remove" className="app__item__remove" onClick={this.onClickRemove}><i
+              className="i-trash-o" /></a>
+          </div>
           <div className="app__item__info">
             <span>{`Cor: ${data.color}`}</span>
           </div>

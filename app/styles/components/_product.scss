@@ -9,6 +9,7 @@
   }
 
   &__image {
+    align-items: center;
     display: flex;
     height: 62vh;
     justify-content: center;
@@ -80,7 +81,7 @@
     }
   }
 
-  &__regular-price {
+  &__regular_price {
     color: #999;
     text-decoration: line-through;
   }

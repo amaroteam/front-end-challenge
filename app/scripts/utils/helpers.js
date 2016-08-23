@@ -1,19 +1,47 @@
 /* @flow */
+import shallowEqual from 'fbjs/lib/shallowEqual';
+import accounting from 'accounting';
 
 /**
  * Helper functions
  * @module tools
  */
-import shallowEqual from 'fbjs/lib/shallowEqual';
-import accounting from 'accounting';
 
+/**
+ * Convert R$ to number
+ *
+ * @param {string} value
+ *
+ * @returns {number}
+ */
 export function parseMoney(value) {
   return accounting.unformat(value, ',');
 }
 
+/**
+ * Convert number to R$
+ *
+ * @param {number} value
+ *
+ * @returns {string}
+ */
 export function formatMoney(value) {
   return accounting.formatMoney(value, 'R$ ', 2, '.', ',');
 }
+
+/**
+ * Round decimal numbers.
+ *
+ * @param {number} number
+ * @param {number} digits
+ *
+ * @returns {number}
+ */
+export function round(number, digits = 2) {
+  const factor = Math.pow(10, digits);
+  return Math.round(number * factor) / factor;
+}
+
 
 /**
  * shouldComponentUpdate with context
@@ -36,6 +64,7 @@ export function shouldComponentUpdate(instance, nextProps, nextState, nextContex
  *
  * @param {Object} initialState
  * @param {Object} handlers
+ *
  * @returns {function}
  */
 export function createReducer(initialState, handlers) {
@@ -207,7 +236,8 @@ export function deparam(params, coerce) {
 /**
  * Convert data attributes to Object
  * @param {Element} elem
- * @returns {{}}
+ *
+ * @returns {Object}
  */
 export function datasetToObject(elem) {
   const data = {};

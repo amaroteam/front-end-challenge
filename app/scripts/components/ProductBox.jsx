@@ -2,7 +2,6 @@ import React from 'react';
 
 export default class ProductBox extends React.Component {
   static propTypes = {
-    cart: React.PropTypes.object.isRequired,
     dispatch: React.PropTypes.func.isRequired,
     onClickProduct: React.PropTypes.func.isRequired,
     product: React.PropTypes.object.isRequired
@@ -17,7 +16,7 @@ export default class ProductBox extends React.Component {
       output.sale = (
         <div className="app__box__sale">
           <div>{product.regular_price}</div>
-          <div>({product.discount_percentage} off)</div>
+          <div>{`(${product.discount_percentage} off)`}</div>
         </div>
       );
     }

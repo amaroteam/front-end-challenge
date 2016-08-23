@@ -12,7 +12,7 @@ else {
 const store = configStore();
 
 export const persistor = persistStore(store, {
-  whitelist: ['app', 'cart', 'products']
+  whitelist: ['cart', 'products']
 });
 
 export default store;
