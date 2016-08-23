@@ -1,9 +1,8 @@
-node_modules
 coverage
 dist
 docs
-api/vendor/*
-api/composer.lock
+node_modules
+reports
 .tmp
 .sass-cache
 .publish
