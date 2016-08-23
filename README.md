@@ -25,6 +25,13 @@ Os unit tests usam Mocha/Expect. E Enzyme para React Components
 npm test
 ```
 
+Testes de automação usam Nightwatch/Selenium
+
+```bash
+npm test:ui #caso já esteja rodando o dev-server
+npm start:test:ui #pra rodar o dev-server, passar o teste e fechar
+```
+
 ### Code style
 
 ESLint com styleguide do Airbnb.

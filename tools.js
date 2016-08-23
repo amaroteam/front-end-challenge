@@ -1,7 +1,5 @@
 /*eslint-disable no-var, vars-on-top, no-console */
-var path = require('path');
 var exec = require('child_process').exec;
-var del = require('del');
 const chalk = require('chalk');
 
 var args = process.argv.slice(2);
