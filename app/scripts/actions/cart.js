@@ -53,3 +53,15 @@ export function updateCart(payload) {
     }));
 }
 
+
+/**
+ * Reset cart
+ * @returns {Object}
+ */
+export function resetCart() {
+  return dispatch =>
+    Promise.resolve(dispatch({
+      type: ActionTypes.RESET_CART
+    }));
+}
+

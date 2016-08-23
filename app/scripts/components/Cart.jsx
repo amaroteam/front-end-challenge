@@ -3,7 +3,7 @@ import { autobind } from 'core-decorators';
 import classNames from 'classnames';
 import { shouldComponentUpdate, formatMoney } from 'utils/helpers';
 
-import { toggleCart, showAlert } from 'actions';
+import { toggleCart, resetCart, showAlert } from 'actions';
 
 import CartItem from 'components/CartItem';
 
@@ -42,8 +42,9 @@ export default class Cart extends React.Component {
   onClickPay(e) {
     e.preventDefault();
 
-    this.props.dispatch(toggleCart(false));
-    this.props.dispatch(showAlert('success', 'Compra efetuada com sucesso'));
+    this.props.dispatch(toggleCart(false))
+      .then(() => this.props.dispatch(resetCart()))
+      .then(() => this.props.dispatch(showAlert('success', 'Compra efetuada com sucesso')));
   }
 
   render() {

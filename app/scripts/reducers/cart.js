@@ -77,13 +77,13 @@ export default {
 
       return { ...state, items, ...parseData(items) };
     },
-    [ActionTypes.RESET_CART](state) {
-      return { ...state, items: cartState.items };
-    },
     [ActionTypes.TOGGLE_CART](state, action) {
       const visible = action.payload !== undefined ? action.payload : !state.visible;
 
       return { ...state, visible };
-    }
+    },
+    [ActionTypes.RESET_CART]() {
+      return cartState;
+    },
   })
 };
