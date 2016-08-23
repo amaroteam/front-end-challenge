@@ -1,6 +1,9 @@
 Amaro Demo
 ---
+
 O demo foi construido usando React/Redux com Webpack e SASS
+
+[![](https://travis-ci.org/gilbarbara/front-end-challenge.svg?branch=desafio-gil-barbara)](https://travis-ci.org/gilbarbara/front-end-challenge/)
 
 ### Instruções
 
@@ -16,7 +19,7 @@ npm run build #into /dist
 
 ### Tests
 
-Os unit tests usam Mocha/Expect. E Enzyme para os components
+Os unit tests usam Mocha/Expect. E Enzyme para React Components
 
 ```bash
 npm test
