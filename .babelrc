@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-1"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-object-assign"
+  ],
+  "compact": "true",
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-flow-strip-types",
+        "transform-runtime"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
+}

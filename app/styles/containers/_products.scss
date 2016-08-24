@@ -1,0 +1,25 @@
+.app__products {
+  &__menu {
+    align-items: center;
+    display: flex;
+
+    h6 {
+      margin: 0;
+    }
+
+    a {
+      border-radius: 0.2rem;
+      color: #ab2929;
+      display: block;
+      line-height: 1;
+      margin-left: $grid-gutter-width / 6;
+      padding: 0.3rem;
+      text-decoration: none;
+
+      &.active {
+        background-color: #ab2929;
+        color: #fff;
+      }
+    }
+  }
+}

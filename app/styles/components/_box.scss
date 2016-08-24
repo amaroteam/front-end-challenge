@@ -1,0 +1,82 @@
+.app__box {
+  position: relative;
+
+  &__image {
+    background-color: #f7f7f7;
+    display: block;
+    padding-bottom: percentage(1 / $image-ratio);
+    perspective: 2000px;
+    position: relative;
+
+    img {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: transform 0.4s;
+    }
+
+    div {
+      font-size: 3rem;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+    }
+
+    &:hover {
+      img {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  &__body {
+    min-height: 7rem;
+    padding-top: $grid-gutter-width / 3;
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: $grid-gutter-width / 3;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &__price,
+  &__sale {
+    display: flex;
+    justify-content: center;
+
+    div {
+      font-size: 1.2rem;
+
+      + div {
+        margin-left: $grid-gutter-width / 3;
+      }
+    }
+  }
+
+  &__price {
+    div:first-child {
+      font-weight: 700;
+    }
+  }
+
+  &__sale {
+    margin-top: $grid-gutter-width / 6;
+
+    div:first-child {
+      color: #999;
+      text-decoration: line-through;
+    }
+
+    div:last-child {
+      color: #ab2929;
+    }
+  }
+}

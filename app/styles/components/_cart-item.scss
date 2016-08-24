@@ -1,0 +1,59 @@
+.app__item {
+  border-bottom: 0.1rem solid #ddd;
+  display: flex;
+  padding: ($grid-gutter-width / 6) ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 6);
+
+  &__image {
+    flex: 0 1 6rem;
+    position: relative;
+
+    > div {
+      background-color: #ddd;
+      padding-bottom: percentage(1 / $image-ratio);
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-left: $grid-gutter-width / 6;
+    position: relative;
+
+    h3 {
+      @include truncate();
+      font-size: 1.3rem;
+      padding-right: $grid-gutter-width / 2;
+    }
+  }
+
+  &__remove {
+    font-size: $font-size-xs;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__info,
+  &__footer {
+    display: flex;
+    font-size: $font-size-xs;
+    justify-content: space-between;
+  }
+
+  &__footer {
+    margin-top: $grid-gutter-width / 6;
+  }
+
+  &__quantity {
+    a {
+      display: inline-block;
+    }
+
+    span {
+      display: inline-block;
+      margin: 0 ($grid-gutter-width / 6);
+    }
+  }
+}

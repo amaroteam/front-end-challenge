@@ -1,0 +1,140 @@
+.app__cart {
+  animation: slideOutCart 0.5s forwards;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: scaleX(0);
+  z-index: 200;
+
+  &__overlay {
+    background-color: rgba(#000, 0.3);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  &__wrapper {
+    background-color: #fff;
+    border-top-left-radius: 0.5rem;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: $header-height;
+    transform: scaleX(0);
+    transform-origin: right top;
+    transition: transform 0.3s ease-in-out;
+    width: 29rem;
+
+    @include ix {
+      width: 32rem;
+    }
+
+    > * {
+      border-bottom: 0.1rem solid #ddd;
+      padding: ($grid-gutter-width / 3) ($grid-gutter-width / 2);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    h5 {
+      font-size: $font-size-xs;
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  &__body {
+    flex: 0 1 15rem;
+    overflow-y: scroll;
+    padding-left: 0;
+    padding-right: 0;
+
+
+    @include min-screen-height(500px) {
+      flex: 0 1 20rem;
+    }
+
+    @include min-screen-height(580px) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtotal,
+  &__shipping,
+  &__total {
+    display: flex;
+    font-size: $font-size-sm;
+    justify-content: space-between;
+
+    span:last-child {
+      font-weight: 300;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    padding: $grid-gutter-width / 2;
+  }
+
+  &.visible {
+    animation: slideInCart 0.5s forwards ease-in-out;
+
+    .app__cart__wrapper {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@keyframes slideInCart {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  10% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slideOutCart {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  90% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+}

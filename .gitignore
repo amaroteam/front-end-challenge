@@ -1,0 +1,8 @@
+coverage
+dist
+docs
+node_modules
+reports
+.tmp
+.sass-cache
+.publish
