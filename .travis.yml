@@ -4,4 +4,4 @@ node_js:
 - '6.1'
 script:
 - npm test
-- npm start:test:ui
+- npm run start:test:ui

@@ -28,8 +28,8 @@ npm test
 Testes de automação usam Nightwatch/Selenium
 
 ```bash
-npm test:ui #caso já esteja rodando o dev-server
-npm start:test:ui #pra rodar o dev-server, passar o teste e fechar
+npm run test:ui #caso já esteja rodando o dev-server
+npm run start:test:ui #pra rodar o dev-server, passar o teste e fechar
 ```
 
 ### Code style
