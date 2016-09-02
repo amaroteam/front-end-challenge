@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <title>AMARO - Catálogo Teste</title>
+
+    <!--CSS-->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <section class="container">
+        <header class="row">
+            <div ng-include="'app/views/templates/header.html'"></div>
+        </header>
+
+        <section ng-view></section>
+
+        <footer class="navbar navbar-light bg-faded margin-top-10 margin-botton-0">
+            <address class="navbar-text center-block">AMARO 2016 - teste frontend Jhonny Woliver</address>
+        </footer>
+
+
+    </section>
+
+
+
+    <!--Libs-->
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-local-storage.js"></script>
+    <script src="Scripts/sweetalert/sweetalert.min.js"></script>
+
+    <!--viewModel-->
+    <script src="app/viewModel/cartVm.js"></script>
+    <script src="app/viewModel/cartItemVm.js"></script>
+
+    <!--Apps-->
+    <script src="app/app.js"></script>
+
+    <!--Configs-->
+    <script src="app/configs/routeConfig.js"></script>
+
+    <!--Controllers-->
+    <script src="app/controllers/catalogController.js"></script>
+    <script src="app/controllers/cartController.js"></script>
+
+    <!--Services-->
+    <script src="app/services/catalogService.js"></script>
+
+    <!--Directives-->
+    <script src="app/directives/productsCart.js"></script>
+
+    <!--Filters-->
+    <script src="app/filters/sizeFilter.js"></script>
+    <script src="app/filters/onsaleFilter.js"></script>
+
+</body>
+</html>

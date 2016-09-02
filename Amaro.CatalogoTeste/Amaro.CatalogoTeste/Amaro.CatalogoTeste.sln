@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Amaro.CatalogoTeste", "http://localhost:16150", "{4E796CEF-0D91-44C3-94E0-7FECA484FBE9}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_16150"
+		Debug.AspNetCompiler.PhysicalPath = "..\Amaro.CatalogoTeste\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16150\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_16150"
+		Release.AspNetCompiler.PhysicalPath = "..\Amaro.CatalogoTeste\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16150\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\Amaro.CatalogoTeste\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E796CEF-0D91-44C3-94E0-7FECA484FBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E796CEF-0D91-44C3-94E0-7FECA484FBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
