@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     
     angular.module('app')
         .service('catalogService', catalogService);
@@ -12,7 +12,7 @@
 
         function getProducts() {
 
-            var url = "app/products.json";
+            var url = "http://localhost:16150/app/products.json";
             return $http.get(url);
         }
 

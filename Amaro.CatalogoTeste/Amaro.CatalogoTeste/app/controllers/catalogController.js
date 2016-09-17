@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     
     angular.module('app')
         .controller('catalogController', catalogController);
@@ -12,9 +12,6 @@
         catalogService.productsList().then(success, error);
         
         $scope.products = [];
-		$scope.sizeVal = sizeVal;
-		$scope.sizeC = "";
-		$scope.sizeCart = [];
         $scope.isValidImg = isValidImg;
         $scope.isValidSale = isValidSale;
         $scope.addCart = addCart;
@@ -25,7 +22,7 @@
 
         function success(list) {
             $scope.products = list.data.products;
-            //console.log($scope.products);
+            
         }
 
         function error(data) {
@@ -53,33 +50,28 @@
 
         function addCart(product) {
             
-			if($scope.sizeC == ""){
-				swal("Oops", "Por favor, escolha um tamanho.","error");
-				
-			}else{
-				var cartItemVm = new CartItem(product.name, 1, product.image, product.actual_price, $scope.sizeC);
-				var cart = new CartVm();
+            var cartItemVm = new CartItem(product.name, 1, product.image, product.actual_price);
+            var cart = new CartVm();
 
-				if (localStorageService.get("productsCart") != null) {
-					cart.itens = localStorageService.get("productsCart").itens;
-				}
-				swal("Boa escolha!", "Você adicionou esse item ao carrinho!", "success")
+            if (localStorageService.get("productsCart") != null) {
+                cart.itens = localStorageService.get("productsCart").itens;
+            }
+            swal("Good choice!", "You added this item to the cart!", "success")
 
-				//Como não há banco, estou salvando os itens no session Storage para não perder os itens do carrinho
-				cart.addItem(cartItemVm, 1)
-				localStorageService.set('productsCart', cart);
-				$scope.cartQtd = cart.getQtdItem();	
-				$scope.sizeC = "";
-				
-			}
-			
-            
+            //Como não há banco, estou salvando os itens no local Storage para não perder os itens do carrinho mesmo fechando o navegador
+            cart.addItem(cartItemVm)
+            localStorageService.set('productsCart', cart);
+            $scope.cartQtd = cart.getQtdItem();
         }
-        //salva o tamanho selecionado		
-		function sizeVal(size){
-			$scope.sizeC = size;
-		}
+
+        function isSale($scope) {
+            if (selected == 'On Sale') {
+                
+            }
+        }
         
+        
+
     }
     
 })();
