@@ -1,4 +1,4 @@
-﻿
+
 <section>
     <label for="sel1">Filter:</label>
     <select id="sel1" class="form-control" 
@@ -33,10 +33,18 @@
         </section>
         <section class="product-catalog-size">
             Tamanhos disponíveis: <br />
-            <div class="btn-group">
-                <button class="btn btn-primary btn-xs" ng-repeat=" sizes in product.sizes | sizeFilter"
-                        ng-bind="sizes.size"></button>
-            </div>
+            <!--<div ng-repeat=" sizes in product.sizes | sizeFilter" >
+				<label >
+					
+						<input type="radio" name="sizeO" value="{{sizes.size}}" ng-model="sizeValue" />
+					{{ sizes.size }}
+				</label> 
+			</div>-->
+
+				<div class="btn-group">
+					<button class="btn btn-primary btn-xs" ng-repeat=" sizes in product.sizes | sizeFilter" name="size"
+							ng-bind="sizes.size" ng-click="sizeVal(sizes.size)" value="{{ sizes.size }}"></button>
+				</div>			
         </section>
         <div class="clear"></div>
         <section class="position-absolute-top-0">

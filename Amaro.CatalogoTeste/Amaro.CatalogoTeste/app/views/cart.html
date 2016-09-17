@@ -1,38 +1,34 @@
-﻿<div class="container">
+<div class="container">
     
-        <div class="col-xs-12"><h1>Carrinho</h1></div>
-
-
-        <div class="">
-            
+        <p class="h2">Carrinho</p> 
+		<section>
                 <div class="row">
-                    <div class="col-md-6 text-center" >Product</div>
-                    <div class="col-md-3">Qtd</div>
-                    <div class="col-md-3">Price</div>
+                    <div class="col-md-6 text-center" >Produto</div>
+                    <div class="col-md-1">Tamanho</div>
+					<div class="col-md-3">Qtd</div>
+                    <div class="col-md-2">Preço</div>
                 </div>                        
             <div class="row" ng-repeat="product in cart.itens" ng-if="product.qtd>0">
                 <div class="col-md-2" ng-if="(isValidImg(product))"><img ng-src="{{product.image}}" class="img-fluid img-thumbnail product-cart" /></div>
                 <div class="col-md-2" ng-if="(!isValidImg(product))"><img src="images/image-not-found.png" class="img-fluid img-thumbnail product-cart" /></div>
 
                 <div class="col-md-4" ng-bind="product.name"></div>
+				<div class="col-md-1" ng-bind="product.size"></div>
                 <div class="col-md-3">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default" ng-click="cart.AddQtdItem(product, -1)">
+                        <button type="button" class="btn btn-default" ng-click="AddToCart(product, -1)">
                             <i class="fa fa-minus-circle"></i>
                         </button>
                         <button type="button" class="btn btn-default" ng-bind="product.qtd"></button>
-                        <button type="button" class="btn btn-default" ng-click="cart.AddQtdItem(product, 1)">
+                        <button type="button" class="btn btn-default" ng-click="AddToCart(product, 1)">
                             <i class="fa fa-plus-circle"></i>
                         </button>
                     </div>
                 </div>
-                <div class="col-md-3" ng-bind="product.price"></div>
+                <div class="col-md-2" ng-bind="product.price"></div>
             </div>
                 <div class="offset-md-9 col-md-3">TOTAL: {{ cart.getTotal() }} </div>
+		</section>
             
-        </div>
-    
-    
-    
 </div>
 
