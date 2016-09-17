@@ -1,4 +1,4 @@
-﻿
+
 //Pattern Agregate
 //Um item só pode ser adicionado pelo raíz do agregado (Cart => carrinho)
 function CartVm() {
@@ -42,10 +42,10 @@ function CartVm() {
         }
     }
 
-    function addItem(product) {
+    function addItem(product, qtd) {
 
         if (IfExists(product))
-            AddQtdItem(product, 1);
+            AddQtdItem(product, qtd);
         else
             self.itens.push(product);
     }
@@ -66,7 +66,7 @@ function CartVm() {
 
         else {
             for (var i = 0; i < self.itens.length; i++) {
-                if (equals(self.itens[i], product)) {
+                if (equals(self.itens[i], product) && self.itens[i].size == product.size) {
                     return true;
                 }
             }
@@ -74,11 +74,11 @@ function CartVm() {
         }
     }
 
-    //Como não existe um identtidade definida
+    //Como não existe um identidade definida
     //Estou elegendo o name como identidade
     function equals(productA, productB){
 
-        if (productA.name == productB.name)
+        if (productA.name == productB.name && productA.size == productB.size )
             return true;
 
         return false;
