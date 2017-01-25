@@ -1,10 +1,10 @@
 # AMARO front-end challenge
 
-This repository holds our challenge to evaluate how good of a front-end developer you are.
+This is our challenge for the front-end developer position at[@amarofashion](https://github.com/amarofashion).
 
-You're probably already participating in our hiring process. But if you fell here by accident, read the document to the end and if you are interested, you can start the process from here.
+You're probably already participating in our hiring process, but if you fell here by accident, read the document to the end and if you are interested, you can start the process from here.
 
-If you are not a developer, you can have a look at our other opportunities at: [amaro.com/jobs](https;//amaro.com/jobs)
+If you are not a developer, you can have a look at our other opportunities at: [amaro.com/jobs](https://amaro.com/jobs)
 
 **NOTE:** Portuguese version available [here](README_pt.md).
 
@@ -28,9 +28,9 @@ What we expect that you learn from us:
 ## Next steps
 
 1. Fork this repository to your personal account.
-2. Follow the instructions on [`challenge-description`](/challenge-description.md) file.
+2. Follow the instructions in the [`challenge-description`](/challenge-description.md) file.
 3. Solve the challenge in the best way you can.
-4. Save your work in a new branch called `desafio` or with your name (`nome-sobrenome`). Send us a pull-request to the same branch.
+4. Send us a PR with your solution.
 
 ## Considerations
 
