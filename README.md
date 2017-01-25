@@ -1,6 +1,6 @@
 # AMARO front-end challenge
 
-This is our challenge for the front-end developer position at[@amarofashion](https://github.com/amarofashion).
+This is our challenge for the front-end developer position at [@amarofashion](https://github.com/amarofashion).
 
 You're probably already participating in our hiring process, but if you fell here by accident, read the document to the end and if you are interested, you can start the process from here.
 
