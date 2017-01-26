@@ -1,7 +1,6 @@
 'use strict';
 
-let environment = './src/';
-
+const environment = './src/';
 const path = require('path');
 
 module.exports = {
@@ -10,14 +9,23 @@ module.exports = {
         path: environment + '../public', 
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.json']
+    },
     module: {
-        loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-            query: {
-                presets: ['es2015', 'react']
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
             }
-        }]
+        ]
     }
 };
