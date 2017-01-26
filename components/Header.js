@@ -6,9 +6,15 @@ export class Header extends React.Component {
     }
     render(){
         return (
-            <div className={'header-app'}>
-                <div className={'title'}>
-                    { this.props.title }
+            <div>
+                <div className={'header-app'}>
+                    <div className={'title'}>
+                        { this.props.title }
+                    </div>
+                </div>
+                <div className={'header-image'}></div>
+                <div className={'name'}>
+                    { this.props.name }
                 </div>
             </div>
         );
