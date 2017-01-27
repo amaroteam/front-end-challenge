@@ -9,17 +9,18 @@ export class  App extends React.Component {
         super(props);
         this.state = {};
         this.state.products = products;
-        console.log(products[0]);
+        console.log(products);
     }
+
     render(){
         return (
             <div>
-                <Header title={'Produtos'} name={'Produtos'} />
+                <Header title={'AMARO'} name={'Produtos'} showHeader={true} />
                 <Grid>
                     {
                         this.state.products.map((product, index) => {
                             return (
-                                <Col xs={6} md={4} lg={2} sm={12} key={ index }>
+                                <Col xs={12} md={4} sm={6} key={ index }>
                                     <div className={'card'}>
                                         <Item product={product}/>
                                     </div>
