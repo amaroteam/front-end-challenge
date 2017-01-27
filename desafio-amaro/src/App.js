@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import './css/pure-min.css';
 import './css/side-menu.css';
 import './css/products.css';
+import './css/modal.css';
 
 export default class App extends Component {
 
@@ -20,7 +21,6 @@ export default class App extends Component {
                   <ul className="pure-menu-list">
                       <li className="pure-menu-item"><Link to="/" className="pure-menu-link">Home</Link></li>
                       <li className="pure-menu-item"><Link to="/products" className="pure-menu-link">Produtos</Link></li>
-                      <li className="pure-menu-item"><Link to="/cart" className="pure-menu-link">Carrinho</Link></li>
                   </ul>
               </div>
           </div>
