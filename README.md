@@ -9,7 +9,6 @@ http://amaro.herokuapp.com/
 
 ## Estruturas de pasta
 ```sh
-.
 ├── components // Components
 ├── data //Products
 ├── src //source
@@ -23,11 +22,29 @@ http://amaro.herokuapp.com/
 ## Ferramentas e frameworks
 - ES6
 - SCSS
+- Gulp
+- Babel
 - ReactJS
 - Webpack
-- Gulp
 - Bootstrap
 - Material-UI
+
+
+## Requisitos para rodar o projeto
+- node
+- gulp
+- webpack
+
+Primeiro é nescessário instalar as dependências
+
+```sh
+> npm install
+```
+
+```sh
+> npm install webpack -g 
+```
+
 
 ## Compilando as folhas de estilos SASS
 Primeiro instale o gulp-CLI
@@ -44,12 +61,6 @@ Compile com:
 ```
 
 ## Rodando no localhost
-Primeiro é nescessário instalar as dependências
-
-```sh
-> npm install
-```
-
 Para rodar o projeto basta:
 
 ```sh
