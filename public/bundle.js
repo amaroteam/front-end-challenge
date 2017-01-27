@@ -57187,9 +57187,14 @@
 	            if (!item) throw 'Que feio :(';
 	            var carrinho = this.getCart();
 	            item.qtde = 1;
+	            // price
+	            item.price = item.actual_price.replace('R$ ', '');
+	            item.price = parseFloat(item.price.replace(',', '.'));
+
 	            carrinho.push(item);
 	            localStorage.cart = JSON.stringify(carrinho);
 	            this.openMessage();
+	            console.log(item);
 	        }
 	        // Abre ou fecha mais informações
 

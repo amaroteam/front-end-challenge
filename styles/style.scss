@@ -97,10 +97,6 @@ body{
   margin: 16px 0;
 }
 
-.cart-item{
-  padding:5px;
-}
-
 .image-modal{
   height:315px;
   width:250px;
@@ -170,12 +166,15 @@ body{
   user-select:none;
 }
 
-.cart-item-name{
- white-space: nowrap; 
-  width: 12em; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  border: 1px solid #000000;
+.cart-item{
+  padding:5px;
+  display:flex;
+  .cart-item-name{
+    white-space: nowrap; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
 }
 
 /* Sale tag */

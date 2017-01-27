@@ -32,6 +32,9 @@ export class Item extends React.Component {
         if(!item) throw 'Que feio :(';
         let carrinho = this.getCart();
         item.qtde = 1;
+        // price
+        item.price = item.actual_price .replace('R$ ', '');
+        item.price = parseFloat(item.price.replace(',', '.'));
         carrinho.push(item);
         localStorage.cart = JSON.stringify(carrinho);
         this.openMessage();
@@ -101,9 +104,7 @@ export class Item extends React.Component {
                                 {this.props.product.regular_price}
                             </span> por {this.props.product.actual_price} ou {this.props.product.installments}
                         </span>
-                    ):
-                        `${this.props.product.actual_price}, ou ${this.props.product.installments}`
-                    }
+                    ): `${this.props.product.actual_price}, ou ${this.props.product.installments}` }
                 </div>
                 <div className={'cart-button'} onClick={() => this.addCart(this.props.product)}>
                     CARRINHO
