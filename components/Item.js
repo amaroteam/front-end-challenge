@@ -88,7 +88,7 @@ export class Item extends React.Component {
                 <div className={'image-product'} onClick={ this.more }>
                     <img 
                         style={{width:'100%'}}
-                        // src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
+                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
                         src={'./assets/no_image.jpg'}
                     />
                 </div>

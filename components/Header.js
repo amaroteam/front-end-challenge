@@ -12,30 +12,44 @@ export class Header extends React.Component {
         this.state = {
           open: false,
           header:false,
-          cart: localStorage.cart ? JSON.parse(localStorage.cart) : [] 
+          cart: localStorage.cart ? JSON.parse(localStorage.cart) : [],
+          total:0
         };
         // Bind
-        this.handleTouchTap = this.handleTouchTap.bind(this);
         this.handleRequestClose = this.handleRequestClose.bind(this);
-        this.activeHeader = this.activeHeader.bind(this);
-        this.getCart = this.getCart.bind(this);
-        this.updateCart = this.updateCart.bind(this);
+        this.handleTouchTap     = this.handleTouchTap.bind(this);
+        this.activeHeader       = this.activeHeader.bind(this);
+        this.updateCart         = this.updateCart.bind(this);
+        this.removeItem         = this.removeItem.bind(this);
+        this.setTotal           = this.setTotal.bind(this);
+        this.getCart            = this.getCart.bind(this);
     }
 
     componentDidMount() {
-        // Get pos scroll page
+        // Get position scroll page
         window.addEventListener('scroll', (event)=>{
             this.activeHeader(event.target);
         });
     }
 
+    setTotal(total) {
+        this.setState({total:total});
+    }
+
+    removeItem(item){
+        let cart = this.state.cart;
+        var index = cart.indexOf(item);
+        if(index > -1){
+            cart.splice(index, 1);
+            this.setState({ cart : cart });
+        }
+    }
+
     /**
-     * Pega os itens do carriho e joga no estado
-     * @Param {Function} callback
+     * Pega os itens do carriho e joga no estado "cart"
      */
-    getCart(callback){
+    getCart(){
         this.setState({cart : localStorage.cart ? JSON.parse(localStorage.cart) : []});
-        callback();
     }
 
     updateCart(item, add){
@@ -57,11 +71,10 @@ export class Header extends React.Component {
     handleTouchTap (event) {
         event.preventDefault();
         let self = this;
-        this.getCart(() => {
-            self.setState({
-                open: true,
-                anchorEl: event.currentTarget,
-            });
+        this.getCart();
+        self.setState({
+            open: true,
+            anchorEl: event.currentTarget,
         });
     }
 
@@ -69,6 +82,15 @@ export class Header extends React.Component {
         this.setState({
             open: false,
         });
+    }
+    
+    getTotal(){
+        let cart = this.state.cart;
+        let total = 0;
+        for (var i in cart) {
+            total += cart[i].price * cart[i].qtde;
+        }
+        return String(`${total.toFixed(2)} R$`).replace('.', ',');
     }
     
     render(){
@@ -93,21 +115,27 @@ export class Header extends React.Component {
                         >
                             <div className={'cart-menu'}>
                                 <div className={'content'}>
-                                    {
-                                        // Render cart itens
-                                        this.state.cart.map((item, index) => {
-                                            return (
-                                                <div key={index} className={'cart-item'}>
-                                                    <div className={'cart-item-name'}>{`x${item.qtde} ${item.name}`}</div>
-                                                    <label className={'cart-options'} onClick={() => this.updateCart(item, true)}>+</label>
-                                                    { item.qtde != 1 ? 
-                                                        <label className={'cart-options'} onClick={() => this.updateCart(item, false)}>-</label>
-                                                    : ''}
-                                                </div>
-                                            );
-                                        })
-                                    }
+                                        {
+                                            //Render cart itens
+                                            this.state.cart.map((item, index) => {
+                                                return (
+                                                    <div key={index} className={'cart-item'}>
+                                                        <div className={'cart-item-name'}>{`x${item.qtde} ${item.name}`}</div>
+                                                        <label className={'cart-options'} onClick={() => this.updateCart(item, true)}>+</label>
+                                                        { item.qtde != 1 ? 
+                                                            <label className={'cart-options'} onClick={() => this.updateCart(item, false)}>-</label>
+                                                        : 
+                                                            <label className={'cart-options remove-item'} onClick={() => this.removeItem(item)}>x</label>
+                                                        }
+                                                    </div>
+                                                );
+                                            })
+                                        }
                                 </div>
+                                <div className={'total'}>{ this.getTotal() }</div>
+                                <button className={'cart-button'} onClick={ () => alert('Ha Ha - Nelson') }>
+                                    FINALIZAR
+                                </button>
                             </div>
                         </Popover>
                     </div>

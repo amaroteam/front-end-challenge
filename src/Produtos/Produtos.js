@@ -9,7 +9,6 @@ export class  App extends React.Component {
         super(props);
         this.state = {};
         this.state.products = products;
-        console.log(products);
     }
 
     render(){

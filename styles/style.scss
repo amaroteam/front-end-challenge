@@ -115,6 +115,7 @@ body{
   text-align:center;
   font-weight:bolder;
   font-size:18px;
+  background:transparent;
   border:solid 2px $theme;
   transition: all 0.2s ease-in-out;
   &:hover{
@@ -149,10 +150,17 @@ body{
 .cart-menu{
   width:290px;
   padding:5px;
-  height:480px;
+  height:300px;
   .content{
     position:relative;
     width:100%;
+    overflow-y:scroll;
+    height:214px;
+  }
+  .total{
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
   }
 }
 
@@ -164,6 +172,10 @@ body{
   float:right;
   margin:0 5px;
   user-select:none;
+}
+
+.remove-item{
+  background:$red;
 }
 
 .cart-item{

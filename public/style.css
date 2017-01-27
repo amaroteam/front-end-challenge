@@ -91,6 +91,7 @@ body {
   text-align: center;
   font-weight: bolder;
   font-size: 18px;
+  background: transparent;
   border: solid 2px #a1905e;
   transition: all 0.2s ease-in-out; }
   .cart-button:hover {
@@ -119,10 +120,16 @@ body {
 .cart-menu {
   width: 290px;
   padding: 5px;
-  height: 480px; }
+  height: 300px; }
   .cart-menu .content {
     position: relative;
-    width: 100%; }
+    width: 100%;
+    overflow-y: scroll;
+    height: 214px; }
+  .cart-menu .total {
+    padding: 5px;
+    text-align: center;
+    font-size: 18px; }
 
 .cart-options {
   background: #a1905e;
@@ -132,6 +139,9 @@ body {
   float: right;
   margin: 0 5px;
   user-select: none; }
+
+.remove-item {
+  background: #FF5252; }
 
 .cart-item {
   padding: 5px;

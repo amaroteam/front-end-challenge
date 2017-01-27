@@ -29341,7 +29341,6 @@
 
 	        _this.state = {};
 	        _this.state.products = _products2.default;
-	        console.log(_products2.default);
 	        return _this;
 	    }
 
@@ -48251,7 +48250,8 @@
 	        _this.state = {
 	            open: false,
 	            header: false,
-	            cart: localStorage.cart ? JSON.parse(localStorage.cart) : []
+	            cart: localStorage.cart ? JSON.parse(localStorage.cart) : [],
+	            total: 0
 	        };
 	        // Bind
 	        _this.handleTouchTap = _this.handleTouchTap.bind(_this);
@@ -48259,6 +48259,8 @@
 	        _this.activeHeader = _this.activeHeader.bind(_this);
 	        _this.getCart = _this.getCart.bind(_this);
 	        _this.updateCart = _this.updateCart.bind(_this);
+	        _this.removeItem = _this.removeItem.bind(_this);
+	        _this.setTotal = _this.setTotal.bind(_this);
 	        return _this;
 	    }
 
@@ -48267,22 +48269,35 @@
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            // Get pos scroll page
+	            // Get position scroll page
 	            window.addEventListener('scroll', function (event) {
 	                _this2.activeHeader(event.target);
 	            });
 	        }
+	    }, {
+	        key: 'setTotal',
+	        value: function setTotal(total) {
+	            this.setState({ total: total });
+	        }
+	    }, {
+	        key: 'removeItem',
+	        value: function removeItem(item) {
+	            var cart = this.state.cart;
+	            var index = cart.indexOf(item);
+	            if (index > -1) {
+	                cart.splice(index, 1);
+	                this.setState({ cart: cart });
+	            }
+	        }
 
 	        /**
-	         * Pega os itens do carriho e joga no estado
-	         * @Param {Function} callback
+	         * Pega os itens do carriho e joga no estado "cart"
 	         */
 
 	    }, {
 	        key: 'getCart',
-	        value: function getCart(callback) {
+	        value: function getCart() {
 	            this.setState({ cart: localStorage.cart ? JSON.parse(localStorage.cart) : [] });
-	            callback();
 	        }
 	    }, {
 	        key: 'updateCart',
@@ -48307,11 +48322,10 @@
 	        value: function handleTouchTap(event) {
 	            event.preventDefault();
 	            var self = this;
-	            this.getCart(function () {
-	                self.setState({
-	                    open: true,
-	                    anchorEl: event.currentTarget
-	                });
+	            this.getCart();
+	            self.setState({
+	                open: true,
+	                anchorEl: event.currentTarget
 	            });
 	        }
 	    }, {
@@ -48320,6 +48334,16 @@
 	            this.setState({
 	                open: false
 	            });
+	        }
+	    }, {
+	        key: 'getTotal',
+	        value: function getTotal() {
+	            var cart = this.state.cart;
+	            var total = 0;
+	            for (var i in cart) {
+	                total += cart[i].price * cart[i].qtde;
+	            }
+	            return String(total.toFixed(2) + ' R$').replace('.', ',');
 	        }
 	    }, {
 	        key: 'render',
@@ -48361,7 +48385,7 @@
 	                                    'div',
 	                                    { className: 'content' },
 
-	                                    // Render cart itens
+	                                    //Render cart itens
 	                                    this.state.cart.map(function (item, index) {
 	                                        return _react2.default.createElement(
 	                                            'div',
@@ -48384,9 +48408,27 @@
 	                                                        return _this3.updateCart(item, false);
 	                                                    } },
 	                                                '-'
-	                                            ) : ''
+	                                            ) : _react2.default.createElement(
+	                                                'label',
+	                                                { className: 'cart-options remove-item', onClick: function onClick() {
+	                                                        return _this3.removeItem(item);
+	                                                    } },
+	                                                'x'
+	                                            )
 	                                        );
 	                                    })
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'total' },
+	                                    this.getTotal()
+	                                ),
+	                                _react2.default.createElement(
+	                                    'button',
+	                                    { className: 'cart-button', onClick: function onClick() {
+	                                            return alert('Ha Ha - Nelson');
+	                                        } },
+	                                    'FINALIZAR'
 	                                )
 	                            )
 	                        )
@@ -57190,11 +57232,9 @@
 	            // price
 	            item.price = item.actual_price.replace('R$ ', '');
 	            item.price = parseFloat(item.price.replace(',', '.'));
-
 	            carrinho.push(item);
 	            localStorage.cart = JSON.stringify(carrinho);
 	            this.openMessage();
-	            console.log(item);
 	        }
 	        // Abre ou fecha mais informações
 
@@ -57258,7 +57298,7 @@
 	                    { className: 'image-product', onClick: this.more },
 	                    _react2.default.createElement('img', {
 	                        style: { width: '100%' }
-	                        // src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
+	                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
 	                        , src: './assets/no_image.jpg'
 	                    })
 	                ),
