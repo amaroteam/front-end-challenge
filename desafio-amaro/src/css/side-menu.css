@@ -7,6 +7,16 @@ body {
     height: auto;
 }
 
+table {
+
+  width: 100%;
+}
+
+table tr td img {
+    width: 120px;
+    height: 150px;
+}
+
 /*
 Add transition to containers so they can push in and out.
 */

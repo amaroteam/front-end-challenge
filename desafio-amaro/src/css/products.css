@@ -33,7 +33,7 @@
 .product-info {
   margin-top: auto;
 }
-  .product-info input {
+  .product-info form button {
     border:none;
     background:none;
     cursor:pointer;
