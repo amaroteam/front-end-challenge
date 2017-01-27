@@ -25,8 +25,23 @@ http://amaro.herokuapp.com/
 - SCSS
 - ReactJS
 - Webpack
+- Gulp
 - Bootstrap
 - Material-UI
+
+## Compilando as folhas de estilos SASS
+Primeiro instale o gulp-CLI
+```sh
+> npm install gulp-cli -g
+```
+Instale as depências nessesárias com:
+```sh
+> gulp install
+```
+Compile com:
+```sh
+> gulp sass:watch
+```
 
 ## Rodando no localhost
 Primeiro é nescessário instalar as dependências
