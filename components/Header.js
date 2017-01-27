@@ -1,10 +1,7 @@
 /* global localStorage */
-
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
 
 export class Header extends React.Component {
     constructor(props){
@@ -62,12 +59,16 @@ export class Header extends React.Component {
         }
         this.setState({cart:cart});
     }
-
+    /**
+     * Estiliza o header
+     */
     activeHeader(page){
         let pos = page.scrollingElement.scrollTop;
         this.setState({header: pos > 400 ? true : false });
     }
-
+    /**
+     * Abre o popover do carrinho
+     */
     handleTouchTap (event) {
         event.preventDefault();
         let self = this;
@@ -77,31 +78,33 @@ export class Header extends React.Component {
             anchorEl: event.currentTarget,
         });
     }
-
-    // Fecha o popover e atualiza as informações no localStorage
+    /**
+     * Fecha o popover e atualiza as informações no localStorage
+     */
     handleRequestClose(){
         localStorage.cart = JSON.stringify(this.state.cart);
         this.setState({
             open: false
         });
     }
-    
+    /**
+     * Calcula o total e formta o valor
+     * @return {String}
+     */
     getTotal(){
         let cart = this.state.cart;
         let total = 0;
         for (var i in cart) {
             total += cart[i].price * cart[i].qtde;
         }
-        return String(`${total.toFixed(2)} R$`).replace('.', ',');
+        return String(`R$ ${total.toFixed(2)}`).replace('.', ',');
     }
     
     render(){
         return (
             <div>
                 <div className={`header-app ${this.state.header ? '' : 'disable-header'}`}>
-                    <div className={'title'}>
-                        { this.props.title }
-                    </div>
+                    <div className={'title'}> { this.props.title } </div>
                     <div className={'cart-icon'}>
                         <FlatButton
                             onTouchTap={this.handleTouchTap}
@@ -143,13 +146,9 @@ export class Header extends React.Component {
                     </div>
                 </div>
                 <div className={'header-image'}>
-                    <span className={'marca-name'}>
-                        AMARO
-                    </span>
+                    <span className={'marca-name'}> AMARO </span>
                 </div>
-                <div className={'name'}>
-                    { this.props.name }
-                </div>
+                <div className={'name'}> { this.props.name } </div>
             </div>
         );
     }

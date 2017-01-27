@@ -55,11 +55,16 @@ body{
   }
 }
 
-
 .disable-header{
   box-shadow:none;
   color:$theme;
   background:transparent;
+}
+
+.footer-app{
+  height:160px;
+  width:100%;
+  background:$theme;
 }
 
 .card{
@@ -103,6 +108,34 @@ body{
   position:relative;
   left:50%;
   margin-left:-125px;
+  transition: all .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  &:hover{
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
+}
+
+.tabs{
+  width:250px;
+  color:$theme;
+  margin:0 auto;
+  display: flex;
+  cursor:pointer;
+  margin-bottom:10px;
+  border:solid 1px $theme;
+  transition: all .2s ease-in-out;
+  .tab{
+    padding: 5px 10px;
+    text-align: center;
+    flex-grow: 1;
+  }
+}
+
+.tab-active{
+  background:$theme;
+  color:$white;
 }
 
 // BOTÃO
@@ -140,11 +173,17 @@ body{
 }
 
 .product-sizes{
-  font-size:22px;
-  color:$theme;
-  font-size: 22px;
-  text-align: center;
-  margin: 20px;
+  display:flex;
+  .size{
+    color:$white;
+    background:$theme;
+    margin:5px;
+    padding: 0 5px;
+    font-size: 18px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto; 
+  }
 }
 
 .cart-menu{

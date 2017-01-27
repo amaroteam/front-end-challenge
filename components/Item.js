@@ -8,15 +8,15 @@ import Snackbar from 'material-ui/Snackbar';
 export class Item extends React.Component {
     constructor(props){
         super(props);
-        this.state = {};
-        this.state.more = false;
-        this.state.showMessage = false;
-        this.state.item = {};
+        this.state = {
+            showMessage: false,
+            more:false,
+            item:{}
+        };
         // BIND
-        this.more = this.more.bind(this);
         this.openMessage = this.openMessage.bind(this);
+        this.more        = this.more.bind(this);
     }
-
     /**
      * Pega o carrinho salvo no localStoreage
      * @return {Array}
@@ -24,7 +24,6 @@ export class Item extends React.Component {
     getCart(){
         return localStorage.cart ? JSON.parse(localStorage.cart) : [];
     }
-
     /**
      * Adiciona o item ao carrinho
      */
@@ -56,59 +55,61 @@ export class Item extends React.Component {
         ];
         const dialogContent = (
             <div>
-                <div className={'modal-name'}>
-                    {this.props.product.name}
-                </div>
                 <img className={'image-modal'} 
-                    // src={ this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
-                    src={'./assets/no_image.jpg'}
+                    src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
                 />
-                <div className={'product-sizes'}>
-                    <b>
-                        {
-                            this.props.product.sizes.map((size, index) => {
-                                return size.available ? `${size.size}, ` : '';
-                            })
-                        }
-                    </b>
-                </div>
             </div>
         );
         
         return (
             <div>
                 {
-                    // Verifica se está na oferta
+                    /* TAG DE PROMOÇÃO */
                     this.props.product.discount_percentage ? (
                         <span className={'sale'}>
-                            {`- ${this.props.product.discount_percentage}`}
+                            {this.props.product.discount_percentage}
                         </span>
-                    ) : '' 
+                    ) : ''
                 }
+                { /* IMAGEM DO PRODUTO */ }
                 <div className={'image-product'} onClick={ this.more }>
                     <img 
                         style={{width:'100%'}}
-                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
+                        // src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
                         src={'./assets/no_image.jpg'}
                     />
                 </div>
-                <div className={'product-name'} onClick={this.more}>
-                    { this.props.product.name }
+                { /* TAMANHO DO PRODUTO */}
+                <div className={'product-sizes'}>
+                    {
+                        this.props.product.sizes.map((size, index) => {
+                            return size.available ? (
+                                <div className={'size'} key={index}>
+                                    { size.size}
+                                </div>
+                            ): '' ;
+                        })
+                    }
                 </div>
+                { /* NOME DO PRODUTO */}
+                <div className={'product-name'} onClick={this.more}> { this.props.product.name } </div>
+                { /* PREÇO DO PRODUTO */}
                 <div className={'product-price'}>
-                    { 
-                    // Mostra o desconto caso tenha
-                    this.props.product.discount_percentage ? (
-                        <span>
-                            De <span className={'disable-price'}>
-                                {this.props.product.regular_price}
-                            </span> por {this.props.product.actual_price} ou {this.props.product.installments}
-                        </span>
-                    ): `${this.props.product.actual_price}, ou ${this.props.product.installments}` }
+                    {
+                        this.props.product.discount_percentage ? (
+                            <span>
+                                De <span className={'disable-price'}>
+                                    {this.props.product.regular_price}
+                                </span> por {this.props.product.actual_price} ou {this.props.product.installments}
+                            </span>
+                        )
+                        :
+                        `${this.props.product.actual_price}, ou ${this.props.product.installments}`
+                    }
                 </div>
-                <div className={'cart-button'} onClick={() => this.addCart(this.props.product)}>
-                    CARRINHO
-                </div>
+                { /* ADICIONAR NO CARRINHO */}
+                <div className={'cart-button'} onClick={() => this.addCart(this.props.product)}> CARRINHO </div>
+                { /* MODAL COM A IMAGEM DO PRODUTO */}
                 <Dialog
                     actions={actions}
                     modal={false}
@@ -116,11 +117,10 @@ export class Item extends React.Component {
                     onRequestClose={this.more}>
                     { dialogContent }
                 </Dialog>
-                    <Snackbar
-                        open={this.state.showMessage}
-                        message={`Adicionado ao carrinho`}
-                        autoHideDuration={4000}
-                    />
+                <Snackbar
+                    open={this.state.showMessage}
+                    message={`Adicionado ao carrinho`}
+                    autoHideDuration={4000}/>
             </div>
         );
     }

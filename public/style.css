@@ -47,6 +47,11 @@ body {
   color: #a1905e;
   background: transparent; }
 
+.footer-app {
+  height: 160px;
+  width: 100%;
+  background: #a1905e; }
+
 .card {
   background: #FFFFFF;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -80,7 +85,31 @@ body {
   width: 250px;
   position: relative;
   left: 50%;
-  margin-left: -125px; }
+  margin-left: -125px;
+  transition: all .5s ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+  .image-modal:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); }
+
+.tabs {
+  width: 250px;
+  color: #a1905e;
+  margin: 0 auto;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: solid 1px #a1905e;
+  transition: all .2s ease-in-out; }
+  .tabs .tab {
+    padding: 5px 10px;
+    text-align: center;
+    flex-grow: 1; }
+
+.tab-active {
+  background: #a1905e;
+  color: #FFFFFF; }
 
 .cart-button {
   width: 100%;
@@ -111,11 +140,16 @@ body {
   margin: 10px; }
 
 .product-sizes {
-  font-size: 22px;
-  color: #a1905e;
-  font-size: 22px;
-  text-align: center;
-  margin: 20px; }
+  display: flex; }
+  .product-sizes .size {
+    color: #FFFFFF;
+    background: #a1905e;
+    margin: 5px;
+    padding: 0 5px;
+    font-size: 18px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto; }
 
 .cart-menu {
   width: 290px;
