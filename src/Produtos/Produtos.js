@@ -19,7 +19,7 @@ export class  App extends React.Component {
                     {
                         this.state.products.map((product, index) => {
                             return (
-                                <Col xs={6} md={4} key={ index }>
+                                <Col xs={6} md={4} lg={2} sm={12} key={ index }>
                                     <div className={'card'}>
                                         <Item product={product}/>
                                     </div>

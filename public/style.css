@@ -41,8 +41,19 @@ body {
   .card .product-price {
     font-size: 18px;
     font-weight: bolder; }
-  .card .cart-icon {
-    color: #a1905e; }
+
+.cart-icon {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  font-size: 22px; }
+
+.image-modal {
+  height: 200px;
+  width: 158px;
+  position: relative;
+  left: 50%;
+  margin-left: -79px; }
 
 .cart-button {
   width: 100%;
@@ -58,3 +69,22 @@ body {
   .cart-button:hover {
     color: #FFFFFF;
     background: #a1905e; }
+
+.modal-name {
+  text-align: center;
+  color: #a1905e;
+  font-size: 42px;
+  margin: 10px; }
+
+.product-sizes {
+  font-weight: bolder;
+  font-size: 22px;
+  color: #a1905e; }
+
+.cart-menu {
+  width: 290px;
+  padding: 5px;
+  height: 400px; }
+  .cart-menu .content {
+    position: relative;
+    width: 100%; }
