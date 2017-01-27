@@ -11,15 +11,14 @@ http://amaro.herokuapp.com/
 ```sh
 .
 ├── components // Components
-├── data // Products
-├── src // source
-├── public // webpack build
-├── node_modules // dependencias
+├── data //Products
+├── src //source
+├── public //webpack build
+├── node_modules //dependencias
 ├── package.json
-├── server.js // Nessesario para o deploy do heroku
+├── server.js //Nessesário para o deploy no heroku
 └── webpack.config.js
 ```
-
 
 ## Ferramentas e frameworks
 - ES6
