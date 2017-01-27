@@ -53663,7 +53663,8 @@
 	        _this.state = {
 	            showMessage: false,
 	            more: false,
-	            item: {}
+	            item: {},
+	            message: ''
 	        };
 	        // BIND
 	        _this.openMessage = _this.openMessage.bind(_this);
@@ -53690,13 +53691,25 @@
 	        value: function addCart(item) {
 	            if (!item) throw 'Que feio :(';
 	            var carrinho = this.getCart();
-	            item.qtde = 1;
-	            // price
-	            item.price = item.actual_price.replace('R$ ', '');
-	            item.price = parseFloat(item.price.replace(',', '.'));
-	            carrinho.push(item);
-	            localStorage.cart = JSON.stringify(carrinho);
-	            this.openMessage();
+
+	            var add = true;
+	            for (var i in carrinho) {
+	                if (item.name == carrinho[i].name) {
+	                    add = false;
+	                    break;
+	                }
+	            }
+	            if (add) {
+	                item.qtde = 1;
+	                // price
+	                item.price = item.actual_price.replace('R$ ', '');
+	                item.price = parseFloat(item.price.replace(',', '.'));
+	                carrinho.push(item);
+	                localStorage.cart = JSON.stringify(carrinho);
+	                this.openMessage('ADICIONADO!!');
+	            } else {
+	                this.openMessage('NÃO PODE ADICIONAR, POIS JÁ CONSTA EM SEU CARRINHO');
+	            }
 	        }
 	        // Abre ou fecha mais informações
 
@@ -53707,8 +53720,11 @@
 	        }
 	    }, {
 	        key: 'openMessage',
-	        value: function openMessage() {
-	            this.setState({ showMessage: true });
+	        value: function openMessage(message) {
+	            this.setState({
+	                showMessage: true,
+	                message: message
+	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -53743,7 +53759,7 @@
 	                    { className: 'image-product', onClick: this.more },
 	                    _react2.default.createElement('img', {
 	                        style: { width: '100%' }
-	                        // src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
+	                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
 	                        , src: './assets/no_image.jpg'
 	                    })
 	                ),
@@ -53801,7 +53817,7 @@
 	                ),
 	                _react2.default.createElement(_Snackbar2.default, {
 	                    open: this.state.showMessage,
-	                    message: 'Adicionado ao carrinho',
+	                    message: this.state.message,
 	                    autoHideDuration: 4000 })
 	            );
 	        }

@@ -11,7 +11,8 @@ export class Item extends React.Component {
         this.state = {
             showMessage: false,
             more:false,
-            item:{}
+            item:{},
+            message:''
         };
         // BIND
         this.openMessage = this.openMessage.bind(this);
@@ -30,20 +31,35 @@ export class Item extends React.Component {
     addCart(item){
         if(!item) throw 'Que feio :(';
         let carrinho = this.getCart();
-        item.qtde = 1;
-        // price
-        item.price = item.actual_price .replace('R$ ', '');
-        item.price = parseFloat(item.price.replace(',', '.'));
-        carrinho.push(item);
-        localStorage.cart = JSON.stringify(carrinho);
-        this.openMessage();
+        
+        let add = true;
+        for (var i in carrinho) {
+            if(item.name == carrinho[i].name){
+                add = false;
+                break;
+            }
+        }
+        if(add){
+            item.qtde = 1;
+            // price
+            item.price = item.actual_price .replace('R$ ', '');
+            item.price = parseFloat(item.price.replace(',', '.'));
+            carrinho.push(item);
+            localStorage.cart = JSON.stringify(carrinho);
+            this.openMessage('ADICIONADO!!');
+        }else{
+            this.openMessage('NÃO PODE ADICIONAR, POIS JÁ CONSTA EM SEU CARRINHO');
+        }
     }
     // Abre ou fecha mais informações
     more(item) {
         this.setState({ more: !this.state.more });
     }
-    openMessage(){
-        this.setState({showMessage:true});
+    openMessage(message){
+        this.setState({
+            showMessage:true,
+            message:message
+        });
     }
     render () {
         const actions = [
@@ -75,7 +91,7 @@ export class Item extends React.Component {
                 <div className={'image-product'} onClick={ this.more }>
                     <img 
                         style={{width:'100%'}}
-                        // src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
+                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
                         src={'./assets/no_image.jpg'}
                     />
                 </div>
@@ -119,7 +135,7 @@ export class Item extends React.Component {
                 </Dialog>
                 <Snackbar
                     open={this.state.showMessage}
-                    message={`Adicionado ao carrinho`}
+                    message={this.state.message}
                     autoHideDuration={4000}/>
             </div>
         );
