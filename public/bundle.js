@@ -53758,9 +53758,8 @@
 	                    'div',
 	                    { className: 'image-product', onClick: this.more },
 	                    _react2.default.createElement('img', {
-	                        style: { width: '100%' }
-	                        //src={this.props.product.image ? this.props.product.image :'./assets/no_image.jpg' }
-	                        , src: './assets/no_image.jpg'
+	                        style: { width: '100%' },
+	                        src: this.props.product.image ? this.props.product.image : './assets/no_image.jpg'
 	                    })
 	                ),
 	                _react2.default.createElement(
