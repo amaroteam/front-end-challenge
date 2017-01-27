@@ -78,9 +78,11 @@ export class Header extends React.Component {
         });
     }
 
+    // Fecha o popover e atualiza as informações no localStorage
     handleRequestClose(){
+        localStorage.cart = JSON.stringify(this.state.cart);
         this.setState({
-            open: false,
+            open: false
         });
     }
     

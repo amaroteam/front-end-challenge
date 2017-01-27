@@ -48254,13 +48254,13 @@
 	            total: 0
 	        };
 	        // Bind
-	        _this.handleTouchTap = _this.handleTouchTap.bind(_this);
 	        _this.handleRequestClose = _this.handleRequestClose.bind(_this);
+	        _this.handleTouchTap = _this.handleTouchTap.bind(_this);
 	        _this.activeHeader = _this.activeHeader.bind(_this);
-	        _this.getCart = _this.getCart.bind(_this);
 	        _this.updateCart = _this.updateCart.bind(_this);
 	        _this.removeItem = _this.removeItem.bind(_this);
 	        _this.setTotal = _this.setTotal.bind(_this);
+	        _this.getCart = _this.getCart.bind(_this);
 	        return _this;
 	    }
 
@@ -48328,9 +48328,13 @@
 	                anchorEl: event.currentTarget
 	            });
 	        }
+
+	        // Fecha o popover e atualiza as informações no localStorage
+
 	    }, {
 	        key: 'handleRequestClose',
 	        value: function handleRequestClose() {
+	            localStorage.cart = JSON.stringify(this.state.cart);
 	            this.setState({
 	                open: false
 	            });
