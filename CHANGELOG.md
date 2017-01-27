@@ -2,9 +2,9 @@
 
 ## Unreleased
 ### Ok.
-- [ ] List products from `products.json`
+- [x] List products from `products.json`
 - [ ] Mobile first
-- [ ] Product must has Image, Name, Price, on sale, options available
+- [x] Product must has Image, Name, Price, on sale, options available
 
 ### Amaze
 - [ ] Interact with cart, add and remove product, change quantities,
