@@ -43,7 +43,7 @@ export default class ModalCart extends Component {
             </thead>
             <tbody>
               <tr>
-                <td><img src={this.props.image} /></td>
+                <td><img role="presentation" src={this.props.image} /></td>
                 <td><h6>{this.props.name}</h6></td>
                 <td><h6>{this.props.price}</h6></td>
               </tr>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import ProductsTable from './ProductsTable';
 import ModalCart from './ModalCart';
 import json from './products.json';

@@ -37,6 +37,8 @@ export default class ProductsTable extends Component {
 
     this.setState({productImage: this.selectForm(pos).image });
     PubSub.publish('image', this.state.productImage);
+
+    console.log(this.state);
   }
 
   render() {
@@ -52,11 +54,11 @@ export default class ProductsTable extends Component {
                     <img id='images' role="presentation" src={products.image} value={products.image} />
                   </div>
                   <div className="product-info">
-                    <form id={pos} method="get">
+                    <form id={pos} onClick={(event) => this.sendToCart(pos, event)} >
                       <input id='name' type='hidden' name='name' value={products.name}/>
                       <input id='price' type='hidden' name='price' value={products.regular_price} />
                       <input id='image' type='hidden' name='image' value={products.image} />
-                      <button type='submit' onClick={(event) => this.sendToCart(pos, event)}>{products.name}</button>
+                      <button type='submit'>{products.name}</button>
                     </form>
                     <div className="price">
                       <h4>{products.regular_price}</h4>
