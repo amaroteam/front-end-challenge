@@ -1,0 +1,62 @@
+@import './vars/colors.styl'
+@import './vars/shadows.styl'
+
+.header
+	height 60px
+	width 100%
+	top 0
+	left 0
+	// <--temporary
+	// width 360px
+	// right 0
+	// margin auto
+	// temporary -->
+	line-height 60px
+	padding 0 20px
+	background-color inverted
+	text-align left
+	// text-align center
+	box-shadow shadow-1
+	position fixed
+	box-sizing border-box
+	z-index 10
+	
+	&__content
+		max-width 1200px
+		margin auto
+		position relative
+	
+	&__brand
+		color main
+	
+	&__name
+		font-weight 300
+		font-size 1.6rem
+		text-transform lowercase
+
+		b
+			text-transform uppercase
+			font-size 1.8rem
+			font-weight 400
+			
+	&__cart
+		position absolute
+		right 0
+		top 0
+		bottom 0
+		background-color inverted
+		color main
+		margin auto
+		border-radius 50%
+		border 0
+		width 48px
+		height 48px
+		line-height 36px
+		font-size 1.3rem
+		transition all .4s ease-in-out
+		cursor pointer
+
+		&:hover
+			right 5px
+			// background-color main
+			// color inverted

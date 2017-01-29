@@ -9,8 +9,10 @@ export default class Root extends Component {
 		const { store, history } = this.props
 
 		return <Provider store={ store }>
-			<Router history={ history } routes={ routes }/>
-			<DevTools/>
+			<div>
+				<Router history={ history } routes={ routes }/>
+				<DevTools/>
+			</div>
 		</Provider>
 	}
 }

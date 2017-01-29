@@ -1,7 +1,2 @@
-export const FILTER = 'FILTER'
-export const GET_PRODUCT = 'GET_PRODUCT'
-export const GET_PRODUCT_LIST = 'GET_PRODUCT_LIST'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
-export const GET_CART_ITEMS = 'GET_CART_ITEMS'
-export const GET_CART_TOTAL = 'GET_CART_TOTAL'

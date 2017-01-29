@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as allActions from '../actions'
 import Cart from '../components/Cart'
-import SingleProduct from '../components/SingleProduct'
+import ProductList from '../components/ProductList'
 // import { filterTable } from '../actions'
 // import { filterableTable } from '../styles/filterableTable.scss'
 
@@ -20,11 +20,10 @@ export default class Home extends Component {
 	render() {
 		const { products, cartItems, dispatch } = this.props
 		const actions = bindActionCreators(allActions, dispatch)
-		const id = this.props.params.productId
 
 		return <div>
 			<Cart cartItems={ cartItems } actions={ actions }/>
-			<SingleProduct product={ products[id] } addToCart={ actions.addToCart } id={ id }/>
+			<ProductList products={ products } addToCart={ actions.addToCart }/>
 		</div>
 	}
 }

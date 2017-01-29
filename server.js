@@ -1,11 +1,12 @@
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const webpackConfig = require('./webpack.config')
-const config = require('./config')
+const args = process.argv.slice(2)
+const prod = typeof args[0] !== 'undefinded' && args[0] === 'prod'
+const webpackConfig = prod ? require('./webpack.config.prod') : require('./webpack.config')
 
 new WebpackDevServer(webpack(webpackConfig), {
 	publicPath: webpackConfig.output.publicPath,
-	hot: true,
+	hot: prod ? false : true,
 	historyApiFallback: true,
 	quiet: false,
 	noInfo: false,

@@ -12,7 +12,7 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 render(
 	<AppContainer>
-		<Root store={store} history={history} />
+		<Root store={ store } history={ history } />
 	</AppContainer>,
 	document.getElementById('root')
 )
@@ -20,9 +20,10 @@ render(
 if (module.hot) {
 	module.hot.accept('./containers/Root', () => {
 		const NewRoot = require('./containers/Root').default
+
 		render(
 			<AppContainer>
-				<NewRoot store={store} history={history} />
+				<NewRoot store={ store } history={ history } />
 			</AppContainer>,
 			document.getElementById('root')
 		)
