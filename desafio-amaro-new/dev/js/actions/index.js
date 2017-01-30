@@ -1,28 +1,39 @@
-import React, {Component} from 'react';
+import React from 'react';
 
+let list = [];
 
-
-let listProducts = [];
-
-export const selectProduct = (product) => {
-    let products = mountTable(product)
+export const actionProduct = (product) => {
+    let view = mountTable(product);
     return {
         type: 'PRODUCT_SELECTED',
-        payload: products
+        payload: view
     }
 };
 
+const listProduct = (product) => {
+  list.push(product);
+
+  return list;
+}
+
+const hasImage = (image) => {
+  image = image ? image : "http://www.fodensband.co.uk/assets/Uploads/_resampled/croppedimage200280-no-image.jpg?";
+
+  return image;
+}
+
 const mountTable = (product) => {
     let view;
-    listProducts.push(product);
-    view = listProducts.map( (product, key) => {
-        return (
-            <tr key={key}>
-              <td><img role="presentation" src={product.image} /></td>
-              <td><h6>{product.name}</h6></td>
-              <td><h6>{product.regular_price}</h6></td>
-            </tr>
-        )
+
+    view = listProduct(product).map( (product, key) => {
+      product.image = hasImage(product.image);
+      return (
+          <tr key={key}>
+            <td><img role="presentation" src={product.image} /></td>
+            <td><h6>{product.name}</h6></td>
+            <td><h6>{product.actual_price}</h6></td>
+          </tr>
+      )
     });
 
     return view;

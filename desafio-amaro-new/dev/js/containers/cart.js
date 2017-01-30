@@ -3,20 +3,10 @@ import {connect} from 'react-redux';
 
 class Cart extends Component {
 
-    constructor(props) {
-
-      super(props);
-      this.state = {
-        product: []
-      }
-      this.addListProduct = this.addListProduct.bind(this);
-      this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
-    }
-
     componentDidMount() {
 
       let modal = document.getElementById('myModal');
-      let btn = document.getElementById("myBtn");
+      let btn = document.getElementById("cartButton");
       let span = document.getElementsByClassName("close")[0];
 
       btn.onclick = function() {
@@ -34,42 +24,20 @@ class Cart extends Component {
       }
     }
 
-    forceUpdateHandler() {
-
-      this.forceUpdate();
-    }
-
-    addListProduct(product) {
-
-      let products = this.state.product;
-      let newProduct = products.push(product);
-      this.setState({ product: newProduct });
-      console.log(this.state.product);
-    }
-
     render() {
 
       if (!this.props.product) {
-          return (<tbody></tbody>);
+          return (<table><tfoot><tr><td>Sem Produtos no Carrinho...</td></tr></tfoot></table>);
       }
 
       return (
-        <tbody>
-          {this.props.product}
-        </tbody>
+        <table className="modal-table modal-table-horizontal">
+          <tbody>
+            {this.props.product}
+          </tbody>
+        </table>
       );
     }
-}
-
-function flatMap(array, fn) {
-
-  let result = [];
-  for(let i = 0; i < array.length; i++) {
-    let mapping = fn(array[i]);
-    result = result.concat(mapping);
-  }
-
-  return result;
 }
 
 function mapStateToProps(state) {

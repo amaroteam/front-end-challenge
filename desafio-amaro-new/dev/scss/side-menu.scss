@@ -17,6 +17,47 @@ table tr td img {
     height: 150px;
 }
 
+.header-menu {
+    background: #20857C;
+    padding: 15px 0;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.header-menu .title {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 32px;
+}
+
+.header-banner {
+    background: transparent url(http://ied.edu.br/rio/wp-content/uploads/sites/2/2016/03/161007-header-site-presto-styling-e-imagem-de-moda.jpg) 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
+    height: 60vh;
+    width: 100%;
+    display: table;
+}
+
+.disable-header {
+    box-shadow: none;
+    background: transparent;
+}
+
+.banner {
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 0;
+    font-size: 2em;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 1px 1px black;
+}
+
 /*
 Add transition to containers so they can push in and out.
 */
@@ -34,24 +75,17 @@ Add transition to containers so they can push in and out.
 This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
-    position: relative;
-    padding-left: 0;
-}
-    #layout.active #menu {
-        left: 150px;
-        width: 150px;
-    }
 
-    #layout.active .menu-link {
-        left: 150px;
-    }
+    padding-left: 0;
+    background-color: #DEDEDC;
+}
 /*
 The content `<div>` is where all your content goes.
 */
 .content {
     margin: 0 auto;
     padding: 0 2em;
-    max-width: 800px;
+    max-width: 1000px;
     margin-bottom: 30px;
     line-height: 1.6em;
     text-align: center;
@@ -62,9 +96,9 @@ The content `<div>` is where all your content goes.
      color: #333;
      text-align: center;
      padding: 2.5em 2em 0;
-     border-bottom: 1px solid #eee;
  }
     .header h1 {
+        color: #20857C;
         margin: 0.2em 0;
         font-size: 3em;
         font-weight: 300;
@@ -232,7 +266,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 150px; /* left col width "#menu" */
+        padding-left: 0px; /* left col width "#menu" */
         left: 0;
     }
     #menu {
@@ -258,7 +292,18 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         * Make the window large again.
     */
     #layout.active {
-        position: relative;
         left: 150px;
     }
+}
+
+.cartButton {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    color: white;
+    text-align: center;
+    border: 5px solid white;
+    height: 17px;
+    width: 50px;
 }
