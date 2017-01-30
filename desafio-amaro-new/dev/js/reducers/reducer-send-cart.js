@@ -3,9 +3,6 @@ export default function (state = null, action) {
         case 'PRODUCT_SELECTED':
             return action.payload;
             break;
-        case 'PRODUCT_DELETED':
-            return action.payload;
-            break;
     }
     return state;
 }
