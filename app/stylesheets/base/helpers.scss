@@ -1,0 +1,14 @@
+//media queries
+@mixin media($devices...) {
+  @each $device in $devices {
+    @if $device == phone {
+      @media #{$phone} { @content; }
+    } @else if $device == tablet {
+      @media #{$tablet} { @content; }
+    } @else if $device == desktop {
+      @media #{$desktop} { @content; }
+    } @else if $device == x2 {
+      @media #{$x2} { @content; }
+    }
+  }
+}
