@@ -1,0 +1,37 @@
+.Product {
+  width: 100%;
+
+  @include media(desktop) {
+    width: 300px;
+  }
+}
+
+.Product__image {
+  width: 60%;
+
+  @include media(phone) {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @include media(desktop) {
+    width: 300px;
+  }
+}
+
+.Product__name {
+  margin: 0 0 5px;
+  font: 12px $font-primary;
+  color: $color-primary;
+  text-align: center;
+}
+
+.Product__price {
+  text-align: center;
+}
+
+.Product__price__number {
+  display: inline-block;
+  font: 700 11px $font-text;
+  color: #000;
+}

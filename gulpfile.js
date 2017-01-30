@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const concat = require('gulp-concat');
 
 gulp.task('sass', () => {
   gulp.src('./app/stylesheets/main.scss')
@@ -11,6 +12,8 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
   gulp.src([
+    './app/javascript/components/prodcut.js',
+    './app/javascript/app.js',
     './app/javascript/**/*.js'
   ])
     .pipe(concat('all.js'))

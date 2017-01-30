@@ -404,25 +404,31 @@ template {
 
 @font-face {
   font-family: 'Gotham Book';
-  src: url("dist/fonts/gotham-book-webfont.woff") format("woff");
+  src: url("fonts/gotham-book-webfont.woff") format("woff");
   font-style: normal; }
 
 @font-face {
-  font-family: 'Gotham Light';
-  src: url("dist/fonts/gotham-light-webfont.woff") format("woff");
+  font-family: 'Gotham';
+  src: url("fonts/gotham-light-webfont.woff") format("woff");
   font-weight: 200;
   font-style: normal; }
 
 @font-face {
-  font-family: 'Gotham Thin';
-  src: url("dist/fonts/gotham-thin-webfont.woff") format("woff");
+  font-family: 'Gotham';
+  src: url("fonts/gotham-thin-webfont.woff") format("woff");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
-  font-family: 'Gotham Medium';
-  src: url("dist/fonts/gotham-medium-webfont.woff") format("woff");
-  font-weight: 300;
+  font-family: 'Gotham';
+  src: url("fonts/gotham-medium-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Gotham';
+  src: url("fonts/gotham-bold-webfont.woff") format("woff");
+  font-weight: 700;
   font-style: normal; }
 
 * {
@@ -430,3 +436,43 @@ template {
 
 body {
   font: 16px "Gotham Book", sans-serif; }
+
+.Logo {
+  display: block;
+  width: 140px;
+  margin: 15px auto 15px; }
+  @media only screen and (min-width: 64.1em) {
+    .Logo {
+      width: 180px;
+      margin-top: 30px;
+      margin-bottom: 30px; } }
+
+.Product {
+  width: 100%; }
+  @media only screen and (min-width: 64.1em) {
+    .Product {
+      width: 300px; } }
+
+.Product__image {
+  width: 60%; }
+  @media only screen and (max-width: 39.29em) {
+    .Product__image {
+      display: block;
+      margin: 0 auto; } }
+  @media only screen and (min-width: 64.1em) {
+    .Product__image {
+      width: 300px; } }
+
+.Product__name {
+  margin: 0 0 5px;
+  font: 12px "Gotham Book", sans-serif;
+  color: #333;
+  text-align: center; }
+
+.Product__price {
+  text-align: center; }
+
+.Product__price__number {
+  display: inline-block;
+  font: 700 11px "Gotham", sans-serif;
+  color: #000; }

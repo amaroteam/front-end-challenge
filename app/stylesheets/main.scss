@@ -1,5 +1,10 @@
 //base
 @import "base/normalize";
 @import "base/fonts";
+@import "base/helpers";
 @import "base/variables";
 @import "base/general";
+
+//components
+@import "components/logo";
+@import "components/product";
