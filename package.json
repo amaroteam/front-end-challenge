@@ -1,0 +1,27 @@
+{
+  "name": "amaro-front-challenge",
+  "version": "1.0.0",
+  "description": "This is our challenge for the front-end developer position at [@amarofashion](https://github.com/amarofashion).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node_modules/http-server/bin/http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresobral/front-end-challenge.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "André Sobral",
+    "email": "andreqsobral@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/andresobral/front-end-challenge#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1",
+    "http-server": "^0.9.0"
+  }
+}
