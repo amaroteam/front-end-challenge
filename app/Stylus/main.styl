@@ -1,7 +1,19 @@
-*
-  margin 0
-  padding 0
-  box-sizing border-box
+@import 'utils/*'
+@import 'components/*'
 
-body
-  font-family 16px 'Roboto'
+.to-cart
+  size(100%, 45px)
+  upper()
+
+  display flex
+  padding-left 15px
+  padding-right 15px
+  align-items center
+  justify-content space-between
+
+  text-align left
+  color $color-black
+
+  border none
+  cursor pointer
+  background-color lighten($color-grey-light, 95%)
