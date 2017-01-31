@@ -12,6 +12,7 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
   gulp.src([
+    './app/javascript/components/utils.js',
     './app/javascript/components/product.js',
     './app/javascript/components/grid.js',
     './app/javascript/app.js',

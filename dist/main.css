@@ -494,3 +494,9 @@ body {
   display: inline-block;
   font: 700 11px "Gotham", sans-serif;
   color: #000; }
+
+.Product__discount {
+  display: inline-block;
+  font: 400 11px "Gotham", sans-serif;
+  color: #ff6868;
+  margin-left: 5px; }

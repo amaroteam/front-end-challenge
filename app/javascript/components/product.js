@@ -6,7 +6,7 @@ Amaro.Product = (function() {
     this.name = object.name;
     this.image = object.image;
     this.price = object.actual_price;
-    this.discountPercentage = object.discountPercentage;
+    this.discountPercentage = object.discount_percentage;
   }
 
   Product.prototype.create = function(parent) {
@@ -39,8 +39,16 @@ Amaro.Product = (function() {
 
   Product.prototype.getDiscount = function() {
     if(this.discountPercentage) {
-      
+      return (
+        '<span class="Product__discount">' +
+          Amaro.Utils.toCurrency(
+            Amaro.Utils.newPrice(this.price, this.discountPercentage)
+          ) +
+        '</span>'
+      );
     }
+
+    return "";
   };
 
   return Product;

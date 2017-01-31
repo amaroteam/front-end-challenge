@@ -46,3 +46,10 @@
   font: 700 11px $font-text;
   color: $color-text-dark;
 }
+
+.Product__discount {
+  display: inline-block;
+  font: 400 11px $font-text;
+  color: $color-secondary;
+  margin-left: 5px;
+}
