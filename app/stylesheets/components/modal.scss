@@ -19,7 +19,7 @@
 
 .Modal__box {
   position: relative;
-  top: 10%;
+  top: 5%;
   left: 0;
   width: 100%;
   background: $color-negative;
@@ -60,6 +60,12 @@
 
   .Product__image {
     width: 100%;
+
+    @include media(phone) {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -100,6 +106,7 @@
 }
 
 .Modal__buy {
+  width: 100%;
 
   @include media(desktop) {
     display: block;

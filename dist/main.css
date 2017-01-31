@@ -459,7 +459,10 @@ body {
   color: #fff;
   outline: 0;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: background .5s ease; }
+  .Button:hover {
+    background: #595959; }
 
 .Grid {
   padding: 0 20px;
@@ -535,7 +538,7 @@ body {
 
 .Modal__box {
   position: relative;
-  top: 10%;
+  top: 5%;
   left: 0;
   width: 100%;
   background: #fff;
@@ -570,6 +573,11 @@ body {
 
 .Modal__image .Product__image {
   width: 100%; }
+  @media only screen and (max-width: 39.29em) {
+    .Modal__image .Product__image {
+      display: block;
+      width: 60%;
+      margin: 0 auto; } }
 
 @media only screen and (min-width: 64.1em) {
   .Modal__content {
@@ -598,8 +606,10 @@ body {
   font: 700 14px "Gotham", sans-serif;
   color: #000; }
 
-@media only screen and (min-width: 64.1em) {
-  .Modal__buy {
-    display: block;
-    width: 300px;
-    margin: 0 auto; } }
+.Modal__buy {
+  width: 100%; }
+  @media only screen and (min-width: 64.1em) {
+    .Modal__buy {
+      display: block;
+      width: 300px;
+      margin: 0 auto; } }
