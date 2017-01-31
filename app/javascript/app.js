@@ -15,7 +15,7 @@ Amaro.App = (function() {
       return response.json();
     })
     .then(function(json) {
-      self.data = json;
+      var grid = new Amaro.Grid(document.querySelector('.js-grid'), json);
     })
     .catch(function(err) {
       console.log(err);

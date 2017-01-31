@@ -448,9 +448,11 @@ body {
       margin-bottom: 30px; } }
 
 .Product {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 15px; }
   @media only screen and (min-width: 64.1em) {
     .Product {
+      display: inline-block;
       width: 300px; } }
 
 .Product__image {
@@ -462,6 +464,9 @@ body {
   @media only screen and (min-width: 64.1em) {
     .Product__image {
       width: 300px; } }
+
+.Product__content {
+  margin-top: 10px; }
 
 .Product__name {
   margin: 0 0 5px;

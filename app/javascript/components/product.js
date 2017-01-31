@@ -5,7 +5,7 @@ Amaro.Product = (function() {
   function Product(object) {
     this.name = object.name;
     this.image = object.image;
-    this.price = object.price;
+    this.price = object.actual_price;
     this.discountPercentage = object.discountPercentage;
   }
 

@@ -1,45 +1,11 @@
 var Amaro = Amaro || {};
 
-Amaro.App = (function() {
-
-  function App() {
-    this.data = null;
-    this.getData();
-  }
-
-  App.prototype.getData = function() {
-    var self = this;
-
-    fetch('/products.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      self.data = json;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-  };
-
-  return App;
-
-})();
-
-window.addEventListener('DOMContentLoaded', function() {
-
-  new Amaro.App();
-
-});
-
-var Amaro = Amaro || {};
-
 Amaro.Product = (function() {
 
   function Product(object) {
     this.name = object.name;
     this.image = object.image;
-    this.price = object.price;
+    this.price = object.actual_price;
     this.discountPercentage = object.discountPercentage;
   }
 
@@ -65,3 +31,63 @@ Amaro.Product = (function() {
   return Product;
 
 })();
+
+var Amaro = Amaro || {};
+
+Amaro.Grid = (function() {
+
+  function Grid(element, data) {
+    this.element = element;
+    this.size = data.products.length;
+    this.data = data.products;
+
+    this.init();
+  }
+
+  Grid.prototype.init = function() {
+    var self = this;
+
+    this.data.map(function(p) {
+      var product = new Amaro.Product(p);
+
+      product.create(self.element);
+    });
+  };
+
+  return Grid;
+
+})();
+
+var Amaro = Amaro || {};
+
+Amaro.App = (function() {
+
+  function App() {
+    this.data = null;
+    this.getData();
+  }
+
+  App.prototype.getData = function() {
+    var self = this;
+
+    fetch('/products.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      var grid = new Amaro.Grid(document.querySelector('.js-grid'), json);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+  };
+
+  return App;
+
+})();
+
+window.addEventListener('DOMContentLoaded', function() {
+
+  new Amaro.App();
+
+});
