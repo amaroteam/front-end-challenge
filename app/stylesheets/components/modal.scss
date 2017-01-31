@@ -1,0 +1,145 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 10px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.Modal__box {
+  position: relative;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  background: $color-negative;
+  border-radius: 7px;
+  padding: 15px 10px;
+  z-index: 2;
+
+  @include media(desktop) {
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+  }
+}
+
+.Modal__box__close {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 10px;
+  right: 10px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6Izk5OTk5OTt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTYsMTMuNUwxMC41LDhsNS41LTUuNUwxMy41LDBMOCw1LjVMMi40LDAuMUwwLDIuNUw1LjUsOGwtNS41LDUuNUwyLjUsMTZMOCwxMC41bDUuNSw1LjVMMTYsMTMuNXoiLz48L3N2Zz4=) no-repeat;
+
+  @include media(desktop) {
+    cursor: pointer;
+  }
+}
+
+.Modal__body {
+  font-size: 0;
+  overflow: auto;
+}
+
+.Modal__image {
+  @include media(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+
+  .Product__image {
+    width: 100%;
+
+    @include media(phone) {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    @include media(tablet) {
+      display: block;
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.Modal__content {
+  @include media(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+
+.Modal__product__name {
+  font: 18px $font-primary;
+  color: $color-primary;
+  text-align: center;
+}
+
+.Modal__price {
+  text-align: center;
+  margin-bottom: 15px;
+
+  .Product__price__number--crossed {
+    text-decoration: line-through;
+  }
+
+  .Product__discount {
+    display: inline-block;
+    font: 400 14px $font-text;
+    color: $color-secondary;
+    margin-left: 5px;
+  }
+}
+
+.Modal__price__number {
+  display: inline-block;
+  font: 700 14px $font-text;
+  color: $color-text-dark;
+}
+
+.Modal__buy {
+  width: 100%;
+
+  @include media(desktop) {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.Modal__sizes {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.Modal__sizes__title {
+  font: 400 11px $font-text;
+  color: $color-primary;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.Modal__sizes__item {
+  display: inline-block;
+  vertical-align: top;
+  font: 300 12px $font-text;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  padding: 8px;
+  margin: 0 2px;
+}
