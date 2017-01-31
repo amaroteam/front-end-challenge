@@ -13,8 +13,15 @@ Amaro.Product = (function() {
     var element = document.createElement('div');
 
     element.setAttribute("class", "Product");
+
+    if(this.image) {
+      var image = '<img class="Product__image" src="' + this.image + '">';
+    } else {
+      var image = '<img class="Product__image" src="dist/images/image-placeholder.svg">';
+    }
+
     element.innerHTML =
-      '<img class="Product__image" src="' + this.image + '">' +
+      image +
       '<div class="Product__content">' +
         '<h3 class="Product__name">' +
           this.name +
