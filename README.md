@@ -14,7 +14,7 @@ To run the app:
 npm start
 ```
 
-The will run at `http://localhost:8080`
+The app will run at `http://localhost:8080`
 
 ## About
 
