@@ -668,3 +668,7 @@ body {
 .Cart__price {
   font: 300 12px "Gotham", sans-serif;
   color: #333; }
+
+.Cart__total {
+  font: 400 12px "Gotham", sans-serif;
+  color: #333; }

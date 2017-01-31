@@ -39,10 +39,13 @@ Amaro.Utils = {
         Amaro.Utils.toPrice(oldPrice) *
         Amaro.Utils.percentage(discount)/100
       )
-    ).toFixed(2);
+    );
   },
 
   toCurrency: function(price) {
-    return 'R$ ' + price.replace(/(\w+).(\w+)/, '$1,$2');
+    if(price == 0) {
+      return 'R$ 0,00';
+    }
+    return 'R$ ' + price.toFixed(2).toString().replace(/(\w+).(\w+)/, '$1,$2');
   }
 };

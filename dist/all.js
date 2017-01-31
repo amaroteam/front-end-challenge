@@ -39,11 +39,14 @@ Amaro.Utils = {
         Amaro.Utils.toPrice(oldPrice) *
         Amaro.Utils.percentage(discount)/100
       )
-    ).toFixed(2);
+    );
   },
 
   toCurrency: function(price) {
-    return 'R$ ' + price.replace(/(\w+).(\w+)/, '$1,$2');
+    if(price == 0) {
+      return 'R$ 0,00';
+    }
+    return 'R$ ' + price.toFixed(2).toString().replace(/(\w+).(\w+)/, '$1,$2');
   }
 };
 
@@ -246,8 +249,12 @@ Amaro.Cart = {
 
   data: [],
 
+  sum: 0,
+
   addProduct: function(obj) {
     Amaro.Cart.data.push(obj);
+
+    Amaro.Cart.sum += Amaro.Utils.toPrice(obj.price);
   },
 
   show: function(parent, callback) {
@@ -271,6 +278,11 @@ Amaro.Cart = {
       element += product;
     });
 
+    element +=
+      '<div class="Cart__total">Total: ' +
+        Amaro.Utils.toCurrency(Amaro.Cart.sum) +
+      '</div>'
+    ;
     element += '</div>';
     parent.innerHTML = element;
     callback();

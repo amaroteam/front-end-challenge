@@ -4,8 +4,12 @@ Amaro.Cart = {
 
   data: [],
 
+  sum: 0,
+
   addProduct: function(obj) {
     Amaro.Cart.data.push(obj);
+
+    Amaro.Cart.sum += Amaro.Utils.toPrice(obj.price);
   },
 
   show: function(parent, callback) {
@@ -29,6 +33,11 @@ Amaro.Cart = {
       element += product;
     });
 
+    element +=
+      '<div class="Cart__total">Total: ' +
+        Amaro.Utils.toCurrency(Amaro.Cart.sum) +
+      '</div>'
+    ;
     element += '</div>';
     parent.innerHTML = element;
     callback();
