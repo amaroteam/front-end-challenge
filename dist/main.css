@@ -453,6 +453,18 @@ body {
   background-size: 20px 24px;
   cursor: pointer; }
 
+.Header__cart__ammount {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: #ff6868;
+  border-radius: 8px;
+  font: 400 10px/16px font-text;
+  color: #fff;
+  text-align: center; }
+
 .Logo {
   display: block;
   width: 140px;
@@ -576,7 +588,8 @@ body {
       cursor: pointer; } }
 
 .Modal__body {
-  font-size: 0; }
+  font-size: 0;
+  overflow: auto; }
 
 @media only screen and (min-width: 64.1em) {
   .Modal__image {
@@ -590,6 +603,11 @@ body {
     .Modal__image .Product__image {
       display: block;
       width: 60%;
+      margin: 0 auto; } }
+  @media only screen and (min-width: 39.3em) and (max-width: 64.09em) {
+    .Modal__image .Product__image {
+      display: block;
+      width: 40%;
       margin: 0 auto; } }
 
 @media only screen and (min-width: 64.1em) {

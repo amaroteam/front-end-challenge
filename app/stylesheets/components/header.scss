@@ -12,3 +12,16 @@
   background-size: 20px 24px;
   cursor: pointer;
 }
+
+.Header__cart__ammount {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: $color-secondary;
+  border-radius: 8px;
+  font: 400 10px/16px font-text;
+  color: $color-negative;
+  text-align: center;
+}

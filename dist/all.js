@@ -251,10 +251,19 @@ Amaro.Cart = {
 
   sum: 0,
 
+  ammount: 0,
+
   addProduct: function(obj) {
     Amaro.Cart.data.push(obj);
 
     Amaro.Cart.sum += Amaro.Utils.toPrice(obj.price);
+
+    Amaro.Cart.ammount += 1;
+    Amaro.Cart.updateAmmount();
+  },
+
+  updateAmmount: function() {
+    document.querySelector('.js-cart-ammount').innerText = Amaro.Cart.ammount;
   },
 
   show: function(parent, callback) {

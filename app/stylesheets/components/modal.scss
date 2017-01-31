@@ -49,6 +49,7 @@
 
 .Modal__body {
   font-size: 0;
+  overflow: auto;
 }
 
 .Modal__image {
@@ -64,6 +65,12 @@
     @include media(phone) {
       display: block;
       width: 60%;
+      margin: 0 auto;
+    }
+
+    @include media(tablet) {
+      display: block;
+      width: 40%;
       margin: 0 auto;
     }
   }
