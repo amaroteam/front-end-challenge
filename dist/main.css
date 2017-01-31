@@ -437,6 +437,9 @@ template {
 body {
   font: 16px "Gotham Book", sans-serif; }
 
+.Wrapper {
+  max-width: 100%; }
+
 .Logo {
   display: block;
   width: 140px;
@@ -447,13 +450,16 @@ body {
       margin-top: 30px;
       margin-bottom: 30px; } }
 
+.Grid {
+  padding: 0 20px; }
+
 .Product {
   width: 100%;
   margin-bottom: 15px; }
   @media only screen and (min-width: 64.1em) {
     .Product {
       display: inline-block;
-      width: 300px; } }
+      width: 25%; } }
 
 .Product__image {
   width: 60%; }
@@ -463,7 +469,7 @@ body {
       margin: 0 auto; } }
   @media only screen and (min-width: 64.1em) {
     .Product__image {
-      width: 300px; } }
+      width: 100%; } }
 
 .Product__content {
   margin-top: 10px; }

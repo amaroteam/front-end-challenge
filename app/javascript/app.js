@@ -3,7 +3,6 @@ var Amaro = Amaro || {};
 Amaro.App = (function() {
 
   function App() {
-    this.data = null;
     this.getData();
   }
 
