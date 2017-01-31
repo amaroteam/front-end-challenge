@@ -151,7 +151,10 @@ Amaro.Product = (function() {
   };
 
   Product.prototype.getSizes = function() {
-    var element = '<div class="Modal__sizes">';
+    var element =
+      '<div class="Modal__sizes">' +
+        '<h4 class="Modal__sizes__title">Tamanhos</h4>'
+    ;
 
     this.sizes.map(function(s) {
       if(s.available) {
