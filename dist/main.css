@@ -440,6 +440,19 @@ body {
 .Wrapper {
   max-width: 100%; }
 
+.Header {
+  position: relative; }
+
+.Header__cart {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
+  height: 24px;
+  background: url(images/shopping-bag.svg) no-repeat;
+  background-size: 20px 24px;
+  cursor: pointer; }
+
 .Logo {
   display: block;
   width: 140px;
@@ -632,3 +645,26 @@ body {
   border: 1px solid #333;
   padding: 8px;
   margin: 0 2px; }
+
+.Cart__title {
+  font: 400 14px "Gotham", sans-serif;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase; }
+
+.Cart__item {
+  background: #f4f2f0;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between; }
+
+.Cart__name {
+  font: 400 12px "Gotham", sans-serif;
+  color: #333; }
+
+.Cart__price {
+  font: 300 12px "Gotham", sans-serif;
+  color: #333; }

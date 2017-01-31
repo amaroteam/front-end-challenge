@@ -16,6 +16,7 @@ gulp.task('js', () => {
     './app/javascript/components/product.js',
     './app/javascript/components/grid.js',
     './app/javascript/components/modal.js',
+    './app/javascript/components/cart.js',
     './app/javascript/app.js',
     './app/javascript/**/*.js'
   ])

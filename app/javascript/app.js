@@ -4,6 +4,7 @@ Amaro.App = (function() {
 
   function App() {
     this.getData();
+    Amaro.Cart.bind();
   }
 
   App.prototype.getData = function() {

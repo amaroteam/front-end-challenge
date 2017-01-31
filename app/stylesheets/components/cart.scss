@@ -1,0 +1,28 @@
+.Cart {}
+
+.Cart__title {
+  font: 400 14px $font-text;
+  color: $color-primary;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.Cart__item {
+  background: $color-bg;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cart__name {
+  font: 400 12px $font-text;
+  color: $color-primary;
+}
+
+.Cart__price {
+  font: 300 12px $font-text;
+  color: $color-primary;
+}

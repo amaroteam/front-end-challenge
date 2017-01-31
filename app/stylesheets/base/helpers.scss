@@ -1,4 +1,4 @@
-//media queries
+// media queries
 @mixin media($devices...) {
   @each $device in $devices {
     @if $device == phone {
@@ -10,5 +10,19 @@
     } @else if $device == x2 {
       @media #{$x2} { @content; }
     }
+  }
+}
+
+// justify items
+@mixin justify-items {
+  text-align: justify;
+  text-justify: distribute;
+  font-size: 0;
+
+  &::after {
+    content: '';
+    height: 0;
+    display: inline-block;
+    width: 100%;
   }
 }
