@@ -20,7 +20,9 @@ Amaro.Product = (function() {
           this.name +
         '</h3>' +
         '<div class="Product__price">' +
-          '<span class="Product__price__number">' + this.price + '</span>' +
+          '<span class="Product__price__number' +
+            this.hasDiscount() +
+          '">' + this.price + '</span>' +
           this.getDiscount() +
         '</div>' +
       '</div>'
@@ -46,6 +48,14 @@ Amaro.Product = (function() {
           ) +
         '</span>'
       );
+    }
+
+    return "";
+  };
+
+  Product.prototype.hasDiscount = function() {
+    if(this.discountPercentage) {
+      return " Product__price__number--crossed"
     }
 
     return "";

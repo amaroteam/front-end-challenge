@@ -495,6 +495,9 @@ body {
   font: 700 11px "Gotham", sans-serif;
   color: #000; }
 
+.Product__price__number--crossed {
+  text-decoration: line-through; }
+
 .Product__discount {
   display: inline-block;
   font: 400 11px "Gotham", sans-serif;
