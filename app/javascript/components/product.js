@@ -28,6 +28,8 @@ Amaro.Product = (function() {
       '</div>'
     ;
 
+    element.addEventListener('click', this.showModal);
+
     parent.appendChild(element);
   };
 
@@ -59,6 +61,12 @@ Amaro.Product = (function() {
     }
 
     return "";
+  };
+
+  Product.prototype.showModal = function() {
+    var modal = new Amaro.Modal(document.querySelector('.js-modal'));
+
+    modal.open();
   };
 
   return Product;

@@ -2,6 +2,16 @@ var Amaro = Amaro || {};
 
 Amaro.Utils = {
 
+  addClass: function(element, className) {
+    if (!new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.className)) {
+        element.className += ' ' + className;
+    }
+  },
+
+  removeClass: function(element, className) {
+     element.className = element.className.replace(new RegExp('(\\s+|^)' + className + '(\\s+|$)', 'g'), ' ').replace(/^\s+|\s+$/g, '');
+  },
+
   percentage: function(str) {
     return parseInt(
       str.slice(0, 1)

@@ -2,6 +2,16 @@ var Amaro = Amaro || {};
 
 Amaro.Utils = {
 
+  addClass: function(element, className) {
+    if (!new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.className)) {
+        element.className += ' ' + className;
+    }
+  },
+
+  removeClass: function(element, className) {
+     element.className = element.className.replace(new RegExp('(\\s+|^)' + className + '(\\s+|$)', 'g'), ' ').replace(/^\s+|\s+$/g, '');
+  },
+
   percentage: function(str) {
     return parseInt(
       str.slice(0, 1)
@@ -67,6 +77,8 @@ Amaro.Product = (function() {
       '</div>'
     ;
 
+    element.addEventListener('click', this.showModal);
+
     parent.appendChild(element);
   };
 
@@ -100,6 +112,12 @@ Amaro.Product = (function() {
     return "";
   };
 
+  Product.prototype.showModal = function() {
+    var modal = new Amaro.Modal(document.querySelector('.js-modal'));
+
+    modal.open();
+  };
+
   return Product;
 
 })();
@@ -127,6 +145,37 @@ Amaro.Grid = (function() {
   };
 
   return Grid;
+
+})();
+
+var Amaro = Amaro || {};
+
+Amaro.Modal = (function() {
+
+  function Modal(element) {
+    this.element = element;
+    this.closeBtn = this.element.querySelector('.js-modal-close');
+
+    this.bind();
+  }
+
+  Modal.prototype.bind = function() {
+    var self = this;
+
+    this.closeBtn.addEventListener('click', function() {
+      self.close();
+    });
+  };
+
+  Modal.prototype.open = function() {
+    Amaro.Utils.addClass(this.element, 'is-open');
+  };
+
+  Modal.prototype.close = function() {
+    Amaro.Utils.removeClass(this.element, 'is-open');
+  };
+
+  return Modal;
 
 })();
 

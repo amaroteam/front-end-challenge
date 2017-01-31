@@ -1,0 +1,43 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 10px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.Modal__box {
+  position: relative;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: $color-negative;
+  border-radius: 7px;
+  padding: 15px 10px;
+  z-index: 2;
+}
+
+.Modal__box__close {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 10px;
+  right: 10px;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6Izk5OTk5OTt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTYsMTMuNUwxMC41LDhsNS41LTUuNUwxMy41LDBMOCw1LjVMMi40LDAuMUwwLDIuNUw1LjUsOGwtNS41LDUuNUwyLjUsMTZMOCwxMC41bDUuNSw1LjVMMTYsMTMuNXoiLz48L3N2Zz4=) no-repeat;
+
+  @include media(desktop) {
+    cursor: pointer;
+  }
+}
