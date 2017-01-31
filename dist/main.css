@@ -450,6 +450,17 @@ body {
       margin-top: 30px;
       margin-bottom: 30px; } }
 
+.Button {
+  display: inline-block;
+  background: #333;
+  border: none;
+  padding: 15px 25px;
+  font: 700 14px "Gotham", sans-serif;
+  color: #fff;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer; }
+
 .Grid {
   padding: 0 20px;
   margin-bottom: 50px; }
@@ -527,11 +538,15 @@ body {
   top: 10%;
   left: 0;
   width: 100%;
-  height: 400px;
   background: #fff;
   border-radius: 7px;
   padding: 15px 10px;
   z-index: 2; }
+  @media only screen and (min-width: 64.1em) {
+    .Modal__box {
+      width: 800px;
+      left: 50%;
+      margin-left: -400px; } }
 
 .Modal__box__close {
   position: absolute;
@@ -543,3 +558,48 @@ body {
   @media only screen and (min-width: 64.1em) {
     .Modal__box__close {
       cursor: pointer; } }
+
+.Modal__body {
+  font-size: 0; }
+
+@media only screen and (min-width: 64.1em) {
+  .Modal__image {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%; } }
+
+.Modal__image .Product__image {
+  width: 100%; }
+
+@media only screen and (min-width: 64.1em) {
+  .Modal__content {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%; } }
+
+.Modal__product__name {
+  font: 18px "Gotham Book", sans-serif;
+  color: #333;
+  text-align: center; }
+
+.Modal__price {
+  text-align: center;
+  margin-bottom: 15px; }
+  .Modal__price .Product__price__number--crossed {
+    text-decoration: line-through; }
+  .Modal__price .Product__discount {
+    display: inline-block;
+    font: 400 14px "Gotham", sans-serif;
+    color: #ff6868;
+    margin-left: 5px; }
+
+.Modal__price__number {
+  display: inline-block;
+  font: 700 14px "Gotham", sans-serif;
+  color: #000; }
+
+@media only screen and (min-width: 64.1em) {
+  .Modal__buy {
+    display: block;
+    width: 300px;
+    margin: 0 auto; } }

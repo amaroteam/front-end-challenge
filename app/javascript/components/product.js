@@ -3,6 +3,7 @@ var Amaro = Amaro || {};
 Amaro.Product = (function() {
 
   function Product(object) {
+    this.object = object;
     this.name = object.name;
     this.image = object.image;
     this.price = object.actual_price;
@@ -11,6 +12,7 @@ Amaro.Product = (function() {
 
   Product.prototype.create = function(parent) {
     var element = document.createElement('div');
+    var self = this;
 
     element.setAttribute("class", "Product");
     element.innerHTML =
@@ -28,7 +30,7 @@ Amaro.Product = (function() {
       '</div>'
     ;
 
-    element.addEventListener('click', this.showModal);
+    element.addEventListener('click', this.showModal.bind(this));
 
     parent.appendChild(element);
   };
@@ -63,10 +65,36 @@ Amaro.Product = (function() {
     return "";
   };
 
-  Product.prototype.showModal = function() {
-    var modal = new Amaro.Modal(document.querySelector('.js-modal'));
+  Product.prototype.showModal = function(e) {
+    var modalElement = document.querySelector('.js-modal');
+    var modal = new Amaro.Modal(modalElement);
+    var modalBody = modalElement.querySelector('.js-modal-body');
 
-    modal.open();
+    this.fillModal(modalBody, function() {
+      modal.open();
+    });
+  };
+
+  Product.prototype.fillModal = function(parent, callback) {
+    var element =
+      '<div class="Modal__image">' +
+        this.getImage() +
+      '</div>' +
+      '<div class="Modal__content">' +
+        '<h2 class="Modal__product__name">' + this.name + '</h2>' +
+        '<div class="Modal__price">' +
+          '<span class="Modal__price__number' +
+            this.hasDiscount() +
+          '">' + this.price + '</span>' +
+          this.getDiscount() +
+        '</div>' +
+        '<button class="Modal__buy Button">Comprar</button>' +
+      '</div>'
+    ;
+
+    parent.innerHTML = element;
+
+    callback();
   };
 
   return Product;

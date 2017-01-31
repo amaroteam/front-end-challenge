@@ -10,11 +10,9 @@ Amaro.Modal = (function() {
   }
 
   Modal.prototype.bind = function() {
-    var self = this;
-
     this.closeBtn.addEventListener('click', function() {
-      self.close();
-    });
+      this.close();
+    }.bind(this));
   };
 
   Modal.prototype.open = function() {

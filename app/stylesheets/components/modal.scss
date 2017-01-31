@@ -22,11 +22,16 @@
   top: 10%;
   left: 0;
   width: 100%;
-  height: 400px;
   background: $color-negative;
   border-radius: 7px;
   padding: 15px 10px;
   z-index: 2;
+
+  @include media(desktop) {
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+  }
 }
 
 .Modal__box__close {
@@ -39,5 +44,66 @@
 
   @include media(desktop) {
     cursor: pointer;
+  }
+}
+
+.Modal__body {
+  font-size: 0;
+}
+
+.Modal__image {
+  @include media(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+
+  .Product__image {
+    width: 100%;
+  }
+}
+
+.Modal__content {
+  @include media(desktop) {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+  }
+}
+
+.Modal__product__name {
+  font: 18px $font-primary;
+  color: $color-primary;
+  text-align: center;
+}
+
+.Modal__price {
+  text-align: center;
+  margin-bottom: 15px;
+
+  .Product__price__number--crossed {
+    text-decoration: line-through;
+  }
+
+  .Product__discount {
+    display: inline-block;
+    font: 400 14px $font-text;
+    color: $color-secondary;
+    margin-left: 5px;
+  }
+}
+
+.Modal__price__number {
+  display: inline-block;
+  font: 700 14px $font-text;
+  color: $color-text-dark;
+}
+
+.Modal__buy {
+
+  @include media(desktop) {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
   }
 }
