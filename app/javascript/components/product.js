@@ -8,6 +8,7 @@ Amaro.Product = (function() {
     this.image = object.image;
     this.price = object.actual_price;
     this.discountPercentage = object.discount_percentage;
+    this.sizes = object.sizes;
   }
 
   Product.prototype.create = function(parent) {
@@ -88,13 +89,34 @@ Amaro.Product = (function() {
           '">' + this.price + '</span>' +
           this.getDiscount() +
         '</div>' +
+        this.getSizes() +
         '<button class="Modal__buy Button">Comprar</button>' +
       '</div>'
     ;
 
+    this.getSizes();
+
     parent.innerHTML = element;
 
     callback();
+  };
+
+  Product.prototype.getSizes = function() {
+    var element = '<div class="Modal__sizes">';
+
+    this.sizes.map(function(s) {
+      if(s.available) {
+        var sizeItem =
+          '<div class="Modal__sizes__item">' +
+            s.size +
+          '</div>';
+        ;
+
+        element += sizeItem;
+      }
+    });
+
+    return element + '</div>';
   };
 
   return Product;

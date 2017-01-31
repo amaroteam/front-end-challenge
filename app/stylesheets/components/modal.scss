@@ -114,3 +114,18 @@
     margin: 0 auto;
   }
 }
+
+.Modal__sizes {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.Modal__sizes__item {
+  display: inline-block;
+  vertical-align: top;
+  font: 300 12px $font-text;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  padding: 8px;
+  margin: 0 2px;
+}
