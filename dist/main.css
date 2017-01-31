@@ -456,6 +456,10 @@ body {
 .Product {
   width: 100%;
   margin-bottom: 15px; }
+  @media only screen and (min-width: 39.3em) and (max-width: 64.09em) {
+    .Product {
+      display: inline-block;
+      width: 33.33333%; } }
   @media only screen and (min-width: 64.1em) {
     .Product {
       display: inline-block;
@@ -467,6 +471,9 @@ body {
     .Product__image {
       display: block;
       margin: 0 auto; } }
+  @media only screen and (min-width: 39.3em) and (max-width: 64.09em) {
+    .Product__image {
+      width: 100%; } }
   @media only screen and (min-width: 64.1em) {
     .Product__image {
       width: 100%; } }

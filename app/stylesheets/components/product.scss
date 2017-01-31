@@ -2,6 +2,11 @@
   width: 100%;
   margin-bottom: 15px;
 
+  @include media(tablet) {
+    display: inline-block;
+    width: 33.33333%;
+  }
+
   @include media(desktop) {
     display: inline-block;
     width: 25%;
@@ -16,7 +21,7 @@
     margin: 0 auto;
   }
 
-  @include media(desktop) {
+  @include media(tablet, desktop) {
     width: 100%;
   }
 }
