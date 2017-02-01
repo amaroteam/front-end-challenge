@@ -28,7 +28,7 @@ O objetivo do desafio é construir uma página de catálogo para alguns dos _bes
 - Ah! Não se esqueça de mostrar o valor total do carrinho.
 - Achou o teste até aqui fácil? Que tal adicionar um filtro para mostrar só os produtos em promoção (`on_sale`)?
 - Alguns produtos não tem sua grade completa (todos os tamanhos disponíveis). Mostre somente os tamanhos em estoque.
-- Todos gostamos de código limpo e testável, certo? Sinceramente, nós mesmos não fazemos um trabalho excelente com testes, então esse é um grande diferencial.
+- Todos gostamos de código limpo e testável, certo? Teste sua aplicação e os componentes, esse será um grande diferencial.
 
 ## Critérios de avaliação
 
