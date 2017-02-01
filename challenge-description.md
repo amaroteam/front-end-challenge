@@ -14,7 +14,7 @@ The objective of this challenge is to build a catalog page for some _best-seller
 ## Requirements
 
 - The page must be responsive. If possible, use a _mobile-first_ approach.
-- FOr each item on the catalog, the following information must be present on the page:
+- For each item on the catalog, the following information must be present on the page:
     - Image
     - Name
     - Price
@@ -30,7 +30,7 @@ The objective of this challenge is to build a catalog page for some _best-seller
 - Oh! Don't forget to show total value of cart.
 - Want more challenges? Add a filter to show only products `on_sale`.
 - Some products don't have all sizes available. Show only the ones on stock.
-- We like clean and testable code, right? Sincerely, we don't do an excellent code on this department, so this is a big bonus point.
+- We like clean and testable code, right? Test your application and components, it will be a big bonus point.
 
 ## How we'll evaluate
 
