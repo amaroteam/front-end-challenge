@@ -1,19 +1,30 @@
 import React from 'react'
 
-export default class Cart extends React.Component {
-  componentWillUpdate () {
-    console.log(this.props.products)
-    const quantity = this.props.products.length
+const Cart = (items, visible) => {
+  let classCart = 'cart-container'
+
+  if (visible) {
+    classCart += ' is-visible'
   }
 
-  render () {
-    return (
-      <button className="main-cart">
-        <span className="fa fa-shopping-cart"></span>
+  return (
+    <div className={classCart}>
+      <div className="cart-main">
         {
-          <span className="badge-quantities">{this.props.products.length}</span>
+          // @TODO: Create function to render this
+          items.map(item => (
+            <div className="cart-product">
+              <figure className="image">
+                <img src={item.image} alt={item.name} />
+              </figure>
+
+              <h3>{item.name}</h3>
+            </div>
+          ))
         }
-      </button>
-    )
-  }
+      </div>
+    </div>
+  )
 }
+
+export default Cart

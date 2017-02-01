@@ -6,9 +6,14 @@ import Product from '../Product'
 export default class Home extends React.Component {
   constructor () {
     super()
-    this.state = {products: [], cart: []}
+    this.state = {
+      products: [],
+      cart: [],
+      visible: false
+    }
 
-    this.addToCart = this.addToCart.bind(this)
+    this.toggleCart = this.toggleCart.bind(this)
+    this.handleCart = this.handleCart.bind(this)
   }
 
   componentWillMount () {
@@ -25,23 +30,16 @@ export default class Home extends React.Component {
       .then(data => this.setState({products: data}))
   }
 
-  addToCart (product) {
-    product = {
-      style: product.style,
-      name: product.name,
-      price: product.actual_price,
-      installments: product.installments,
-      quantity: 1
+  handleCart (event, product) {
+    if (!product.cart) {
+      return window.alert('Selecione uma opção')
     }
 
-    // Verify if current product is on Cart
-    let exists = this.state.cart.filter(item => item.style === product.style)
+    this.setState({cart: [...this.state.cart, product]})
+  }
 
-    if (exists.length) {
-      return
-    }
-
-    return this.setState({cart: [...this.state.cart, product]})
+  toggleCart () {
+    this.setState({visible: true})
   }
 
   render () {
@@ -49,20 +47,18 @@ export default class Home extends React.Component {
       <div className="home">
         <header className="main-header">
           <h1>Amaro</h1>
-          <Cart products={this.state.cart} />
+
+          <button className="main-cart" onClick={this.toggleCart}>
+            <span className="fa fa-shopping-cart"></span>
+            <span className="badge-quantities">{this.state.cart.length}</span>
+          </button>
         </header>
 
         <div className="products-list">
-          {
-            this.state.products.map(pdt => (
-              <Product
-                key={pdt.code_color}
-                product={pdt}
-                cart={this.addToCart}
-              />
-            ))
-          }
+          {this.state.products.map(product => Product(product, this.handleCart))}
         </div>
+
+        {Cart(this.state.cart, this.state.visible)}
       </div>
     )
   }

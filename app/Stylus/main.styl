@@ -1,19 +1,35 @@
 @import 'utils/*'
 @import 'components/*'
 
-.to-cart
-  size(100%, 45px)
-  upper()
+.cart
+  &-container
+    size(100%, 100vh)
 
-  display flex
-  padding-left 15px
-  padding-right 15px
-  align-items center
-  justify-content space-between
+    top 0
+    left 0
+    z-index 1
+    position fixed
 
-  text-align left
-  color $color-black
+    opacity 0
+    visibility hidden
 
-  border none
-  cursor pointer
-  background-color lighten($color-grey-light, 95%)
+    transition all .2s
+    background-color alpha($color-black, 85%)
+
+    &.is-visible
+      opacity 1
+      visibility visible
+
+  &-main
+    size(320px, 100vh)
+
+    top 0
+    right 0
+    position fixed
+
+    display block
+    max-width 100%
+
+    background-color $color-white
+    box-shadow 0 -5px 15px $color-black
+
