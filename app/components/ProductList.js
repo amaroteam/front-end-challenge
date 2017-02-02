@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import catalogStl from '../styles/catalog.styl'
-import ProductListItem from './ProductListItem'
+import modalStl from '../styles/modal.styl'
+import ProductListItem from './product/ProductListItem'
 
 export default class ProductList extends Component {
 	static propTypes = {

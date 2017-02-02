@@ -1,16 +1,12 @@
 @import './vars/colors.styl'
 @import './vars/shadows.styl'
+@import './vars/fonts.styl'
 
 .header
 	height 60px
 	width 100%
 	top 0
 	left 0
-	// <--temporary
-	// width 360px
-	// right 0
-	// margin auto
-	// temporary -->
 	line-height 60px
 	padding 0 20px
 	background-color inverted
@@ -58,5 +54,15 @@
 
 		&:hover
 			right 5px
-			// background-color main
-			// color inverted
+	
+	&__counter
+		position absolute
+		right 4px
+		bottom 8px
+		height 1.2rem
+		width 1.2rem
+		background-color text-red
+		border-radius 50%
+		line-height 1.2rem
+		font-size .8rem
+		font-family default

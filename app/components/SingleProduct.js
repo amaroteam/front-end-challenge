@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import productStl from '../styles/product.styl'
-import ProductListItemPrice from './ProductListItemPrice'
+import ProductListItemPrice from './product/ProductListItemPrice'
 
 export default class SingleProduct extends Component {
 	static propTypes = {

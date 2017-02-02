@@ -1,7 +1,9 @@
 'use strict';
 const path = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
 	devtool: 'source-map',
@@ -10,7 +12,7 @@ module.exports = {
 		path.join(__dirname, 'app/index.js')
 	],
 	output: {
-		path: path.join(__dirname, '/dist/js/'),
+		path: path.join(__dirname, '/dist/'),
 		filename: '[name].js',
 		publicPath: '/'
 	},
@@ -48,6 +50,10 @@ module.exports = {
 			{
 				test: /\.styl$/,
 				loader: ExtractTextPlugin.extract('css!stylus')
+			},
+			{
+				test: /\.jpe?g$|\.gif$|\.png$/i,
+				loader: 'file'
 			},
 			{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
 			{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }

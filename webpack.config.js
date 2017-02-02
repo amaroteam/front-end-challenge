@@ -3,7 +3,6 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
 	devtool: 'eval-source-map',
@@ -14,7 +13,7 @@ module.exports = {
 		path.join(__dirname, 'app/index.js')
 	],
 	output: {
-		path: path.join(__dirname, '/dist/js/'),
+		path: path.join(__dirname, '/dist/'),
 		filename: '[name].js',
 		publicPath: '/'
 	},
@@ -47,11 +46,17 @@ module.exports = {
 				loader: 'style-loader!css-loader!stylus-loader'
 			},
 			{
-				test: /\.jpg$/,
+				test: /\.jpe?g$|\.gif$|\.png$/i,
 				loader: 'file'
 			},
-			{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-			{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+			{
+				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "url-loader?limit=10000&minetype=application/font-woff"
+			},
+			{
+				test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				loader: "file-loader"
+			}
 		]
 	}
 }

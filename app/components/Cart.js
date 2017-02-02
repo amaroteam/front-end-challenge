@@ -8,7 +8,7 @@ export default class Cart extends Component {
 	render() {
 		const { cartItems } = this.props
 
-		return null
+		// return null
 		return <div>
 			<h3>Cart Items</h3>
 			<ul>

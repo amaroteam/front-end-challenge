@@ -2,6 +2,9 @@
 @import './vars/shadows.styl'
 @import './vars/medias.styl'
 
+size-label-m = 36px
+size-label-t = 28px
+
 .catalog
 	padding 2% 3%
 	font-size 0
@@ -39,12 +42,9 @@
 		@media (min-width desk-low)
 			width 23%
 			padding-bottom 0
-			
-			img
-				opacity .85
 
 			&:hover
-				top -.3rem
+				top -.2rem
 				
 				.catalog
 					&__image
@@ -62,6 +62,9 @@
 		box-sizing border-box
 		transition all .3s ease-in-out
 		
+		@media (min-width desk-low)
+			opacity .75
+
 	&__content
 		font-size 1.2rem
 		text-align center
@@ -124,3 +127,29 @@
 		border 2px solid text-red
 		transition all .3s ease-in-out
 		z-index 2
+		
+	&__sizes
+		position relative
+		font-size .8rem
+		text-align right
+		height size-label-m
+		line-height size-label-m
+		top - size-label-m
+		margin-bottom - size-label-m
+		z-index 4
+		transition all .3s ease-in-out				
+
+	&__size
+		background-color inverted
+		text-align center
+		height size-label-m
+		width size-label-m
+		display inline-block
+		vertical-align top
+		margin 0 1px
+		color main
+		box-sizing border-box
+		transition all .3s ease-in-out
+
+		&:hover, &.selected
+			background-color text-red

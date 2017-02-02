@@ -1,6 +1,6 @@
 # AMARO front-end challenge
 
-An React Redux application
+A React Redux application
 
 ## Dependencies
 
@@ -26,6 +26,7 @@ The current version of he app will be found in the following address:
 http://amaro.murilobastos.com
 
 ## Comtact
+
 E-mail: iam@murilobastos.com
 Website: http://murilobastos.com
 Facebook: http://fb.me/muriloast

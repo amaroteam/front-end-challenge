@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import * as allActions from '../actions'
 import Cart from '../components/Cart'
 import ProductList from '../components/ProductList'
-// import { filterTable } from '../actions'
-// import { filterableTable } from '../styles/filterableTable.scss'
 
 @connect(state => ({
 	products: state.amaro.products,

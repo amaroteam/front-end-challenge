@@ -1,11 +1,10 @@
+// TODO: finish product page markup and styling
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as allActions from '../actions'
 import Cart from '../components/Cart'
 import SingleProduct from '../components/SingleProduct'
-// import { filterTable } from '../actions'
-// import { filterableTable } from '../styles/filterableTable.scss'
 
 @connect(state => ({
 	products: state.amaro.products,
