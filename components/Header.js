@@ -2,6 +2,7 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
+import autobind from 'autobind-decorator';
 
 export class Header extends React.Component {
     constructor(props){
@@ -12,27 +13,18 @@ export class Header extends React.Component {
           cart: localStorage.cart ? JSON.parse(localStorage.cart) : [],
           total:0
         };
-        // Bind
-        this.handleRequestClose = this.handleRequestClose.bind(this);
-        this.handleTouchTap     = this.handleTouchTap.bind(this);
-        this.activeHeader       = this.activeHeader.bind(this);
-        this.updateCart         = this.updateCart.bind(this);
-        this.removeItem         = this.removeItem.bind(this);
-        this.setTotal           = this.setTotal.bind(this);
-        this.getCart            = this.getCart.bind(this);
     }
-
     componentDidMount() {
         // Get position scroll page
         window.addEventListener('scroll', (event)=>{
             this.activeHeader(event.target);
         });
     }
-
+    @autobind
     setTotal(total) {
         this.setState({total:total});
     }
-
+    @autobind
     removeItem(item){
         let cart = this.state.cart;
         var index = cart.indexOf(item);
@@ -45,10 +37,11 @@ export class Header extends React.Component {
     /**
      * Pega os itens do carriho e joga no estado "cart"
      */
+    @autobind
     getCart(){
         this.setState({cart : localStorage.cart ? JSON.parse(localStorage.cart) : []});
     }
-
+    @autobind
     updateCart(item, add){
         let cart = this.state.cart;
         for (var i in cart) {
@@ -62,6 +55,7 @@ export class Header extends React.Component {
     /**
      * Estiliza o header
      */
+    @autobind
     activeHeader(page){
         let pos = page.scrollingElement.scrollTop;
         this.setState({header: pos > 400 ? true : false });
@@ -69,6 +63,7 @@ export class Header extends React.Component {
     /**
      * Abre o popover do carrinho
      */
+    @autobind
     handleTouchTap (event) {
         event.preventDefault();
         let self = this;
@@ -81,6 +76,7 @@ export class Header extends React.Component {
     /**
      * Fecha o popover e atualiza as informações no localStorage
      */
+    @autobind
     handleRequestClose(){
         localStorage.cart = JSON.stringify(this.state.cart);
         this.setState({

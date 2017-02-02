@@ -4,6 +4,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
+import autobind from 'autobind-decorator';
 
 export class Item extends React.Component {
     constructor(props){
@@ -14,9 +15,6 @@ export class Item extends React.Component {
             item:{},
             message:''
         };
-        // BIND
-        this.openMessage = this.openMessage.bind(this);
-        this.more        = this.more.bind(this);
     }
     /**
      * Pega o carrinho salvo no localStoreage
@@ -52,9 +50,11 @@ export class Item extends React.Component {
         }
     }
     // Abre ou fecha mais informações
+    @autobind
     more(item) {
         this.setState({ more: !this.state.more });
     }
+    @autobind
     openMessage(message){
         this.setState({
             showMessage:true,
