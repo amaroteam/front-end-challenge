@@ -31,20 +31,19 @@ export class  App extends React.Component {
      */
     setTab(index){
         let tabs = this.state.tabs;
+        // Troca a classe css para a tab ativa
         for (let i in tabs) {
             i == index ? tabs[i].active = true : tabs[i].active = false;
         }
-        let filtred = [];
-        if(tabs[index].filter){
-            for(let p in products){
-                if(products[p].on_sale == tabs[index].filter.on_sale){
-                     filtred.push(products[p]);
-                }
+        let filter = products.filter((product) => {
+            if(!tabs[index].filter){
+                return product;
             }
-        }
+            return product.on_sale == tabs[index].filter.on_sale;
+        });
         this.setState({
             tabs : tabs,
-            products: filtred.length == 0 ? products : filtred
+            products: filter
         });
     }
 

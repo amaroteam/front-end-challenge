@@ -29366,20 +29366,19 @@
 	        key: 'setTab',
 	        value: function setTab(index) {
 	            var tabs = this.state.tabs;
+	            // Troca a classe css para a tab ativa
 	            for (var i in tabs) {
 	                i == index ? tabs[i].active = true : tabs[i].active = false;
 	            }
-	            var filtred = [];
-	            if (tabs[index].filter) {
-	                for (var p in _products2.default) {
-	                    if (_products2.default[p].on_sale == tabs[index].filter.on_sale) {
-	                        filtred.push(_products2.default[p]);
-	                    }
+	            var filter = _products2.default.filter(function (product) {
+	                if (!tabs[index].filter) {
+	                    return product;
 	                }
-	            }
+	                return product.on_sale == tabs[index].filter.on_sale;
+	            });
 	            this.setState({
 	                tabs: tabs,
-	                products: filtred.length == 0 ? _products2.default : filtred
+	                products: filter
 	            });
 	        }
 	    }, {
@@ -48335,14 +48334,6 @@
 	            cart: localStorage.cart ? JSON.parse(localStorage.cart) : [],
 	            total: 0
 	        };
-	        // Bind
-	        //this.handleRequestClose = this.handleRequestClose.bind(this);
-	        //this.handleTouchTap     = this.handleTouchTap.bind(this);
-	        //this.activeHeader       = this.activeHeader.bind(this);
-	        //this.updateCart         = this.updateCart.bind(this);
-	        //this.removeItem         = this.removeItem.bind(this);
-	        //this.setTotal           = this.setTotal.bind(this);
-	        //this.getCart            = this.getCart.bind(this);
 	        return _this;
 	    }
 
@@ -53773,6 +53764,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _desc, _value, _class; /* global localStorage */
+
 
 	var _react = __webpack_require__(2);
 
