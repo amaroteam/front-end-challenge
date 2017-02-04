@@ -28,3 +28,10 @@ export function removeFromCart(id, amount) {
 		amount // Amount of the same product to be removed
 	}
 }
+
+export function filterBy(filter) {
+	return {
+		type: types.FILTER_BY,
+		filter // Type of filter (sale or all)
+	}
+}

@@ -1,0 +1,30 @@
+@import './vars/colors.styl'
+
+.filter
+	&__content
+		max-width 1200px
+		width 90%
+		margin auto
+		padding 3% 3% 0
+		font-size 0
+		
+	&__item
+		width 50%
+		display inline-block
+		vertical-align top
+		border 2px solid inverted
+		text-transform uppercase
+		line-height 2.5rem
+		font-size 1.1rem
+		letter-spacing 0.05rem
+		font-weight 600
+		transition all .4s ease-in-out
+		background-color transparent
+		color text
+		cursor pointer
+		box-sizing border-box
+		
+		&:hover, &.active
+			background-color inverted
+			color main
+		

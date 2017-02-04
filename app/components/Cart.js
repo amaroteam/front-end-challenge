@@ -3,7 +3,10 @@ import cartStl from '../styles/cart.styl'
 
 export default class Cart extends Component {
 	static propTypes = {
-		items: PropTypes.array
+		cartItems: PropTypes.array,
+		cartTotal: PropTypes.number,
+		removeFromCart: PropTypes.func,
+		isOpen: PropTypes.bool
 	}
 
 	render() {

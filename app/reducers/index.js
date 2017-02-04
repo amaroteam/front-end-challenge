@@ -19,7 +19,8 @@ const initialState = {
 	cartLength: 0,
 	cartTotal: 0,
 	action: '',
-	isOpen: false
+	isOpen: false,
+	filter: 'all'
 }
 
 const amaro = (state = initialState, action) => {
@@ -88,9 +89,26 @@ const amaro = (state = initialState, action) => {
 				cartTotal: _total
 			}
 
+
+		/*===========================================
+		=            Filter by reducer              =
+		===========================================*/
+		case types.FILTER_BY:
+			let onSale = action.filter === 'sale' ? true : false
+			let filteredProducts = []
+			
+			if (onSale)
+				filteredProducts = products.filter((product) => {
+					return product.on_sale === true
+				})
+
+			else
+				filteredProducts = [].concat(products)
+
 			return {
 				...state,
-				isOpen: !isOpen
+				products: filteredProducts,
+				filter: action.filter
 			}
 		
 		/*===============================================================

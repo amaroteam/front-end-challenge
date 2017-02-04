@@ -45,8 +45,7 @@ export default class ProductListItem extends Component {
 		return <li className='catalog__item'>
 			<ProductListItemSale
 				onSale={ product.on_sale }
-				regularPrice={ product.regular_price }
-				actualPrice={ product.actual_price }
+				discount={ product.discount_percentage }
 			/>
 			<LazyLoad
 				placeholder={ <img src={ loadingImage } title={ product.name } className="catalog__image"/> }
