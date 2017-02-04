@@ -7,7 +7,9 @@ import ProductList from '../components/ProductList'
 
 @connect(state => ({
 	products: state.amaro.products,
-	cartItems: state.amaro.cartItems
+	cartItems: state.amaro.cartItems,
+	cartTotal: state.amaro.cartTotal,
+	isOpen: state.amaro.isOpen
 }))
 
 export default class Home extends Component {
@@ -16,11 +18,16 @@ export default class Home extends Component {
 	}
 
 	render() {
-		const { products, cartItems, dispatch } = this.props
+		const { products, cartItems, cartTotal, isOpen, dispatch } = this.props
 		const actions = bindActionCreators(allActions, dispatch)
 
 		return <div>
-			<Cart cartItems={ cartItems } actions={ actions }/>
+			<Cart
+				cartItems={ cartItems }
+				removeFromCart={ actions.removeFromCart }
+				isOpen={ isOpen }
+				cartTotal={ cartTotal }
+			/>
 			<ProductList products={ products } addToCart={ actions.addToCart }/>
 		</div>
 	}

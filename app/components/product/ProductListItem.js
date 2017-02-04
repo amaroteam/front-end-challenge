@@ -43,6 +43,30 @@ export default class ProductListItem extends Component {
 			product.image = defaultImage
 
 		return <li className='catalog__item'>
+			<ProductListItemSale
+				onSale={ product.on_sale }
+				regularPrice={ product.regular_price }
+				actualPrice={ product.actual_price }
+			/>
+			<LazyLoad
+				placeholder={ <img src={ loadingImage } title={ product.name } className="catalog__image"/> }
+			>
+				<img src={ product.image } title={ product.name } className="catalog__image"/>
+			</LazyLoad>
+			<ProductListItemSizes sizes={ product.sizes } fromModal={ false }/>
+			<div className="catalog__content">
+				<h4 className="catalog__name">
+					{ product.name }
+				</h4>
+				<ProductListItemPrice actualPrice={ product.actual_price } regularPrice={ product.regular_price }/>
+			</div>
+			<button className="catalog__buy" onClick={ this._openModal }>
+				Comprar
+			</button>
+		</li>
+
+		// disabled \/
+		return <li className='catalog__item'>
 			<Link to={ `/product/${ id }` }>
 				<ProductListItemSale
 					onSale={ product.on_sale }

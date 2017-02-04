@@ -31,6 +31,8 @@ class ProductListItemSizesModal extends Component {
 		this.state = {
 			selected: props.sizes[0].sku
 		}
+
+		console.log(props.sizes[0].sku)
 	}
 
 	static propTypes = {
@@ -39,6 +41,7 @@ class ProductListItemSizesModal extends Component {
 	}
 
 	_clickHandler(size) {
+		this.props.sizes[0].sku
 		this.setState({ selected: size.sku })
 
 		this.props.updateSize(size)

@@ -1,0 +1,128 @@
+@import './vars/colors.styl'
+@import './vars/shadows.styl'
+@import './vars/medias.styl'
+
+.cart
+	position fixed
+	top -100%
+	left 0
+	right 0
+	background-color main
+	z-index 5
+	box-shadow shadow-1
+	padding 2rem 0
+	transition all .3s ease-in-out 
+	
+	&.is-open
+		top 60px
+
+	&__title
+		margin-bottom 1.5rem
+		
+		h3
+			font-size 1.4rem
+			text-transform uppercase
+			font-weight 400
+			
+		b
+			font-weight 600
+	
+	&__content
+		max-width 1200px
+		margin auto
+		padding 0 2%
+		
+	&__items
+		overflow auto
+		white-space nowrap
+		
+	&__item
+		margin-right 2%
+		width 48%
+		display inline-block
+		vertical-align top
+		position relative
+		overflow hidden
+		
+		@media (min-width tablet)
+			width 31%
+
+		@media (min-width tablet-high)
+			width 23%
+
+		@media (min-width desk-low)
+			width 18%
+			
+	&__image
+		padding-top 80%
+		position relative
+		overflow hidden
+		border 1px solid rgba(0, 0, 0, .1)
+
+		img
+			position absolute
+			top 0
+			left 0
+			width 100%
+	
+	&__delete
+		position absolute
+		top .4rem
+		right .4rem
+		font-size 1.4rem
+		z-index 1
+		cursor pointer
+		transition all .3s ease-in-out
+		border 0
+		background-color transparent
+		
+		&:hover
+			color text-red
+
+	&__name
+		position absolute
+		left 0
+		bottom 0
+		padding 0 .4rem
+		right 36px
+		height 36px
+		text-align left
+		line-height 36px
+		background-color main
+		color text
+		font-size .9rem
+		border-top 1px solid rgba(0, 0, 0, .1)
+		z-index 1
+
+	&__amount
+		position absolute
+		bottom 0
+		right 0
+		background-color inverted
+		width 36px
+		height 36px
+		color main
+		font-size 1.2rem
+		text-align center
+		line-height 36px
+		z-index 1
+		
+	&__price
+		position absolute
+		top 0
+		bottom 0
+		right 0
+		left 0
+		background-color rgba(0, 0, 0, .4)
+		text-align center
+		line-height 100%
+		padding-top 20%
+		font-size 2rem
+		color main
+		opacity 0
+		cursor pointer
+		transition all .3s ease-in-out
+		
+		&:hover
+			opacity .8
+			

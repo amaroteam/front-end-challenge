@@ -3,11 +3,12 @@ import headerStl from '../../styles/header.styl'
 
 export default class Header extends Component {
 	static propTypes = {
-		cartLength: PropTypes.number
+		cartLength: PropTypes.number,
+		toggleCart: PropTypes.func
 	}
 
 	render() {
-		const { cartLength } = this.props
+		const { cartLength, toggleCart } = this.props
 
 		return <header className="header">
 			<div className="header__content">
@@ -16,7 +17,7 @@ export default class Header extends Component {
 						the<b>Fashion</b>
 					</h3>
 				</div>
-				<button className="header__cart fa fa-shopping-cart">
+				<button className="header__cart fa fa-shopping-cart" onClick={ () => toggleCart() }>
 					<span className="header__counter">{ cartLength }</span>
 				</button>	
 			</div>
