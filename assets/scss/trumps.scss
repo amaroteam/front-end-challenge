@@ -30,3 +30,16 @@
 .text-center {
 	text-align: center;
 }
+
+
+/* Clearfix */
+.clearfix {
+	&:before, &:after{
+		content: "";
+		display: table;
+	}
+
+	&:before {
+		clear: both;
+	}
+} 
