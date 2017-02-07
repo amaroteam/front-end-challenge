@@ -1,35 +1,6 @@
 @import 'utils/*'
 @import 'components/*'
 
-.cart
-  &-container
-    size(100%, 100vh)
-
-    top 0
-    left 0
-    z-index 1
-    position fixed
-
-    opacity 0
-    visibility hidden
-
-    transition all .2s
-    background-color alpha($color-black, 85%)
-
-    &.is-visible
-      opacity 1
-      visibility visible
-
-  &-main
-    size(320px, 100vh)
-
-    top 0
-    right 0
-    position fixed
-
-    display block
-    max-width 100%
-
-    background-color $color-white
-    box-shadow 0 -5px 15px $color-black
-
+.main-container
+  width 100%
+  display block

@@ -4,31 +4,35 @@
 .main-header
   top 0
   left 0
+  z-index 1
   position fixed
 
   width 100%
+  padding 15px
   display flex
-  padding 25px 15px
   align-items center
   justify-content space-between
-  background-color $color-grey
 
-  h1
-    upper()
+  background-color $color-white
+  border-bottom 1px solid alpha($color-black, 15%)
+  // box-shadow 0 5px 15px alpha($color-black, 15%)
 
-    font-size 2rem
-    font-weight 100
+.header-cart
+  position relative
+
+  .icon
+    size(35px)
+
+  .indicator
+    size(25px)
+
+    top -5px
+    right -5px
+    position absolute
+
+    line-height 25px
+    text-align center
     color $color-white
 
-  button
-    size(45px)
-
-    padding 5px
-    border none
-    background transparent
-
-    cursor pointer
-
-    span
-      font-size 2.5rem
-      color $color-white
+    border-radius 100%
+    background-color tomato

@@ -39,7 +39,7 @@ export default class Home extends React.Component {
   }
 
   toggleCart () {
-    this.setState({visible: true})
+    this.setState({visible: !this.state.visible})
   }
 
   render () {
@@ -58,7 +58,7 @@ export default class Home extends React.Component {
           {this.state.products.map(product => Product(product, this.handleCart))}
         </div>
 
-        {Cart(this.state.cart, this.state.visible)}
+        <Cart list={this.state.cart} />
       </div>
     )
   }

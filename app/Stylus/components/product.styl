@@ -1,104 +1,76 @@
 //
 // Component Product
 // ============================================================================
-.products
-  &-list
-    width 100%
-    display flex
-    padding 115px 15px 25px
-    flex-flow row wrap
-    align-items stretch
+.products-list
+  width 100%
+  display flex
+  flex-wrap wrap
+  padding-top 150px
+  padding-bottom 25px
 
-    @media screen and (min-width: 768px)
-      padding-left 0
-      padding-right 0
+.card-product
+  position relative
 
-.product
-  &-card
-    shadow(alpha($color-black, 25%))
+  width 100%
+  padding 15px
+  display block
 
-    width 100%
-    margin-bottom 25px
+  @media screen and (min-width: 600px)
+    width 50%
 
-    @media screen and (min-width: 768px)
-      margin-left 1%
-      margin-right 1%
-      width calc(96% / 2)
+  @media screen and (min-width: 1024px)
+    width 25%
 
-    @media screen and (min-width: 1024px)
-      width calc(92% / 4)
-
-  &-cover
-    overflow hidden
-
-    .image
-      margin 0 auto
-      display block
-      max-width 100%
-
-  &-info
-    padding 15px
+  .image
     display block
-    background-color $color-white
+    max-width 100%
 
-    .title
-      display block
-      padding 5px 0
-      font-size 15px
-      font-weight 400
+  // Badge de promoção
+  .onsale
+    size(45px)
 
-  &-meta
-    width 100%
-    display block
+    top 15px
+    right 15px
+    position absolute
+
+    line-height 45px
+    text-align center
+    color $color-white
+
+    background-color tomato
+
+  .title
+    upper()
 
     padding-top 15px
+    padding-bottom 15px
 
-    .prices
-      size(100%, 55px)
-      margin-bottom 15px
+    font-size 1rem
+    font-weight 400
+    color $color-grey
 
-      p
-        font-weight 100
+.product
+  &-price
+    height 75px
 
-      .sale
-        color $color-grey-light
-        font-size 14px
+    .normal
+      font-size 14px
+      color $color-grey-light
 
-    .option
-      size(30px)
+    .ammount
+      font-size 18px
 
-      margin-right 5px
-      display inline-block
-      vertical-align middle
+  &-buy
+    upper()
 
-      label
-        width 100%
-        display block
+    width 100%
+    padding 10px
+    display flex
+    align-items center
+    justify-content space-between
 
-        line-height 30px
-        text-align center
+    cursor pointer
+    background-color lighten($color-grey-light, 75%)
 
-        cursor pointer
-        transition all .2s
-        border 1px solid $color-black
-
-      input:checked + label
-        color $color-white
-        background-color $color-black
-
-.to-cart
-  size(100%, 45px)
-  upper()
-
-  display flex
-  padding-left 15px
-  padding-right 15px
-  align-items center
-  justify-content space-between
-
-  text-align left
-  color $color-black
-
-  border none
-  cursor pointer
-  background-color lighten($color-grey-light, 95%)
+    .icon
+      size(19px)
