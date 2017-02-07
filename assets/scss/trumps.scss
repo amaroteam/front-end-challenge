@@ -43,3 +43,11 @@
 		clear: both;
 	}
 } 
+/* Hidden */
+.hidden {
+	display: none; 
+}
+
+@media (max-width: 691px) {  .hidden-mobile { display: none; } }
+@media (min-width: 692px) {  .hidden-tablet { display: none; } }
+@media (min-width: 992px) {  .hidden-desktop { display: none; } }

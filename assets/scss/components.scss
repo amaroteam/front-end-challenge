@@ -13,15 +13,13 @@
 	z-index: 1;
 	
 	//Icons
-	> .nav-toggle, > .nav-basket {
+	> .nav-toggle, > .list > li > .nav-basket {
 		width: 50px;
 		font-size: 1.8em;
 		color: #FFFFFF;
 		
 	}
 
-	> .nav-basket { text-align: right; }
-
 	//Logo
 	> .nav-brand {
 		border: solid 1px #FFFFFF;
@@ -32,36 +30,18 @@
 		}
 
 	}
-}
 
-.nav-containt {
-	height: 100vh;
-	width: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(#000000, 0.8);
-	display: none;
-}
-
-.nav {
-	height: 100vh;
-	width: 250px;
-	position: relative;
-	top: 0;
-	left: 0;
-	background-color: $color-one;
-
-
-	//Logo
-	> .nav-brand {
-		border: solid 1px #FFFFFF;
-		padding: $spacing-unit $spacing-unit * 1.6666;
-		> .brand {
-			width: 256px * 0.6;
-			height: 44px * 0.6; 
+	> .list {
+		> li { 
+			display: inline-block; 
+			> a{
+				padding: 12px 8px;
+				font-size: 1em;
+				color: #FFFFFF;
+			}
 		}
 
+		> li > .nav-basket { text-align: right; padding: 0;}
 	}
 }
 
@@ -97,10 +77,16 @@
 /* ====== MAIN ======= */
 .main {
 	padding: ($spacing-unit * 6) ($spacing-unit * 3);
+	
 	> .title {
 		text-align: center;
 		color: $color-three;
 		margin-bottom: $spacing-unit * 6;
+	}
+
+	> .order {
+		margin: ($spacing-unit * 6) auto; 
+		max-width: 320px;
 	}
 
 	> .more {

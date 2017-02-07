@@ -38,3 +38,17 @@
 	}
 
 }
+
+
+/* ====== INPUT, SELECTS & TEXTARES ====== */
+.form-group {
+
+	display: block;
+	width: 100%;
+
+	> .select {
+		border: solid 1px #F1F1F1;
+		padding: 12px 8px;
+		width: 100%;
+	} 
+}

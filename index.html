@@ -23,7 +23,7 @@
 	
 	<!-- ====== Navegação ====== -->
 	<nav class="nav-wrapper">
-		<a href="#" class="nav-toggle icon-article"></a>
+		<a href="#" class="nav-toggle icon-article hidden-tablet"></a>
 		<div class="nav-brand">
 			<svg class="brand" viewBox="0 0 256 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
 			    <g>
@@ -33,14 +33,14 @@
 			    </g>
 			</svg>
 		</div>
-		
-		<div class="nav-containt">
-			<ul class="nav">
-				
-			</ul>
-		</div>
-		
-		<a href="#" class="nav-basket icon-basket"></a>
+	
+		<ul class="list">
+			<li><a href="#" class="hidden-mobile">Camisas</li>
+			<li><a href="#" class="hidden-mobile">Vestidos</a></li>
+			<li><a href="#" class="hidden-mobile">Praia</a></li>
+			<li><a href="#" class="hidden-mobile">Lingerie</a></li>
+			<li><a href="#" class="nav-basket icon-basket"></a></li>
+		</ul>
 	</nav>
 
 	<!-- ===== Header ====== -->
@@ -52,9 +52,15 @@
 	<!-- ====== Main ====== -->
 	<main class="main">
 		<h3 class="title">Coleção</h3>
-
+		<div class="form-group order">
+			<select class="select">
+				<option value="all">Todos</option>
+				<option value="promotion">Em promoção</option>
+			</select>
+		</div>
+		<div class="row"></div>
 		<div class="row products">
-			<div class="col-xs-12 col-sm-4">
+			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="card product">
 					<div class="promotion">50%</div>
 					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
@@ -65,7 +71,7 @@
 					<a href="#" class="button --default">INFO</a>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-4">
+			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="card product">
 					<div class="promotion">50%</div>
 					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
@@ -76,7 +82,7 @@
 					<a href="#" class="button --default">INFO</a>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-4">
+			<div class="col-xs-12 col-sm-6 col-md-4">
 				<div class="card product">
 					<div class="promotion">50%</div>
 					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
