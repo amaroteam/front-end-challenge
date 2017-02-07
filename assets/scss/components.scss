@@ -202,3 +202,78 @@
 		color: $color-three;
 	}
 }
+
+.info-product {
+	
+	.image-container {	
+		width: 100%;
+		border: solid 1px #F1F1F1;
+		
+		> .image {
+			margin-left: auto;
+			margin-right: auto;
+			width: 100%;
+			max-width: 300px;
+			display: block;
+		}
+	}
+
+	> .info {
+		text-align: center;
+		> .price, .name, .installments { 
+			font-size: 1.4em; 
+			margin-top: $spacing-unit;
+			margin-bottom: $spacing-unit;
+		}
+
+		> .name { font-weight: 900; }
+
+		> .price {
+			display: inline-block;
+			color: $color-one;
+
+			&.--old {
+				font-weight: 900;
+				font-style: italic;
+				text-decoration: line-through;
+			}
+		}
+
+		> .sizes {
+			display: flex;
+			justify-content: center;	
+			margin-top: $spacing-unit;
+			margin-bottom: $spacing-unit;
+
+			> .input { display: none; }
+
+			> .label {
+				width: 30px;
+				padding-top: 8px;
+				padding-bottom: 8px;
+				text-align: center;
+				color: $color-two;
+				border: solid 1px $color-two;
+				font-size: 0.8em;
+				font-weight: 900;
+				cursor: pointer;
+			}
+
+			> .label + .input + .label { margin-left: $spacing-unit; }
+
+			> .input:checked + .label{ 
+				background-color: $color-three; 
+				color: #FFFFFF;
+			}
+
+			> .input:disabled + .label{ 
+				background-color: #F1F1F1; 
+				color: #222222; 
+				border-color: #F1F1F1;
+			}
+		}
+
+		> .button { margin-top: $spacing-unit; }
+		
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "name": "bootstrap-grid",
+  "version": "1.0.0",
+  "description": "Bootstrap css that includes only grid styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrummell/bootstrap-grid.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "grid"
+  ],
+  "author": "John Rummell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrummell/bootstrap-grid/issues"
+  },
+  "homepage": "https://github.com/jrummell/bootstrap-grid",
+  "dependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-clean-css": "^2.0.4",
+    "gulp-rename": "^1.2.2"
+  }
+}

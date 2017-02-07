@@ -53,46 +53,14 @@
 	<main class="main">
 		<h3 class="title">Coleção</h3>
 		<div class="form-group order">
-			<select class="select">
+			<select class="select" id="order">
 				<option value="all">Todos</option>
 				<option value="promotion">Em promoção</option>
 			</select>
 		</div>
 		<div class="row"></div>
-		<div class="row products">
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="card product">
-					<div class="promotion">50%</div>
-					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
-					<div class="name">T-SHIRT LEATHER DULL</div>
-					<div class="price --old">R$ 100,00</div>
-					<div class="price">R$ 50,00</div>
-					<div class="installments">5x R$ 10,00</div>
-					<a href="#" class="button --default">INFO</a>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="card product">
-					<div class="promotion">50%</div>
-					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
-					<div class="name">T-SHIRT LEATHER DULL</div>
-					<div class="price --old">R$ 100,00</div>
-					<div class="price">R$ 50,00</div>
-					<div class="installments">5x R$ 10,00</div>
-					<a href="#" class="button --default">INFO</a>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="card product">
-					<div class="promotion">50%</div>
-					<img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="" class="image">
-					<div class="name">T-SHIRT LEATHER DULL</div>
-					<div class="price --old">R$ 100,00</div>
-					<div class="price">R$ 50,00</div>
-					<div class="installments">5x R$ 10,00</div>
-					<a href="#" class="button --default">INFO</a>
-				</div>
-			</div>	
+		<div class="row products" data-list-product>
+			
 		</div>
 
 		<a href="#" class="more button --light">Mais Produtos</a>
@@ -111,7 +79,16 @@
 		</div>
 		<div class="copy">&copy; 2017 - Todos os direitos reservados</div>
 	</footer>
-	
+
+	<!-- ====== Modal ===== -->
+	<div class="modal hide">
+		<div class="modal-container info-product" id="info-product">
+			
+		</div>
+	</div>
+
 	<!-- ====== JS ====== -->
+	<script src="assets/components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

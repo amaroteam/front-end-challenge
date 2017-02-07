@@ -1,0 +1,21 @@
+{
+  "name": "bootstrap-grid",
+  "description": "Bootstrap css that includes only grid styles",
+  "authors": [
+    "John Rummell"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bootstrap",
+    "grid"
+  ],
+  "homepage": "https://github.com/jrummell/bootstrap-grid",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
