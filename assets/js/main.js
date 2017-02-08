@@ -72,15 +72,15 @@ const openInfo = (element) => {
 const infoHTML = (product) => {
 	product = product[0];
 	var html = '';
-	
+	html += '<a href="#" class="close">X</a>'
 	html += '<div class="image-container">';
 	html += '<img src="' + product.image + '" alt="" class="image">';
 	html += '</div>';
 	html += '<div class="info">';
 	html += '<div class="name">' + product.name + '</div>';
-	if(product.on_sale == true) html += '<div class="price --old"> De: ' + product.regular_price + '</div>';
-	html += '<div class="price"> Por: ' + product.actual_price + '</div>';
-	html += '<div class="installments"> Em até ' + product.installments + '</div>';
+	if(product.on_sale == true) html += 'De: <div class="price --old"> ' + product.regular_price + '</div>';
+	html += 'Por: <div class="price"> ' + product.actual_price + '</div>';
+	html += '<div class="installments"> Em até' + product.installments + '</div>';
 
 	html += 'Size: <div class="sizes">';
 
@@ -100,4 +100,9 @@ const infoHTML = (product) => {
 	$('#info-product').html(html);
 	console.log(html);
 	$('.modal').toggleClass('hide');
-}
+	$('.close').on('click', closeModal);
+};
+
+const closeModal = () => {
+	$('.modal').toggleClass('hide');
+};

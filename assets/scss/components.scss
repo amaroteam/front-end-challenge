@@ -204,6 +204,18 @@
 }
 
 .info-product {
+	position: relative;
+
+	> .close {
+		text-transform: uppercase;
+		color: $color-three;
+		right: $spacing-unit * 3;
+		top: $spacing-unit * 3;
+		padding: $spacing-unit * 2;
+		border: solid 1px $color-three;
+		z-index: 99;
+		position: absolute;
+	}
 	
 	.image-container {	
 		width: 100%;
@@ -277,3 +289,51 @@
 		
 	}
 }
+
+.basket {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	max-width: 400px;
+	@include shadowBox();
+	display: block;
+	
+	> .title {
+		padding: $spacing-unit * 3;
+		background-color: $color-four;
+		color: #FFFFFF;
+		cursor: pointer;
+		text-align: center;
+		
+		> .count {
+			padding: 3px 8px;
+			background-color: #FFFFFF;
+			color: $color-four;
+			border-radius: 50%;
+			font-weight: 700;
+		}
+
+	}
+	
+	@media (min-width: 768px) {
+		right: $spacing-unit * 3;
+	}
+
+	> .painel {
+		padding: $spacing-unit * 3;
+		width: 100%;
+		background-color: #FFFFFF;
+		height: 250px;
+	}
+
+	> .total {
+		background-color: #FFFFFF;
+		padding: $spacing-unit * 3;
+		> .value {
+			text-align: center;
+			padding: $spacing-unit * 3;
+		}
+	}
+}
+
