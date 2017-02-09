@@ -4,6 +4,25 @@
 .main-cart
   size(100%, 100vh)
 
+  top 0
+  left 0
+  z-index 2
+  position fixed
+
+  opacity 0
+  visibility hidden
+
+  &.is-visible
+    opacity 1
+    visibility visible
+
+    .cart
+      &-mask
+        opacity 1
+
+      &-container
+        transform translateX(0)
+
 .cart
   &-mask
     size(100%, 100vh)
@@ -14,6 +33,9 @@
     position fixed
 
     display block
+
+    opacity 0
+    transition all .2s
     background-color alpha($color-black, 85%)
 
   &-container
@@ -29,21 +51,31 @@
     justify-content space-between
 
     background-color $color-white
+    transform translateX(100%)
+    transition all .2s ease-in .1s
 
   &-list
     width 100%
     height 100vh
     display block
-    // overflow auto
 
     .list
+      position relative
+
+      display block
       padding-top 50px
+      height calc(100vh - 100px)
+
+      overflow hidden
+
+    .scrollbar-container
+      height 100%
 
   &-header
     z-index 1
     position fixed
 
-    width 100%
+    width 320px
     display flex
     padding 5px 15px
     align-items center
@@ -63,58 +95,6 @@
       &:focus,
       &:hover
         color tomato
-
-.product-cart
-  position relative
-
-  width 100%
-  padding 15px
-  display flex
-
-  border-bottom 1px solid lighten($color-grey-light, 75%)
-
-  .cover
-    width 100px
-    padding-right 10px
-    display inline-block
-
-    .image
-      display block
-      max-width 100%
-
-  .product-info
-    width 100%
-    display flex
-    flex-flow column
-    justify-content space-between
-
-    .title
-      upper()
-
-      display block
-
-      font-size 1rem
-      font-weight 400
-
-  .product-meta
-    display flex
-    align-items center
-    justify-content space-between
-
-  .quantities
-    display flex
-
-    button
-      size(30px)
-      cursor pointer
-      font-size 1.2rem
-      color $color-white
-      background-color $color-black
-
-    input
-      size(30px)
-      margin 0 5px
-      text-align center
 
 .cart-ammount
   padding 15px

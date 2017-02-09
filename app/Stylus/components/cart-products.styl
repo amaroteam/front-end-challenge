@@ -1,0 +1,54 @@
+//
+// Component Cart Product
+// ============================================================================
+.product-cart
+  position relative
+
+  width 100%
+  padding 15px
+  display flex
+
+  border-bottom 1px solid lighten($color-grey-light, 75%)
+
+  .cover
+    width 100px
+    padding-right 10px
+    display inline-block
+
+    .image
+      display block
+      max-width 100%
+
+  .product-info
+    width 100%
+    display flex
+    flex-flow column
+    justify-content space-between
+
+    .title
+      upper()
+
+      display block
+
+      font-size 1rem
+      font-weight 400
+
+  .product-meta
+    display flex
+    align-items center
+    justify-content space-between
+
+  .quantities
+    display flex
+
+    button
+      size(30px)
+      cursor pointer
+      font-size 1.2rem
+      color $color-white
+      background-color $color-black
+
+    input
+      size(30px)
+      margin 0 5px
+      text-align center

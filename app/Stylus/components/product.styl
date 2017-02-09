@@ -5,6 +5,7 @@
   width 100%
   display flex
   flex-wrap wrap
+  align-items strech
   padding-top 150px
   padding-bottom 25px
 
@@ -20,6 +21,10 @@
 
   @media screen and (min-width: 1024px)
     width 25%
+
+  .cover
+    height 375px
+    overflow hidden
 
   .image
     display block
@@ -52,6 +57,9 @@
 .product
   &-price
     height 75px
+    display flex
+    flex-flow column
+    justify-content center
 
     .normal
       font-size 14px
