@@ -6,7 +6,7 @@
 	position: absolute;
 
 	display: flex;
-	display: -webkit-flexbox;
+	display: -webkit-flex;
 	align-items: center;
 	justify-content: space-between;
 
@@ -28,7 +28,6 @@
 			width: 256px * 0.6;
 			height: 44px * 0.6; 
 		}
-
 	}
 
 	> .list {
@@ -320,19 +319,55 @@
 		right: $spacing-unit * 3;
 	}
 
-	> .painel {
+	> .list {
 		padding: $spacing-unit * 3;
 		width: 100%;
 		background-color: #FFFFFF;
 		height: 250px;
+		overflow: auto;
+		
+		> .item {
+			display: flex;
+			display: -webkit-flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #F5F5F5;
+			padding: $spacing-unit * 3;
+			margin-bottom: $spacing-unit * 2;
+			@include shadowBox();
+			> .description {
+				> .name { 
+					font-size: 1em; 
+					margin-bottom: $spacing-unit;
+					
+					> .size {
+						font-size: 0.6em;
+						padding: 1px 4px;
+						border: solid 1px $color-four;
+						color: $color-four;
+					}
+				}
+			}
+
+			> .action { color: $color-four; }
+		}
+
+		&.--hide {
+			display: none;
+		}
 	}
 
 	> .total {
 		background-color: #FFFFFF;
 		padding: $spacing-unit * 3;
+		
 		> .value {
 			text-align: center;
 			padding: $spacing-unit * 3;
+		}
+
+		&.--hide {
+			display: none;
 		}
 	}
 }

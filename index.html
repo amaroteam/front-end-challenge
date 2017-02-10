@@ -89,18 +89,16 @@
 
 	<!-- ====== Carrinho ====== -->
 	<section class="basket">
-		<div class="title"><span class="count" data-count-basket>1</span> Seu carrinho</div>
-		<div class="painel">
-			
-		</div>
-		<div class="total">
-			<div class="value">Total: R$ 00,00</div>
+		<div class="title" id="basketOpen"><span class="count" id="count">0</span> Seu carrinho</div>
+		<ul class="list --hide" id="basketList"></ul>
+		<div class="total --hide" id="totalValue">
+			<div class="value">Total: R$ <span id="priceAll">00,00</span></div>
 			<a href="#" class="buy button --default">Realizar compra</a>
 		</div>
 	</section>
 
 	<!-- ====== JS ====== -->
 	<script src="assets/components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="assets/js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/dist/js/all.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -5,6 +5,9 @@ const sass = require('gulp-sass');
 const concatCss = require('gulp-concat-css');
 const cssmin = require('gulp-cssmin');
 
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+
 //Limpar a pasta CSS
 gulp.task('clean-css', function () {
 	
@@ -24,9 +27,28 @@ gulp.task('sass', ['clean-css'], function () {
 
 });
 
+//Limpar a pasta JS
+gulp.task('clean-js', function () {
+	
+	return gulp.src('assets/dist/js')
+	.pipe(clean());
+
+});
+
+
+//Concatenar e Minificar JS
+gulp.task('js', ['clean-js'], function () {
+
+	return gulp.src('assets/js/*.js')
+	.pipe(concat('all.min.js'))
+    .pipe(gulp.dest('assets/dist/js'));
+
+});
+
 //Tarefa Padrão
 gulp.task('default', function () {
 
 	gulp.watch('assets/scss/*.scss', ['sass']);
+	gulp.watch('assets/js/*.js', ['js']);
 
 });
