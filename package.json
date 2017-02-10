@@ -41,6 +41,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-intl": "^2.2.3",
-    "react-perfect-scrollbar": "^0.2.0"
+    "react-perfect-scrollbar": "^0.2.0",
+    "uuid": "^3.0.1"
   }
 }

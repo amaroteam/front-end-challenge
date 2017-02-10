@@ -1,4 +1,5 @@
 import React from 'react'
+import uuid from 'uuid'
 
 import Logo from './Logo'
 import Icon from './Icon'
@@ -8,7 +9,6 @@ import Product from './Product'
 import Products from '../Utils/Products'
 import * as CartStorage from '../Utils/CartStorage'
 
-// Remover produtos.
 // Alterar a quantidade de produtos.
 // Mostrar apenas tamanhos em estoque.
 // Filtrar: produtos em promoção.
@@ -41,7 +41,15 @@ export default class Home extends React.Component {
   addTocart (item) {
     // @TODO: Mudar a quantidade
     item.quantity = 1
+    item.id = uuid()
+
     CartStorage.add(item)
+
+    this.setState({cart: CartStorage.get()})
+  }
+
+  removeCart (item) {
+    CartStorage.remove(item)
     this.setState({cart: CartStorage.get()})
   }
 
@@ -69,7 +77,12 @@ export default class Home extends React.Component {
           }
         </section>
 
-        <Cart cart={this.state.cart} visible={this.state.visible} toggle={this.toggleCart.bind(this)} />
+        <Cart
+          cart={this.state.cart}
+          visible={this.state.visible}
+          toggle={this.toggleCart.bind(this)}
+          removeProduct={this.removeCart.bind(this)}
+        />
       </main>
     )
   }

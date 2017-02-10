@@ -4,7 +4,7 @@ import { FormattedNumber } from 'react-intl'
 
 import Item from './Item'
 
-const Cart = ({cart, visible, toggle}) => {
+const Cart = ({cart, visible, toggle, removeProduct}) => {
   const cartClass = `main-cart ${!visible ? '' : 'is-visible'}`
   const {products, ammount} = cart
 
@@ -21,7 +21,7 @@ const Cart = ({cart, visible, toggle}) => {
 
           <div className="list">
             <ScrollBar>
-              {products.map((item, index) => <Item key={index} product={item} />)}
+              {products.map((item, index) => <Item key={index} product={item} remove={removeProduct} />)}
             </ScrollBar>
           </div>
         </div>

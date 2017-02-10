@@ -8,9 +8,11 @@ function toFloat (stringValue) {
 }
 
 export function add (item) {
+  let update = [...get().products, item]
+
   let cart = {
-    products: [...get().products, item],
-    ammount: updateAmmount(item.actual_price)
+    products: update,
+    ammount: updateAmmount(update)
   }
 
   return localStorage.setItem('cart', JSON.stringify(cart))
@@ -28,15 +30,18 @@ export function get () {
   return JSON.parse(localStorage.getItem('cart'))
 }
 
-export function quantity () {
-  return JSON.parse(get().length)
+export function remove (item) {
+  let update = get().products.filter(i => i.id !== item.id)
+  let cart = {
+    products: update,
+    ammount: updateAmmount(update)
+  }
+
+  return localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-function updateAmmount (price) {
-  price = toFloat(price)
-  let prices = get().products.map(item => toFloat(item.actual_price))
-
-  return [...prices, price].reduce((x, y) => x + y)
+export function quantity () {
+  return JSON.parse(get().length)
 }
 
 export function ammount () {
@@ -45,4 +50,9 @@ export function ammount () {
   }
 
   return get().ammount || 0
+}
+
+function updateAmmount (products) {
+  let prices = products.map(item => toFloat(item.actual_price))
+  return prices.reduce((x, y) => x + y, 0)
 }
