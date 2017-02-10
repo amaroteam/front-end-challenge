@@ -1,7 +1,7 @@
 /**
  * Products
  */
-function all () {
+export function all () {
   return fetch('http://localhost:8080/products')
     .then(response => {
       if (response.ok) {
@@ -10,6 +10,6 @@ function all () {
     })
 }
 
-const Products = {all}
-
-export default Products
+export function handleImage (image) {
+  return image || 'http://placehold.it/350x450/ffffff?text=:/'
+}

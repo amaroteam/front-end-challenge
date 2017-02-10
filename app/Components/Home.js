@@ -1,12 +1,12 @@
 import React from 'react'
-import uuid from 'uuid'
+import PubSub from 'pubsub-js'
 
 import Logo from './Logo'
 import Icon from './Icon'
 import Cart from './Cart'
 import Product from './Product'
 
-import Products from '../Utils/Products'
+import * as Products from '../Utils/Products'
 import * as CartStorage from '../Utils/CartStorage'
 
 // Alterar a quantidade de produtos.
@@ -15,7 +15,6 @@ import * as CartStorage from '../Utils/CartStorage'
 // Selecionar produtos por tamanho.
 // Testes (?)
 
-// Hover nos botões do produtos.
 // Mostrar qual produto já está no carrinho.
 // Animar o icon quando o produto for adicionado.
 // Animar os items do carrinho quando ele mostrar o carrinho.
@@ -26,8 +25,8 @@ export default class Home extends React.Component {
 
     this.state = {
       products: [],
-      cart: [],
-      visible: false
+      visible: false,
+      quantity: 0
     }
   }
 
@@ -35,26 +34,29 @@ export default class Home extends React.Component {
     Products.all()
       .then(response => this.setState({products: response}))
 
-    this.setState({cart: CartStorage.get()})
+    this.setState({quantity: CartStorage.get().products.length})
   }
 
-  addTocart (item) {
-    // @TODO: Mudar a quantidade
-    item.quantity = 1
-    item.id = uuid()
-
-    CartStorage.add(item)
-
-    this.setState({cart: CartStorage.get()})
-  }
-
-  removeCart (item) {
-    CartStorage.remove(item)
-    this.setState({cart: CartStorage.get()})
+  componentDidMount () {
+    PubSub.subscribe('quantity', (topic, quantity) => {
+      this.setState({quantity: quantity})
+    })
   }
 
   toggleCart () {
     return this.setState({visible: !this.state.visible})
+  }
+
+  componentWillUnmount () {
+    PubSub.clearAllSubscriptions()
+  }
+
+  renderIndicator () {
+    if (!this.state.quantity) {
+      return
+    }
+
+    return <span className="indicator">{this.state.quantity}</span>
   }
 
   render () {
@@ -65,23 +67,21 @@ export default class Home extends React.Component {
 
           <button className="header-cart" onClick={this.toggleCart.bind(this)}>
             <Icon name="cart" />
-            <span className="indicator">{this.state.cart.products.length}</span>
+            {this.renderIndicator()}
           </button>
         </header>
 
         <section className="products-list">
           {
             this.state.products.map((product, index) =>
-              <Product key={index} item={product} cart={this.addTocart.bind(this)} />
+              <Product key={index} item={product} />
             )
           }
         </section>
 
         <Cart
-          cart={this.state.cart}
           visible={this.state.visible}
           toggle={this.toggleCart.bind(this)}
-          removeProduct={this.removeCart.bind(this)}
         />
       </main>
     )

@@ -1,9 +1,11 @@
 import React from 'react'
+import uuid from 'uuid'
+import PubSub from 'pubsub-js'
+
 import Icon from './Icon'
 
-function handleImage (image) {
-  return image || 'http://placehold.it/350x450/ffffff?text=Produto+sem+foto+:/'
-}
+import * as CartStorage from '../Utils/CartStorage'
+import { handleImage } from '../Utils/Products'
 
 function renderDiscount (discount) {
   if (!discount) {
@@ -34,7 +36,18 @@ function renderPrice (item) {
   )
 }
 
-const Product = ({item, cart}) => (
+function toCart (item) {
+  item.quantity = 1
+  item.id = uuid()
+
+  CartStorage.add(item)
+
+  let cart = CartStorage.get()
+
+  PubSub.publish('cart', cart)
+}
+
+const Product = ({item}) => (
   <div className="card-product">
     {renderDiscount(item.discount_percentage)}
 
@@ -47,7 +60,7 @@ const Product = ({item, cart}) => (
 
       {renderPrice(item)}
 
-      <button className="product-buy" onClick={() => cart(item)}>
+      <button className="product-buy" onClick={() => toCart(item)}>
         <span>Adicionaro ao carrinho</span>
         <Icon name="cart" />
       </button>

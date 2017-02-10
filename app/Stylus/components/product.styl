@@ -78,7 +78,11 @@
     justify-content space-between
 
     cursor pointer
+    transition all .2s
     background-color lighten($color-grey-light, 75%)
+
+    &:hover
+      background-color lighten($color-grey-light, 25%)
 
     .icon
       size(19px)

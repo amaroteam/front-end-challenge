@@ -1,9 +1,7 @@
 import React from 'react'
 import Icon from './Icon'
 
-function handleImage (image) {
-  return image || 'http://placehold.it/350x450/ffffff?text=:('
-}
+import { handleImage } from '../Utils/Products'
 
 const Item = ({product, remove}) => (
   <div className="product-cart">
