@@ -46,6 +46,23 @@ export default class Cart extends React.Component {
     PubSub.publish('quantity', cart.products.length)
   }
 
+  renderAmmount (ammount) {
+    if (!ammount) {
+      return (
+        <div className="cart-checkout">
+          <p className="checkout">Seu carrinho está vazio. :(</p>
+        </div>
+      )
+    }
+
+    return (
+      <div className="cart-checkout">
+        <p className="cart-ammount"><strong>Total: </strong> <span><FormattedNumber style="currency" currency="BRL" value={ammount} /></span></p>
+        <button className="checkout">Finalizar Compra</button>
+      </div>
+    )
+  }
+
   render () {
     const classCart = this.visibility()
     const {products, ammount} = this.state.cart
@@ -72,10 +89,7 @@ export default class Cart extends React.Component {
             </div>
           </div>
 
-          <div className="cart-checkout">
-            <p className="cart-ammount"><strong>Total: </strong> <span><FormattedNumber style="currency" currency="BRL" value={ammount} /></span></p>
-            <button className="checkout">Finalizar Compra</button>
-          </div>
+          {this.renderAmmount(ammount)}
         </div>
       </div>
     )

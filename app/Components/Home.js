@@ -10,10 +10,7 @@ import * as Products from '../Utils/Products'
 import * as CartStorage from '../Utils/CartStorage'
 
 // Alterar a quantidade de produtos.
-// Mostrar apenas tamanhos em estoque.
 // Filtrar: produtos em promoção.
-// Selecionar produtos por tamanho.
-// Testes (?)
 
 // Mostrar qual produto já está no carrinho.
 // Animar o icon quando o produto for adicionado.

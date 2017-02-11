@@ -37,14 +37,17 @@ function renderPrice (item) {
 }
 
 function toCart (item) {
-  item.quantity = 1
+  item.quantity = item.quantity || 1
   item.id = uuid()
-
   CartStorage.add(item)
 
   let cart = CartStorage.get()
 
   PubSub.publish('cart', cart)
+}
+
+function availableSizes (sizes) {
+  return sizes.filter(size => size.available)
 }
 
 const Product = ({item}) => (
@@ -57,6 +60,14 @@ const Product = ({item}) => (
 
     <div className="product-meta">
       <h2 className="title">{item.name}</h2>
+
+      <div className="product-options">
+        {
+          availableSizes(item.sizes).map((size, index) => (
+            <label key={index}>{size.size}</label>
+          ))
+        }
+      </div>
 
       {renderPrice(item)}
 
