@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".produto-quantidade button").on("click",function(t){var i=parseInt($(this).siblings("input").val());if(console.log("quantidade "+i),$(this).hasClass("qtde-minus")){var s=i-1;$(this).siblings("input").attr("value",s)}if($(this).hasClass("qtde-plus")){var a=i+1;$(this).siblings("input").attr("value",a)}})});

@@ -1,8 +1,47 @@
 $(document).ready(function() {
 
+	//Loader de carregamento	
+	/*startLoader();
+	window.setTimeout(function() {
+      stopLoader();
+    }, 1500);*/
+
+
+/**/
+	$(".navbar-icon-cart").click(function(event) {
+
+		$(".chart").addClass('active');
+        $(".backNav").show();
+
+        $(".chart").animate(0,function(){
+            $(".chart").css('right', '0px');
+            $(".chart").fadeIn(2000);
+        });
+
+        desativaMenu();
+
+	});//end - navbar-icon-cart
+
+
+
 });
 
+//Function que desativa o menu
+function desativaMenu(){
+    $(".backNav").click(function(event) {
 
+        //$("span.fa").css('right', '15px');
+        $(".navbar.active").removeClass('active');
+
+        $(".chart").animate(0, function(){
+            $(".chart").css('right', '-80%');
+            $(".backNav").hide();
+        });
+
+    });
+}
+
+//Loader da página
 function startLoader(){
     var divLoader = $("<div class='loader'></div>").html("<div class='loaderContent'></div>");
     $("body").append(divLoader).fadeIn(900);
@@ -19,7 +58,6 @@ function stopLoader(){
 	dataType: "json",
 	contentType: 'application/json',
 	success: function(data) {
-	alert("poasd");
 		var json = JSON.stringify(data);
 		json = JSON.parse(json);
 		

@@ -1096,12 +1096,10 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #23527c;
   text-decoration: underline;
 }
 a:focus {
@@ -2443,6 +2441,7 @@ table th[class*="col-"] {
   overflow-x: auto;
 }
 @media screen and (max-width: 767px) {
+
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
@@ -3057,7 +3056,7 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #333;
-  background-color: #fff;
+  background-color: $colorAmaroSub;
   border-color: #ccc;
 }
 .btn-default:focus,
@@ -3114,8 +3113,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: $colorAmaro;
+  border-color: $colorWhite;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -4593,7 +4592,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: $colorAmaro;
   border-color: #080808;
 }
 .navbar-inverse {
