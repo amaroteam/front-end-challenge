@@ -1,0 +1,1 @@
+function startLoader(){var d=$("<div class='loader'></div>").html("<div class='loaderContent'></div>");$("body").append(d).fadeIn(900)}function stopLoader(){$(".loader").fadeOut("slow")}$(document).ready(function(){});

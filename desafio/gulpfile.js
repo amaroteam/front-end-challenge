@@ -117,9 +117,8 @@ gulp.task('server', ['default'], function() {
         console.log("Erro javascript " + event.path);
         gulp.src(event.path)
             .pipe(jshint())
-            .pipe(jshint.reporter(jshintStylish), function(){
-              gulp.start('js');
-            });
+            .pipe(jshint.reporter(jshintStylish));
+        gulp.start('js');
     });
 
     gulp.watch('source/**/*').on('change', browserSync.reload);

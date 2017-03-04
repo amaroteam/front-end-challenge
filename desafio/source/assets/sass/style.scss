@@ -1,15 +1,55 @@
 /*Variáveis*/
 $colorWhite: #fff;
 
+/*
+Global
+--------------------------------------------
+*/
+
 body{
-	background: #ffe;
+	padding-top: 70px;
 }
 
 .fontWhiteColor{
 	color: $colorWhite;
 }
 
+.loader{
+  display: table;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.9;
+  position: fixed;
+  top: 0px;
+}
+
+.loader .loaderContent{
+  /*background-size: 54px 55px;*/
+  background-image: url("../img/loading-v1.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  text-align: center;
+  background-color: $colorWhite;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*
+Header
+--------------------------------------------
+*/
 .navbar-icon-cart{
 	float: right;
 	margin: 15px 15px auto auto;
 }
+
+
+/*
+Content
+--------------------------------------------
+*/
