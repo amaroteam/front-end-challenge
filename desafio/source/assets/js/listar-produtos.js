@@ -6,6 +6,15 @@ $(document).ready(function() {
 });
 
 
+//catalogo = $.parseHTML(catalogo);
+//console.log("catalogo " + catalogo.find('btn-tam'));
+
+//for (var j = 0; j < json.products[i].sizes.length; j++) {
+    //"<span>L"+json.products[i].sizes[0]+"</span>";
+	//$(catalogo).find(".btn-tam").append("<span>L"+json.products[i].sizes[0].size+"</span>");
+	//console.log("asdf " + $(catalogo).find(".btn-tam").text() );
+//}
+
 function listarProdutos(){
 	$.ajax({
 		type: "GET",
@@ -16,47 +25,28 @@ function listarProdutos(){
 			
 			var json = JSON.stringify(data);
 			json = JSON.parse(json);
-			var prodLen = json.products.length;
-			
-			//console.log("json " + json.products.length);
+			var quantidadeProdutos = json.products.length;
 
-			for (var i = 0; i < prodLen; i++) {
-				//console.log("contando " + i);		
-				var catalogo = "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>" +    
-								    "<div class='thumbnail'>" +
-								        "<img class='produto-imagem' src='"+json.products[i].image+"' alt='"+json.products[i].name+"'>" +
-								        "<div class='caption'>" +
-								            "<h5>" +
-								            	"<a class='produto-nome' href='#''>"+ json.products[i].name +"</a>" +
-								            "</h5>" +
-								            "<h5 class='produto-preco'>Pre "+ json.products[i].regular_price +"</h5>" +
-								            "<h5 class='produto-desconto'>Des "+json.products[i].discount_percentage+"</h5>" +
-								            "<h5 class='produto-preco-desconto'>A "+json.products[i].actual_price+"</h5>" +
-								            "<h5 class='produto-parcelas'>P"+json.products[i].installments+"</h5>" +
-								        "</div>" +
-								        "<a class='btn btn-primary btn-comprar' href='#''>Comprar</a>" +
-								        "<div class='ratings'>" +
-								            "<p>Tamanhos</p>" +
-								            "<p class='btn-tam'>" + 
-												"<span>PP</span>" +
-												"<span>P</span>" +
-												"<span>M</span>" +
-												"<span>G</span>" +
-												"<span>GG</span>" +
-								            "</p>" +
-								        "</div><!-- end ratings -->" +
-								    "</div><!-- end thumbnail -->" +
-								"</div><!-- end col-->";
+			for (var i = 0; i < quantidadeProdutos; i++){
 
-				$("#catalogo-produtos").append(catalogo);
+var detalheProduto = $("#catalogo-produtos div").first().clone();
+detalheProduto.find('.produto-imagem').attr('src', json.products[i].image);
+detalheProduto.find('a.produto-nome').append(json.products[i].name);
+detalheProduto.find('.produto-preco').append(json.products[i].regular_price);
+detalheProduto.find('.produto-desconto').append(json.products[i].discount_percentage + "<span> de desconto.</span>");
+detalheProduto.find('.produto-preco-desconto').append(json.products[i].actual_price);
+detalheProduto.find('.produto-parcelas').append("<span>Parcelas de </span>" + json.products[i].installments);
 
-//for (var j = 0; j < json.products[i].sizes.length; j++) {
-    //"<span>L"+json.products[i].sizes[0]+"</span>";
-	//$(catalogo).find(".btn-tam").append("<span>L"+json.products[i].sizes[0].size+"</span>");
-	//console.log("asdf " + $(catalogo).find(".btn-tam").text() );
-//}
+for (var j = 0; j < json.products[i].sizes.length; j++) {
+	detalheProduto.find('.btn-tam').append('<span>'+json.products[i].sizes[j].size+'</span>');
+}
 
-			}// end -for
+$("#catalogo-produtos").append(detalheProduto);
+
+detalheProduto.fadeIn();
+
+
+			}
 
 		},
 		error: function(data){

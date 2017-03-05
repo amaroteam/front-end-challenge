@@ -3,6 +3,7 @@ $colorWhite: #fff;
 $colorAmaro: #333;
 $colorAmaroSub: #ccc;
 $colorClaro: #999;
+$colorHover: #595959;
 
 /*
 Global
@@ -13,7 +14,11 @@ Global
 }
 
 body{
-	padding-top: 70px;
+	padding-top: 50px;
+}
+
+.clear{
+	clear: both;
 }
 
 .fontWhiteColor{
@@ -83,18 +88,40 @@ Content
 
 #catalogo-produtos{
 
-	a.produto-nome{
-		color: $colorAmaro;
+
+	.detalhe-produto:first-child{
+
+		display: none;
+
+	}
+
+	.detalhe-produto{
+		margin: 15px auto 15px auto;
+
+		a.produto-nome{
+			color: $colorAmaro;
+		}
+
+		.thumbnail{
+
+			.caption{
+			
+				min-height: 170px;
+			
+			}
+		
+		}
+
 	}
 
 }
 
 
 /*
-Chart
+Carrinho
 --------------------------------------------
 */
-.chart {
+.carrinho {
     display: none;
 	right: 0px;
 	width: 80%;
@@ -117,7 +144,7 @@ Chart
     	background-color: $colorAmaro;
     }
 
-	.products-chart{
+	.products-carrinho{
 		border-bottom: 1px solid $colorAmaroSub;
 		padding-bottom: 5px;
 		margin-top: 10px;
@@ -166,7 +193,7 @@ Chart
 
 	}
 
-	.total-chart{
+	.total-carrinho{
 		border-top: 1px solid $colorAmaroSub;
 		position: fixed;
 		background-color: $colorWhite;

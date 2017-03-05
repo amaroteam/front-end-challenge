@@ -10,12 +10,12 @@ $(document).ready(function() {
 /**/
 	$(".navbar-icon-cart").click(function(event) {
 
-		$(".chart").addClass('active');
+		$(".carrinho").addClass('active');
         $(".backNav").show();
 
-        $(".chart").animate(0,function(){
-            $(".chart").css('right', '0px');
-            $(".chart").fadeIn(2000);
+        $(".carrinho").animate(0,function(){
+            $(".carrinho").css('right', '0px');
+            $(".carrinho").fadeIn(2000);
         });
 
         desativaMenu();
@@ -33,8 +33,8 @@ function desativaMenu(){
         //$("span.fa").css('right', '15px');
         $(".navbar.active").removeClass('active');
 
-        $(".chart").animate(0, function(){
-            $(".chart").css('right', '-80%');
+        $(".carrinho").animate(0, function(){
+            $(".carrinho").css('right', '-80%');
             $(".backNav").hide();
         });
 
