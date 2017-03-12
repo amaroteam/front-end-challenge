@@ -24,7 +24,7 @@
 
 //Task padrão que executa as tasks - dbCopy, html, sass, js, img
 gulp.task('default', function() {
-	gulp.start('dbCopy','fontsCopy','html','sass','js','img');
+  gulp.start('dbCopy','fontsCopy','html','sass','js','img');
 });
 
 //Task dbCopy faz a cópia do arquivo products.json que contém as informações dos produtos
@@ -41,8 +41,8 @@ gulp.task('fontsCopy', function() {
 
 //Task clean apaga a pasta dist
 gulp.task('clean', function() {
-	return gulp.src('dist')
-		.pipe(clean());
+  return gulp.src('dist')
+    .pipe(clean());
 });
 
 //Task que importa o html
@@ -66,7 +66,8 @@ gulp.task('html', function(){
 //Cssmin para minificação do css
 gulp.task('sass', function() {
   return gulp.src('./source/assets/sass/main.scss')
-    .pipe(sass().on('error', sass.logError))
+    //.pipe(sass().on('error', sass.logError))
+    .pipe(sass())
     .pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
@@ -105,19 +106,19 @@ gulp.task('server', ['default'], function() {
     });
 
     gulp.watch('source/assets/sass/**/*.scss').on('change', function(event) {
-       gulp.src(event.path)
+       /*gulp.src(event.path)
             .pipe(sass().on('error', function(erro) {
               console.log('Erro CSS: ' + erro.filename);
               console.log(erro.message);
-            }))
+            }))*/
         gulp.start('sass');
     });
 
     gulp.watch('source/assets/js/**/*.js').on('change', function(event) {
-        console.log("Erro javascript " + event.path);
-        gulp.src(event.path)
-            .pipe(jshint())
-            .pipe(jshint.reporter(jshintStylish));
+        //console.log("Erro javascript " + event.path);
+        //gulp.src(event.path)
+            //.pipe(jshint())
+            //.pipe(jshint.reporter(jshintStylish));
         gulp.start('js');
     });
 

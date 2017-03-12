@@ -4,18 +4,56 @@ $colorAmaro: #333;
 $colorAmaroSub: #ccc;
 $colorClaro: #999;
 $colorHover: #595959;
+$fontDefault1: "Gotham";
+$fontDefault2: "Gotham Book";
 
 /*
 Global
 --------------------------------------------
 */
 * {
-    transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
-
+  
 body{
-	padding-top: 50px;
-}
+  font-family: $fontDefault2 !important;
+  padding-top: 50px;
+
+  .controls{
+    position: relative;
+    margin: 10px auto 0px auto;
+    line-height: normal;
+
+    select{
+      font-size: 0.8em;
+    }
+
+    span.icon{
+      margin: 2px auto;
+      width: 15px;
+      height: 90%;
+      font-size: 1em;
+      line-height: 2.5em;
+      vertical-align: middle;
+      position: absolute;
+      top: 0;
+      right: 2px;
+      background: $colorWhite;
+      border-radius: 0px 5px 5px 0px;
+        -moz-border-radius: 0px 5px 5px 0px;
+        -webkit-border-radius: 0px 5px 5px 0px;
+        -ms-border-radius: 0px 5px 5px 0px;
+        -o-border-radius: 0px 5px 5px 0px;
+    }
+
+  }
+
+  .titulo-filtrar{
+    height: 2.6em;
+    line-height: 3.8em;
+  }
+
+}//body
 
 .clear{
 	clear: both;
@@ -36,7 +74,7 @@ body{
   z-index: 9999;
 	.loaderContent{
 	  /*background-size: 54px 55px;*/
-	  background-image: url("../img/loading-v1.gif");
+	  background-image: url("../img/global/loading.gif");
 	  background-repeat: no-repeat;
 	  background-position: center center;
 	  overflow: hidden;
@@ -55,13 +93,22 @@ body{
 Header
 --------------------------------------------
 */
-.navbar-icon-cart{
-	float: right;
-	margin: 15px 15px auto auto;
-}
+
 
 nav.navbar{
 	z-index: 1;
+
+  .navbar-brand{
+    
+    font-family: $fontDefault1;
+
+  }
+
+  .navbar-icon-cart{
+    float: right;
+    margin: 15px 15px auto auto;
+  }
+
 }
 
 /*
@@ -69,15 +116,42 @@ Content
 --------------------------------------------
 */
 .ratings {
-	margin-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-	
-	.btn-tam span{
-		border: 1px solid $colorAmaro;
-		padding: 5px;
-		margin: auto 5px;
-	}
+  margin-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  p{
+    margin: 0px auto;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+
+  ul{
+    padding: 0px;
+    margin: 0px auto;
+    list-style: none;
+
+    li{
+      border: 1px solid $colorAmaro;
+      padding: 5px;
+      margin: 2px;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.7em;
+      font-weight: bold;
+
+      input[type="radio"]{
+        display: none;
+      }
+
+    }
+
+    li.active{
+      background: $colorHover;
+      color: $colorWhite;
+    }
+
+  }
 
 }
 
@@ -88,33 +162,58 @@ Content
 
 #catalogo-produtos{
 
+  .detalhe-produto:first-child{
+    display: none;
+  }
 
-	.detalhe-produto:first-child{
+  .detalhe-produto{
 
-		display: none;
+    margin: 15px auto 15px auto;
 
-	}
+    .thumbnail{
 
-	.detalhe-produto{
-		margin: 15px auto 15px auto;
+      .caption{
 
-		a.produto-nome{
-			color: $colorAmaro;
-		}
+        min-height: 170px;
 
-		.thumbnail{
+        a.produto-nome{
+          color: $colorAmaro;
+          font-family: $fontDefault1;
+          font-size: 1em;
+        }
 
-			.caption{
-			
-				min-height: 170px;
-			
-			}
-		
-		}
+        .produto-preco{
+          font-size: 0.9em;
+          font-weight: bold;
+        }
 
-	}
+        .produto-preco-desconto{
+          font-size: 0.9em;
+          text-decoration: line-through;
+        }
 
-}
+        .produto-desconto{
+
+          font-size: 0.9em;
+          font-weight: bold;
+          border: 1px solid #ccc;
+          background-color: #dcdcdc;
+          text-align: center;
+          padding: 2px 2px;
+
+        }
+
+        .produto-parcelas{
+          font-size: 0.9em;
+        }
+
+      }//end - .caption
+
+    }//end - thumbnail
+
+  }//end - detalhe-produto 
+
+}//end - #catalogo-produtos
 
 
 /*
@@ -122,19 +221,18 @@ Carrinho
 --------------------------------------------
 */
 .carrinho {
-    display: none;
-	right: 0px;
-	width: 80%;
-	max-width: 350px;
-	position: fixed;
-    z-index: 3;
-    height: 100%;
-    top: 0px;
-    border-radius: 0px;
-    background-color: $colorWhite;
-    border-left: 1px solid $colorAmaroSub;
-	overflow-y: auto;
-	padding-bottom: 36px;
+  right: -80%;
+  width: 80%;
+  max-width: 350px;
+  position: fixed;
+  z-index: 3;
+  height: 100%;
+  top: 0px;
+  border-radius: 0px;
+  background-color: $colorWhite;
+  border-left: 1px solid $colorAmaroSub;
+  overflow-y: auto;
+  padding-bottom: 36px;
 
 	h4{
     	padding: 10px 10px 10px 10px;
@@ -144,12 +242,12 @@ Carrinho
     	background-color: $colorAmaro;
     }
 
-	.products-carrinho{
+	.produtos-carrinho{
 		border-bottom: 1px solid $colorAmaroSub;
 		padding-bottom: 5px;
 		margin-top: 10px;
 		line-height: normal;
-		
+
 		.produto-quantidade{
 
 			input.btn-quantidade{
@@ -187,8 +285,12 @@ Carrinho
 
 	    .excluir{
 	    	position: absolute;
-	    	top: 5px;
-	    	right: 10px;
+	    	top: 15px;
+	    	right: 5px;
+        color: $colorWhite;
+        background-color: $colorClaro;
+        border: 1px solid $colorClaro;
+        padding: 5px 2px 2px 2px;
 	    }
 
 	}
@@ -231,15 +333,32 @@ footer
 --------------------------------------------
 */
 #container-footer{
+  margin-top: 10px;
 	background-color: $colorAmaro;
+
+  .copy-footer{
+  	color: $colorWhite;
+  	font-size: 12px;
+  	line-height: 32px;
+  	text-align: center;
+  	margin-bottom: 0px;
+  }
+
 }
 
-.copy-footer{
-	color: $colorWhite;
-	font-size: 12px;
-	line-height: 32px;
-	text-align: center;
-	margin-bottom: 0px;
+/*
+media
+--------------------------------------------
+*/
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .caption{
+    min-height: 207px;
+  }
 }
 
-
+@media (min-width: 480px) and (max-width: 767px) {
+  .caption{
+    min-height: 170px;
+  }
+}

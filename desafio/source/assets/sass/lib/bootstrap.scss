@@ -261,10 +261,31 @@ th {
   }
 }
 @font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  font-family: 'Glyphicons Halflings'; 
+  src: url('../fonts/glyphicons/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/glyphicons/glyphicons-halflings-regular.woff2') format('woff2'), 
+       url('../fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+@font-face {
+  font-family: 'Gotham'; 
+  src: url('../fonts/gotham/ufonts.com_gotham_black.eot');
+  src: url('../fonts/gotham/ufonts.com_gotham_black.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/gotham/ufonts.com_gotham-black.woff') format('woff'), 
+       url('../fonts/gotham/ufonts.com_gotham-black.ttf') format('truetype'), 
+}
+
+@font-face {
+  font-family: 'Gotham Book'; 
+  src: url('../fonts/gotham-book/ufonts.com_gotham_book.eot');
+  src: url('../fonts/gotham-book/ufonts.com_gotham_book.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/gotham-book/ufonts.com_gotham-book.woff') format('woff'), 
+       url('../fonts/gotham-book/ufonts.com_gotham-book.ttf') format('truetype'), 
+}
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -2563,10 +2584,10 @@ output {
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 .form-control:focus {
-  border-color: #66afe9;
+  border-color: $colorHover;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  -webkit-box-shadow: inset 0 1px 1px $colorAmaroSub, 0 0 8px $colorClaro;
+          box-shadow: inset 0 1px 1px $colorAmaroSub, 0 0 8px $colorClaro;
 }
 .form-control::-moz-placeholder {
   color: #999;
