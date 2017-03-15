@@ -4,7 +4,6 @@ $(document).ready(function() {
 	startLoader();
 	stopLoader();
 
-
 	animacaoCarrinho();
 
 });

@@ -7,9 +7,6 @@ $(document).ready(function(){
 
 	});//end - select.form-control
 
-	//Clique comprar faz a validação do produto clicado
-	clickComprar();
-
 	//Faz o request ajax para trazer os produtos
 	produtos();
 

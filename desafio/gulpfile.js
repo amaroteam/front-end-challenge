@@ -11,8 +11,6 @@
   var sass = require('gulp-sass');
 //JS
   var uglify = require('gulp-uglify');
-  var jshint = require('gulp-jshint');
-  var jshintStylish = require('jshint-stylish');
 //Img
   var imagemin = require('gulp-imagemin');
 //Server
@@ -106,19 +104,10 @@ gulp.task('server', ['default'], function() {
     });
 
     gulp.watch('source/assets/sass/**/*.scss').on('change', function(event) {
-       /*gulp.src(event.path)
-            .pipe(sass().on('error', function(erro) {
-              console.log('Erro CSS: ' + erro.filename);
-              console.log(erro.message);
-            }))*/
         gulp.start('sass');
     });
 
     gulp.watch('source/assets/js/**/*.js').on('change', function(event) {
-        //console.log("Erro javascript " + event.path);
-        //gulp.src(event.path)
-            //.pipe(jshint())
-            //.pipe(jshint.reporter(jshintStylish));
         gulp.start('js');
     });
 

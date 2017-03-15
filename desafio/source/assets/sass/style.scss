@@ -119,6 +119,7 @@ Content
   margin-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
+  min-height: 73px;
 
   p{
     margin: 0px auto;
@@ -174,7 +175,7 @@ Content
 
       .caption{
 
-        min-height: 170px;
+        min-height: 208px;
 
         a.produto-nome{
           color: $colorAmaro;
@@ -352,13 +353,41 @@ media
 */
 
 @media (min-width: 320px) and (max-width: 479px) {
-  .caption{
-    min-height: 207px;
+
+  #catalogo-produtos{
+
+    .detalhe-produto{
+
+      .thumbnail{
+
+        .caption{
+          min-height: 207px;
+        }    
+      
+      }
+
+    }
+
   }
+
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
-  .caption{
-    min-height: 170px;
+
+  #catalogo-produtos{
+
+    .detalhe-produto{
+
+      .thumbnail{
+
+        .caption{
+          min-height: 170px;
+        }    
+      
+      }
+
+    }
+
   }
+
 }
