@@ -12,7 +12,7 @@ If you are not a developer, you can have a look at our other opportunities at: [
 
 ## About the challenge
 
-This is a challenge, not a college test, so there's multiple correct answers.
+This is a challenge, not a college test, so there are multiple correct answers.
 
 We'll give you some requirements that must be done and for which you'll be evaluated, but you're free to choose a solution method.
 
