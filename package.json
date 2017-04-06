@@ -1,0 +1,46 @@
+{
+  "name": "front-end-challenge",
+  "version": "1.0.0",
+  "description": "## `AMARO front-end challenge`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipegalvao/front-end-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipegalvao/front-end-challenge/issues"
+  },
+  "homepage": "https://github.com/felipegalvao/front-end-challenge#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "express": "^4.15.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "chai": "^3.5.0",
+    "css-loader": "^0.27.3",
+    "enzyme": "^2.7.1",
+    "http-server": "^0.9.0",
+    "jest": "^19.0.2",
+    "node-sass": "^4.5.1",
+    "react-addons-test-utils": "^15.4.2",
+    "sass-loader": "^6.0.3",
+    "script-loader": "^0.7.0",
+    "sinon": "^2.1.0",
+    "style-loader": "^0.16.0",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.1"
+  }
+}
