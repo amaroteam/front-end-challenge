@@ -1,7 +1,7 @@
-export const addToCart = id => {
+export const addToCart = payload => {
   return {
     type: 'ADD_TO_CART',
-    id
+    payload
   }
 }
 
@@ -28,7 +28,7 @@ export const decrement = id => {
 
 export const setFilter = filter => {
   return {
-    type: 'SET_FITER',
+    type: 'SET_FILTER',
     filter
   }
 }

@@ -1,9 +1,16 @@
-const cartItem = (state={}, action) => {
+const cartItem = ( state={}, action ) => {
 
-  switch(action.type) {
+  switch( action.type ) {
 
     case 'ADD_TO_CART':
-      let { id, name, regular_price, actual_price, on_sale } = state
+      let {
+        id,
+        name,
+        regular_price,
+        actual_price,
+        on_sale
+      } = action.payload
+
       return {
         id,
         name,
@@ -14,14 +21,12 @@ const cartItem = (state={}, action) => {
       }
 
     case 'INCREMENT_AMOUNT':
-      return Object.assign({}, state, {
-        amount: state.amount + 1
-      })
+      return Object.assign( {}, state, {
+        amount: state.amount + 1 } )
 
     case 'DECREMENT_AMOUNT':
-      return Object.assign({}, state, {
-        amount: state.amount - 1
-      })
+      return Object.assign( {}, state, {
+        amount: state.amount - 1 } )
 
     default:
       return state
@@ -30,29 +35,26 @@ const cartItem = (state={}, action) => {
 
 }
 
-const cart = (state=[], action) => {
+const cart = ( state=[], action ) => {
 
-  switch(action.type) {
+  switch( action.type ) {
 
     case 'ADD_TO_CART':
       return [
         ...state,
-        cartItem(
-          state.products.findOne(val => val.id === action.id),
-          action
-        )
+        cartItem( state, action )
       ]
 
     case 'REMOVE_FROM_CART':
-      return state.filter(val =>
-        val.id !== action.id
-      )
+      return state.filter( item =>
+        item.id !== action.id )
 
     case 'INCREMENT_AMOUNT':
     case 'DECREMENT_AMOUNT':
-      return state.map(val => {
-        return (val.id === action.id) ? cartItem(val, action) : val
-      })
+      return state.map( item =>
+        item.id === action.id ?
+        cartItem( item, action ) :
+        item )
 
     default:
       return state

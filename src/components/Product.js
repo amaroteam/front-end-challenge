@@ -11,18 +11,22 @@ const Produto = ({
   onAddToCart
 }) => (
   <div>
-    <img src={image} />
+    <img width="200" height="250" src={image} />
     <h3>{name}</h3>
     <span>
-      R$
       { on_sale ? actual_price + ' offer' : regular_price }
     </span>
     <ul>
-      { sizes.map(s => <li>{s.size}</li>) }
+      { sizes.map( s =>
+          <li key={s.sku}>{s.size}</li> ) }
     </ul>
-    <button onClick={() => onAddToCart(id)}>
-      ADD TO CART
-    </button>
+    <button onClick={ () =>
+      onAddToCart( {
+        id,
+        name,
+        regular_price,
+        actual_price,
+        on_sale } ) }> ADD TO CART </button>
   </div>
 )
 
