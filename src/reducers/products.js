@@ -1,13 +1,11 @@
-const products = (state=[], action) => {
+const products = ( state=[], action ) => {
 
-  switch(action.type) {
+  switch( action.type ) {
 
     default:
-      return state.map(val => {
-        return Object.assign({}, val, {
-          id: val.code_color
-        })
-      })
+      return state.map( item => ( {
+        ...item,
+        id: item.code_color } ) )
 
   }
 
