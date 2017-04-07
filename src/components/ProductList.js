@@ -1,6 +1,8 @@
 import React from 'react'
 import Product from './Product'
 
+const { array, func } = React.PropTypes
+
 const ProductList = ({ products, onAddedToCart }) => (
   <div>
     {
@@ -14,5 +16,10 @@ const ProductList = ({ products, onAddedToCart }) => (
     }
   </div>
 )
+
+ProductList.PropTypes = {
+  products: array.isRequired,
+  onAddedToCart: func
+}
 
 export default ProductList

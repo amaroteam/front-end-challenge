@@ -1,6 +1,15 @@
 import React from 'react'
 
-const Produto = ({
+const {
+  string,
+  number,
+  bool,
+  arrayOf,
+  shape,
+  func
+} = React.PropTypes
+
+const Product = ({
   id,
   name,
   image,
@@ -30,4 +39,21 @@ const Produto = ({
   </div>
 )
 
-export default Produto
+Product.PropTypes = {
+  id: number.isRequired,
+  name: string.isRequired,
+  image: string.isRequired,
+  regular_price: number.isRequired,
+  actual_price: number.isRequired,
+  on_sale: bool.isRequired,
+  sizes: arrayOf(
+    shape({
+      available: bool.isRequired,
+      size: string.isRequired,
+      sku: string.isRequired
+    }).isRequired
+  ),
+  onAddToCart: func.isRequired
+}
+
+export default Product

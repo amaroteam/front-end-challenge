@@ -1,8 +1,11 @@
 import React from 'react'
 
+const { string, func , number } = React.PropTypes
+
 const CartItem = ({
   id,
   name,
+  image,
   price,
   amount,
   onRemove,
@@ -27,5 +30,16 @@ const CartItem = ({
     </button>
   </div>
 ) 
+
+CartItem.PropTypes = {
+  id: number.isRequired,
+  name: string.isRequired,
+  image: string.isRequired,
+  price: number.isRequired,
+  amount: number.isRequired,
+  onRemove: func,
+  onIncrement: func,
+  onDecrement: func
+}
 
 export default CartItem
