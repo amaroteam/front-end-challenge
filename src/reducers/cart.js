@@ -17,7 +17,9 @@ const cartItem = ( state={}, action ) => {
     case 'DECREMENT_AMOUNT':
       return {
         ...state,
-        amount: state.amount - 1
+        amount: ( state.amount > 1 ?
+          state.amount - 1 :
+          1 )
       }
 
     default:
