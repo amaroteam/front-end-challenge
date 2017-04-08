@@ -12,11 +12,13 @@ const CartItem = ({
   onIncrement,
   onDecrement
 }) => (
-  <div>
-    <img src={image} />
-    <h4>{name}</h4>
-    <span>{price}</span>
-    <div>
+  <div className="col-md-12">
+    <div className="col-md-4">
+      <img src={image} className="img-responsive" />
+    </div>
+    <h4 className="col-md-4">{name}</h4>
+    <div className="col-md-4">
+      <span>{price}</span>
       <button onClick={ () => onDecrement(id) }>
         -
       </button>
@@ -24,10 +26,10 @@ const CartItem = ({
       <button onClick={ () => onIncrement(id) }>
         +
       </button>
+      <button onClick={ () => onRemove(id) }>
+        x
+      </button>
     </div>
-    <button onClick={ () => onRemove(id) }>
-      x
-    </button>
   </div>
 ) 
 

@@ -19,7 +19,7 @@ const Product = ({
   sizes,
   onAddToCart
 }) => (
-  <div>
+  <div className="col-md-3">
     <img width="200" height="250" src={image} />
     <h3>{name}</h3>
     <span>

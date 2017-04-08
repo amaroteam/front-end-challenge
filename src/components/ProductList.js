@@ -4,7 +4,7 @@ import Product from './Product'
 const { array, func } = React.PropTypes
 
 const ProductList = ({ products, onAddedToCart }) => (
-  <div>
+  <div className="row">
     {
       products.map( p =>
         <Product

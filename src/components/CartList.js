@@ -9,7 +9,7 @@ const CartList = ({
   onIncremented,
   onDecremented
 }) => (
-  <div>
+  <div className="row">
     { items.map( item =>
       <CartItem
         key={item.id}
