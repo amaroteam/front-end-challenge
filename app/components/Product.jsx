@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from 'react-bootstrap';
 
 class Product extends Component {
     render() {
@@ -61,6 +62,9 @@ class Product extends Component {
                     {renderPrices()}
                     <div className="col-xs-12 col-sizes">
                         <p>{renderSizes()}</p>
+                    </div>
+                    <div className="col-xs-12 col-add-to-cart">
+                        <Button bsStyle="success" block><i className="fa fa-cart-arrow-down" aria-hidden="true"></i> Comprar</Button>
                     </div>
                 </div>
             </div>
