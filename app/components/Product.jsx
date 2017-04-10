@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 
 class Product extends Component {
+    constructor(props) {
+        super(props);
+    }   
+
     render() {
         var {name, image, regular_price, actual_price, discount_percentage, sizes} = this.props;
 
@@ -64,7 +68,7 @@ class Product extends Component {
                         <p>{renderSizes()}</p>
                     </div>
                     <div className="col-xs-12 col-add-to-cart">
-                        <Button bsStyle="success" block><i className="fa fa-cart-arrow-down" aria-hidden="true"></i> Comprar</Button>
+                        <Button bsStyle="success" block onClick={() => {this.props.onAddToCart(name, image, actual_price)}}><i className="fa fa-cart-arrow-down" aria-hidden="true"></i> Comprar</Button>
                     </div>
                 </div>
             </div>

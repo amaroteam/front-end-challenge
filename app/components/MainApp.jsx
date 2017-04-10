@@ -9,8 +9,11 @@ class MainApp extends Component {
         super(props);
 
         this.state = {
-            products: []
+            products: [],
+            cart: []
         }
+
+        this.handleAddToCart = this.handleAddToCart.bind(this);
     }
 
     componentWillMount() {        
@@ -27,13 +30,32 @@ class MainApp extends Component {
         })
     }
 
+    handleAddToCart(name, image, actual_price) {        
+        console.log();
+
+        var cartItem = {
+            name,
+            image,
+            actual_price: parseFloat(actual_price.replace("R$ ","").replace(",",".")),
+            quantity: 1,
+            total_item_price: 1 * parseFloat(parseFloat(actual_price.replace("R$ ","").replace(",",".")))
+        };
+
+        this.setState({
+            cart: [
+                ...this.state.cart,
+                cartItem
+            ]
+        });
+    }
+
     render() {
         var {products} = this.state;
 
         return (
             <div className="container">
                 <h1>Amaro Best-Sellers</h1>
-                <ProductList products={products} />
+                <ProductList products={products} onAddToCart={this.handleAddToCart} />
             </div>
         );
     }

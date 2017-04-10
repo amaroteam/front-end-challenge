@@ -9,8 +9,8 @@ class ProductList extends Component {
         var renderProducts = () => {
             return products.map((product, index) => {
                 return (
-                    <div className="col-xs-6 col-sm-4 col-md-3">
-                        <Product key={product.id} {...product} />
+                    <div className="col-xs-6 col-sm-4 col-md-3" key={index}>
+                        <Product key={product.id} {...product} onAddToCart={this.props.onAddToCart} />
                     </div>
                 )
             })
