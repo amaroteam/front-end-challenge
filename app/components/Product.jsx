@@ -18,21 +18,21 @@ class Product extends Component {
         var renderPrices = () => {
             if (regular_price === actual_price) {
                 return (
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 col-prices-not-discounted">
                         <span className="regular-price">{regular_price}</span>
                     </div>
                 );
             } else {
                 return (
-                    <div className="col-xs-12">
-                        <div className="col-xs-4">
+                    <div className="col-xs-12 col-prices-discounted">
+                        <div className="col-xs-6">
                             <span className="regular-price">{regular_price}</span>
                         </div>
-                        <div className="col-xs-4">
+                        <div className="col-xs-6">
                             <span className="actual-price">{actual_price}</span>
                         </div>
-                        <div className="col-xs-4">
-                            <span className="actual-price">{discount_percentage}</span>
+                        <div className="col-xs-12 col-discount-percentage">
+                            <span className="discount-percentage">- {discount_percentage}</span>
                         </div>
                     </div>
                 );
@@ -51,10 +51,10 @@ class Product extends Component {
         return (
             <div className="product-container">
                 <div className="row">
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 col-product-image">
                         <img src={image === '' ? 'http://placehold.it/470x594' : image} alt="" className="img img-responsive"/>
                     </div>
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 col-product-name">
                         <p>{renderName()}</p>
                     </div>                    
                     {renderPrices()}

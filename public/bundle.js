@@ -11177,7 +11177,7 @@ var Product = function (_Component) {
                 if (regular_price === actual_price) {
                     return _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'col-xs-12 col-prices-not-discounted' },
                         _react2.default.createElement(
                             'span',
                             { className: 'regular-price' },
@@ -11187,10 +11187,10 @@ var Product = function (_Component) {
                 } else {
                     return _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'col-xs-12 col-prices-discounted' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-xs-4' },
+                            { className: 'col-xs-6' },
                             _react2.default.createElement(
                                 'span',
                                 { className: 'regular-price' },
@@ -11199,7 +11199,7 @@ var Product = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-xs-4' },
+                            { className: 'col-xs-6' },
                             _react2.default.createElement(
                                 'span',
                                 { className: 'actual-price' },
@@ -11208,10 +11208,11 @@ var Product = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-xs-4' },
+                            { className: 'col-xs-12 col-discount-percentage' },
                             _react2.default.createElement(
                                 'span',
-                                { className: 'actual-price' },
+                                { className: 'discount-percentage' },
+                                '- ',
                                 discount_percentage
                             )
                         )
@@ -11240,12 +11241,12 @@ var Product = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'col-xs-12 col-product-image' },
                         _react2.default.createElement('img', { src: image === '' ? 'http://placehold.it/470x594' : image, alt: '', className: 'img img-responsive' })
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'col-xs-12 col-product-name' },
                         _react2.default.createElement(
                             'p',
                             null,
@@ -13272,7 +13273,7 @@ exports = module.exports = __webpack_require__(114)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".product-container .col-product-name {\n  margin-top: 15px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 15px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #888; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
 
 // exports
 
