@@ -1,0 +1,65 @@
+.transition-default {
+    transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+
+.transition-default-hover {
+    transition: all .3s ease 0s;
+    -moz-transition: all .3s ease 0s;
+    -webkit-transition: all .3s ease 0s;
+    -o-transition: all .3s ease 0s;
+}
+
+.transition-default-geral {
+    transition: all 1000ms linear;
+    -moz-transition: all 1000ms linear;
+    -webkit-transition: all 1000ms linear;
+    -o-transition: all 1000ms linear;
+}
+
+.square {
+    border-radius: 50px;
+    -webkit-animation: spinning 0.75s infinite linear;
+    animation: spinning 0.75s infinite linear;
+}
+
+@-webkit-keyframes spinning {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(180deg);}
+}
+@keyframes spinning {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(180deg);}
+}
+
+@-webkit-keyframes slideInFromUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-5%);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-5%);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

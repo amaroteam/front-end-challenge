@@ -1,0 +1,24 @@
+<div class="select__colors">
+	<div class="label" ng-click="addColor()">Escolha uma cor</div>
+	<ul ng-if="objectColors.length > 0">
+		<li ng-repeat="fc in objectColors"><span class="cor {{fc.cor}}"></span> {{fc.text}} <span class="remove" ng-click="removeColor(fc.cor)"></span></li>
+	</ul>
+	<ul ng-if="selectColor && selectorClass" class="select__colors--list">				
+		<li ng-click="getcolor('bege', 'Bege')"><span class="cor bege"></span> Bege</li>
+		<li ng-click="getcolor('bohemian-preto', 'Bohemian Preto')"><span class="cor bohemian-preto"></span> Bohemian Preto</li>
+		<li ng-click="getcolor('burgundy', 'Burgundy')"><span class="cor burgundy"></span> Burgundy</li>
+		<li ng-click="getcolor('caramelo', 'Caramelo')"><span class="cor caramelo"></span> Caramelo</li>
+		<li ng-click="getcolor('dourado', 'Dourado')"><span class="cor dourado"></span> Dourado</li>
+		<li ng-click="getcolor('floral-red', 'Floral Red')"><span class="cor floral-red"></span> Floral Red</li>
+		<li ng-click="getcolor('floral-vintage-vermelho', 'Floral Vintage Vermelho')"><span class="cor floral-vintage-vermelho"></span> Floral Vintage Vermelho</li>
+		<li ng-click="getcolor('free-dots', 'Free Dots')"><span class="cor free-dots"></span> Free Dots</li>
+		<li ng-click="getcolor('indigo-escuro', 'Indigo Escuro')"><span class="cor indigo-escuro"></span> Indigo Escuro</li>
+		<li ng-click="getcolor('laranja-queimado', 'Laranja Queimado')"><span class="cor laranja-queimado"></span> Laranja Queimado</li>
+		<li ng-click="getcolor('marinho', 'Marinho')"><span class="cor marinho"></span> Marinho</li>
+		<li ng-click="getcolor('marron', 'Marron')"><span class="cor marron"></span> Marron</li>
+		<li ng-click="getcolor('mini-folk', 'Mini Folk')"><span class="cor mini-folk"></span> Mini Folk</li>
+		<li ng-click="getcolor('off-white', 'Off White')"><span class="cor off-white"></span> Off White</li>
+		<li ng-click="getcolor('paisley-gipsy-azul', 'Paisley Gipsy Azul')"><span class="cor paisley-gipsy-azul"></span> Paisley Gipsy Azul</li>
+		<li ng-click="getcolor('preto', 'Perto')"><span class="cor preto"></span> Preto</li>
+	</ul>
+</div>

@@ -1,0 +1,170 @@
+.product {
+	@extend .row;
+	padding-bottom: 50px;
+
+	.product__col {
+		width: 50%;
+		float: left;
+		padding: 0 15px;
+
+		&:first-child {
+			float: right;
+		}
+	}
+
+	.product__in {
+		text-align: center;
+
+		span {
+			font-size: $fontePadrao;
+			margin-bottom: 10px;
+			display: block;
+		}
+
+		.product__sizes {		
+			margin-top: 20px;
+			min-height: 88px;
+
+			span {
+				width: 100px;
+				margin: auto auto 10px;
+				position: relative;
+
+				strong {
+					width: 23px;
+					text-align: left;
+					font-weight: $bold;
+					position: absolute;
+					right: -10px;
+				}
+			}
+
+			.product__size-u {
+				width: auto;
+				
+				strong {
+					position: static;
+				}
+			}
+
+			ul {
+				list-style: none;
+
+				li {
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					display: inline-block;
+					border: 1px solid $cinza;
+					cursor: pointer;
+					border-radius: 3px;
+
+					& + li {
+						margin-left: 5px;
+					}
+
+					&:hover,
+					&.active {
+						background-color: $cinza;
+						border-color: $preto;
+					}
+				}
+			}
+
+			.product__error {
+				@extend .error;
+				width: 250px;
+				margin: 10px auto auto;
+			}
+		}
+
+		.product__color {
+			.color {
+				width: 15px;
+				height: 15px;
+				content: "";
+				margin: 0 0 0 5px;
+				position: relative;
+				top: 2px;
+				display: inline-block;
+			}
+		}
+
+		.product__btn-sale {
+			width: 100%;
+			max-width: 200px;
+			margin: 20px auto auto;
+		}
+
+		.product__social {
+			margin-top: 20px; 
+
+			li {
+				display: inline-block;
+
+				.lab {
+					position: relative;
+					top: -5px;
+				}
+
+				.icon {
+					font-size: 25px;
+					display: inline-block;
+
+					&.icon-facebook,
+					&.icon-instagram {
+						cursor: pointer;
+
+						&:hover {
+							color: rgba(0, 0, 0, 0.8);
+						}
+					}
+				}
+
+				
+
+				& + li {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 991px) { 
+	.product {
+		.product__col	{
+			.image {
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) { 
+	.product {
+		.product__col	{
+			width: 100%;
+
+			&:first-child {
+				float: left;
+			}
+
+			.image {
+
+					&:before {
+						width: 100%;
+						float: left;
+						font-size: $fontePadrao;
+						color: $cinzaEscuro;
+						margin: 30px 0;
+						content: "Imagem do Produto";
+					}
+				}
+		}
+	}
+}

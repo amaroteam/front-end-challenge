@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("fonts/icons-site/Flaticon.eot");
+  src: url("fonts/icons-site/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("fonts/icons-site/Flaticon.woff") format("woff"),
+       url("fonts/icons-site/Flaticon.ttf") format("truetype"),
+       url("fonts/icons-site/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("fonts/icons-site/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before,
+[class^="icon-"]:after, [class*=" icon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+}
+
+.icon-instagram:before { content: "\f100"; }
+.icon-facebook:before { content: "\f101"; }
+.icon-share:before { content: "\f102"; }
+.icon-back:before { content: "\f103"; }
+.icon-next:before { content: "\f104"; }
+.icon-car:before { content: "\f105"; }

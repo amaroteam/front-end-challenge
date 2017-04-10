@@ -1,0 +1,86 @@
+.products {
+	@extend .row;
+	padding-bottom: 50px;
+
+	.products_item {
+		width: 25%;
+		float: left;
+		padding: 0 15px;
+		margin-bottom: 30px;		
+
+		a {
+			display: block;
+			padding: 0 30px;
+			border: 2px solid $cinza;
+			position: relative;
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.info {
+				@extend .transition-default-geral;
+				width: 101%;
+				height: 50px;
+				position: absolute;
+				left: -2px;
+				bottom: -2px;
+				padding: 5px 15px;
+				background-color: rgba(30, 30, 30, 0.7);
+				z-index: 5;
+
+				span {
+					display: block;
+					color: $branco;
+				}
+			}
+
+			.products_on-sale {
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				background: #FF706D;
+				color: $branco;
+				border-radius: 50%;
+			}
+
+			&:hover {
+				border-color: $preto;
+
+				.info {
+					background-color: $preto;
+				}
+			}
+		}
+
+	}
+}
+
+@media screen and (max-width: 1152px) {
+	.products {
+		.products_item  {
+			width: 33.33%;
+		}
+	}
+}
+
+@media screen and (max-width: 991px) { 
+	.products {
+		.products_item  {
+			width: 50%;
+		}
+	}
+}
+
+@media screen and (max-width: 700px) { 
+	.products {
+		.products_item  {
+			width: 100%;
+		}
+	}
+}

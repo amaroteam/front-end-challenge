@@ -1,0 +1,71 @@
+<div class="container" ng-controller="SacolaCtrl">
+
+    <div class="cart">
+
+    	<div class="cart__zero" ng-if="carItems.length == 0">
+			<h1 class="subtitle">Ops. Sua sacola está vazia.</h1>
+
+			<a href="#/" class="btn btn-return">Comprar mais</a>
+    	</div>
+
+	    <ul ng-if="carItems.length > 0">
+	    	<li>
+	    		<h1 class="subtitle">Sacola de compras</h1>
+				<button class="btn btn-finalize">Finalizar Compra</button>
+	    	</li>
+			<li ng-repeat="items in carItems" class="cart_info">
+				<div class="cart__col">
+					<img src="{{items.image}}" alt="{{item.name}}">
+				</div>
+				<div class="cart__col">
+					<span class="name">{{items.name}}</span>
+					<span class="colors">Cor: <span class="color {{items.color_slug}}"></span></span>
+					<button class="btn btn-remove" ng-click="removeItem(items.item, items.size)">Remover produto</button>
+				</div>				
+				<div class="cart__col">
+					<span class="size">Tamanho: <strong>{{items.size}}</strong></span>
+					<span class="qtd">
+						Qtd:						
+						<button class="btn-updade" ng-click="updateQtd(items.item, items.size, items.qtd, 'remove')">-</button>
+						<span class="cart__qtd">{{items.qtd}}</span>
+						<button class="btn-updade" ng-click="updateQtd(items.item, items.size, items.qtd, 'add')">+</button>
+						
+					</span>
+				</div>
+				<div class="cart__col">
+					<div class="subtotal">
+						<div class="in">
+							<span>Subtotal</span>
+						</div>
+						<div class="in">
+							<span class="price">{{items.price}}</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="cart__details">
+				<div class="cart__col">
+					<span class="cep">CEP: <input type="text"></span>
+				</div>
+				<div class="cart__col">
+					<div class="total">
+						<div class="in">
+							<span>Total</span>
+						</div>
+						<div class="in">
+							<span class="price">R$ {{priceTotal}}</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="cart_return">
+				<div class="right">
+					<button class="btn btn-finalize">Finalizar Compra</button>
+					<a href="#/" class="btn btn-return">Comprar mais</a>
+				</div>
+			</li>
+	    </ul>
+
+    </div>
+
+</div>
