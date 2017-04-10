@@ -7,14 +7,20 @@ class ProductList extends Component {
         var {products} = this.props;        
 
         var renderProducts = () => {
-            return products.map((product) => {
-                return <Product key={product.id} {...product} />
+            return products.map((product, index) => {
+                return (
+                    <div className="col-xs-6">
+                        <Product key={product.id} {...product} />
+                    </div>
+                )
             })
         }
 
         return (
             <div>
-                {renderProducts()}
+                <div className="row">
+                    {renderProducts()}
+                </div>
             </div>
         );
     }
