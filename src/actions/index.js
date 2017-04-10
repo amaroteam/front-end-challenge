@@ -4,9 +4,7 @@ export const addToCart = payload => {
     payload: {
       id: payload.id,
       name: payload.name,
-      regular_price: payload.regular_price,
-      actual_price: payload.actual_price,
-      on_sale: payload.on_sale,
+      price: payload.price,
       size: payload.size,
       amount: 1
     }

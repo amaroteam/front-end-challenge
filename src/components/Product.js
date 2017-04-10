@@ -8,7 +8,7 @@ class Product extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { size: null }
+    this.state = { size: this.props.sizes[0] }
   }
 
   render() {
@@ -27,11 +27,9 @@ class Product extends React.Component {
 
     let handleAddToCartClick = () => {
       onAddToCart({
-        id: size.id,
+        id: size.sku,
         name,
-        regular_price,
-        actual_price,
-        on_sale,
+        price: on_sale ? actual_price : regular_price,
         size
       })
     }
