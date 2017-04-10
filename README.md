@@ -12,7 +12,7 @@ Automatizador de tarefas Grunt.
 
 ## Diretórios do app
 
-Os arquivos do projeto encontra-se no seguintes caminhos.
+Os arquivos do projeto encontra-se nos seguintes caminhos.
 
 ## Arquivos do angular:
 
