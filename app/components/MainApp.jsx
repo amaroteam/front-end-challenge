@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 const uuidV4 = require('uuid/v4');
 
 import api from '../api/api.jsx';
-import ProductList from './ProductList.jsx';
+
+import Cart from './Cart.jsx';
 import Nav from './Nav.jsx';
+import ProductList from './ProductList.jsx';
 
 class MainApp extends Component {
     constructor(props) {
@@ -11,10 +13,12 @@ class MainApp extends Component {
 
         this.state = {
             products: [],
-            cart: []
+            cart: [],
+            cartVisible: false
         }
 
         this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.handleToggleCart = this.handleToggleCart.bind(this);
     }
 
     componentWillMount() {        
@@ -31,9 +35,7 @@ class MainApp extends Component {
         })
     }
 
-    handleAddToCart(name, image, actual_price) {        
-        console.log();
-
+    handleAddToCart(name, image, actual_price) {
         var cartItem = {
             name,
             image,
@@ -50,13 +52,27 @@ class MainApp extends Component {
         });
     }
 
+    handleToggleCart() {
+        this.setState({
+            cartVisible: !this.state.cartVisible
+        });
+    }
+
     render() {
-        var {products} = this.state;
+        var {products, cartVisible} = this.state;
+
+        var renderCartOrProducts = () => {
+            if (cartVisible) {
+                return (<Cart onToggleCart={this.handleToggleCart} />);
+            } else {
+                return (<ProductList products={products} onAddToCart={this.handleAddToCart} />);
+            }
+        }        
 
         return (
             <div className="container">
-                <Nav/>
-                <ProductList products={products} onAddToCart={this.handleAddToCart} />
+                <Nav onToggleCart={this.handleToggleCart} />
+                {renderCartOrProducts()}
             </div>
         );
     }

@@ -7,7 +7,7 @@ class Nav extends Component {
                 <div className="container">
                     <div className="navbar">                    
                         <a className="navbar-brand" href="#">Amaro</a>
-                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <i className="fa fa-shopping-cart" aria-hidden="true" onClick={() => this.props.onToggleCart()}></i>
                     </div>
                 </div>
             </nav>

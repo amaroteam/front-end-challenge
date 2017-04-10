@@ -36,10 +36,7 @@ class Product extends Component {
                         </div>
                         <div className="col-xs-6">
                             <span className="actual-price">{actual_price}</span>
-                        </div>
-                        <div className="col-xs-12 col-discount-percentage">
-                            <span className="discount-percentage">- {discount_percentage}</span>
-                        </div>
+                        </div>                        
                     </div>
                 );
             }
