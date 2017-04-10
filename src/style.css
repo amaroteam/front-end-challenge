@@ -1,0 +1,76 @@
+a {
+  color: #000;
+}
+
+a:hover, a:focus {
+  color: #000;
+}
+
+button {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: 1px solid #a4a4a4 !important;
+}
+
+button.active {
+  background: #2c2c2c !important;
+  color: #FFF !important;
+}
+
+.btn-primary {
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #e3e3e3 !important;
+  color: #000 !important;
+}
+
+.btn-primary:focus {
+  color: #000;
+}
+
+.btn-primary:active {
+  background: #e3e3e3 !important;
+  color: #000 !important;
+  border: 0 !important;
+}
+
+.nav-pills> li > a {
+  border-radius: 0;
+}
+
+.nav-pills > li.active > a {
+  background: #000;
+}
+
+.nav-pills > li.active >a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active> a:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.product {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.product > * {
+  margin-bottom: 10px;
+}
+.product .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #5e5e5e;
+}
+
+.product .price-scratched {
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: line-through;
+  color: #7e7e7e;
+}
+
+.product .name {
+  text-transform: capitalize;
+}

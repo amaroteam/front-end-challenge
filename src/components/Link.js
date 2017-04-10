@@ -4,8 +4,8 @@ const { bool, node, func } = React.PropTypes
 
 const Link = ({ active, children, onClick }) => {
 
-  if (active)
-    return <span>{ children }</span>
+  // if (active)
+    // return <span>{ children }</span>
 
   return (
     <a

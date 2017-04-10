@@ -25,6 +25,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: './src/index.html' },
+            { from: './src/style.css' },
             {
                 from: './node_modules/bootstrap/dist',
                 to: './libs/bootstrap'

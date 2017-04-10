@@ -4,8 +4,7 @@ const cartItem = ( state={}, action ) => {
 
     case 'ADD_TO_CART':
       return {
-        ...state,
-        amount: 1
+        ...state
       }
 
     case 'INCREMENT_AMOUNT':

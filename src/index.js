@@ -18,5 +18,5 @@ render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.querySelector('.container')
+  document.getElementById('content')
 )

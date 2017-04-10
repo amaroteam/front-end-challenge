@@ -1,48 +1,79 @@
 import React from 'react'
+import Size from './Size'
+import { Col, Image, Button, Glyphicon } from 'react-bootstrap'
 
-const {
-  string,
-  number,
-  bool,
-  arrayOf,
-  shape,
-  func
-} = React.PropTypes
+const { string, number, bool, arrayOf, shape, func } = React.PropTypes
 
-const Product = ({
-  id,
-  name,
-  image,
-  regular_price,
-  actual_price,
-  on_sale,
-  sizes,
-  onAddToCart
-}) => (
-  <div className="col-md-3">
-    <img width="200" height="250" src={image} />
-    <h3>{name}</h3>
-    <span>
-      { on_sale ? actual_price + ' offer' : regular_price }
-    </span>
-    <ul>
-      { sizes.map( s =>
-          <li key={s.sku}>{s.size}</li> ) }
-    </ul>
-    <button onClick={ () =>
-      onAddToCart( {
-        id,
+class Product extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { size: null }
+  }
+
+  render() {
+
+    let {
+      name,
+      image,
+      defaultImage,
+      sizes,
+      on_sale,
+      actual_price,
+      regular_price,
+      onAddToCart } = this.props
+
+    let { size } = this.state
+
+    let handleAddToCartClick = () => {
+      onAddToCart({
+        id: size.id,
         name,
         regular_price,
         actual_price,
-        on_sale } ) }> ADD TO CART </button>
-  </div>
-)
+        on_sale,
+        size
+      })
+    }
+
+    let handleSizeClick = size => {
+      this.setState({ size })
+    }
+
+    return (
+      <Col md={3} className="product">
+        <Image src={ image || defaultImage } responsive/>
+        <h5 className="name">{ name.toLowerCase() }</h5>
+        <div> { on_sale ?
+          <span>
+            de <span className="price-scratched">
+              { regular_price }</span> por <span className="price">
+              { actual_price }</span>
+          </span> :
+          <span className="price">
+            { regular_price }
+          </span> }
+        </div>
+        <div>
+          <Size
+            sizes={ sizes
+              .filter( s => s.available )
+              .map( s => ({ ...s, id: s.sku }) ) }
+            onClick={ handleSizeClick } />
+        </div>
+        <Button
+          bsStyle="primary"
+          onClick={ handleAddToCartClick }>
+            <Glyphicon glyph="shopping-cart" /> Adicionar ao carrinho
+        </Button>
+      </Col> ) }
+
+}
 
 Product.PropTypes = {
-  id: number.isRequired,
   name: string.isRequired,
   image: string.isRequired,
+  defaultImage: string.isRequired,
   regular_price: number.isRequired,
   actual_price: number.isRequired,
   on_sale: bool.isRequired,

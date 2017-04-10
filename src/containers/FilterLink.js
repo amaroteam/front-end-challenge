@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import Link from '../components/Link'
+// import Link from '../components/Link'
+import { NavItem } from 'react-bootstrap'
 import { setFilter } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispacthToProps = (dispatch, ownProps) => {
   return {
-    onClick() {
+    onSelect() {
       dispatch(
         setFilter( ownProps.filter ) )
     } 
@@ -18,6 +19,6 @@ const mapDispacthToProps = (dispatch, ownProps) => {
 const FilterLink = connect(
   mapStateToProps,
   mapDispacthToProps
-)(Link)
+)(NavItem)
 
 export default FilterLink
