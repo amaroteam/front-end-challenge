@@ -11173,6 +11173,7 @@ var Product = function (_Component) {
                 }).join(' ');
             };
 
+            // Render prices according to the values of the regular_price and actual_price variables
             var renderPrices = function renderPrices() {
                 if (regular_price === actual_price) {
                     return _react2.default.createElement(
@@ -11256,7 +11257,7 @@ var Product = function (_Component) {
                     renderPrices(),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-12' },
+                        { className: 'col-xs-12 col-sizes' },
                         _react2.default.createElement(
                             'p',
                             null,
@@ -11323,7 +11324,7 @@ var ProductList = function (_Component) {
                 return products.map(function (product, index) {
                     return _react2.default.createElement(
                         'div',
-                        { className: 'col-xs-6' },
+                        { className: 'col-xs-6 col-sm-4 col-md-3' },
                         _react2.default.createElement(_Product2.default, _extends({ key: product.id }, product))
                     );
                 });
@@ -13273,7 +13274,7 @@ exports = module.exports = __webpack_require__(114)(undefined);
 
 
 // module
-exports.push([module.i, ".product-container .col-product-name {\n  margin-top: 15px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 15px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #888; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
+exports.push([module.i, ".product-container .col-product-name {\n  margin-top: 10px;\n  height: 45px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 10px;\n  height: 45px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #999; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n.product-container .col-sizes {\n  height: 75px; }\n  .product-container .col-sizes .span-size {\n    border: 1px solid #000;\n    padding: 5px;\n    width: 22%;\n    display: inline-block;\n    margin-bottom: 5px;\n    text-align: center;\n    margin-right: 3px;\n    font-size: 1rem;\n    font-weight: bold; }\n  .product-container .col-sizes .span-size-not-available {\n    font-weight: normal;\n    color: #aaa;\n    border: 1px solid #aaa;\n    text-decoration: line-through; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
 
 // exports
 

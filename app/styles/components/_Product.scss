@@ -1,10 +1,12 @@
 .product-container {
     .col-product-name {
-        margin-top: 15px;
+        margin-top: 10px;
+        height: 45px;
     }
     
     .col-prices-not-discounted, .col-prices-discounted {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        height: 45px;
         [class*='col-'] {
             padding: 0;
         }
@@ -12,7 +14,7 @@
     .col-prices-discounted {
         .regular-price {
             text-decoration: line-through;
-            color: #888;
+            color: #999;
         }
         .actual-price {
             font-weight: bold;
@@ -29,6 +31,28 @@
     .col-prices-not-discounted {
         .regular-price {
             font-weight: bold;
+        }
+    }
+
+    .col-sizes {
+        height: 75px;
+        .span-size {
+            border: 1px solid #000;
+            padding: 5px;
+            width: 22%;
+            display: inline-block;
+            margin-bottom: 5px;
+            text-align: center;
+            margin-right: 3px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .span-size-not-available {
+            font-weight: normal;
+            color: #aaa;
+            border: 1px solid #aaa;
+            text-decoration: line-through;
         }
     }
 }

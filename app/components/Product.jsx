@@ -15,6 +15,7 @@ class Product extends Component {
                 .join(' '))        
         }
 
+        // Render prices according to the values of the regular_price and actual_price variables
         var renderPrices = () => {
             if (regular_price === actual_price) {
                 return (
@@ -58,7 +59,7 @@ class Product extends Component {
                         <p>{renderName()}</p>
                     </div>                    
                     {renderPrices()}
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 col-sizes">
                         <p>{renderSizes()}</p>
                     </div>
                 </div>
