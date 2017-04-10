@@ -3,6 +3,7 @@ const uuidV4 = require('uuid/v4');
 
 import api from '../api/api.jsx';
 import ProductList from './ProductList.jsx';
+import Nav from './Nav.jsx';
 
 class MainApp extends Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class MainApp extends Component {
 
         return (
             <div className="container">
-                <h1>Amaro Best-Sellers</h1>
+                <Nav/>
                 <ProductList products={products} onAddToCart={this.handleAddToCart} />
             </div>
         );

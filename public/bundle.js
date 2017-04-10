@@ -18119,6 +18119,10 @@ var _ProductList = __webpack_require__(226);
 
 var _ProductList2 = _interopRequireDefault(_ProductList);
 
+var _Nav = __webpack_require__(474);
+
+var _Nav2 = _interopRequireDefault(_Nav);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -18190,11 +18194,7 @@ var MainApp = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Amaro Best-Sellers'
-                ),
+                _react2.default.createElement(_Nav2.default, null),
                 _react2.default.createElement(_ProductList2.default, { products: products, onAddToCart: this.handleAddToCart })
             );
         }
@@ -18435,7 +18435,7 @@ var ProductList = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'product-list-container' },
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
@@ -21337,7 +21337,7 @@ exports = module.exports = __webpack_require__(278)(undefined);
 
 
 // module
-exports.push([module.i, ".product-container .col-product-name {\n  margin-top: 10px;\n  height: 45px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 10px;\n  height: 45px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #999; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n.product-container .col-sizes {\n  height: 75px; }\n  .product-container .col-sizes .span-size {\n    border: 1px solid #000;\n    padding: 5px;\n    width: 22%;\n    display: inline-block;\n    margin-bottom: 5px;\n    text-align: center;\n    margin-right: 3px;\n    font-size: 1rem;\n    font-weight: bold; }\n  .product-container .col-sizes .span-size-not-available {\n    font-weight: normal;\n    color: #aaa;\n    border: 1px solid #aaa;\n    text-decoration: line-through; }\n\n.product-container .col-add-to-cart {\n  margin-bottom: 20px; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
+exports.push([module.i, ".nav-container .fa-shopping-cart {\n  float: right;\n  padding: 15px;\n  font-size: 2rem; }\n\n.nav-container .navbar {\n  margin-bottom: 0; }\n\n.product-container .col-product-name {\n  margin-top: 10px;\n  height: 45px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 10px;\n  height: 45px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #999; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n.product-container .col-sizes {\n  height: 75px; }\n  .product-container .col-sizes .span-size {\n    border: 1px solid #000;\n    padding: 5px;\n    width: 22%;\n    display: inline-block;\n    margin-bottom: 5px;\n    text-align: center;\n    margin-right: 3px;\n    font-size: 1rem;\n    font-weight: bold; }\n  .product-container .col-sizes .span-size-not-available {\n    font-weight: normal;\n    color: #aaa;\n    border: 1px solid #aaa;\n    text-decoration: line-through; }\n\n.product-container .col-add-to-cart {\n  margin-bottom: 20px; }\n\n.product-list-container {\n  margin-top: 80px; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
 
 // exports
 
@@ -44297,6 +44297,69 @@ module.exports = v4;
 
 module.exports = __webpack_require__(204);
 
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Nav = function (_Component) {
+    _inherits(Nav, _Component);
+
+    function Nav() {
+        _classCallCheck(this, Nav);
+
+        return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
+    }
+
+    _createClass(Nav, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "nav",
+                { className: "navbar navbar-default navbar-fixed-top nav-container" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "container" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "navbar" },
+                        _react2.default.createElement(
+                            "a",
+                            { className: "navbar-brand", href: "#" },
+                            "Amaro"
+                        ),
+                        _react2.default.createElement("i", { className: "fa fa-shopping-cart", "aria-hidden": "true" })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Nav;
+}(_react.Component);
+
+exports.default = Nav;
 
 /***/ })
 /******/ ]);
