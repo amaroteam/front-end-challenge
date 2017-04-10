@@ -2,12 +2,49 @@ import React, { Component } from 'react';
 
 class Product extends Component {
     render() {
-        var {name, image, regular_price, actual_price, on_sale, sizes} = this.props;
+        var {name, image, regular_price, actual_price, discount_percentage, sizes} = this.props;
 
+        // Capitalize first letter of each word on product name
+        var renderName = () => {
+            return (name
+                .toLowerCase()
+                .split(' ')
+                .map(function(word) {
+                    return word[0].toUpperCase() + word.substr(1);
+                })
+                .join(' '))        
+        }
+
+        var renderPrices = () => {
+            if (regular_price === actual_price) {
+                return (
+                    <div className="col-xs-12">
+                        <span className="regular-price">{regular_price}</span>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="col-xs-12">
+                        <div className="col-xs-4">
+                            <span className="regular-price">{regular_price}</span>
+                        </div>
+                        <div className="col-xs-4">
+                            <span className="actual-price">{actual_price}</span>
+                        </div>
+                        <div className="col-xs-4">
+                            <span className="actual-price">{discount_percentage}</span>
+                        </div>
+                    </div>
+                );
+            }
+        }        
+
+        // Render a span for each size of the product with adequate classes
         var renderSizes = () => {
+            let sizeSpanClass;
             return sizes.map((size, index) => {
-                console.log(size.available);
-                return <span key={index}>{size.size} - {size.available ? "true" : "false"}</span>
+                sizeSpanClass = size.available ? "span-size span-size-available" : "span-size span-size-not-available";
+                return <span key={index} className={sizeSpanClass}>{size.size}</span>
             })
         }
 
@@ -18,14 +55,9 @@ class Product extends Component {
                         <img src={image === '' ? 'http://placehold.it/470x594' : image} alt="" className="img img-responsive"/>
                     </div>
                     <div className="col-xs-12">
-                        <p>{name}</p>
-                    </div>
-                    <div className="col-xs-12">
-                        <p>{regular_price} - {actual_price}</p>
-                    </div>
-                    <div className="col-xs-12">
-                        <p>{on_sale}</p>
-                    </div>
+                        <p>{renderName()}</p>
+                    </div>                    
+                    {renderPrices()}
                     <div className="col-xs-12">
                         <p>{renderSizes()}</p>
                     </div>

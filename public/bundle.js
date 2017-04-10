@@ -11155,75 +11155,109 @@ var Product = function (_Component) {
     }
 
     _createClass(Product, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var _props = this.props,
                 name = _props.name,
                 image = _props.image,
                 regular_price = _props.regular_price,
                 actual_price = _props.actual_price,
-                on_sale = _props.on_sale,
+                discount_percentage = _props.discount_percentage,
                 sizes = _props.sizes;
 
+            // Capitalize first letter of each word on product name
 
-            var renderSizes = function renderSizes() {
-                return sizes.map(function (size, index) {
-                    console.log(size.available);
+            var renderName = function renderName() {
+                return name.toLowerCase().split(' ').map(function (word) {
+                    return word[0].toUpperCase() + word.substr(1);
+                }).join(' ');
+            };
+
+            var renderPrices = function renderPrices() {
+                if (regular_price === actual_price) {
                     return _react2.default.createElement(
-                        "span",
-                        { key: index },
-                        size.size,
-                        " - ",
-                        size.available ? "true" : "false"
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'regular-price' },
+                            regular_price
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'regular-price' },
+                                regular_price
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'actual-price' },
+                                actual_price
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-xs-4' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'actual-price' },
+                                discount_percentage
+                            )
+                        )
+                    );
+                }
+            };
+
+            // Render a span for each size of the product with adequate classes
+            var renderSizes = function renderSizes() {
+                var sizeSpanClass = void 0;
+                return sizes.map(function (size, index) {
+                    sizeSpanClass = size.available ? "span-size span-size-available" : "span-size span-size-not-available";
+                    return _react2.default.createElement(
+                        'span',
+                        { key: index, className: sizeSpanClass },
+                        size.size
                     );
                 });
             };
 
             return _react2.default.createElement(
-                "div",
-                { className: "product-container" },
+                'div',
+                { className: 'product-container' },
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-xs-12" },
-                        _react2.default.createElement("img", { src: image === '' ? 'http://placehold.it/470x594' : image, alt: "", className: "img img-responsive" })
+                        'div',
+                        { className: 'col-xs-12' },
+                        _react2.default.createElement('img', { src: image === '' ? 'http://placehold.it/470x594' : image, alt: '', className: 'img img-responsive' })
                     ),
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-xs-12" },
+                        'div',
+                        { className: 'col-xs-12' },
                         _react2.default.createElement(
-                            "p",
+                            'p',
                             null,
-                            name
+                            renderName()
                         )
                     ),
+                    renderPrices(),
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-xs-12" },
+                        'div',
+                        { className: 'col-xs-12' },
                         _react2.default.createElement(
-                            "p",
-                            null,
-                            regular_price,
-                            " - ",
-                            actual_price
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-xs-12" },
-                        _react2.default.createElement(
-                            "p",
-                            null,
-                            on_sale
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-xs-12" },
-                        _react2.default.createElement(
-                            "p",
+                            'p',
                             null,
                             renderSizes()
                         )
