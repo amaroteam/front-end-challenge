@@ -119,8 +119,8 @@ class MainApp extends Component {
             var cartValue = cart[0].total_item_price;
         } else {
             var cartValue = cart.reduce((previousCartItem, currentCartItem) => {
-                return (previousCartItem.total_item_price + currentCartItem.total_item_price);
-            })
+                return ({total_item_price: previousCartItem.total_item_price + currentCartItem.total_item_price});
+            })["total_item_price"]
         }        
 
         var renderCartOrProducts = () => {

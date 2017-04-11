@@ -19,7 +19,7 @@ class Cart extends Component {
         return (
             <div className="cart-container">
                 <div className="row">
-                    <div className="col-xs-12">
+                    <div className="col-xs-12 text-center">
                         <h2>Carrinho</h2>
                         <i className="fa fa-window-close" aria-hidden="true" onClick={() => this.props.onToggleCart()}></i>
                     </div>
