@@ -1,0 +1,13 @@
+.cart-row-container {
+    border-bottom: 1px solid #ccc;
+    [class*='col-'] {
+        padding: 10px;
+        height: 170px;
+    }
+    .row {
+        margin-bottom: 15px;        
+    }
+    img {
+        max-height: 150px;
+    }
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 
+import utils from '../utils/utils.jsx';
+
 class Product extends Component {
     constructor(props) {
         super(props);
@@ -8,17 +10,6 @@ class Product extends Component {
 
     render() {
         var {name, image, regular_price, actual_price, discount_percentage, sizes} = this.props;
-
-        // Capitalize first letter of each word on product name
-        var renderName = () => {
-            return (name
-                .toLowerCase()
-                .split(' ')
-                .map(function(word) {
-                    return word[0].toUpperCase() + word.substr(1);
-                })
-                .join(' '))        
-        }
 
         // Render prices according to the values of the regular_price and actual_price variables
         var renderPrices = () => {
@@ -58,7 +49,7 @@ class Product extends Component {
                         <img src={image === '' ? 'http://placehold.it/470x594' : image} alt="" className="img img-responsive"/>
                     </div>
                     <div className="col-xs-12 col-product-name">
-                        <p>{renderName()}</p>
+                        <p>{utils.capitalizeFirstLetterEachWord(name)}</p>
                     </div>                    
                     {renderPrices()}
                     <div className="col-xs-12 col-sizes">

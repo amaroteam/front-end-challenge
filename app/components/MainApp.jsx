@@ -59,11 +59,19 @@ class MainApp extends Component {
     }
 
     render() {
-        var {products, cartVisible} = this.state;
+        var {products, cartVisible, cart} = this.state;
+
+        if (cart.length === 0) {
+            var cartValue = 0;
+        } else {
+            var cartValue = cart.reduce((previousCartItem, currentCartItem) => {
+                return (previousCartItem.total_item_price + currentCartItem.total_item_price);
+            })
+        }        
 
         var renderCartOrProducts = () => {
             if (cartVisible) {
-                return (<Cart onToggleCart={this.handleToggleCart} />);
+                return (<Cart onToggleCart={this.handleToggleCart} cart={cart} cartValue={cartValue} />);
             } else {
                 return (<ProductList products={products} onAddToCart={this.handleAddToCart} />);
             }
