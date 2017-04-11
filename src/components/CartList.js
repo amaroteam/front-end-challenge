@@ -22,29 +22,23 @@ const CartList = ({
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>lorem ipsum dolor sit</td>
-          <td>PP</td>
-          <td>R$ 129,90</td>
-          <td>5</td>
-          <td>R$ 790,45</td>
-        </tr>
+        { items.map( item =>
+            <CartItem
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              amount={item.amount}
+              size={item.size}
+              onRemove={onRemoved}
+              onIncrement={onIncremented}
+              onDecrement={onDecremented}
+            /> ) }
         <tr>
           <td colSpan="5">R$ 790,45</td>
         </tr>
       </tbody>
     </Table>
-    { items.map( item =>
-      <CartItem
-        key={item.id}
-        id={item.id}
-        name={item.name}
-        price={item.on_sale ? item.actual_price : item.regular_price}
-        amount={item.amount}
-        onRemove={onRemoved}
-        onIncrement={onIncremented}
-        onDecrement={onDecremented}
-      /> ) }
   </div> ) 
 
 CartList.PropTypes = {

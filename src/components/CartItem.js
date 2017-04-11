@@ -1,4 +1,5 @@
 import React from 'react'
+import QuantityControl from './QuantityControl'
 
 const { string, func , number } = React.PropTypes
 
@@ -8,29 +9,23 @@ const CartItem = ({
   image,
   price,
   amount,
+  size,
   onRemove,
   onIncrement,
   onDecrement
 }) => (
-  <div className="col-md-12">
-    <div className="col-md-4">
-      <img src={image} className="img-responsive" />
-    </div>
-    <h4 className="col-md-4">{name}</h4>
-    <div className="col-md-4">
-      <span>{price}</span>
-      <button onClick={ () => onDecrement(id) }>
-        -
-      </button>
-      <span>{amount}</span>
-      <button onClick={ () => onIncrement(id) }>
-        +
-      </button>
-      <button onClick={ () => onRemove(id) }>
-        x
-      </button>
-    </div>
-  </div>
+  <tr>
+    <td>{ name } </td>
+    <td>{ size.size }</td>
+    <td>{ price }</td>
+    <td>
+      <QuantityControl
+        quantity={amount}
+        onIncremented={ () => null }
+        onDecremented={ () => null } />
+    </td>
+    <td>R$ { amount * price }</td>
+  </tr>
 ) 
 
 CartItem.PropTypes = {
