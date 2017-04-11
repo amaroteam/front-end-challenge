@@ -10,7 +10,7 @@ class Cart extends Component {
             return cart.map((cartItem, index) => {
                 return (
                     <div className="text-center" key={index}>
-                        <CartRow key={index} {...cartItem} />   
+                        <CartRow key={index} {...cartItem} onChangeCartItemQuantity={this.props.onChangeCartItemQuantity} onRemoveCartItem={this.props.onRemoveCartItem} />   
                     </div>
                 )
             })

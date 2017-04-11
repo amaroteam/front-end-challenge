@@ -19,6 +19,8 @@ class MainApp extends Component {
 
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.handleToggleCart = this.handleToggleCart.bind(this);
+        this.handleChangeCartItemQuantity = this.handleChangeCartItemQuantity.bind(this);
+        this.handleRemoveCartItem = this.handleRemoveCartItem.bind(this);
     }
 
     componentWillMount() {        
@@ -37,6 +39,7 @@ class MainApp extends Component {
 
     handleAddToCart(name, image, actual_price) {
         var cartItem = {
+            id: uuidV4(),
             name,
             image,
             actual_price: parseFloat(actual_price.replace("R$ ","").replace(",",".")),
@@ -58,11 +61,35 @@ class MainApp extends Component {
         });
     }
 
+    handleChangeCartItemQuantity(cartItemId, quantity) {
+        var updatedCartItems = this.state.cart.map((cartItem) => {
+            if (cartItem.id === cartItemId) {
+                cartItem.quantity = quantity;
+                cartItem.total_item_price = quantity * cartItem.actual_price;          
+            }
+
+            return cartItem;
+        });
+
+        this.setState({cart: updatedCartItems});
+    }
+
+    handleRemoveCartItem(cartItemId) {
+        var updatedCartItems = this.state.cart.filter((cartItem) => {
+            return cartItem.id !== cartItemId
+        })
+
+        console.log(updatedCartItems);
+        this.setState({cart: updatedCartItems});
+    }
+
     render() {
-        var {products, cartVisible, cart} = this.state;
+        var {products, cartVisible, cart} = this.state;        
 
         if (cart.length === 0) {
             var cartValue = 0;
+        } else if (cart.length === 1) {
+            var cartValue = cart[0].total_item_price;
         } else {
             var cartValue = cart.reduce((previousCartItem, currentCartItem) => {
                 return (previousCartItem.total_item_price + currentCartItem.total_item_price);
@@ -71,7 +98,7 @@ class MainApp extends Component {
 
         var renderCartOrProducts = () => {
             if (cartVisible) {
-                return (<Cart onToggleCart={this.handleToggleCart} cart={cart} cartValue={cartValue} />);
+                return (<Cart onToggleCart={this.handleToggleCart} cart={cart} cartValue={cartValue} onChangeCartItemQuantity={this.handleChangeCartItemQuantity} onRemoveCartItem={this.handleRemoveCartItem} />);
             } else {
                 return (<ProductList products={products} onAddToCart={this.handleAddToCart} />);
             }
