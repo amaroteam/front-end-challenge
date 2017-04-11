@@ -31,19 +31,19 @@ class CartRow extends Component {
         return (
             <div className="cart-row-container row">                
                 <div className="col-xs-4 col-sm-2 col-sm-offset-3">
-                    <img src={image} className="img img-responsive" alt=""/>
+                    <img src={image} className="img img-responsive cart-row-product-image" alt=""/>
                 </div>
                 <div className="col-xs-8 col-sm-4 text-center">
-                    <p>{utils.capitalizeFirstLetterEachWord(name)}</p>
+                    <p className="cart-row-product-name">{utils.capitalizeFirstLetterEachWord(name)}</p>
                     <p className="cart-row-quantity">
                         Quantidade: 
                         <input type="number" value={this.state.quantity} onChange={this.handleChangeCartItemQuantity} /> 
-                        <Button bsStyle="primary" onClick={this.handleUpdateCartItemQuantity}>
+                        <Button bsStyle="primary" id="btn-update-quantity" onClick={this.handleUpdateCartItemQuantity}>
                             <i className="fa fa-refresh" aria-hidden="true"></i>
                         </Button>
                     </p>
-                    <p>Valor Total: R$ {total_item_price.toFixed(2)}</p>
-                    <p><Button bsStyle="danger" block onClick={this.handleRemoveCartItem}>Remover</Button></p>
+                    <p className="cart-row-total-value">Valor Total: R$ {total_item_price.toFixed(2)}</p>
+                    <p><Button bsStyle="danger" id="btn-remove-cart-row" block onClick={this.handleRemoveCartItem}>Remover</Button></p>
                 </div>                
             </div>
         );

@@ -1,6 +1,7 @@
 import React from 'react';
 import chai from 'chai';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
 import Product from '../../app/components/Product.jsx';
 import utils from '../../app/utils/utils.jsx';
@@ -49,5 +50,14 @@ describe('Product', () => {
 
     it('should render a span in the col-sizes div for each size passed', () => {
         expect(product.find('.col-sizes').children('p').first().children('span').length).to.equal(productData.sizes.length);
+    })
+
+    it('should call onAddToCart with product data when Add to Cart Button is clicked', () => {
+        const spy = sinon.spy();
+        product = shallow(<Product key={1} {...productData} onAddToCart={spy} />);
+
+        product.find('.col-add-to-cart').children('Button').simulate('click');
+        expect(spy.calledOnce).to.be.true;
+        expect(spy.calledWith(productData.name, productData.image, productData.actual_price)).to.be.true;
     })
 })

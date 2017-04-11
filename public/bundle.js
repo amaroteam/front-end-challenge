@@ -18563,14 +18563,14 @@ var CartRow = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'col-xs-4 col-sm-2 col-sm-offset-3' },
-                    _react2.default.createElement('img', { src: image, className: 'img img-responsive', alt: '' })
+                    _react2.default.createElement('img', { src: image, className: 'img img-responsive cart-row-product-image', alt: '' })
                 ),
                 _react2.default.createElement(
                     'div',
                     { className: 'col-xs-8 col-sm-4 text-center' },
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'cart-row-product-name' },
                         _utils2.default.capitalizeFirstLetterEachWord(name)
                     ),
                     _react2.default.createElement(
@@ -18580,13 +18580,13 @@ var CartRow = function (_Component) {
                         _react2.default.createElement('input', { type: 'number', value: this.state.quantity, onChange: this.handleChangeCartItemQuantity }),
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { bsStyle: 'primary', onClick: this.handleUpdateCartItemQuantity },
+                            { bsStyle: 'primary', id: 'btn-update-quantity', onClick: this.handleUpdateCartItemQuantity },
                             _react2.default.createElement('i', { className: 'fa fa-refresh', 'aria-hidden': 'true' })
                         )
                     ),
                     _react2.default.createElement(
                         'p',
-                        null,
+                        { className: 'cart-row-total-value' },
                         'Valor Total: R$ ',
                         total_item_price.toFixed(2)
                     ),
@@ -18595,7 +18595,7 @@ var CartRow = function (_Component) {
                         null,
                         _react2.default.createElement(
                             _reactBootstrap.Button,
-                            { bsStyle: 'danger', block: true, onClick: this.handleRemoveCartItem },
+                            { bsStyle: 'danger', id: 'btn-remove-cart-row', block: true, onClick: this.handleRemoveCartItem },
                             'Remover'
                         )
                     )

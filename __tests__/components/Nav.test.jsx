@@ -2,6 +2,7 @@ import React from 'react';
 import chai from 'chai';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
+
 import Nav from '../../app/components/Nav.jsx';
 
 var expect = chai.expect;
