@@ -18696,18 +18696,30 @@ var MainApp = function (_Component) {
     }, {
         key: 'handleAddToCart',
         value: function handleAddToCart(name, image, actual_price) {
-            var cartItem = {
-                id: uuidV4(),
-                name: name,
-                image: image,
-                actual_price: parseFloat(actual_price.replace("R$ ", "").replace(",", ".")),
-                quantity: 1,
-                total_item_price: 1 * parseFloat(parseFloat(actual_price.replace("R$ ", "").replace(",", ".")))
-            };
+            var alreadyAdded = false;
 
-            this.setState({
-                cart: [].concat(_toConsumableArray(this.state.cart), [cartItem])
-            });
+            if (this.state.cart.length > 0) {
+                this.state.cart.forEach(function (cartItem) {
+                    if (cartItem.name === name) {
+                        alreadyAdded = true;
+                    }
+                });
+            }
+
+            if (alreadyAdded === false) {
+                var cartItem = {
+                    id: uuidV4(),
+                    name: name,
+                    image: image,
+                    actual_price: parseFloat(actual_price.replace("R$ ", "").replace(",", ".")),
+                    quantity: 1,
+                    total_item_price: 1 * parseFloat(parseFloat(actual_price.replace("R$ ", "").replace(",", ".")))
+                };
+
+                this.setState({
+                    cart: [].concat(_toConsumableArray(this.state.cart), [cartItem])
+                });
+            }
         }
     }, {
         key: 'handleToggleCart',
