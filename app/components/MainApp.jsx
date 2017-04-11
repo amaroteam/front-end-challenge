@@ -14,13 +14,15 @@ class MainApp extends Component {
         this.state = {
             products: [],
             cart: [],
-            cartVisible: false
+            cartVisible: false,
+            showOnlyOnSale: false
         }
 
         this.handleAddToCart = this.handleAddToCart.bind(this);
         this.handleToggleCart = this.handleToggleCart.bind(this);
         this.handleChangeCartItemQuantity = this.handleChangeCartItemQuantity.bind(this);
         this.handleRemoveCartItem = this.handleRemoveCartItem.bind(this);
+        this.handleToggleShowOnSale = this.handleToggleShowOnSale.bind(this);
     }
 
     componentWillMount() {        
@@ -96,8 +98,20 @@ class MainApp extends Component {
         this.setState({cart: updatedCartItems});
     }
 
+    handleToggleShowOnSale() {
+        this.setState({showOnlyOnSale: !this.state.showOnlyOnSale});
+    }
+
     render() {
-        var {products, cartVisible, cart} = this.state;        
+        var {products, cartVisible, cart, showOnlyOnSale} = this.state;
+
+        if (showOnlyOnSale) {
+            var filteredProducts = products.filter((product) => {
+                return product.on_sale === true
+            })
+        } else {
+            var filteredProducts = products;
+        }
 
         if (cart.length === 0) {
             var cartValue = 0;
@@ -113,13 +127,14 @@ class MainApp extends Component {
             if (cartVisible) {
                 return (<Cart onToggleCart={this.handleToggleCart} cart={cart} cartValue={cartValue} onChangeCartItemQuantity={this.handleChangeCartItemQuantity} onRemoveCartItem={this.handleRemoveCartItem} />);
             } else {
-                return (<ProductList products={products} onAddToCart={this.handleAddToCart} />);
+                return (<ProductList products={filteredProducts} onAddToCart={this.handleAddToCart} />);
             }
         }        
 
         return (
             <div className="container">
                 <Nav onToggleCart={this.handleToggleCart} />
+                <p className="toggle-show-on-sale text-center" onClick={this.handleToggleShowOnSale} ><a>{showOnlyOnSale ? "Mostrar todos os produtos" : "Mostrar apenas produtos em promoção"}</a></p>
                 {renderCartOrProducts()}
             </div>
         );

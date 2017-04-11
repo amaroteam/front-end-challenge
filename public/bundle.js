@@ -18667,13 +18667,15 @@ var MainApp = function (_Component) {
         _this.state = {
             products: [],
             cart: [],
-            cartVisible: false
+            cartVisible: false,
+            showOnlyOnSale: false
         };
 
         _this.handleAddToCart = _this.handleAddToCart.bind(_this);
         _this.handleToggleCart = _this.handleToggleCart.bind(_this);
         _this.handleChangeCartItemQuantity = _this.handleChangeCartItemQuantity.bind(_this);
         _this.handleRemoveCartItem = _this.handleRemoveCartItem.bind(_this);
+        _this.handleToggleShowOnSale = _this.handleToggleShowOnSale.bind(_this);
         return _this;
     }
 
@@ -18753,6 +18755,11 @@ var MainApp = function (_Component) {
             this.setState({ cart: updatedCartItems });
         }
     }, {
+        key: 'handleToggleShowOnSale',
+        value: function handleToggleShowOnSale() {
+            this.setState({ showOnlyOnSale: !this.state.showOnlyOnSale });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this3 = this;
@@ -18760,8 +18767,17 @@ var MainApp = function (_Component) {
             var _state = this.state,
                 products = _state.products,
                 cartVisible = _state.cartVisible,
-                cart = _state.cart;
+                cart = _state.cart,
+                showOnlyOnSale = _state.showOnlyOnSale;
 
+
+            if (showOnlyOnSale) {
+                var filteredProducts = products.filter(function (product) {
+                    return product.on_sale === true;
+                });
+            } else {
+                var filteredProducts = products;
+            }
 
             if (cart.length === 0) {
                 var cartValue = 0;
@@ -18777,7 +18793,7 @@ var MainApp = function (_Component) {
                 if (cartVisible) {
                     return _react2.default.createElement(_Cart2.default, { onToggleCart: _this3.handleToggleCart, cart: cart, cartValue: cartValue, onChangeCartItemQuantity: _this3.handleChangeCartItemQuantity, onRemoveCartItem: _this3.handleRemoveCartItem });
                 } else {
-                    return _react2.default.createElement(_ProductList2.default, { products: products, onAddToCart: _this3.handleAddToCart });
+                    return _react2.default.createElement(_ProductList2.default, { products: filteredProducts, onAddToCart: _this3.handleAddToCart });
                 }
             };
 
@@ -18785,6 +18801,15 @@ var MainApp = function (_Component) {
                 'div',
                 { className: 'container' },
                 _react2.default.createElement(_Nav2.default, { onToggleCart: this.handleToggleCart }),
+                _react2.default.createElement(
+                    'p',
+                    { className: 'toggle-show-on-sale text-center', onClick: this.handleToggleShowOnSale },
+                    _react2.default.createElement(
+                        'a',
+                        null,
+                        showOnlyOnSale ? "Mostrar todos os produtos" : "Mostrar apenas produtos em promoção"
+                    )
+                ),
                 renderCartOrProducts()
             );
         }
@@ -21981,7 +22006,7 @@ exports = module.exports = __webpack_require__(283)(undefined);
 
 
 // module
-exports.push([module.i, ".cart-container {\n  margin-top: 80px; }\n  .cart-container h2 {\n    display: inline-block; }\n  .cart-container .fa-window-close {\n    float: right;\n    margin-top: 20px;\n    font-size: 2rem; }\n  .cart-container .cart-total-value {\n    margin-top: 15px;\n    padding: 15px; }\n    .cart-container .cart-total-value p {\n      font-size: 2rem;\n      margin-bottom: 0; }\n    .cart-container .cart-total-value .col-xs-12 {\n      background-color: #ccc;\n      border: 1px solid #999;\n      padding: 15px; }\n\n.cart-row-container {\n  border-bottom: 1px solid #ccc; }\n  .cart-row-container [class*='col-'] {\n    padding: 10px;\n    height: 170px; }\n  .cart-row-container .row {\n    margin-bottom: 15px; }\n  .cart-row-container img {\n    max-height: 150px; }\n  .cart-row-container input {\n    display: inline-block;\n    width: 30%;\n    text-align: center; }\n  .cart-row-container .cart-row-quantity input {\n    margin-left: 10px; }\n  .cart-row-container .cart-row-quantity button {\n    margin-left: 10px; }\n\n.nav-container .fa-shopping-cart {\n  float: right;\n  padding: 15px;\n  font-size: 2rem; }\n\n.nav-container .navbar {\n  margin-bottom: 0; }\n\n.product-container .col-product-name {\n  margin-top: 10px;\n  height: 45px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 10px;\n  height: 25px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #999; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n.product-container .col-sizes {\n  height: 75px; }\n  @media screen and (min-width: 640px) {\n    .product-container .col-sizes {\n      height: initial; } }\n  .product-container .col-sizes .span-size {\n    border: 1px solid #000;\n    padding: 5px;\n    width: 22%;\n    display: inline-block;\n    margin-bottom: 5px;\n    text-align: center;\n    margin-right: 3px;\n    font-size: 1rem;\n    font-weight: bold; }\n    @media screen and (min-width: 640px) {\n      .product-container .col-sizes .span-size {\n        width: 16%; } }\n  .product-container .col-sizes .span-size-not-available {\n    font-weight: normal;\n    color: #aaa;\n    border: 1px solid #aaa;\n    text-decoration: line-through; }\n\n.product-container .col-add-to-cart {\n  margin-bottom: 20px; }\n\n.product-list-container {\n  margin-top: 80px; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n", ""]);
+exports.push([module.i, ".cart-container {\n  margin-top: 80px; }\n  .cart-container h2 {\n    display: inline-block; }\n  .cart-container .fa-window-close {\n    float: right;\n    margin-top: 20px;\n    font-size: 2rem; }\n  .cart-container .cart-total-value {\n    margin-top: 15px;\n    padding: 15px; }\n    .cart-container .cart-total-value p {\n      font-size: 2rem;\n      margin-bottom: 0; }\n    .cart-container .cart-total-value .col-xs-12 {\n      background-color: #ccc;\n      border: 1px solid #999;\n      padding: 15px; }\n\n.cart-row-container {\n  border-bottom: 1px solid #ccc; }\n  .cart-row-container [class*='col-'] {\n    padding: 10px;\n    height: 170px; }\n  .cart-row-container .row {\n    margin-bottom: 15px; }\n  .cart-row-container img {\n    max-height: 150px; }\n  .cart-row-container input {\n    display: inline-block;\n    width: 30%;\n    text-align: center; }\n  .cart-row-container .cart-row-quantity input {\n    margin-left: 10px; }\n  .cart-row-container .cart-row-quantity button {\n    margin-left: 10px; }\n\n.nav-container .fa-shopping-cart {\n  float: right;\n  padding: 15px;\n  font-size: 2rem; }\n\n.nav-container .navbar {\n  margin-bottom: 0; }\n\n.product-container .col-product-name {\n  margin-top: 10px;\n  height: 45px; }\n\n.product-container .col-prices-not-discounted, .product-container .col-prices-discounted {\n  margin-bottom: 10px;\n  height: 25px; }\n  .product-container .col-prices-not-discounted [class*='col-'], .product-container .col-prices-discounted [class*='col-'] {\n    padding: 0; }\n\n.product-container .col-prices-discounted .regular-price {\n  text-decoration: line-through;\n  color: #999; }\n\n.product-container .col-prices-discounted .actual-price {\n  font-weight: bold; }\n\n.product-container .col-prices-discounted .col-discount-percentage {\n  margin-top: 5px; }\n\n.product-container .col-prices-discounted .discount-percentage {\n  color: #ff0000;\n  font-weight: bold; }\n\n.product-container .col-prices-not-discounted .regular-price {\n  font-weight: bold; }\n\n.product-container .col-sizes {\n  height: 75px; }\n  @media screen and (min-width: 640px) {\n    .product-container .col-sizes {\n      height: initial; } }\n  .product-container .col-sizes .span-size {\n    border: 1px solid #000;\n    padding: 5px;\n    width: 22%;\n    display: inline-block;\n    margin-bottom: 5px;\n    text-align: center;\n    margin-right: 3px;\n    font-size: 1rem;\n    font-weight: bold; }\n    @media screen and (min-width: 640px) {\n      .product-container .col-sizes .span-size {\n        width: 16%; } }\n  .product-container .col-sizes .span-size-not-available {\n    font-weight: normal;\n    color: #aaa;\n    border: 1px solid #aaa;\n    text-decoration: line-through; }\n\n.product-container .col-add-to-cart {\n  margin-bottom: 20px; }\n\n.product-list-container {\n  margin-top: 30px; }\n\n* {\n  box-sizing: border-box;\n  font-family: 'Open Sans', sans-serif; }\n\n.toggle-show-on-sale {\n  margin-top: 80px;\n  font-weight: bold;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
