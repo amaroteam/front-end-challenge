@@ -18937,7 +18937,6 @@ var Product = function (_Component) {
                 image = _props.image,
                 regular_price = _props.regular_price,
                 actual_price = _props.actual_price,
-                discount_percentage = _props.discount_percentage,
                 sizes = _props.sizes;
 
             // Render prices according to the values of the regular_price and actual_price variables

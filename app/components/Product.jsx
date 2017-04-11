@@ -9,7 +9,7 @@ class Product extends Component {
     }   
 
     render() {
-        var {name, image, regular_price, actual_price, discount_percentage, sizes} = this.props;
+        var {name, image, regular_price, actual_price, sizes} = this.props;
 
         // Render prices according to the values of the regular_price and actual_price variables
         var renderPrices = () => {
