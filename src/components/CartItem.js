@@ -1,5 +1,6 @@
 import React from 'react'
-import QuantityControl from './QuantityControl'
+import { Row, Col, Table, Image } from 'react-bootstrap'
+import NumberSelector from './NumberSelector'
 import CloseIcon from './CloseIcon'
 
 const { string, func , number } = React.PropTypes
@@ -14,39 +15,50 @@ const CartItem = ({
   onRemove,
   onIncrement,
   onDecrement
-}) => {
+}) => (
+  <Row>
 
-  const stringToNumber = string =>
-    Number(
-      string
-        .replace(',', '.')
-        .substr(3) )
+    <Col md={2}>
+      <Image src={image} responsive />
+    </Col>
 
-  const toFixed = (number, digits) => number.toFixed(digits)
+    <Col md={10}>
 
-  const multiply = (num1, num2) => num1 * num2
+      <h3 className="capitalize">
+        {name.toLowerCase()}
+      </h3>
 
-  return (
-    <tr>
-      <td>{ name } </td>
-      <td>{ size.size }</td>
-      <td>{ price }</td>
-      <td>
-        <QuantityControl
-          quantity={amount}
-          onIncremented={onIncrement}
-          onDecremented={onDecrement} />
-      </td>
-      {/*<td>R$ {
-        toFixed(
-          multiply( amount, stringToNumber( price ) )
-          , 2 )
-      } </td>*/}
-      <td>
-        <CloseIcon onClick={onRemove} />
-      </td>
-    </tr> )
-}
+      <Table responsive condensed>
+        <thead>
+          <tr>
+            <th>Tamanho</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{size.size}</td>
+            <td>{price}</td>
+            <td>
+              <div className="col-md-3">
+                <NumberSelector
+                  value={amount}
+                  onIncrement={onIncrement}
+                  onDecrement={onDecrement} />
+              </div>
+            </td>
+            <td>
+              <CloseIcon onClick={onRemove} />
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+
+    </Col>
+
+  </Row> )
 
 CartItem.PropTypes = {
   id: number.isRequired,

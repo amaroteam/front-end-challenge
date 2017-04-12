@@ -4,6 +4,7 @@ export const addToCart = payload => {
     payload: {
       id: payload.id,
       name: payload.name,
+      image: payload.image,
       price: payload.price,
       size: payload.size,
       amount: 1

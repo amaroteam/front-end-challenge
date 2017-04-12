@@ -74,3 +74,12 @@ button.active {
 .product .name {
   text-transform: capitalize;
 }
+
+/* .number-selector */
+.number-selector input[type='text'] {
+  text-align: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}

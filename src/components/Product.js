@@ -29,6 +29,7 @@ class Product extends React.Component {
       onAddToCart({
         id: size.sku,
         name,
+        image,
         price: on_sale ? actual_price : regular_price,
         size
       })

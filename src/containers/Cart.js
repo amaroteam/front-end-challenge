@@ -8,13 +8,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRemoved(id) {
+    onRemove(id) {
       dispatch(removeFromCart(id))
     },
-    onIncremented(id) {
+    onIncrement(id) {
       dispatch(increment(id))
     },
-    onDecremented(id) {
+    onDecrement(id) {
       dispatch(decrement(id))
     }
   }

@@ -7,56 +7,49 @@ const { array, func } = React.PropTypes
 
 const CartList = ({
   items,
-  onRemoved,
-  onIncremented,
-  onDecremented
-}) => (
-  <div className="row">
-    <Table responsive condensed hover>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Tamanho</th>
-          <th>Valor</th>
-          <th>Quantidade</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        { items.map( item =>
+  onRemove,
+  onIncrement,
+  onDecrement
+}) => {
+
+  const calcTotal = items =>
+    reduce( items, (acc, item) => { 
+      return add( acc, multiply( 
+          item.amount, 
+          replace( item.price.substr(3), ',', '.' ) 
+        ) 
+      ) 
+    }, 0 ).toFixed(2) 
+
+  return (
+    <div>
+      { items.map( item => (
+          <div key={item.id}>
             <CartItem
-              key={item.id}
               id={item.id}
               name={item.name}
+              image={item.image}
               price={item.price}
               amount={item.amount}
               size={item.size}
-              onRemove={ () => onRemoved(item.id)  }
-              onIncrement={ () => onIncremented(item.id) }
-              onDecrement={ () => onDecremented(item.id) }
-            /> ) }
-        <tr>
-          <td colSpan="5">
-            <span className="pull-right">Total: R$ {
-              reduce( items, (acc, item) => {
-                return add( acc, multiply(
-                    item.amount,
-                    replace( item.price.substr(3), ',', '.' )
-                  )
-                )
-              }, 0 ).toFixed(2)
-            } </span>
-          </td>
-        </tr>
-      </tbody>
-    </Table>
-  </div> ) 
+              onRemove={ () => onRemove(item.id)  }
+              onIncrement={ () => onIncrement(item.id) }
+              onDecrement={ () => onDecrement(item.id) }
+            />
+            <hr />
+          </div> ) ) }
+    
+      <span className="pull-right">
+        Total: R$ { calcTotal(items) }
+      </span>
+    </div> ) 
+}
 
 CartList.PropTypes = {
   items: array.isRequired,
-  onRemoved: func,
-  onIncremented: func,
-  onDecremented: func
+  onRemove: func,
+  onIncrement: func,
+  onDecrement: func
 }  
 
 export default CartList
