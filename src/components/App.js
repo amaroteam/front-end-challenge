@@ -1,20 +1,22 @@
 import React from 'react'
+import { Col } from 'react-bootstrap'
 import Filter from '../components/Filter'
-import Cart from '../containers/Cart'
+import CartCount from '../containers/CartCount'
 import VisibleProducts from '../containers/VisibleProducts'
 
 const App = () => (
   <div>
-
-    <section className="col-md-12">
-      <Cart />
-    </section>
 
     <nav className="col-md-2">
       <Filter />
     </nav>
 
     <section className="col-md-10">
+      <Col md={12}>
+        <div className="pull-right">
+          <CartCount />
+        </div>
+      </Col>
       <VisibleProducts />
     </section>
     
