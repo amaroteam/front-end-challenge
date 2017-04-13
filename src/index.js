@@ -7,7 +7,7 @@ import logger from 'redux-logger'
 import shopApp from './reducers'
 import RouteError from './components/RouteError'
 import Home from './components/Home'
-import Cart from './containers/Cart'
+import CartPage from './components/CartPage'
 
 import STATE from '../products'
 
@@ -21,7 +21,7 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} />
-      <Route path="/carrinho" component={Cart} />
+      <Route path="/carrinho" component={CartPage} />
       <Route path="*" component={RouteError} />
     </Router>
   </Provider>,
