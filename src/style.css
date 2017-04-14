@@ -33,7 +33,6 @@ button.active {
 .btn-primary:active {
   background: #e3e3e3 !important;
   color: #000 !important;
-  border: 0 !important;
 }
 
 .nav-pills> li > a {

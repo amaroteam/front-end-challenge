@@ -8,7 +8,7 @@ class Product extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { size: this.props.sizes[0] }
+    this.state = { size: this.props.sizes.filter(s => s.available)[0] }
   }
 
   render() {
