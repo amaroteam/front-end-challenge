@@ -29,7 +29,8 @@ module.exports = {
             {
                 from: './node_modules/bootstrap/dist',
                 to: './libs/bootstrap'
-            }
+            },
+            { from: './products.json' }
         ])
     ],
     devServer: {

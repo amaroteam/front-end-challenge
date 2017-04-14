@@ -20,7 +20,8 @@ const getVisibleProducts = (products, filter) => {
 
 const mapStateToProps = state => {
   return {
-    products: getVisibleProducts(state.products, state.filter),
+    products: getVisibleProducts(state.products.data, state.filter),
+    status: state.products.status,
     defaultImage: DEFAULT_IMAGE
   }
 }

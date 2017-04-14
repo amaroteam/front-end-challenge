@@ -3,10 +3,10 @@ import products from './products'
 import cart from './cart'
 import filter from './filter'
 
-const shopApp = combineReducers({
+const rootReducer = combineReducers({
   products,
   cart,
   filter
 })
 
-export default shopApp
+export default rootReducer

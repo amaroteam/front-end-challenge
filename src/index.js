@@ -3,18 +3,19 @@ import { render } from 'react-dom'
 import { Router, Route, browserHistory } from 'react-router'
 import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import shopApp from './reducers'
+import rootReducer from './reducers'
 import RouteError from './components/RouteError'
-import Home from './components/Home'
 import CartPage from './components/CartPage'
-
-import STATE from '../products'
+import Home from './containers/Home'
 
 let store = createStore(
-  shopApp,
-  STATE,
-  applyMiddleware(logger)
+  rootReducer,
+  applyMiddleware(
+    thunk,
+    logger
+  )
 )
 
 render(

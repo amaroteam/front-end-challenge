@@ -1,3 +1,42 @@
+/* global fetching */
+
+export const fetching = () => {
+  return {
+    type: 'FETCHING'
+  }
+}
+
+export const fetchProducts = () => {
+  return dispatch => {
+
+     dispatch(
+      fetching() )
+
+    fetch('./products.json')
+      .then( res => res.json() )
+      .then( products =>
+        dispatch(
+          fetchProductsSuccess(products) ) )
+      .catch( err =>
+        dispatch(
+          fetchProductsFail(err) ) )
+  }
+}
+
+export const fetchProductsSuccess = products => {
+  return {
+    type: 'FETCH_PRODUCTS_SUCCESS',
+    products: products.products
+  }
+}
+
+export const fetchProductsFail = err => {
+  return {
+    type: 'FETCH_PRODUCTS_FAIL',
+    err
+  }
+}
+
 export const addToCart = payload => {
   return {
     type: 'ADD_TO_CART',
