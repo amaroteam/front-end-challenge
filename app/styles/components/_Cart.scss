@@ -1,0 +1,24 @@
+.cart-container {
+    margin-top: 30px;
+    h2 {
+        display: inline-block;
+    }
+    .fa-window-close {
+        float: right;
+        margin-top: 20px;
+        font-size: 2rem;
+    }
+    .cart-total-value {
+        margin-top: 15px;
+        padding: 15px;
+        p {
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+        .col-xs-12 {
+            background-color: #ccc;
+            border: 1px solid #999;
+            padding: 15px;
+        }
+    }
+}

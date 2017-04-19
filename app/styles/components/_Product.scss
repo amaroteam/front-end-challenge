@@ -1,0 +1,68 @@
+.product-container {
+    .col-product-name {
+        margin-top: 10px;
+        height: 45px;
+    }
+    
+    .col-prices-not-discounted, .col-prices-discounted {
+        margin-bottom: 10px;
+        height: 25px;
+        [class*='col-'] {
+            padding: 0;
+        }
+    }
+    .col-prices-discounted {
+        .regular-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .actual-price {
+            font-weight: bold;
+        }
+        .col-discount-percentage {
+            margin-top: 5px;
+        }
+        .discount-percentage {
+            color: #ff0000;
+            font-weight: bold;
+        }   
+    }
+    
+    .col-prices-not-discounted {
+        .regular-price {
+            font-weight: bold;
+        }
+    }
+
+    .col-sizes {
+        height: 75px;
+        @media screen and (min-width: 640px) {
+            height: initial;
+        }
+        .span-size {
+            border: 1px solid #000;
+            padding: 5px;
+            width: 22%;
+            display: inline-block;
+            margin-bottom: 5px;
+            text-align: center;
+            margin-right: 3px;
+            font-size: 1rem;
+            font-weight: bold;
+            @media screen and (min-width: 640px) {
+                width: 16%;
+            }
+        }
+
+        .span-size-not-available {
+            font-weight: normal;
+            color: #aaa;
+            border: 1px solid #aaa;
+            text-decoration: line-through;
+        }
+    }
+
+    .col-add-to-cart {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,26 @@
+.cart-row-container {    
+    [class*='col-'] {
+        padding: 10px;
+        height: 170px;
+        border-bottom: 1px solid #ccc;
+    }
+    .row {
+        margin-bottom: 15px;        
+    }
+    img {
+        max-height: 150px;
+    }
+    input {
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+    }
+    .cart-row-quantity {
+        input {
+            margin-left: 10px;
+        }
+        button {
+            margin-left: 10px;
+        }
+    }
+}
