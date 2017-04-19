@@ -34,7 +34,7 @@ O objetivo do desafio é construir uma página de catálogo para alguns dos _bes
 
 - O código será avaliado considerando: semântica, estruturação, legibilidade, tamanho, entre outros fatores.
 - O histórico do `git` também será avaliado.
-- Nossa stack aqui na **AMARO** é baseada em React, Redux, Sass e Webpack. Caso você tenha familiaridade com ela, pode utilizá-la para resolver o desafio.
+- Nossa stack aqui na **AMARO** é baseada em React, Redux, Sass e Webpack, resolver o desafio usando essa _stack_ é um diferencial.
 - Estamos buscando um desenvolvedor front-end que saiba montar um _layout_ bonito e que também saiba programar em JavaScript, por isso aproveite a oportunidade para nos mostrar que você tem conhecimento nas duas áreas.
 - Não esqueça da documentação. Ou como nós iremos conseguir avaliar o trabalho se não for possível inicializar o projeto em nossas máquinas? :thinking_face:
 
