@@ -1,0 +1,679 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font-family: 'Lato', sans-serif;
+	font-size: $fontePadrao;
+	font-weight: $light;
+}
+
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: medium none !important;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+a {
+	text-decoration: none;
+}
+
+a,
+button,
+input {
+	outline:none;
+}
+
+strong {
+	font-weight: $normal;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: $light;
+	margin: 0 0 30px;
+}
+
+h1 {
+	font-size: $fonteH1;
+}
+
+h2 {
+	font-size: $fonteH2;
+}
+
+h3 {
+	font-size: $fonteH3;
+}
+
+.thr {
+	text-decoration: line-through;
+}
+
+input {
+	border: 1px solid $cinza;
+	border-radius: 3px;
+	padding: 4px;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.tapecaria{
+	background-color: $tapecaria;
+}
+
+.preto {
+	background-color: $preto;
+}
+
+.caramelo {
+	background-color: $caramelo;
+}
+
+.mini-folk {
+	background-color: $miniFolk;
+}
+
+.marinho {
+	background-color: $marinho;
+}
+
+.burgundy {
+	background-color: $burgundy;
+}
+
+.free-dots {
+	background-color: $freeDots;
+}
+
+.off-white {
+	background-color: $offWhite;
+}
+
+.floral-red {
+	background-color: $floralRed;
+}
+
+.bohemian-preto {
+	background-color: $bohemianPreto;
+}
+
+.paisley-gipsy-azul {
+	background-color: $paisleyGipsyAzul;
+}
+
+.indigo-escuro {
+	background-color: $indigoEscuro;
+}
+
+.laranja-queimado {
+	background-color: $laranjaQueimado;
+}
+
+.bege {
+	background-color: $bege;
+}
+
+.floral-vintage-vermelho {
+	background-color: $floralVintageVermelho;
+}
+
+.marron {
+	background-color: $marron;
+}
+
+.dourado {
+	background-color: $dourado;
+}
+
+.btn {
+	@extend .transition-default;
+	background-color: $preto;
+	color: $branco;
+	border: 1px solid $preto;
+	padding: 10px 20px;
+	display: block;
+	font-size: $fonteH3;
+	font-weight: $normal;
+	text-transform: uppercase;
+	box-shadow: none;
+	border-radius: 3px;
+	cursor: pointer;
+
+	&:hover {
+		@extend .transition-default-hover;
+		background-color: $cinza;
+		color: $preto;
+		border-color: $cinza;
+	}
+}
+
+.error {
+	color: $bordo;
+}
+
+.container {
+	width: 100%;
+	max-width: 1400px;
+	display: table;
+	margin: auto;
+	padding: 0 15px;
+}
+
+.row {
+	width: 100%;
+	float: left;
+	margin: 0 -15px;
+}
+
+.header {
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-bottom: 1px solid $cinza;
+	z-index: 99;
+
+	.header__container {
+		@extend .container;
+
+		.header__row {
+			@extend .row;
+		}
+
+		.header__nav,
+		.header__logo,
+		.header__car {
+			width: 33.333%;
+			float: left;
+			padding: 0 15px;
+		}
+
+		.header__nav {
+			padding: 20px 15px;
+
+			.header__menu-xs {
+				display: none;
+			}
+
+			a {
+				color: $preto;
+				font-size: $fontePadrao;
+				font-weight: $light;
+				display: inline-block;
+				text-transform: uppercase;
+
+				& + a {
+					margin-left: 20px;
+				}
+			}
+		}
+
+		.header__logo {
+			a {
+				font-size: 45px;
+				color: $preto;
+				text-transform: uppercase;
+				letter-spacing: 10px;
+				font-weight: $bold;
+				display: table;
+				margin: auto;
+			}
+		}
+
+		.header__car {
+			a {
+				float: right;
+				position: relative;
+				top: 10px;
+			
+				.icon {
+					color: $preto;
+					font-size: 30px;
+				}
+
+				.car-has-item {
+					width: 20px;
+					height: 20px;
+					line-height: 20px;
+					font-size: 10px;
+					font-weight: $normal;
+					color: $branco;
+					text-align: center;
+					border-radius: 50%;
+					background-color: $bordo;
+					position: absolute;
+					top: 2px;
+					right: -5px;
+					z-index: 1;
+				}
+
+			}
+		}
+	}
+}
+
+.loaded {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(255, 255, 255, 0.6);
+
+	.square {
+		width: 50px;
+		height: 50px;
+		border-width: 5px;
+	    border-style: solid;
+	    border-color: $preto $cinza;
+	    margin: 200px auto auto;
+	}
+
+	span {
+		display: table;
+		margin: 200px auto auto;
+		color: $cinza;
+		font-size: 18px;
+		text-align: center;
+	}
+}
+
+#main {
+	width: 100%;
+	min-height: calc(100% - 250px);
+	float: left;
+	margin: 100px 0 0;
+	animation: 1.9s ease-in-out slideInFromUp;
+
+	.navs {
+		width: 100%;
+		float: left;
+		margin-bottom: 30px;
+
+		.select__colors {
+			width: 100%;
+			max-width: 280px;
+			position: relative;
+			margin: auto;
+
+			.label {
+				width: 100%;
+				height: 35px;
+				line-height: 35px;
+				padding: 4px 15px;
+				display: table;
+				cursor: pointer;
+				font-weight: $normal;
+				color: $cinzaEscuro;
+				background-color: $cinzaClaro;
+				position: relative;
+				margin-bottom: 5px;
+
+				&:before,
+				&:after {
+					width: 10px;
+					height: 1.5px;
+					background-color: $cinzaEscuro;
+					position: absolute;
+					top: 50%;
+					content: "";
+				}
+
+				&:before {
+					right: 20px;
+					transform: rotate(45deg);
+				}
+
+				&:after {
+					right: 14px;
+					transform: rotate(-45deg);
+				}
+
+			}
+
+			.select__colors--list {				
+				overflow-y: auto;
+				position: absolute;
+				z-index: 10;
+				border: 2px solid $cinzaEscuro;
+				height: 200px;
+				padding: 0;
+
+				li {
+					cursor: pointer;
+					border-bottom: 1px solid $cinza;
+					background-color: #f4f2f2;
+					margin: 0;
+
+					&:nth-child(2n+1) {
+						background-color: $branco;
+					}
+
+					&:last-child {
+						border-bottom: 0;
+					}
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			ul {
+				width: 100%;
+				float: left;				
+				list-style: none;		
+				padding: 0 3px;		
+				background-color: $cinzaClaro;
+
+				li {
+					width: 100%;
+					line-height: 25px;
+					float: left;
+					padding: 4px;
+					background-color: $branco;
+					margin-top: 3px;
+					position: relative;
+
+					&:last-child {
+						margin-bottom: 3px;
+					}
+
+					.cor {
+						width: 15px;
+						height: 15px;
+						content: "";
+						position: relative;
+						margin-right: 5px;
+						top: 2px;
+						display: inline-block;
+					}
+
+					.remove {
+						width: 40px;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						right: 0;
+						cursor: pointer;
+
+						&:before,
+						&:after {
+							width: 12px;
+							height: 1.5px;
+							background-color: $cinzaEscuro;
+							position: absolute;
+							top: 50%;
+							content: "";
+						}
+
+						&:before {
+							right: 14px;
+							transform: rotate(45deg);
+						}
+
+						&:after {
+							right: 14px;
+							transform: rotate(-45deg);
+						}
+
+					}
+				}
+			}
+		}
+	}
+}
+
+.footer {
+	width: 100%;
+	float: left;
+	background-color: $preto;
+	min-height: 150px;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 60px;
+
+	.footer__container {
+		@extend .container;
+	}
+
+	ul {
+		width: 25%;
+		float: left;
+		list-style: none;
+
+		li {
+			width: auto;
+			display: table;
+			margin-bottom: 5px;
+
+			a, span {
+				color: $branco;
+				font-size: $fontePadrao;
+			}
+
+			strong {
+				font-weight: $bold;
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+
+	.footer_reser {
+		width: 100%;
+		padding: 10px 0;
+		position: absolute;
+		bottom: 0;
+		text-align: center;
+		box-shadow: 0 0 1px $branco;
+
+		p {
+			color: $branco;
+			font-size: $fontePadrao;
+		}
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	.container {
+		max-width: 1300px;
+	}
+}
+
+@media screen and (max-width: 1380px) {
+	.container {
+		max-width: 1240px;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+	.container {
+		max-width: 1180px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.container {
+		max-width: 1080px;
+	}
+}
+
+@media screen and (max-width: 1152px) {
+	.container {
+		max-width: 95%;
+	}
+}
+
+@media screen and (max-width: 700px) { 
+	.header {
+		position: relative;
+		z-index: 10;
+
+		.header__container {
+			overflow-y: none;
+
+			.header__nav {
+				.header__menu-xs {
+					display: block;
+					width: 25px;
+					height: 30px;
+					float: left;
+					position: relative;
+					top: -6px;
+					cursor: pointer;
+
+					span {
+						width: 25px;
+						height: 1.5px;
+						position: absolute;
+						margin-top: -0.5px;
+						top: 50%;
+						background-color: $cinzaEscuro;
+						transition: .25s ease-in-out;
+						
+						&:before,
+						&:after {
+							width: 25px;
+							height: 1.5px;
+							position: absolute;
+							background-color: $cinzaEscuro;
+							content: "";
+							transition: .25s ease-in-out;
+						}
+
+						&:before {
+							top: -8px;
+						}
+
+						&:after {
+							top: 8px;
+						}
+
+					}
+
+					&.active {
+						span {
+							background-color: $branco;
+
+							&:before {
+								top: 0px;
+								transform: rotate(-45deg);
+							}
+							&:after {
+								top: 0px;
+								transform: rotate(45deg);
+							}
+						}
+					}
+				}
+				.header__menu {
+					width: 100%;
+					position: fixed;
+					top: 60px;
+					left: 0;
+					background-color: $preto;
+					transition: all .35s ease-in-out;
+					transform: translateX(200%);
+					opacity: 0;
+
+					a {
+						width: 100%;
+						float: left;
+						padding: 12px 20px;
+						color: $branco;
+						border-bottom: 1px solid $cinza;
+						margin: 0;
+					}
+
+					&.active {
+						transform: translateX(0);
+						opacity: 1;
+					}
+				}
+			}
+			.header__logo {
+				margin-top: 5px;
+
+				a {
+					font-size: 35px;
+				}
+			}
+		}
+	}
+	.mask {
+		width: 100%;
+		height: calc(100% - 60px);
+		position: fixed;
+		top: 60px;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.70);
+		z-index: 5;
+	}
+	#main {
+		margin-top: 60px;
+	}
+}
+
+@media screen and (max-width: 480px) { 
+	.header {
+		.header__container {
+			.header__nav {
+				width: 30%;
+			}
+			.header__logo {
+				margin-top: 12px;
+				
+				a {
+					font-size: 26px;
+				}
+			}
+			.header__car {
+				float: right;
+			}
+		}
+	}
+	.footer {
+		ul {
+			width: 100%;
+
+			li {
+				margin: auto auto 5px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 360px) { 
+	.header {
+		.header__container {
+			.header__logo {
+				margin-top: 15px;
+				
+				a {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

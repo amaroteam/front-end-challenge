@@ -1,0 +1,21 @@
+<div class="container" ng-controller="HomeCtrl">
+
+	<nav ng-include="'../src/templates/views/partial/nav.html'" class="navs"></nav>
+
+    <div class="products">
+		<div class="products_item" ng-repeat="prod in allProducts | filterColor: objectColors">
+			<a href="#/produto/codigo/{{prod.code_color}}">
+				<img src="{{prod.image}}" alt="{{prod.name}}" ng-if="prod.image">
+				<img src="dist/images/default.jpg" alt="{{prod.name}}" ng-if="!prod.image">
+				<div class="info">
+					<span class="name">{{prod.name}}</span>
+					<span class="price">{{prod.installments}}</span>
+				</div>
+				<div class="products_on-sale" ng-if="prod.on_sale">
+					<span>{{prod.discount_percentage}}</span>
+				</div>
+			</a>	
+		</div>
+    </div>
+
+</div>

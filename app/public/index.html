@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+    	<meta charset="utf-8">
+        <title ng-bind="title">Roupas Femeninas, Vestidos, blusa, Sapatos - AMARO</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="noindex,follow,noodp">
+        <link rel="shortcut icon" href="dist/images/favicon.png">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="dist/css/styles.min.css">
+    </head>
+    <body>
+
+        <header class="header">
+            <div class="header__container">
+                <div class="header__row">
+                    <div class="header__nav">
+                        <div class="header__menu-xs{{classMenuMob}}" ng-click="menuMob()">
+                            <span></span>
+                        </div>
+                        <div class="header__menu{{classMenuMob}}">
+                            <a href="#/">Home</a>
+                            <a href="#/produtos/promocoes">Promoções</a>  
+                        </div>                  
+                    </div>
+                    <div class="header__logo">
+                        <a href="#/">AMARO</a>
+                    </div>
+                    <div class="header__car">
+                        <a href="#/sacola">
+                            <span class="icon icon-car"></span>
+                            <span class="car-has-item" ng-if="hasItemCar">{{totalItemCar}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mask" ng-if="classMenuMob"></div>
+
+        <div class="loaded" ng-if="loaded">
+            <div class="square"></div>
+        </div>
+     
+        <div id="main" autoscroll="true" ng-view></div>
+
+        <footer class="footer">
+            <div class="footer__container">
+                <ul>
+                    <li><strong>Social</strong></li>
+                    <li><a>Facebook</a></li>
+                    <li><a>Twitter</a></li>
+                    <li><a>Instagram</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Amaro</strong></li>
+                    <li><a href="#/">Início</a></li>
+                    <li><a>Sobre</a></li>
+                    <li><a>Politica de Privacidade</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Ajuda</strong></li>
+                    <li><a>Dúvidads Frequentes</a></li>
+                    <li><a>Mapa do site</a></li>
+                </ul>
+            </div>
+            <div class="footer_reser">
+                <div class="footer__container">
+                    <p>© 2017 - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </footer>
+    
+    <script type="text/javascript" src="dist/js/vendor.min.js"></script>
+    <script type="text/javascript" src="dist/js/app.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<div class="container" ng-controller="ProductsCtrl">
+
+    <div class="product" ng-repeat="prod in getProduct">
+
+		<div class="product__col">
+			<div class="product__in">
+				<h1 class="title">{{prod.name}}</h1>
+				<div class="product__on-sale" ng-if="prod.on_sale">
+					<span class="product__price">de <span class="thr">{{prod.regular_price}}</span></span>
+					<span>por</span>
+				</div>
+				<span class="product__price">{{prod.actual_price}} ou {{prod.installments}}</span>
+				<span class="product__color">Cor: <span class="color {{prod.color_slug}}"></span></span>
+				<div class="product__sizes">
+					<span ng-if="prod.sizes.length > 1">Tamanhos: <strong ng-if="tam">{{tam}}</strong></span>
+					<span class="product__size-u" ng-if="prod.sizes.length == 1">Tamanho: <strong>Único</strong></span>
+					<ul>
+						<li ng-if="prod.sizes.length > 1 && s.available == true" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
+						<li ng-if="prod.sizes.length == 1 && s.available == true" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
+					</ul>
+					<span class="product__error" ng-if="validate">Por favor selecione um tamanho</span>
+				</div>
+
+				<button class="btn product__btn-sale" ng-click="addToCar(prod.code_color, tam)">Comprar</button>
+
+					<ul class="product__social">
+						<li><span class="lab">compartilhe:</span></li>
+						<li><span class="icon icon-share"></span></li>
+						<li><span class="icon icon-facebook"></span></li>
+						<li><span class="icon icon-instagram"></span></li>
+					</ul>
+			</div>
+		</div>
+
+		<div class="product__col">
+			<figure class="image">
+				<img src="{{prod.image}}" alt="{{prod.name}}" ng-if="prod.image">
+				<img src="dist/images/default.jpg" alt="{{prod.name}}" ng-if="!prod.image">
+			</figure>
+		</div>
+    </div>
+
+</div>
