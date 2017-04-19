@@ -15,8 +15,8 @@
 					<span ng-if="prod.sizes.length > 1">Tamanhos: <strong ng-if="tam">{{tam}}</strong></span>
 					<span class="product__size-u" ng-if="prod.sizes.length == 1">Tamanho: <strong>Único</strong></span>
 					<ul>
-						<li ng-if="prod.sizes.length > 1" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
-						<li ng-if="prod.sizes.length == 1" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
+						<li ng-if="prod.sizes.length > 1 && s.available == true" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
+						<li ng-if="prod.sizes.length == 1 && s.available == true" ng-repeat="s in prod.sizes" ng-click="size(s.size)" ng-class="{active : tam == s.size}">{{s.size}}</li>
 					</ul>
 					<span class="product__error" ng-if="validate">Por favor selecione um tamanho</span>
 				</div>
