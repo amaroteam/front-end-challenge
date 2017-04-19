@@ -36,9 +36,9 @@ The objective of this challenge is to build a catalog page for some _best-seller
 
 - Your code will be evaluated by: semantics, structure, legibility, size, among other factors.
 - The `git` history will be avaluated.
-- Our stack here is React based (React, Redux, Sass, Webpack). In case you are familiar with it, you can use it to solve the challenge.
+- Our stack here is React based (React, Redux, Sass, Webpack) so using the same stack will bea difference maker.
 - We're looking for a front-end developer who knows how to build a layout and also knows how to programming in JavaScript. Use this as an opportunity to show us how good you are on both areas.
-- Do not forget documentation. Or how are we going to evaluate your work if we can't init the project on our machines? :thinking_face:
+- Do not forget documentation. Or how are we going to evaluate your work if we can't init the project on our machines?
 
 ## Got questions?
 
