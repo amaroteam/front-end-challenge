@@ -220,8 +220,8 @@ function addCart(id, size){
          already = $('tr[data-id="'+id+'"]').filter(function(){return $(this).find('.size-column').text() === size;});
          if(already.length) {
             amount = parseInt(already.find('.amt-column').html(), 10);
-            calcPrice();
-            return already.find('.amt-column').html(amount+1);
+            already.find('.amt-column').html(amount+1);
+            return calcPrice();
          }
          $('.cart tbody').prepend('<tr data-id="'+id+'"><td><div class="cart-thumb"><img alt="'+name+'" src="'+image+'"></div></td><td><span class="bold">'+name+'</span><br>'+color+'</td><td class="size-column">'+size+'</td><td class="price-column">'+actual_price+'</td><td class="amt-column">1</td><td class="total-column">'+actual_price+'</td><td><i class="material-icons delete-product">delete</i></td>></tr>');
          calcPrice();
@@ -232,17 +232,21 @@ function addCart(id, size){
 
 function calcPrice(){
    total = 0;
+   total_amt = 0;
    $('.cart table > tbody  > tr').each(function() {
-      amt = $(this).find('.amt-column').html();
+      amt = parseInt($(this).find('.amt-column').html());
       price = $(this).find('.price-column').html().replace(/\D/g,'')/100;
       total_product = amt*price;
       total += total_product;
+      total_amt += amt;
       total_product = total_product.toFixed(2).toString().replace(/\./g, ',');
       if(total_product != isNaN) $(this).find('.total-column').html('R$ '+total_product);
    });
    total = total.toFixed(2).toString().replace(/\./g, ',');
    total = total != isNaN ? total : '0,00';
    $('.total-cart').html('R$ '+total);
+   // alert(total_amt);
+   $('span.numeroitens').html(total_amt);
 }
 
 function deleteProduct(line){
