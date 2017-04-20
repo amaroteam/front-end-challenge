@@ -1,0 +1,85 @@
+﻿/*Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3,
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
+address, big, cite, code, del, dfn, em, font, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt,
+var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    padding:0;
+    margin:0
+}
+
+/*site css*/
+
+.cart {
+    max-width: 30%;
+    min-height: 50px;
+    min-width: 50px;
+}
+
+.product-catalog {
+    min-height: 550px;
+    position: relative;
+}
+
+.product-catalog-description {
+    height: 20%;
+}
+
+.product-catalog-image {
+    max-height: 350px;
+    padding: 0;
+}
+
+    .product-catalog-image:hover {
+        transform: scale(1.1);
+        -webkit-box-shadow: 2px -1px 16px -3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px -1px 16px -3px rgba(0,0,0,0.75);
+        box-shadow: 2px -1px 16px -3px rgba(0,0,0,0.75);
+    }
+
+.position-absolute-top-0 {
+    position: absolute;
+    bottom: 0;
+}
+
+.product-catalog-size {
+    max-width: 100%;
+}
+
+.padding-2 {
+    margin-top: 2%;
+}
+
+.padding-5 {
+    margin-top: 5%;
+}
+
+.clear {
+    clear: both;
+}
+
+.margin-top-10 {
+    margin-top: 10%;
+}
+
+.margin-top-5 {
+    margin-top: 5%;
+}
+
+.product-cart{
+    max-width: 70px;
+    padding: 0;
+}
+
+.cart-qtd{
+    background-color: black;
+    color: white;
+    
+}

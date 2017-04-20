@@ -1,0 +1,58 @@
+
+<section>
+    <label for="sel1">Filter:</label>
+    <select id="sel1" class="form-control" 
+            ng-model="selected" 
+            ng-options="item for item in selectCatalog">
+        <option value="">Select All</option>
+    </select>
+</section>
+
+<main class="row">       
+
+
+    <section class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-5 product-catalog" ng-repeat="product in products | onsaleFilter: selected">
+
+        <section ng-if="(isValidImg(product))">
+            <img class="img-thumbnail product-catalog-image" ng-src="{{ product.image }}" />
+        </section>
+        <section ng-if="(!isValidImg(product))">
+            <img ng-src="images/image-not-found.png" class="img-thumbnail  product-catalog-image" />
+        </section>
+        <section class="product-catalog-description">
+            <div ng-bind="product.name"></div>
+            <cite ng-if="!product.on_sale">
+                Por apenas:
+                <p ng-bind="product.regular_price"></p>
+            </cite>
+
+            <div ng-if="product.on_sale">
+                <del>De: <span ng-bind="product.regular_price"></span></del> <em class="text-danger">On Sale</em><br />
+                <strong> Por: <em ng-bind="product.actual_price"></em> </strong>
+            </div>
+        </section>
+        <section class="product-catalog-size">
+            Tamanhos disponíveis: <br />
+            <!--<div ng-repeat=" sizes in product.sizes | sizeFilter" >
+				<label >
+					
+						<input type="radio" name="sizeO" value="{{sizes.size}}" ng-model="sizeValue" />
+					{{ sizes.size }}
+				</label> 
+			</div>-->
+
+				<div class="btn-group">
+					<button class="btn btn-primary btn-xs" ng-repeat=" sizes in product.sizes | sizeFilter" name="size"
+							ng-bind="sizes.size" ng-click="sizeVal(sizes.size)" value="{{ sizes.size }}"></button>
+				</div>			
+        </section>
+        <div class="clear"></div>
+        <section class="position-absolute-top-0">
+            <button class="btn btn-default btn-block" ng-click="addCart(product)">
+
+                <span class="glyphicon glyphicon-inbox"></span> Adicionar ao carrinho
+            </button>
+        </section>
+
+    </section>
+</main>

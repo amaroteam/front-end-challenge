@@ -1,0 +1,10 @@
+O teste foi resolvido utilizando Visual Studio,
+para executá-lo, basta abrir a Solution (Amaro.CatalogoTeste.sln)
+e executar o projeto no mesmo.
+
+OBS: pode ocorrer do Visual Studio perder a referência, basta 
+clicar no arquivo index.html com o botão direito do mouse e 
+selecionar: 'Set As Start Page' e executar o projeto novamente.
+
+
+Jhonny Woliver
