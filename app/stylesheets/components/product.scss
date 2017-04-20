@@ -1,0 +1,60 @@
+.Product {
+  width: 100%;
+  margin-bottom: 15px;
+
+  @include media(tablet) {
+    display: inline-block;
+    width: 33.33333%;
+  }
+
+  @include media(desktop) {
+    display: inline-block;
+    width: 25%;
+    cursor: pointer;
+  }
+}
+
+.Product__image {
+  width: 60%;
+
+  @include media(phone) {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @include media(tablet, desktop) {
+    width: 100%;
+  }
+}
+
+.Product__content {
+  margin-top: 10px;
+}
+
+.Product__name {
+  margin: 0 0 5px;
+  font: 12px $font-primary;
+  color: $color-primary;
+  text-align: center;
+}
+
+.Product__price {
+  text-align: center;
+}
+
+.Product__price__number {
+  display: inline-block;
+  font: 700 11px $font-text;
+  color: $color-text-dark;
+}
+
+.Product__price__number--crossed {
+  text-decoration: line-through;
+}
+
+.Product__discount {
+  display: inline-block;
+  font: 400 11px $font-text;
+  color: $color-secondary;
+  margin-left: 5px;
+}

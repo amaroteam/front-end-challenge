@@ -1,0 +1,16 @@
+.Button {
+  display: inline-block;
+  background: $color-primary;
+  border: none;
+  padding: 15px 25px;
+  font: 700 14px $font-text;
+  color: $color-negative;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .5s ease;
+
+  &:hover {
+    background: lighten($color-primary, 15%);
+  }
+}
