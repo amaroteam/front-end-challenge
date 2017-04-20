@@ -1,0 +1,85 @@
+/* ====== BUTTON ====== */
+.button { 
+	padding: 12px 8px;
+	text-align: center;
+	border: solid 1px #F1F1F1;	
+	display: block;
+	@include shadowBox();
+
+	&.--block { width: 100%; }
+
+	&.--default {
+		border-color: $color-one;
+		background-color: $color-one;
+		color: #FFFFFF;
+	}
+
+	&.--disabled {
+		border-color: #E4E4E4;
+		background-color: #E4E4E4;
+		color: #000000;
+	}
+ 
+	&.--light {
+		border-color: $color-one;
+		background-color: transparent;
+		color: $color-one;
+	}
+}
+
+/* ====== CARDS ====== */
+.card {
+	width: 100%;
+	cursor: pointer;
+	border: solid 1px #F1F1F1;
+	@include shadowBox();
+	text-align: center;
+	margin-bottom: $spacing-unit * 6;
+	
+	> .image {
+		height: 300px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+}
+
+
+/* ====== INPUT, SELECTS & TEXTARES ====== */
+.form-group {
+
+	display: block;
+	width: 100%;
+
+	> .select {
+		border: solid 1px #F1F1F1;
+		padding: 12px 8px;
+		width: 100%;
+	} 
+}
+
+/* ====== MODAL ====== */
+.modal {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(#000000, 0.8);
+	padding: $spacing-unit * 3;
+
+	> .modal-container {
+		width: 100%;
+		max-width: 600px;
+		padding: $spacing-unit * 3;
+		background-color: #FFFFFF;
+	}	
+
+	&.hide {
+		display: none;
+	}
+}

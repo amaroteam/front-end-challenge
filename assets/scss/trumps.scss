@@ -1,0 +1,53 @@
+/* Helpers de float */
+.left {
+	float: left;
+	text-align: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.v-align {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* helpers de alinhamento de texto */
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+
+/* Clearfix */
+.clearfix {
+	&:before, &:after{
+		content: "";
+		display: table;
+	}
+
+	&:before {
+		clear: both;
+	}
+} 
+/* Hidden */
+.hidden {
+	display: none; 
+}
+
+@media (max-width: 691px) {  .hidden-mobile { display: none; } }
+@media (min-width: 692px) {  .hidden-tablet { display: none; } }
+@media (min-width: 992px) {  .hidden-desktop { display: none; } }
