@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Amaro Best Seller</title>
+   <meta name="description" content="Uma seleção especial de alguns de nossos Best Seller.">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+   <meta property="og:title" content="Amaro Best Seller">
+   <meta property="og:site_name" content="Amaro">
+   <meta property="og:description" content="Uma seleção especial de alguns de nossos Best Seller.">
+   <meta property="og:image" content="<?=$cover ? $cover : $default_cover?>" />
+
+   <meta name="twitter:card" content="summary">
+   <meta name="twitter:title" content="Amaro Best Seller">
+   <meta name="twitter:description" content="Uma seleção especial de alguns de nossos Best Seller.">
+
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-title" content="Amaro Best Seller">
+
+   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" />
+   <meta name="application-name" content="Amaro">
+   <meta name="msapplication-TileColor" content="#FFFFFF" />
+   <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png" />
+
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+   <link rel="stylesheet" href="/plugins/outdatedbrowser/outdatedbrowser.min.css">
+   <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="grey lighten-5">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+   <header>
+      <div class="navbar-fixed">
+         <nav class="white">
+            <div class="nav-wrapper">
+               <div class="container">
+                  <a href="#" class="brand-logo center"><img src="images/logos/amaro-logo.svg" width="150" height="25" alt=""></a>
+                  <ul class="right">
+                     <li style="position:relative"><span class="numeroitens">0</span><a class=" grey-text text-darken-3" href="#" id="open-cart"><i class="material-icons">shopping_cart</i></a></li>
+                  </ul>
+                  <ul class="left">
+                     <li class="hide-on-small-only"><a class="grey-text text-darken-3" href="https://amaro.com/">VOLTAR PARA O SITE</a></li>
+                     <li class="hide-on-med-and-up"><a class="grey-text text-darken-3" href="https://amaro.com/"><i class="material-icons">keyboard_arrow_left</i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+   </header>
+
+   <!-- Cart -->
+   <div class="cart white-text">
+      <div class="close-cart"><i class="material-icons">close</i></div>
+      <h3 class="brandon section center no-mrg-bot">CARRINHO</h3>
+      <div class="small-divider"></div>
+      <p class="center">Aqui estão todos os itens que você colocou no seu carrinho:</p>
+      <div class="container section left-align">
+         <div class="row">
+            <div class="col s12">
+               <table class="highlight" style="background-color:rgba(0,0,0,0.5);">
+                  <thead>
+                     <tr>
+                        <th style="width: 100px;"></th>
+                        <th>Item</th>
+                        <th>Tamanho</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Total</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td></td>
+                        <td><span class="bold">TOTAL:</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><span class="bold total-cart">R$ 0,00</span></td>
+                        <td></td>
+                     </tr>
+                  </tfoot>
+               </table>
+            </div>
+         </div>
+         <div class="right-align">
+            <a href="#" class="checkout">COMPRAR</a>
+         </div>
+      </div>
+   </div>
+
+   <!-- Product modal -->
+   <div id="product-modal" class="modal white grey-text text-darken-3">
+      <div class="modal-content">
+         <div class="row no-mrg">
+            <form>
+               <div class="col l6 s12">
+                  <img alt="" id="modal_prd_img" class="responsive-img" src="#">
+               </div>
+               <div class="col l6 s12 modal-info">
+                  <h2 class="brandon bold" id="modal_prd_name"></h2>
+                  <div class="row">
+                     <div class="chip">
+                        <img id="modal_prd_color_img" src="#">
+                        <span id="modal_prd_color"></span>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="price extra dashed bigger" id="modal_prd_reg_price"></div>
+                     <div class="price brandon bigger" id="modal_prd_act_price"><sup class="cents"></sup></div>
+                     <p class="price extra bigger" id="modal_prd_installments"></p>
+                  </div>
+                  <div class="row">
+                     <h5 class="modal-section-title">TAMANHO</h5>
+                     <span id="modal_prd_sizes">
+                     </span>
+                  </div>
+                  <div class="error">Não consigo adicionar ao carrinho sem um tamanho :(</div>
+                  <div class="row">
+                     <h5 class="modal-section-title">DESCRICAO</h5>
+                     <p class="light no-mrg-top justify">Das brasas da chama à alvura dos mais finos tecidos. Eis que apresentamos mais uma peça, feita com tanto amor pelos nossos experientes designers. A paixão por provir o estilo nunca cessar-se-á! Uma pena que esta descrição é genérica e igual para todos os produtos  :(</p>
+                  </div>
+                  <div class="add-cart btn waves-effect"><i id="botaocart" class="material-icons left">shopping_cart</i>ADICIONAR AO CARRINHO</div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <!-- Main \o/ -->
+   <main>
+      <div class="row parallax-container valign-wrapper center">
+         <img src="images/index/header-logo.svg" class="header-logo" alt="">
+         <div class="parallax"><img src="images/index/header-banner.jpg"></div>
+      </div>
+      <div class="container">
+         <h5>FECHAMOS A LOJA ESPECIALMENTE PARA VOCÊ!</h5>
+         <div class="section">
+            <div class="row">
+               <div class="col l3 m12 s12">
+                  <p class="no-mrg justify">Selecionamos algumas das nossas melhores peças e fechamos a loja só para você! Esperamos que ame o que preparamos e que se delicie com as promoções :)</p>
+               </div>
+               <div class="col l9 s12">
+                  <div class="row">
+                     <div class="col l4 m6 s12">
+                        <div class="sbs-holder">
+                           <div class="side-by-side filter-icons">
+                              <div class="filters color"></div>
+                           </div>
+                           <div class="side-by-side">
+                              <div class="input-field input-filters">
+                                 <select multiple class="filter_select icons" id="color_filter">
+                                    <option value="" disabled selected>Escolha</option>
+                                    <option data-icon="/images/colors/bege.jpg" class="circle" value="*[data-color='bege']">Bege</option>
+                                    <option data-icon="/images/colors/bohemian-preto.jpg" class="circle" value="*[data-color='bohemian-preto']">Bohemian Preto</option>
+                                    <option data-icon="/images/colors/burgundy.jpg" class="circle" value="*[data-color='burgundy']">Burgundy</option>
+                                    <option data-icon="/images/colors/caramelo.jpg" class="circle" value="*[data-color='caramelo']">Caramelo</option>
+                                    <option data-icon="/images/colors/cinza.jpg" class="circle" value="*[data-color='cinza']">Cinza</option>
+                                    <option data-icon="/images/colors/dourado.jpg" class="circle" value="*[data-color='dourado']">Dourado</option>
+                                    <option data-icon="/images/colors/floral-red.jpg" class="circle" value="*[data-color='floral-red']">Floral Red</option>
+                                    <option data-icon="/images/colors/floral-vintage-vermelho.jpg" class="circle" value="*[data-color='floral-vintage-vermelho']">Floral Vintage Vermelho</option>
+                                    <option data-icon="/images/colors/free-dots.jpg" class="circle" value="*[data-color='free-dots']">Free dots</option>
+                                    <option data-icon="/images/colors/indigo-escuro.jpg" class="circle" value="*[data-color='indigo-escuro']">Indigo Escuro</option>
+                                    <option data-icon="/images/colors/laranja-queimado.jpg" class="circle" value="*[data-color='laranja-queimado']">Laranja Queimado</option>
+                                    <option data-icon="/images/colors/mini-folk.jpg" class="circle" value="*[data-color='mini-folk']">Mini Folk</option>
+                                    <option data-icon="/images/colors/marinho.jpg" class="circle" value="*[data-color='marinho']">Marinho</option>
+                                    <option data-icon="/images/colors/marrom.jpg" class="circle" value="*[data-color='marrom']">Marrom</option>
+                                    <option data-icon="/images/colors/off-white.jpg" class="circle" value="*[data-color='off-white']">Off White</option>
+                                    <option data-icon="/images/colors/paisley-gipsy-azul.jpg" class="circle" value="*[data-color='paisley-gipsy-azul']">Paisley Gipsy Azul</option>
+                                    <option data-icon="/images/colors/preto.jpg" class="circle" value="*[data-color='preto']">Preto</option>
+                                    <option data-icon="/images/colors/tapecaria.jpg" class="circle" value="*[data-color='tapecaria']">Tapeçaria</option>
+                                 </select>
+                                 <label>COR:</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col l4 m6 s12">
+                        <div class="sbs-holder">
+                           <div class="side-by-side filter-icons">
+                              <div class="filters price"></div>
+                           </div>
+                           <div class="side-by-side">
+                              <div class="input-field input-filters">
+                                 <select multiple class="filter_select" id="price_filter">
+                                    <option value="" disabled selected>Escolha</option>
+                                    <option value=".sale">Promoção</option>
+                                    <option value="until50" id="aa">Até R$50</option>
+                                    <option value="from50_100" id="bb">R$50 - R$100</option>
+                                    <option value="from100_15" id="cc">R$100 - R$150</option>
+                                    <option value="from150_20" id="dd">R$150 - R$200</option>
+                                    <option value="moreThan20" id="ee">Acima de R$200</option>
+                                 </select>
+                                 <label>PREÇO:</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col l4 m6 s12">
+                        <div class="sbs-holder">
+                           <div class="side-by-side filter-icons">
+                              <div class="filters order"></div>
+                           </div>
+                           <div class="side-by-side">
+                              <div class="input-field input-filters">
+                                 <select id="sorts">
+                                    <option value="" disabled selected>Escolha</option>
+                                    <option value="name" data-ascending="true">Por nome</option>
+                                    <option value="price" data-ascending="false">Maior preço</option>
+                                    <option value="price" data-ascending="true">Menor preço</option>
+                                 </select>
+                                 <label>CLASSIFICAR POR:</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="product-container">
+
+         </div>
+
+      </div>
+   </main>
+
+
+   <footer>
+   </footer>
+
+   <div id="outdated">
+      <h6>O seu navegador est&aacute; desatualizado!</h6>
+      <p>Atualize o seu navegador para ter uma melhor experi&ecirc;ncia e visualiza&ccedil;&atilde;o deste site. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/pt-br">Atualize o seu navegador agora</a></p>
+      <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Fechar">&times;</a></p>
+   </div>
+
+   <script src="/js/javascript.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+   <script src="/plugins/outdatedbrowser/outdatedbrowser.min.js"></script>
+
+
+</body>
+</html>
