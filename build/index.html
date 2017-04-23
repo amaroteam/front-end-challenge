@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Os produtos mais procurados na Amaro">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#333" />
+        <title>Catálogo Best Sellers - Amaro Fashion</title>
+        <link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="assets/favicon-160x160.png" sizes="160x160" />
+        <link rel="icon" type="image/png" href="assets/favicon-196x196.png" sizes="196x196" />
+        <link rel="stylesheet" href="css/estiloBase.css">
+    </head>
+    <body>
+        <header id="header">
+            <div id="carrinho">
+                <button onclick="acessarCarrinho();">Acessar carrinho</button>
+            </div>   
+            <span id="logo"><a href="index.html">Amaro</a></span>
+            <h1>Best Sellers</h1>  
+        </header>
+        <main>
+         <h2>Os produtos mais vendidos da Amaro</h2>
+         <input type="checkbox" name="filtro" id="chk-promo" onchange="filtrarPorPromocao(this);"><label for="chk-promo">Filtrar por itens em promoção</label>
+         <section id="catalogo">
+             <section id="lista-carrinho" ondrop="dropItem(event);" ondragover="hoverContainer(event);" class="is-hidden">
+                 <h3 class="icone cart-icon">Carrinho</h3>
+                 <ul id="item-carrinho"></ul>
+                 <span>Total: R$ </span><span id="valorTotal"></span>
+                 <button class="btn-transacao">Finalizar compra</button>
+                 <img id="imagemCarrinho" class="is-hidden">
+            </section>
+         </section>
+
+         <footer>
+             <span>
+                 Amaro
+             </span>
+         </footer>       
+        </main>
+        <script src="js/script.js"></script>
+    </body>
+</html>

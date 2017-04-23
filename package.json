@@ -1,0 +1,35 @@
+{
+  "name": "amano-best-sellers",
+  "version": "1.0.0",
+  "description": "Catalogo de Best Sellers Amano",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "autoprefixer": "^6.7.7",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^6.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "console.log('TESTE')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeph7/front-end-challenge.git"
+  },
+  "keywords": [
+    "challenge-description"
+  ],
+  "author": "Jose Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeph7/front-end-challenge/issues"
+  },
+  "homepage": "https://github.com/zeph7/front-end-challenge#readme"
+}
