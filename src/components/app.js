@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import sass from '../scss/main.scss';
+
+import MobileNav from './mobile_nav';
 
 class App extends Component {
   render() {
     return (
-      <h1>This is a React Boilerplate</h1>
+			<div>
+	      <h1>This is a React Boilerplate</h1>
+				<MobileNav />
+			</div>
     );
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate",
+  "name": "front-end-challenge",
   "version": "1.0.0",
-  "description": "I'm trying to build a boilerplate for future React projects",
+  "description": "My front-end-challenge for AMARO",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server",

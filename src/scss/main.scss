@@ -1,7 +1,13 @@
-$initialColor: red;
+@import 'normalize';
 
-.container {
-	h1 {
-		color: $initialColor;
-	}
+html {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
 }
+
+.btn {
+  background-color: transparent;
+  border: 0;
+}
+
+@import 'mobile_nav';
