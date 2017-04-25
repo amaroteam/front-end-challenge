@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 import MobileNav from './mobile_nav';
+import ProductsList from './products_list';
 
 class App extends Component {
   render() {
     return (
 			<div>
-	      <h1>This is a React Boilerplate</h1>
+				<ProductsList />
 				<MobileNav />
 			</div>
     );
