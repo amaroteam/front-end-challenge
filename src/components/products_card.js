@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addProduct } from '../actions';
 
 class ProductsCard extends Component {
-  handleClick() {
-    console.log('click');
+  onAddClick() {
+    console.log(this);
+    this.props.addProduct(this.props.product);
   } 
 
   render() {
@@ -15,7 +17,7 @@ class ProductsCard extends Component {
     }
 
     return (
-      <div className="product-card" onClick={this.handleClick}>
+      <div className="product-card" onClick={this.onAddClick.bind(this)}>
         {imageEl}
         <div className="product-name">{product.name}</div>
         <div className={`product-regular-price ${(product.on_sale) ? 'sale' : ''}`}>{product.regular_price}</div>
@@ -26,9 +28,10 @@ class ProductsCard extends Component {
 }
 
 function mapStateToProps(state) {
+  //console.log(state)
   return {
-    products: state.products
+    cart: state.cart
   };
 }
 
-export default ProductsCard;
+export default connect(mapStateToProps, { addProduct })(ProductsCard);
