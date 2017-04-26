@@ -9,18 +9,32 @@
   padding: .5em .5em 54px;
 
   list-style: none;
+
+  @media screen and (min-width: $break-xs) {
+    padding: 2em 2em 54px;
+  }
 }
 
 .product-card {
   width: 48%;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 
   background-color: $white;
 
   font-size: .875em;
 
   cursor: pointer;
-  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);  
+  box-shadow: 0px 1px 10px 1px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: $break-xs) {
+    width: 30%;
+    font-size: 1em;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (min-width: $break-l) {
+    width: 23%;
+  }
 }
 
 .product-card img {
@@ -30,6 +44,7 @@
 .no-image {
   width: 100%;
   height: 150px;
+
   line-height: 150px;
   color: $lightGrey;
   text-align: center;
@@ -40,17 +55,30 @@
   width: 100%;
   margin-bottom: .8rem;
   padding: 0 .5rem;
+
+  @media screen and (min-width: $break-xs) {
+    padding: 0 1rem;
+  }
 }
 
 .product-price {
   font-weight: $fontBold;
   padding: 0 .5rem;
   margin-bottom: .5rem;
+
+  @media screen and (min-width: $break-xs) {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .product-regular-price {
   display: none;
   padding: 0 .5rem;
+
+  @media screen and (min-width: $break-xs) {
+    padding: 0 1rem;
+  }
 }
 .product-regular-price.sale {
   display: block;
