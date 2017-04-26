@@ -5,9 +5,14 @@ html {
 	font-family: 'Open Sans', sans-serif;
 }
 
-.btn {
+body * {
+  box-sizing: border-box;
+}
+
+button {
   background-color: transparent;
   border: 0;
 }
 
 @import 'mobile_nav';
+@import 'products_list';

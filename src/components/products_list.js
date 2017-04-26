@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../actions';
+
+import ProductsCard from './products_card';
 
 class ProductsList extends Component {
   componentWillMount() {
@@ -9,22 +10,31 @@ class ProductsList extends Component {
   }
 
   renderList() {
-    return this.props.products.map((product) => {
-      return (
-        <li
-          key={product.name}
-          className="product-card">
-          <div>Image</div>
-          <div>{product.name}</div>
-        </li>
-      );
-    });
+    let counterId = 0;
+
+    if (this.props.products) {
+      return this.props.products.map((product) => {
+        let cardId = counterId + 1;
+        counterId++;
+
+        return <ProductsCard key={cardId} className="product-card" product={product} />
+
+        /*return (
+          <li
+            key={cardId}
+            className="product-card">
+            <div>Image</div>
+            <div>{product.name}</div>
+          </li>
+        );*/
+      });
+    }
   }
 
   render() {
     return (
       <ul className="products-list">
-        {/*this.renderList()*/}
+        {this.renderList()}
       </ul>
     );
   }

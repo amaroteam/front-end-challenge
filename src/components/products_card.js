@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ProductsCard extends Component {
-  render() {
-    return (
-			<div className="product-card">
-				<div>Image</div>
-				<div>Name</div>
-				<div>Price</div>
-				<div>Promo Price</div>
-			</div>
-    );
-  }
+const ProductsCard = ({product}) => {
+  return (
+    <div className="product-card">
+      {/*<img src={product.image} />*/}
+      <div>{product.name}</div>
+      <div>{product.regular_price}</div>
+      <div>{product.actual_price}</div>
+    </div>
+  );
 }
 
 export default ProductsCard;
