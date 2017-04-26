@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchProducts } from '../actions';
 
 class ProductsList extends Component {
+  componentWillMount() {
+    this.props.fetchProducts();
+  }
+
   renderList() {
     return this.props.products.map((product) => {
       return (
@@ -18,7 +24,7 @@ class ProductsList extends Component {
   render() {
     return (
       <ul className="products-list">
-        {this.renderList()}
+        {/*this.renderList()*/}
       </ul>
     );
   }
@@ -30,4 +36,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ProductsList);
+export default connect(mapStateToProps, { fetchProducts })(ProductsList);

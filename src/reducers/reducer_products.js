@@ -1,9 +1,16 @@
-export default function() {
-  return [
-    { name: "sapato 1" },
-    { name: "sapato 2" },
-    { name: "sapato 3" },
-    { name: "sapato 4" },
-    { name: "sapato 5" },
-  ]
+import { FETCH_PRODUCTS } from '../actions/index';
+
+const INITIAL_STATE = {
+  products: [],
+  cart: []
+};
+
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case FETCH_PRODUCTS:
+      return state.products.concat(action.payload.data);
+      break;
+    default:
+      return state;
+  }
 }
