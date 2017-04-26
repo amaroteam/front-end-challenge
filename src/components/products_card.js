@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class ProductsCard extends Component { 
+class ProductsCard extends Component {
+  handleClick() {
+    console.log('click');
+  } 
+
   render() {
     const product = this.props.product;
     let imageEl = <div className="no-image">No Image :(</div>;
@@ -11,7 +15,7 @@ class ProductsCard extends Component {
     }
 
     return (
-      <div className="product-card">
+      <div className="product-card" onClick={this.handleClick}>
         {imageEl}
         <div className="product-name">{product.name}</div>
         <div className={`product-regular-price ${(product.on_sale) ? 'sale' : ''}`}>{product.regular_price}</div>
