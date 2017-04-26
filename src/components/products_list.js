@@ -18,15 +18,6 @@ class ProductsList extends Component {
         counterId++;
 
         return <ProductsCard key={cardId} className="product-card" product={product} />
-
-        /*return (
-          <li
-            key={cardId}
-            className="product-card">
-            <div>Image</div>
-            <div>{product.name}</div>
-          </li>
-        );*/
       });
     }
   }
