@@ -40,9 +40,10 @@ class ProductsCard extends Component {
 }
 
 function mapStateToProps(state) {
+  //console.log(state);
   return {
     cart: state.cart
   };
 }
 
-export default connect(mapStateToProps, { addProduct })(ProductsCard);
+export default connect(null, { addProduct })(ProductsCard);

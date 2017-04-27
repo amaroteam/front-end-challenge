@@ -39,6 +39,7 @@ module.exports = {
 	  })
   ],
   devServer: {
-    contentBase: BUILD_DIR
+    contentBase: BUILD_DIR,
+    historyApiFallback: true
   }
 }
