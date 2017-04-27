@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const SHOW_CART = 'SHOW_CART';
+export const HIDE_CART = 'HIDE_CART';
 
 const ROOT_URL = 'http://localhost:3000';
 
@@ -26,5 +27,12 @@ export function showCart() {
   return {
     type: SHOW_CART,
     payload: 'showing the cart'
+  };
+}
+
+export function hideCart() {
+  return {
+    type: HIDE_CART,
+    payload: 'hiding the cart'
   };
 }

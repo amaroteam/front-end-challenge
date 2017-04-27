@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, SHOW_CART } from '../actions/index';
+import { ADD_PRODUCT, SHOW_CART, HIDE_CART } from '../actions/index';
 
 const INITIAL_STATE = { show: false, items: [] };
 
@@ -11,6 +11,10 @@ export default function(state = INITIAL_STATE, action) {
     case SHOW_CART:
       return Object.assign({}, state, {
         show: true
+      });
+    case HIDE_CART:
+      return Object.assign({}, state, {
+        show: false
       });
     default:
       return state;

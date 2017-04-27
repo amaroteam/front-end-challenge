@@ -57,3 +57,16 @@
   display: block;
   margin: auto;
 }
+
+.cart-container {
+  display: none;
+  background-color: #b3d0d9;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+.cart-container.show {
+  display: block;
+}
