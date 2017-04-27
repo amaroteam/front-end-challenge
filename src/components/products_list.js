@@ -10,15 +10,20 @@ class ProductsList extends Component {
   }
 
   renderList() {
-    let counterId = 0;
-
     if (this.props.products) {
       return this.props.products.map((product) => {
-        let cardId = counterId + 1;
-        counterId++;
-
-        return <ProductsCard key={cardId} className="product-card" product={product} />
+        return (
+          <ProductsCard
+            className="product-card"
+            key={product.id}            
+            product={product}
+          />
+        );
       });
+    } else {
+      return (
+        <div>Loading...</div>
+      );
     }
   }
 
