@@ -5,7 +5,7 @@ const INITIAL_STATE = [];
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
     case ADD_PRODUCT:     
-      return state.concat(action.payload.data);
+      return state.concat(action.payload);
       break;
     default:
       return state;
