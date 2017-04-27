@@ -16,6 +16,7 @@
 }
 
 .product-card {
+  position: relative;
   width: 48%;
   margin-bottom: 1rem;
 
@@ -37,7 +38,7 @@
   }
 }
 
-.product-card img {
+.product-image img {
   width: 100%;
 }
 
@@ -49,6 +50,16 @@
   color: $lightGrey;
   text-align: center;
   font-weight: $fontBold;
+}
+
+.product-image.sale:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: 'sale';
+  background-color: red;
+  color: white;
+  padding: .125rem .5rem;
 }
 
 .product-name {

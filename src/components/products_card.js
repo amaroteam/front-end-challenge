@@ -13,7 +13,7 @@ class ProductsCard extends Component {
     let imageEl = <div className="no-image">No Image :(</div>;
 
     if (product.image) {
-      imageEl = <img src={product.image} />;
+      imageEl = <div className={`product-image ${(product.on_sale) ? 'sale' : ''}`}><img src={product.image} /></div>;
     }
 
     return (
