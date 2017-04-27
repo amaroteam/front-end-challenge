@@ -9,7 +9,10 @@ body * {
   box-sizing: border-box;
 }
 
-button {
+.btn:focus {
+  outline:0;
+}
+.btn {
   background-color: transparent;
   border: 0;
 }

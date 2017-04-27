@@ -60,13 +60,47 @@
 
 .cart-container {
   display: none;
-  background-color: #b3d0d9;
+  overflow: auto;
+  background-color: $white;
   position: fixed;
   top: 0;
   right: 0;
   height: 100%;
   width: 100%;
+
+  @media screen and (min-width: 700px) {
+    width: 50%;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  }
+
+  @media screen and (min-width: $break-l) {
+    height: auto;
+    max-height: 85%;
+    width: 33%;
+    top: 4em;
+    right: 4em;
+  }
 }
 .cart-container.show {
   display: block;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 1em;
+  margin: 0;
+}
+.cart-list li {
+  border-bottom: 1px solid $lightGrey;
+  padding: 1em 0;
+}
+.cart-list li:last-child {
+  border-bottom: 0;
+}
+.no-items {
+  width: 100%;
+  height: 300px;
+  line-height: 300px;
+  font-size: 1em;
+  text-align: center;
 }

@@ -6,11 +6,14 @@ class CartList extends Component {
     if (this.props.cart.items.length > 0) {
       return this.props.cart.items.map((product, index) => {
         return (
-          <div key={index}>{product.name}</div>
+          <li key={index}>
+           <div className="product-name">{product.name}</div>
+           <div className="product-price">{product.actual_price}</div>
+          </li>
         );
       });
     } else {
-      return <div>Loading...</div>;
+      return <div className="no-items">Your shopping cart is still empty :(</div>;
     }
   }
 
