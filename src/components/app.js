@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MobileNav from './mobile_nav';
+import CartButton from './cart_btn';
 import ProductsList from './products_list';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     return (
 			<div>
 				<ProductsList />
-				<MobileNav />
+				<CartButton />
 			</div>
     );
   }

@@ -6,12 +6,12 @@
   justify-content: space-between;
   width: 100%;
   margin: 0;
-  padding: .5em .5em 54px;
+  padding: .5em .5em 0;
 
   list-style: none;
 
   @media screen and (min-width: $break-xs) {
-    padding: 2em 2em 54px;
+    padding: 2em 2em 0;
   }
 }
 
