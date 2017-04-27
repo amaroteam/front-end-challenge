@@ -98,3 +98,15 @@
   color: $lightGrey;  
   text-decoration: line-through;
 }
+
+.products-sizes {
+  padding: 0 .5rem .5rem;
+
+  @media screen and (min-width: $break-xs) {
+    padding: 0 1rem 1rem;
+  }
+}
+
+.products-sizes span {
+    margin-right: .875em;
+}

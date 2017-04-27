@@ -4,9 +4,18 @@ import { addProduct } from '../actions';
 
 class ProductsCard extends Component {
   onAddClick() {
-    console.log(this);
     this.props.addProduct(this.props.product);
-  } 
+  }
+
+  renderSizes() {
+    return this.props.product.sizes.map((size) => {      
+      if (size.available) {        
+        return <span key={size.size}>{size.size}</span>;
+      } else {
+        return false;
+      }
+    });
+  }
 
   render() {
     const product = this.props.product;
@@ -22,6 +31,9 @@ class ProductsCard extends Component {
         <div className="product-name">{product.name}</div>
         <div className={`product-regular-price ${(product.on_sale) ? 'sale' : ''}`}>{product.regular_price}</div>
         <div className="product-price">{product.actual_price}</div>
+        <div className="products-sizes">
+          {this.renderSizes()}
+        </div>
       </div>
     );
   }
