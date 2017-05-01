@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="app">
 <head>
 	<meta charset="UTF-8">
+	<base href="/">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AMARO - Front-End Challenge</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Hello World</h1>
+
+<header>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>	
+      </div>
+      <div class="collapse navbar-collapse" id="nav-collapse">
+        <ul class="nav navbar-nav navbar-right bold">
+          <li><a data-toggle="collapse" data-target="#nav-collapse"href="/catalog">Catálogo</a></li>
+           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/cart">Carrinho</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+	<div class="row">
+		<ng-view></ng-view>
+	</div>
+</div>
+
+
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/angular-route.min.js"></script>
+<script src="js/lib/angular-locale_pt-br.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/catalog.js"></script>
 </body>
 </html>
