@@ -1,0 +1,24 @@
+{
+  "name": "front-end-challenge",
+  "version": "1.0.0",
+  "description": "## `AMARO front-end challenge`",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaove/front-end-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaove/front-end-challenge/issues"
+  },
+  "homepage": "https://github.com/gaove/front-end-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "consign": "^0.1.2",
+    "express": "^4.13.3"
+  }
+}
