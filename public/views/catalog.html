@@ -1,21 +1,21 @@
 <div class="page-title">
-	<h2 class="thin-border-bottom bold">Catálogo</h2>
+	<h2 class="size-md thin-border-bottom bold">Catálogo</h2>
 </div>
 
 <div ng-repeat="product in catalog">
-	<div class="wrap-products-catalog col-md-3 col-md-3 col-sm-3 col-xs-6" ng-class="{hide : product.image == false}">
+	<div class="wrap-products-catalog col-lg-3 col-md-3 col-sm-3 col-xs-6" ng-class="{hide : product.image == false}">
 		<a href="product/{{product.style}}">
 			<div class="product-img">
 				<img class="img-responsive" ng-src="{{product.image}}" alt="">
 					<div class="onsale bold" ng-class="{hide : product.on_sale == false}"><span>{{product.discount_percentage}}</span><br>{{true == product.on_sale ? 'OFF' : '' }}
 					</div>
 			</div>
-			<div class="product-name thin-border-bottom bold">
+			<div class="product-name black size-default thin-border-bottom bold">
 				{{product.name}}
 			</div>
 			<div class="product-price">
-		      <span class="product-actual-price">{{product.actual_price}}</span>
-		      <span class="product-installments thin">{{product.installments}}</span><br>
+		      <span class="size-default product-actual-price bold">{{product.actual_price}}</span>
+		      <span class="product-installments black thin">{{product.installments}}</span><br>
 		      <span ng-class="{hide: product.on_sale == false}" class="product-regular-price thin">{{product.regular_price}}</span>    
 		    </div>
 	  </a>

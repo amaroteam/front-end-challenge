@@ -6,17 +6,14 @@
 	text-transform: uppercase;
 }
 
-.thin-border-bottom{
-	border-bottom:1px solid #d6d6d6;
-}
-
-.bold{
-	font-weight: 700;
-}
-
-.thin{
-	font-weight: 300;
-}
+.thin-border-bottom{border-bottom:1px solid #d6d6d6;}
+.size-md{font-size:2em;}
+.size-default{font-size:1em;}
+.bold{font-weight: 700;}
+.thin{font-weight: 300;}
+.hide{display:none;}
+.alert-danger {margin-top: 10px;}
+.black{color:#000;}
 
 .onsale{
 	position: absolute;
@@ -32,8 +29,17 @@
   padding: 5px;
 }
 
-.hide{
-	display:none;
+.product-img img{
+	width: 100%;
+  height:auto;
+  overflow:hidden;
+  border: 1px solid rgba(138, 109, 59, 0.40);
+}
+
+.product-regular-price{
+	text-decoration: line-through;
+  color: #a2a2a2;
+  font-size: 13px;
 }
 
 /*HEADER*/
@@ -57,53 +63,47 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-.wrap-products-catalog a{
-	text-decoration: none;
-}
+.wrap-products-catalog a{text-decoration: none;}
+.wrap-products-catalog a:hover{color:inherit;}
+.product-img{min-height:200px;}
+.product-price{min-height:70px;}
 
-.wrap-products-catalog a:hover{
-	color:inherit;
-}
-
-.product-img{
-	min-height:200px;
-}
-
-.product-img img{
-	width: 100%;
-    height:auto;
-    overflow:hidden;
-    border: 1px solid rgba(138, 109, 59, 0.40);
-}
-
-.product-price{
-	min-height:70px;
-	color: #8a6d3b;
-}
-
-.product-name {
+.product-name{
   min-height: 50px;
-  color:black;
   line-height: 1.5;
 }
 
 .product-actual-price{
-  font-weight: 700;
-  font-size: 18px;
   display:block;
+  color: #8a6d3b;
 }
 
-.product-installments{
-	color:black;
-	font-weight: 300;
+/*PRODUCT*/
+.wrap-products{
+	margin-top: 50px;
+	font-family: 'Open Sans', sans-serif;
 }
 
-.product-regular-price{
-	text-decoration: line-through;
-  color: #a2a2a2;
-  font-size: 13px;
+form[name=sizeForm]{
+	width:60%;
+	margin:10px 0;
 }
 
+.btn-cart{
+  padding: 13px 30px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  color: #fff;
+  background-color: #8a6d3b;
+  outline:none;
+  margin:10px 0;
+  font-size:18px;
+}
+
+.btn-cart:hover, .btn-cart:focus{color: #fff;}
+.btn:focus,.btn:active {outline: none !important;}
+
+/*MEDIA QUERIES*/
 @media screen and (min-width: 768px) {
   .wrap-products-catalog{
 	min-height:300px;

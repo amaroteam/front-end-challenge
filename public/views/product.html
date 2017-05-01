@@ -1,9 +1,41 @@
-<h1>Product</h1>
+<div class="page-title">
+	<h2 class="size-md thin-border-bottom bold">Detalhes do Produto</h2>
+</div>
 
+<div class="wrap-products col-md-12">
+	<section>
+			<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+					<div class="product-img">
+						<img class="img-responsive" ng-src="{{itemProduct.image}}" alt="{{itemProduct.name}}">
+						<div class="onsale bold" ng-class="{hide : itemProduct.on_sale == false}"><span>{{itemProduct.discount_percentage}}</span><br>{{true == itemProduct.on_sale ? 'OFF' : '' }}
+						</div>
+					</div>
+			</div>
+	</section>
+	<section>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+			<div class="product-name black size-default thin-border-bottom">
+					<h1 class="">{{itemProduct.name}}</h1>
+			</div>
+			<p>Cor: {{itemProduct.color}}</p>
 
+			<div class="product-price">
+				<span ng-class="{hide: itemProduct.on_sale == false}" class="product-regular-price">{{itemProduct.regular_price}}</span><br>
+				<span class="size-md product-actual-price bold">{{itemProduct.actual_price}}</span><br>
+				<span class="product-installments black thin">{{itemProduct.installments}}</span><br>
+			</div>
 
-
-
+			<form novalidate name="sizeForm" class="form-group">
+			  	<select name="sizes" class="form-control" ng-model="selectedSize" required>
+			  	<option  value="" disabled selected >Selecione o Tamanho</option>
+			    <option ng-repeat="size in availableSizes">{{size.size}}</option>
+			 	  </select>
+		 	 		<span class="form-control alert-danger" ng-show="sizeForm.$submitted && sizeForm.sizes.$error.required">Selecione o tamanho desejado</span>
+			 		<button class="btn btn-cart" type="submit" ng-click="getPrice(itemCart);">COMPRAR</button>
+			</form>
+	</div>
+	</section>
+</div>
 
 
 
