@@ -8,8 +8,8 @@
   $scope.qtd = 1;
   $scope.id = 0;
   $scope.totalQtd = 0;
+  $scope.subtotal = 0;
 
-  
    //LOAD ALL PRODUCTS
    $http.get('/data/products')
      .success(function(products){
@@ -36,24 +36,12 @@
        console.log(erro);
    });
 
-    //CONVERT PRICE TO NUMBER
+  //CONVERT PRICE TO NUMBER
    $scope.priceToNumber = function(element){
       element = element.replace("R$", "").replace(",", ".");
       element = parseFloat(element);
       return element;
    };
-
-   //LOAD CART'S PRODUCTS
-     $http.get('/data/cart')
-     .success(function(cart){
-       $scope.itemsCart = cart;
-       angular.forEach($scope.itemsCart, function(){
-            $scope.id += 1;
-            $scope.totalQtd += 1;
-       });
-     }).error(function(erro){
-       console.log(erro);
-     });
 
    //ADD TO CART
     $scope.addToCart = function(itemProduct){
@@ -69,19 +57,35 @@
             "id":    $scope.id,
             "name":  $scope.itemProduct.name,
             "color": $scope.itemProduct.color,
+            "image": $scope.itemProduct.image,
             "price": $scope.price,
             "qtd":   $scope.qtd,
             "size":  $scope.selectedSize
           })
           .success(function(){
-            location.reload(); 
             $location.path("cart");
-            $scope.message = "Produto adicionado com sucesso";
+            location.reload(); 
           }).error(function(erro){
            console.log(erro);
           });
       }
     };
+
+    //LOAD CART'S PRODUCTS
+     $http.get('/data/cart')
+     .success(function(cart){
+       $scope.itemsCart = cart;
+       if($scope.itemsCart == ""){
+        $scope.message = "Carrinho Vazio";
+       }
+       angular.forEach($scope.itemsCart, function(itemProduct){
+            $scope.id += 1;
+            $scope.totalQtd += itemProduct.qtd;
+            $scope.subtotal += itemProduct.price * itemProduct.qtd;
+       });
+     }).error(function(erro){
+       console.log(erro);
+     });
 
     //VERIFY IF THE PRODUCT IS ALREADY IN THE CART
     $scope.productExist = function(itemProduct){
@@ -94,6 +98,21 @@
       }if(!exist)
       $scope.postToCart(itemProduct);
     };
+
+     //REMOVE FROM CART
+     $scope.removeFromCart= function(itemCart){
+        angular.forEach($scope.itemsCart, function(product){
+            if(itemCart.id == product.id){
+              $http.delete('data/cart/' + itemCart.id)
+               .success(function(){
+                  location.reload(); 
+               }).error(function(erro){
+                 console.log(erro);
+             }); 
+
+            };
+        });
+      };
 
 });
 

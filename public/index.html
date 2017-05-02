@@ -7,6 +7,7 @@
 	<title>AMARO - Front-End Challenge</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,20 +15,10 @@
 <header>
   <nav class="navbar navbar-inverse" ng-controller="CatalogController">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>	
-      </div>
-      <div class="collapse navbar-collapse" id="nav-collapse">
         <ul class="nav navbar-nav navbar-right bold">
           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/catalog">Catálogo</a></li>
-           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/cart">Carrinho<span class="badge">{{totalQtd}}</span></a></li>
+           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/cart"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i><span class="badge">{{totalQtd}}</span></a></li>
         </ul>
-      </div>
     </div>
   </nav>
 </header>
@@ -38,6 +29,9 @@
 	</div>
 </div>
 
+<footer>
+	
+</footer>
 <script src="js/lib/jquery.js"></script>
 <script src="js/lib/bootstrap.min.js"></script>
 <script src="js/lib/angular.min.js"></script>
