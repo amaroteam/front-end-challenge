@@ -1,0 +1,52 @@
+<div class="page-title">
+	<h2 class="size-md bold">{{emptyCart}}</h2>
+</div>
+
+<div ng-class="{hide : itemsCart == false}" class="page-title">
+	<h2 class="size-md thin-border-bottom bold">CARRINHO</h2>
+</div>
+
+<div class="wrap-cart">
+	<table class="table table-condensed table-cart">
+	  <thead>
+	    <tr>
+	   	  <th class="col-md-1 col-sm-1 hidden-xs"></th>
+	      <th class="col-md-6 col-sm-6 col-xs-5">Produto</th>
+	      <th class="col-md-2 col-sm-2 col-xs-2">Qtd</th>
+	      <th class="col-md-2 col-sm-2 col-xs-3">Preço</th>  
+	      <th class="col-md-1 col-sm-1 col-xs-2">Remover</th>
+	    </tr>
+	  </thead>
+	  <tbody ng-repeat="itemCart in itemsCart">
+	    <tr>
+	      <td class="col-md-1 col-sm-1 hidden-xs"><a href="product/{{itemCart.style}}"><img class="responsive thumb-cart-img" ng-src="{{itemCart.image}}" alt="{{itemCart.name}}"></a></td>
+	      <td class="col-md-5 col-sm-6 col-xs-6 productCart-title"><a href="product/{{itemCart.style}}">{{itemCart.name}}</a><br><span>Cor: {{itemCart.color}}</span> <br><span>Tamanho: {{itemCart.size}}</span></td>
+	      <td class="col-md-2 col-sm-2 col-xs-2">{{itemCart.qtd}}</td>
+	      <td class="col-md-2 col-sm-2 col-xs-3">{{itemCart.price | currency}}</td>  
+	      <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-danger btn remove" ng-click="removeFromCart(itemCart)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+
+<div class="col-lg-3 col-lg-offset-9 col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-8 col-xs-12">
+<table class="table table-condensed table-payment">
+	  <h3>SUBTOTAL:</h3>
+	  <thead>
+	    <tr>
+	      <th class="col-md-2 col-md-offset-3">Quantidade</th>  
+	      <th class="col-md-10 col-md-offset-9">Total da Compra</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <tr>
+	      <td class="col-md-2 col-md-offset-3">{{totalQtd}}</td>
+	      <td class="col-md-10 col-md-offset-9 ">{{subtotal| currency}}</td>
+	   </tr>
+	  </tbody>
+</table>
+<button class="btn btn-cart">FINALIZAR COMPRA</button>
+</div>
+
+
+
