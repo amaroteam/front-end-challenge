@@ -31,7 +31,8 @@
 			    <option ng-repeat="size in availableSizes">{{size.size}}</option>
 			 	  </select>
 		 	 		<span class="form-control alert-danger" ng-show="sizeForm.$submitted && sizeForm.sizes.$error.required">Selecione o tamanho desejado</span>
-			 		<button class="btn btn-cart" type="submit" ng-click="getPrice(itemCart);">COMPRAR</button>
+		 	 		<div>{{message}}</div>
+			 		<button class="btn btn-cart" type="submit" ng-click="addToCart(itemProduct);">COMPRAR</button>
 			</form>
 	</div>
 	</section>

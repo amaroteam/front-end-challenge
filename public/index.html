@@ -12,7 +12,7 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse" ng-controller="CatalogController">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse">
@@ -25,7 +25,7 @@
       <div class="collapse navbar-collapse" id="nav-collapse">
         <ul class="nav navbar-nav navbar-right bold">
           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/catalog">Catálogo</a></li>
-           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/cart">Carrinho</a></li>
+           <li><a data-toggle="collapse" data-target="#nav-collapse"href="/cart">Carrinho<span class="badge">{{totalQtd}}</span></a></li>
         </ul>
       </div>
     </div>

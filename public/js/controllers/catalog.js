@@ -1,9 +1,14 @@
- angular.module('app').controller('CatalogController', function($scope, $http, $routeParams){
+ angular.module('app').controller('CatalogController', function($scope, $http, $routeParams, $location){
   //VARIABLES
   $scope.catalog = [];
   $scope.availableSizes = [];
   $scope.itemProduct = [];
-  $scope.selectedSize= "";
+  $scope.selectedSize = "";
+  $scope.message = "";
+  $scope.qtd = 1;
+  $scope.id = 0;
+  $scope.totalQtd = 0;
+
   
    //LOAD ALL PRODUCTS
    $http.get('/data/products')
@@ -38,18 +43,57 @@
       return element;
    };
 
-   //GET THE PRICE
-   $scope.getPrice = function(itemCart){
-      $scope.regularPrice = $scope.priceToNumber($scope.itemProduct.regular_price);
-      $scope.actualPrice = $scope.priceToNumber($scope.itemProduct.actual_price);
-      if( $scope.actualPrice < $scope.regularPrice){
-          $scope.price = $scope.actualPrice;
-      }else if($scope.actualPrice >= $scope.regularPrice){
-          $scope.price = $scope.regularPrice;
+   //LOAD CART'S PRODUCTS
+     $http.get('/data/cart')
+     .success(function(cart){
+       $scope.itemsCart = cart;
+       angular.forEach($scope.itemsCart, function(){
+            $scope.id += 1;
+            $scope.totalQtd += 1;
+       });
+     }).error(function(erro){
+       console.log(erro);
+     });
+
+   //ADD TO CART
+    $scope.addToCart = function(itemProduct){
+      $scope.price = $scope.priceToNumber($scope.itemProduct.actual_price);
+      $scope.productExist(itemProduct);
+    };
+
+    //POST TO CART
+    $scope.postToCart = function(itemProduct){
+      if($scope.sizeForm.$valid){
+          $http.post('/data/cart',
+          {
+            "id":    $scope.id,
+            "name":  $scope.itemProduct.name,
+            "color": $scope.itemProduct.color,
+            "price": $scope.price,
+            "qtd":   $scope.qtd,
+            "size":  $scope.selectedSize
+          })
+          .success(function(){
+            location.reload(); 
+            $location.path("cart");
+            $scope.message = "Produto adicionado com sucesso";
+          }).error(function(erro){
+           console.log(erro);
+          });
       }
-      console.log($scope.price);
-      console.log($scope.selectedSize);
-   }
+    };
+
+    //VERIFY IF THE PRODUCT IS ALREADY IN THE CART
+    $scope.productExist = function(itemProduct){
+      var exist = false
+      for(var i = 0 ; i< $scope.itemsCart.length; i++){
+        if($scope.itemsCart[i].name== itemProduct.name && $scope.itemsCart[i].size == $scope.selectedSize){
+          exist = true;
+          $scope.message = "Produto já adicionado ao carrinho";
+        }
+      }if(!exist)
+      $scope.postToCart(itemProduct);
+    };
 
 });
 
