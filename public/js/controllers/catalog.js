@@ -56,15 +56,16 @@
           {
             "id":    $scope.id,
             "name":  $scope.itemProduct.name,
+            "style": $scope.itemProduct.style,
             "color": $scope.itemProduct.color,
             "image": $scope.itemProduct.image,
             "price": $scope.price,
             "qtd":   $scope.qtd,
             "size":  $scope.selectedSize
           })
-          .success(function(){
+          .success(function(){ 
             $location.path("cart");
-            location.reload(); 
+            
           }).error(function(erro){
            console.log(erro);
           });
@@ -76,7 +77,7 @@
      .success(function(cart){
        $scope.itemsCart = cart;
        if($scope.itemsCart == ""){
-        $scope.message = "Carrinho Vazio";
+        $scope.emptyCart = "Carrinho Vazio";
        }
        angular.forEach($scope.itemsCart, function(itemProduct){
             $scope.id += 1;
@@ -105,11 +106,16 @@
             if(itemCart.id == product.id){
               $http.delete('data/cart/' + itemCart.id)
                .success(function(){
-                  location.reload(); 
+                 var indexItemCart = $scope.itemsCart.indexOf(itemCart);
+                 $scope.itemsCart.splice(indexItemCart,1);
+                 $scope.totalQtd -= itemCart.qtd;
+                 $scope.subtotal -= itemCart.price;
+                 if($scope.itemsCart.length == ""){
+                    $scope.emptyCart = "Carrinho Vazio";
+                 }
                }).error(function(erro){
                  console.log(erro);
              }); 
-
             };
         });
       };
