@@ -1,0 +1,21 @@
+@import 'normalize';
+
+html {
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.btn:focus {
+  outline:0;
+}
+.btn {
+  background-color: transparent;
+  border: 0;
+}
+
+@import 'cart_btn';
+@import 'products_list';
