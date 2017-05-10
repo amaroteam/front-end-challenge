@@ -1,9 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import Logo from './Logo'
+import Products from './Products'
+
+const mapStateToProps = ({products}) => {
+  return {
+    products
+  }
+}
 
 class App extends React.Component {
   render() {
+    let { products } = this.props
+
     return (
       <div>
         <header className="header">
@@ -19,35 +29,7 @@ class App extends React.Component {
           </div>
         </header>
 
-        <section className="products">
-          <div className="container">
-            <div className="row">
-            {
-              [1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                <section key={i} className="product">
-                  <figure className="product-cover">
-                    <img src="https://d2odcms9up7saa.cloudfront.net/appdata/images/products/20002605_615_catalog_1.jpg?1460136912" alt="Nome do produto"/>
-                  </figure>
-                  <div className="product-meta">
-                    <h3 className="product-title">Nome do produto</h3>
-                    <div className="product-prices">
-                      <p><strong>por: R$ 69,90</strong> ou 3x de R$ 25,00</p>
-                      <p><small>de: R$ 100,00</small> <span>(50% off)</span></p>
-                    </div>
-                    <div className="product-sizes">
-                      <a href="#">p</a>
-                      <a href="#">s</a>
-                    </div>
-                  </div>
-                  <button className="product-buy">
-                    <span>Comprar</span>
-                  </button>
-                </section>
-              ))
-            }
-            </div>
-          </div>
-        </section>
+        <Products products={products} />
 
         <section className="cart-container">
           <div className="cart">
@@ -69,7 +51,7 @@ class App extends React.Component {
 
                   <div className="product-prices">
                     <div className="product-quantity">
-                      <input type="text" value="999" />
+                      <input type="text" />
                       <button className="product-increase">+</button>
                       <button className="product-decrease">-</button>
                     </div>
@@ -86,12 +68,10 @@ class App extends React.Component {
               <button className="cart-end">Pagamento</button>
             </div>
           </div>
-
-
         </section>
       </div>
     )
   }
 }
 
-export default App
+export default connect(mapStateToProps)(App)

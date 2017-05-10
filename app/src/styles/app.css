@@ -23,6 +23,7 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   margin-left: -15px;
   margin-right: -15px; }
 

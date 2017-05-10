@@ -11,6 +11,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   margin-left: -#{$unit-spacing};
   margin-right: -#{$unit-spacing};
 }
