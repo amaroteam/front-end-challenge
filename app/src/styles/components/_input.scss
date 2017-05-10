@@ -1,0 +1,21 @@
+//
+// Inputs
+// ============================================================================
+.form-input {
+  width: 100%;
+  display: block;
+  margin-right: $unit-spacing;
+  padding-left: $unit-spacing;
+  padding-right: $unit-spacing;
+
+  font-size: 1rem;
+  line-height: 30px;
+  border-radius: 3px;
+  border: 1px solid $color-grey;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: $color-black;
+  }
+}

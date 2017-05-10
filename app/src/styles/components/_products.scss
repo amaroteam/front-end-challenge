@@ -1,0 +1,13 @@
+//
+// Products
+// ============================================================================
+.products {
+  display: block;
+  padding-top: 100px;
+  padding-bottom: $unit-spacing * 3;
+
+  .container {
+    @include flex(stretch, initial);
+    flex-wrap: wrap;
+  }
+}
