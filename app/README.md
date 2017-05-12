@@ -8,23 +8,23 @@
 - Sass
 
 ## Requisitos
-- [ ] Responsivo
-- [ ] Cada produto deve ter:
+- [x] Responsivo
+- [x] Cada produto deve ter:
   - Imagem
   - Nome
   - Preço
   - Status da promoção
   - Preço promocional
   - Tamanhos
-- [ ] Adicionar produtos ao carrinho
-- [ ] Quanto e quais produtos do carrinho
+- [x] Adicionar produtos ao carrinho
+- [x] Quantos e quais produtos do carrinho
 
 ## Up
-- [ ] Adicionar e Remover produtos
-- [ ] Alterar quantidade
-- [ ] Valor total do carrinho
-- [ ] Produtos em promoção
-- [ ] Mostrar apenas tamanhos em estoque
+- [x] Adicionar e Remover produtos
+- [x] Alterar quantidade
+- [x] Valor total do carrinho
+- [ ] Filtrar Produtos em promoção
+- [x] Mostrar apenas tamanhos em estoque
 - [ ] Busca de produtos :D
 
 ## Up

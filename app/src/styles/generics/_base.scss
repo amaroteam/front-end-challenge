@@ -11,7 +11,10 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
-  margin-left: -#{$unit-spacing};
-  margin-right: -#{$unit-spacing};
+  align-item: stretch;
+
+  @include above(1200px) {
+    margin-left: -#{$unit-spacing};
+    margin-right: -#{$unit-spacing};
+  }
 }

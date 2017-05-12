@@ -69,3 +69,14 @@
     height: calc(100vh - (75px + 91px))
   }
 }
+
+.cart-is-visible {
+  .cart-container {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cart {
+    transform: translateX(0);
+  }
+}

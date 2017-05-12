@@ -15,7 +15,16 @@
   }
 
   &-cover {
-    display: block;
+    @include flex()
+
+    width: 100%;
+    height: calc(100% - 200px);
+    background-color: $color-white;
+
+    span {
+      font-size: 4rem;
+      color: $color-grey;
+    }
 
     img {
       width: 100%;
@@ -29,11 +38,12 @@
     background-color: $color-white;
   }
 
-  &-title { font-size: 1.3rem; }
+  &-title { font-size: .9rem; }
 
   &-prices {
     @include flex(flex-start)
 
+    height: 80px;
     flex-direction: column;
     padding-top: $unit-spacing;
     padding-bottom: $unit-spacing;
