@@ -1,0 +1,82 @@
+//
+// Cart
+// ============================================================================
+.cart-container {
+  top: 0;
+  right: 0;
+  position: fixed;
+
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background-color: rgba(0,0,0,.5);
+
+  transitions: all .2s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cart {
+  top: 0;
+  right: 0;
+  position: absolute;
+
+  width: 100%;
+  height: 100vh;
+  display: block;
+  max-width: 400px;
+  background-color: $color-white;
+
+  transition: all .2s;
+  transform: translateX(400px);
+
+  &-title {
+    @include flex(center, space-between);
+
+    padding: 0 $unit-spacing;
+    border-bottom: 1px solid $color-grey;
+
+    font-size: 1rem;
+    line-height: 74px;
+
+    h3 {
+      color: $color-darken;
+      text-transform: uppercase;
+    }
+
+    button {
+      font-size: 2rem;
+      color: $color-red;
+
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  &-total {
+    @include flex(center, space-between);
+
+    padding: $unit-spacing;
+    color: $color-black;
+    background-color: $color-grey;
+  }
+
+  &-end { @extend .button; }
+
+  &-products {
+    display: block;
+    overflow: auto;
+    height: calc(100vh - (75px + 91px))
+  }
+}
+
+.cart-is-visible {
+  .cart-container {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cart {
+    transform: translateX(0);
+  }
+}

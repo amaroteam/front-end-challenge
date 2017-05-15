@@ -1,0 +1,76 @@
+//
+// Product
+// ============================================================================
+.product {
+  width: 100%;
+  display: block;
+  margin-bottom: $unit-spacing * 3;
+
+  @include above(600px) {
+    @include col(1/2)
+  }
+
+  @include above(1024px) {
+    @include col(1/4)
+  }
+
+  &-cover {
+    @include flex();
+
+    width: 100%;
+    height: calc(100% - 200px);
+    background-color: $color-white;
+
+    span {
+      font-size: 4rem;
+      color: $color-grey;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &-meta {
+    display: block;
+    padding: $unit-spacing;
+    background-color: $color-white;
+  }
+
+  &-title { font-size: .9rem; }
+
+  &-prices {
+    @include flex(flex-start);
+
+    height: 80px;
+    flex-direction: column;
+    padding-top: $unit-spacing;
+    padding-bottom: $unit-spacing;
+
+    small { color: darken($color-grey, 50%); }
+    span { color: $color-red; }
+  }
+
+  &-sizes {
+    @include flex(flex-start);
+
+    a {
+      width: 35px;
+      display: block;
+      margin-right: 10px;
+
+      font-size: 1rem;
+      line-height: 30px;
+      text-align: center;
+      color: $color-black;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid $color-black;
+    }
+  }
+
+  &-buy {
+    @extend .button;
+  }
+}

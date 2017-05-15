@@ -1,0 +1,28 @@
+//
+// Generics Resets
+// ============================================================================
+@import url('https://fonts.googleapis.com/css?family=Lato:100,400,700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { min-height: 100%; }
+
+body {
+  width: 100%;
+  display: block;
+  color: $color-darken;
+  font: 16px/1.5 'Lato';
+  background-color: $color-lighten;
+}
+
+input,
+select,
+button,
+textarea {
+  outline: none;
+  box-shadow: none
+}

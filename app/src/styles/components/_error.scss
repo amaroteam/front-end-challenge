@@ -1,0 +1,9 @@
+//
+// Error
+// ============================================================================
+.error {
+  display: block;
+  padding: $unit-spacing;
+  background-color: $color-white;
+  border-bottom: 5px solid $color-red;
+}

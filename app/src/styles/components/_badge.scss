@@ -1,0 +1,20 @@
+//
+// Badges
+// ============================================================================
+.badge {
+  top: -10px;
+  right: -10px;
+  position: absolute;
+
+  display: block;
+  width: $unit-spacing * 2;
+  height: $unit-spacing * 2;
+
+  font-size: .8rem;
+  line-height: 30px;
+  text-align: center;
+  color: $color-white;
+
+  border-radius: 50%;
+  background-color: $color-red;
+}

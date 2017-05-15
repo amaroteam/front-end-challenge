@@ -1,0 +1,49 @@
+//
+// Header
+// ============================================================================
+.header {
+  top: 0;
+  left: 0;
+  position: fixed;
+
+  width: 100%;
+  display: block;
+  padding: $unit-spacing;
+
+  background-color: $color-white;
+  border-bottom: 1px solid $color-grey;
+
+
+  &-cart {
+    position: relative;
+
+    font-size: 2.2rem;
+    color: $color-darken;
+
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  &-meta {
+    @include flex(center, flex-end)
+    padding-right: $unit-spacing;
+  }
+
+  &-count {
+    @extend .badge;
+  }
+
+  &-search {
+    @extend .form-input;
+    width: 70%;
+
+    @include above(480px) {
+      width: 100%
+    }
+  }
+
+  .container {
+    @include flex(center, space-between);
+  }
+}
