@@ -2,7 +2,20 @@
 
 > Esse projeto está usando create-react-app
 
-## Stack Usada:
+## Rodando o projeto:
+
+``` bash
+# (se precisar clonar)
+git clone -b wallace-batista git@github.com:uselessdev/front-end-challenge teste
+
+cd teste/app
+yarn
+yarn start
+```
+
+O projeto vai rodar por padrão em http://localhost:3000
+
+## Stack:
 - React
 - Redux
 - Sass
