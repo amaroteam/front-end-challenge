@@ -3,37 +3,26 @@ import { connect } from 'react-redux'
 
 import Cart from './Cart'
 import Header from './Header'
-import Loader from './Loader'
 import Products from './Products'
-import ErrorHandle from './ErrorHandle'
 
-const mapStateToProps = ({products, cart}) => ({
-  cart,
-  products
+import { toggleVisibility } from '../actions/cartActions'
+
+const App = props => (
+  <div className={props.cart.visible ? 'cart-is-visible' : null}>
+    <Header toggle={props.toggle} quantity={props.cart.products.length} />
+    <Products />
+    <Cart />
+  </div>
+)
+
+const mapStateToProps = ({cart}) => ({
+  cart
 })
 
-class App extends React.Component {
-  render() {
-    let { products, cart } = this.props
-
-    if (products.error) {
-      return (
-        <ErrorHandle title="Oops" message={products.error} />
-      )
-    }
-
-    if (products.fetching) {
-      return (<Loader />)
-    }
-
-    return (
-      <div className={cart.visible ? 'cart-is-visible' : null}>
-        <Header quantity={cart.products.length} />
-        <Products products={products.data} />
-        <Cart />
-      </div>
-    )
+const mapDispatchToProps = (dispatch => ({
+  toggle () {
+    dispatch(toggleVisibility())
   }
-}
+}))
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

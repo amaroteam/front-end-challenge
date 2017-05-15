@@ -15,7 +15,7 @@
   }
 
   &-cover {
-    @include flex()
+    @include flex();
 
     width: 100%;
     height: calc(100% - 200px);
@@ -41,7 +41,7 @@
   &-title { font-size: .9rem; }
 
   &-prices {
-    @include flex(flex-start)
+    @include flex(flex-start);
 
     height: 80px;
     flex-direction: column;
@@ -53,7 +53,7 @@
   }
 
   &-sizes {
-    @include flex(flex-start)
+    @include flex(flex-start);
 
     a {
       width: 35px;

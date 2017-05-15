@@ -1,26 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { 
+  toggleVisibility,
+  removeProduct,
+  changeQuantity,
+  changeTotal
+} from '../../actions/cartActions'
+
 import Product from './Product'
 
-import { toggleVisibility } from '../../actions/cartActions'
-
-const mapStateToProps = ({cart}) => ({
-  cart
-})
-
-const mapDispatchToProps = (dispatch => ({
-  toggle () {
-    dispatch(toggleVisibility())
-  }
-}))
-
 const Cart = props => {
-  const { products, total } = props.cart
-
-  const changeQuantity = (event) => {
-    window.alert('oi')
-  }
+  const { products, total } = props
 
   return (
     <section className="cart-container">
@@ -31,7 +22,16 @@ const Cart = props => {
         </div>
 
         <div className="cart-products">
-          {products.map(product => <Product key={product.cid} item={product} change={changeQuantity} />)}
+          {
+            products.map(product => (
+              <Product 
+                key={product.cid} 
+                item={product} 
+                remove={props.remove}
+                changeQuantity={props.changeQuantity}
+              />
+            ))
+          }
         </div>
 
         <div className="cart-meta">
@@ -44,5 +44,23 @@ const Cart = props => {
     </section>
   )
 }
+
+const mapStateToProps = ({cart}) => cart
+
+const mapDispatchToProps = (dispatch => ({
+  toggle () {
+    dispatch(toggleVisibility())
+  },
+
+  remove (id) {
+    dispatch(removeProduct(id))
+    dispatch(changeTotal())
+  },
+
+  changeQuantity (id, value) {
+    dispatch(changeQuantity(id, value))
+    dispatch(changeTotal())
+  }
+}))
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

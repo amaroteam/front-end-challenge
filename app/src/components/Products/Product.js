@@ -1,16 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import { addProduct, changeTotal } from '../../actions/cartActions'
-
-const mapDispatchToProps = (dispatch => ({
-  onBuyClick (product) {
-    dispatch(addProduct(product))
-    dispatch(changeTotal())
-  }
-}))
-
-const Product = props => {
+export default props => {
   const { item } = props
 
   return (
@@ -40,11 +30,9 @@ const Product = props => {
           }
         </div>
       </div>
-      <button className="product-buy" onClick={() => props.onBuyClick(item)}>
+      <button className="product-buy" onClick={() => props.buy(item)}>
         <span>Comprar</span>
       </button>
     </section>
   )
 }
-
-export default connect('', mapDispatchToProps)(Product)

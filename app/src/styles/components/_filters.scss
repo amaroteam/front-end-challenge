@@ -1,0 +1,19 @@
+//
+// Filter Button
+// ============================================================================
+.filter-button {
+    @extend .button;
+
+    width: auto;
+    display: table;
+    padding: 0 45px;
+    margin-bottom: 25px;
+
+    color: $color-black;
+    background-color: transparent;
+
+    &:hover {
+        color: $color-white;
+        background-color: $color-black;
+    }
+}

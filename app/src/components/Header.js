@@ -1,15 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { searchProducts } from '../actions/productsActions'
+
 import Logo from './Logo'
-
-import { toggleVisibility } from '../actions/cartActions'
-
-const mapDispatchToProps = (dispatch => ({
-  toggle() {
-    dispatch(toggleVisibility())
-  }
-}))
 
 const Header = props => (
   <header className="header">
@@ -25,5 +19,11 @@ const Header = props => (
     </div>
   </header>
 )
+
+const mapDispatchToProps = (dispatch => ({
+  search (event) {
+    dispatch(searchProducts(event.target.value))
+  }
+}))
 
 export default connect('', mapDispatchToProps)(Header)

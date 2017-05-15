@@ -23,9 +23,6 @@
 - [x] Adicionar e Remover produtos
 - [x] Alterar quantidade
 - [x] Valor total do carrinho
-- [ ] Filtrar Produtos em promoção
+- [x] Filtrar Produtos em promoção
 - [x] Mostrar apenas tamanhos em estoque
-- [ ] Busca de produtos :D
-
-## Up
-- [ ] Teste
+- [x] Busca de produtos :D

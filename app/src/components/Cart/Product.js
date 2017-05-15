@@ -1,25 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-import {
-  removeProduct,
-  changeTotal,
-  changeQuantity
-} from '../../actions/cartActions'
-
-const mapDispatchToProps = (dispatch => ({
-  remove (id) {
-    dispatch(removeProduct(id))
-    dispatch(changeTotal())
-  },
-
-  change (id, value) {
-    dispatch(changeQuantity(id, value))
-    dispatch(changeTotal())
-  }
-}))
-
-const Product = props => {
+export default props => {
   const { item, remove } = props
 
   return (
@@ -40,8 +21,8 @@ const Product = props => {
         <div className="product-prices">
           <div className="product-quantity">
             <input type="text" value={item.quantity} />
-            <button className="product-increase" onClick={() => props.change(item.cid, 1)}>+</button>
-            <button className="product-decrease" onClick={() => props.change(item.cid, -1)}>-</button>
+            <button className="product-increase" onClick={() => props.changeQuantity(item.cid, 1)}>+</button>
+            <button className="product-decrease" onClick={() => props.changeQuantity(item.cid, -1)}>-</button>
           </div>
           <strong>{item.cart_price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</strong>
         </div>
@@ -49,5 +30,3 @@ const Product = props => {
     </section>
   )
 }
-
-export default connect('', mapDispatchToProps)(Product)
