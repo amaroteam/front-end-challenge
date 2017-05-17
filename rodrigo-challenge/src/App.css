@@ -1,0 +1,281 @@
+
+	.TopBar {
+		background: rgb(238,238,238);
+		font-size: 12px;	
+	}
+
+	.TopBar div {
+		display: inline-block;
+		padding: 5px 0;
+		margin: 10px 0 0;
+	}
+	
+	.TopBar p {
+		display: inline-block;
+		padding: 5px 0;
+		margin: 0 5px;
+		cursor: pointer;
+		
+	}
+
+	.TopBar-left {
+		width: 30%;
+		text-align: left;
+	}
+
+	.TopBar-center {
+		width: 40%;
+	}
+	
+	.TopBar-center p {
+		
+	}
+
+	.TopBar-right {
+		width: 30%;
+		text-align: right;
+	}
+
+@media (max-width: 800px) {
+	.TopBar {
+		display: none;
+	}
+}	
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 30px;
+}
+
+.sacola-icone {
+	max-width: 100%;
+	height: auto;
+	cursor: pointer;
+}
+
+.sacola-wrapper {
+	padding: 0 0 5px 25px;
+}
+
+.sacola {
+	display: none;
+	position: absolute;
+	top: 2px;
+	right: 0;
+	width: 40vw;
+	height: auto;
+	z-index: 99;
+	background-color: rgb(238,238,238);
+	padding: 4px;
+	text-align: left;
+}
+
+.sacola-icone-wrapper {
+	position: relative;
+	display: inline-block;
+}
+
+.sacola-numero {
+	display: block;
+	margin: 0;
+	padding: 0;
+	line-height: 0.6em;
+	font-size: 1em;
+	margin-top: -50%;
+}
+
+.sacola-wrapper:hover .sacola {
+	display: block;
+
+}
+
+@media (max-width: 800px) {
+	.sacola {
+		width: 80vw!important;
+	}
+}	
+
+.sacola .row {
+	padding: 2% 5%;
+}
+
+.sacola-vazia {
+	color: #888;
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
+.sacola-item {
+	padding-bottom: 5px;
+	border-bottom: solid 1px white;
+}
+
+.sacola p {
+	font-size: 0.7em;
+	margin: 0;
+}
+
+.price-row {
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.add-quantity, .sub-quantity {
+	font-size: 1.6em;
+	padding: 4px 4px 0;
+	cursor: pointer;
+}
+
+.quantity {
+	font-size: 1em;
+	padding: 2px 4px;
+	margin: 0 2px;
+	background-color: #f9f9f9;
+	border-radius: 2px;
+}
+
+.App-header {
+  background-color: #ffffff;
+  height: 120px;
+  padding: 20px;
+  color: #444;
+  position: relative;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.shopping-bag {
+	cursor: pointer;
+
+}
+
+
+.sale {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 8px;
+	background-color: rgba(171,41,41,0.3);
+	cursor: pointer;
+}
+
+.sale:hover {
+	background-color: rgba(171,41,41,0.5);
+	border: solid 1px rgba(171,41,41,1);
+}
+
+.sale-active {
+	background-color: rgba(171,41,41,1);
+	color: white;
+}
+
+.sale-active span {
+	display: none;
+}
+
+.sale-active:before {
+	content: 'Vendo ';
+}
+
+.mouse-over {
+	position: relative;
+}
+
+.product-cover {
+	display: none;
+	padding: 10% 10%;
+}
+
+.product-cover p {
+	font-size: 1em;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.product-cover-title {
+	cursor: default!important;
+	display: block;
+	margin: 0;
+}
+
+.product-cover-clickable {
+	font-size: 1.1em!important;
+	border-radius: 4px;
+	background-color: rgba(171,41,41,0.3);
+	padding: 3px 8px;
+}
+
+.product-cover-clickable:hover {
+	background-color: rgba(171,41,41,0.8);
+}
+
+.mouse-over:hover .product-cover {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin-top: 25%;
+	height: auto;
+	background-color: rgba(200,200,200,0.8);
+	border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+	.product-cover {
+		padding: 5% 5%;
+	}
+	.product-cover p {
+		font-size: 0.6em;
+		margin-bottom: 4px;
+	}
+	
+	.product-cover-clickable {
+	font-size: 0.9em!important;
+	}
+}	
+
+
+.product {
+	margin-bottom: 30px;
+}
+
+.product img {
+	max-width: 100%;
+	height: auto;
+}
+
+.product p {
+	font-size: 0.7em;
+	display: inline-block;
+	margin: 2px 5px;
+}
+.product-name {
+	font-size: 0.8em;
+}
+
+.product-only-price {
+	font-weight: bold;
+}
+
+.product-discount {
+	color: #ab2929;
+}
+
+.product-actual-price {
+	font-weight: bold;
+}
+
+.product-regular-price {
+	color: #888;
+	text-decoration: line-through;
+}
+
+.product-size-not-available {
+	color: #ccc;
+}
