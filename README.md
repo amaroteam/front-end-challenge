@@ -1,4 +1,4 @@
-# WE'RE HIRING!
+# Rodrigo Pontes's solution for AMARO front-end challenge
 
 ## `AMARO front-end challenge` 
 
