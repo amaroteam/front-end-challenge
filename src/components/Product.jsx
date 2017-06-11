@@ -21,10 +21,13 @@ export default class Product extends Component {
 		return <h2 className="name">{ name }</h2>;
 	}
 
-	renderPrice({actual_price, regular_price, discount_percentage}) {
+	renderPrice({actual_price, regular_price, discount_percentage, installments}) {
 		if(actual_price !== regular_price)
 			return (<span className="price">
-				De <del>{ regular_price }</del> por { actual_price } <em>({ discount_percentage } de desconto)</em>
+				<span>De <del>{ regular_price }</del> </span>
+				<span>por { actual_price } </span>
+				<em>({ discount_percentage } de desconto) </em>
+				<span>{ installments }</span>
 			</span>);
 
 		return <span className="price">{ actual_price || regular_price }</span>;

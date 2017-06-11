@@ -56,19 +56,33 @@ export default class Cart extends Component {
 
 	renderProductsList() {
 		const products = this.props.allProducts;
-		
+
 		if(!products.length || !this.state.products.length)
 			return null;
 
 		return this.state.products.map((id, i) => {
-			return <li key={ i } className="product"><a className="link" href={ `#p${id}` }>{ products[id].name }</a><span className="remove" data-id-position={ i } onClick={ this.remove }>X</span></li>
+			return (<li key={ i } className="product">
+				<a className="link" href={ `#p${id}` }>{ products[id].name }</a> - <span className="remove" data-id-position={ i } onClick={ this.remove }>&times;</span>
+			</li>);
 		})
+	}
+
+	getPrice() {
+		const products = this.props.allProducts;
+		let price = 0;
+
+		if(this.state.products.length && products.length)
+			price = this.state.products
+							.map(id => parseFloat(products[id].actual_price.replace(/R\$\s*/, '').replace(',', '.')))
+							.reduce((total, price) => total += price, 0);
+
+		return price.toFixed(2).replace('.', ',');
 	}
 
 	render() {
 		const styleHeight = this.state.showList ? {height: this.state.products.length * 25} : {};
 		return (<div className="cart-box">
-			<span className="mycart" onClick={ this.toggleList }>Meu carrinho ({ this.state.products.length })</span>
+			<span className="mycart" onClick={ this.toggleList }>Meu carrinho ({ this.state.products.length })(R$ { this.getPrice() })</span>
 			<ul className={ `products ${this.state.showList ? 'open' : ''}` } style={ styleHeight }>{ this.renderProductsList() }</ul>
 		</div>);
 	}
