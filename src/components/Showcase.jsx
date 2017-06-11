@@ -9,21 +9,32 @@ import Product from './Product.jsx';
 
 export default class Showcase extends Component {
 	static propTypes = {
-		list: PropTypes.func
+		allProducts: PropTypes.array,
+		toCart: PropTypes.func
 	}
 
 	static defaultProps = {
-		list: () => {}
+		allProducts: [],
+		toCart: () => {}
 	}
 	constructor(props) {
 		super(props);
-		this.state = {};
+
+		this.state = {
+			products: props.allProducts
+		};
 		this.onChange = this.onChange.bind(this);
+		this.toCart = this.toCart.bind(this);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			products: nextProps.allProducts
+		});
 	}
 
 	componentDidMount() {
 		ShowcaseStore.listen(this.onChange);
-		this.props.list();
 	}
 
 	componentWillUnmount() {
@@ -31,23 +42,27 @@ export default class Showcase extends Component {
 	}
 
 	onChange(store) {
-		if(store.products)
-			this.setState({products: store.products});
-		else if(store.error)
-			this.setState({error: store.error});
+		// if(store.products)
+		// 	this.setState({products: store.products});
+		// else if(store.error)
+		// 	this.setState({error: store.error});
 
-		console.table(store.products);
+		// console.table(store.products);
 	}
 
+	toCart(evt) {
+		this.props.toCart(evt.props.id);
+	}
 
 	renderProducts(products) {
 		if(!products)
 			return null;
 
-		return products.map((product, i) => <Product key={ i } {...product} />);
+		return products.map((product, i) => <Product key={ i } {...product} id={ i } toCart={ this.toCart } />);
 	}
 
 	render() {
+		console.log(this.props);
 		const products = this.renderProducts(this.state.products);
 		const err = (<div>Erro: { this.state.error }</div>);
 
