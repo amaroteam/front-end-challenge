@@ -1,0 +1,55 @@
+body {
+	font-family: Verdana, Arial, sans-serif;
+	color: #333;
+}
+.site-name {
+	margin: 0 0 10px;
+	height: 60px;
+	line-height: 60px;
+}
+.showcase-box {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.product-box {
+	max-width: 320px;
+	text-align: center;
+	padding: 5px;
+	margin: 3px;
+	flex-grow: 1;
+	flex-shrink:1;
+	&:hover {
+		box-shadow: 0 0 4px lightgray;
+	}
+	> .name {
+		margin: 0 0 10px;
+	}
+	> .image {
+		max-width: 100%;
+		display: block;
+		margin: 5px auto;
+	}
+	> .price,
+	> .sizes {
+		display: block;
+	}
+	> .tocart {
+		cursor: pointer;
+		font-size: 15px;
+		padding: 5px;
+		display: block;
+		width: 50%;
+		margin: 5px auto 5px;
+		border-radius: 10px;
+		border: 0;
+		background-color: lightgreen;
+		color: #444;
+	}
+	&.onsale {
+		border-color: gold;
+		> .name::after {
+			content: " (promoção)";
+		}
+	}
+}

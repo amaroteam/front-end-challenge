@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Showcase from './components/Showcase.jsx';
+import Page from './Page.jsx';
 
-ReactDOM.render(<Showcase />, document.getElementById('app')); 
+ReactDOM.render(<Page />, document.getElementById('app')); 
