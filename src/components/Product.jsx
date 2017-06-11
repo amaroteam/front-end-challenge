@@ -44,8 +44,8 @@ export default class Product extends Component {
 	}
 
 	renderImage({image, name}) {
-		if(!image)
-			return null;
+		// if(!image)
+		// 	return null;
 
 		const alt = name ? `Foto de ${name}` : '';
 

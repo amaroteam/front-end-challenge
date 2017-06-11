@@ -47,7 +47,6 @@ export default class Showcase extends Component {
 		// else if(store.error)
 		// 	this.setState({error: store.error});
 
-		// console.table(store.products);
 	}
 
 	toCart(evt) {
@@ -62,7 +61,6 @@ export default class Showcase extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		const products = this.renderProducts(this.state.products);
 		const err = (<div>Erro: { this.state.error }</div>);
 

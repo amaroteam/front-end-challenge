@@ -42,7 +42,6 @@ export default class Cart extends Component {
 		this.setState({
 			products: store.products
 		});
-		console.log(store);
 	}
 
 	toggleList() {
