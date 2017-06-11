@@ -6,7 +6,7 @@
   "main": " ",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
