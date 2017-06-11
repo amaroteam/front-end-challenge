@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product render 1`] = `
+<div
+  className="product-box "
+  id="pundefined"
+>
+  <img
+    alt="Foto de nome"
+    className="image"
+    src="url"
+  />
+  <h2
+    className="name"
+  >
+    nome
+  </h2>
+  <span
+    className="price"
+  >
+    <span>
+      De 
+      <del>
+        R$ 20,00
+      </del>
+       
+    </span>
+    <span>
+      por 
+      R$ 10,00
+       
+    </span>
+    <em>
+      (
+      50%
+       de desconto) 
+    </em>
+    <span>
+      2x R$ 5,00
+    </span>
+  </span>
+  <span
+    className="sizes"
+  >
+    Tamanhos disponíveis: 
+    P,M,G
+  </span>
+  <button
+    className="tocart"
+    onClick={[Function]}
+    type="button"
+  >
+    Adicionar ao carrinho
+  </button>
+</div>
+`;
+
+exports[`Product renderCartButton 1`] = `
+<button
+  className="tocart"
+  onClick={[Function]}
+  type="button"
+>
+  Adicionar ao carrinho
+</button>
+`;
+
+exports[`Product renderImage 1`] = `
+<img
+  alt="Foto de nm"
+  className="image"
+  src="url"
+/>
+`;
+
+exports[`Product renderName 1`] = `
+<h2
+  className="name"
+>
+  teste
+</h2>
+`;
+
+exports[`Product renderSizes 1`] = `
+<span
+  className="sizes"
+>
+  Tamanhos disponíveis: 
+  P,M,G
+</span>
+`;
