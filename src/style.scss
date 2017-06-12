@@ -1,0 +1,160 @@
+html, body {
+	font: 14px Verdana, Arial, sans-serif;
+	color: #333;
+}
+.site-name {
+	margin: 0 0 10px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 2.15rem;
+	float: left;
+	padding-left: 5px;
+}
+.showcase-box {
+	display: flex;
+	flex-flow: row wrap;
+	clear: both;
+	justify-content: center;
+}
+
+.product-box {
+	max-width: 320px;
+	text-align: center;
+	padding: 5px;
+	margin: 3px;
+	flex-grow: 1;
+	flex-shrink:1;
+	transition: box-shadow 0.3s;
+	&:hover {
+		box-shadow: 0 0 4px lightgray;
+	}
+	> .name {
+		margin: 0 0 5px;
+		font-size: 1.1rem;
+		font-family: "Trebuchet MS", Arial, sans-serif;
+	}
+	> .image {
+		max-width: 100%;
+		display: block;
+		margin: 5px auto;
+		min-height: 100px;
+		position: relative;
+		&:before {
+			content: " ";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: calc(100% - 4px);
+			width: calc(100% - 4px);
+			background-color: #FFF;
+			border: 2px dotted #DDD;
+			border-radius: 5px;
+		}
+		&:after {
+			content: "Sem " attr(alt);
+			display: block;
+			font-size: 1rem;
+			color: #444;
+			position: absolute;
+			top: 35%;
+			left: 15%;
+			width: 70%;
+			text-align: center;
+		}
+	}
+	> .sizes {
+		margin: 0 0 15px;
+		display: block;
+	}
+	> .price {
+		font-size: 0.9rem;
+		margin: 0 0 10px;
+		display: block;
+	}
+
+	> .tocart {
+		cursor: pointer;
+		font-size: 1.3rem;
+		padding: 5px;
+		display: block;
+		width: 80%;
+		margin: 5px auto 5px;
+		height: 40px;
+		border-radius: 10px;
+		border: 0;
+		background: linear-gradient(to bottom, #b4e391 0%,#61c419 40%);
+		color: #EEE;
+		transition: box-shadow 0.3s, color 0.3s;
+		&:hover,
+		&:active {
+			color: #FFF;
+			box-shadow: 1px 1px 1px #DDD;
+		}
+		&:active {
+			background: #61c419;
+		}
+	}
+	&.onsale {
+		border-color: gold;
+		> .name::after {
+			content: " (promo)";
+			font-style: italic;
+		}
+		> .tocart {
+			background: linear-gradient(to bottom, #fac695 0%,#ef8d31 40%);
+			&:active {
+				background: #ef8d31;
+			}
+		}
+	}
+}
+
+.cart-box {
+	float: right;
+	height: 60px;
+	line-height: 60px;
+	padding-right: 5px;
+	position: relative;
+	> .mycart {
+		cursor: pointer;
+	}
+	> .products {
+		position: absolute;
+		z-index: 1;
+		background-color: #FFF;
+		box-shadow: -1px 1px 2px rgba(200,200,200,0.5);
+		min-width: 100%;
+		margin: 0;
+		padding: 2px 5px;
+		top: 100%;
+		right: 5px;
+		transition: height 0.2s, box-shadow 0.2s;
+		overflow: hidden;
+		
+		&:not(.open) {
+			height: 0;
+			box-shadow: none;
+		}
+
+		> .product {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			line-height: 25px;
+			white-space: nowrap;
+			height: 25px;
+			> .link {
+				color: #000;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+			> .remove {
+				color: #F00;
+				cursor: pointer;
+			}
+		}
+	}
+}
