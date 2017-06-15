@@ -26,9 +26,19 @@ const HeaderDiv = styled.div`
       background-color: #404040;
   }
 
+  .right {
+    float: right;
+  }
+
   .active {
       background-color: #404040;
   }
+
+  @media screen and (max-width: 600px){
+    ul, li, li.right {
+      float: none;
+    }
+}
 `
 
 const Header = () => {
@@ -36,7 +46,7 @@ const Header = () => {
     <HeaderDiv>
       <ul>
         <li><a className="active">Products</a></li>
-        <li style={{float: 'right'}}><a>Cart</a></li>
+        <li className="right"><a>Cart</a></li>
       </ul>
     </HeaderDiv>
   )
