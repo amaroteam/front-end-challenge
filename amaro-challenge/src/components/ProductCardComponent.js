@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartAction';
 
 const ProductDiv = styled.div `
   float: left;
@@ -20,24 +22,32 @@ const ProductDiv = styled.div `
   }
 `
 
-const ProductCard = ({product}) => {
-  return (
-    <ProductDiv>
-      <div>
-        <img src={product.image} alt={product.name} />
-        <p>{product.name}</p>
-        <p>{product.regular_price}</p>
-        <p>{product.installments}</p>
-        <button>Add to cart</button>
-      </div>
-      <div>
-        <h2>Added to basket</h2>
-      </div>
-    </ProductDiv>
-  )
+class ProductCard extends Component {
+
+  render() {
+    const { product } = this.props;
+    return (
+      <ProductDiv>
+        <div>
+          <img src={product.image} alt={product.name} />
+          <p>{product.name}</p>
+          <p>{product.regular_price}</p>
+          <p>{product.installments}</p>
+          <button onClick={() => this.props.addProductToCart(product)}>Add to cart</button>
+        </div>
+        <div>
+          <h2>Added to basket</h2>
+        </div>
+      </ProductDiv>
+    )
+  }
 }
 
 ProductCard.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
 }
-export default ProductCard
+
+export default connect(null, {
+  addProductToCart,
+  removeProductFromCart
+})(ProductCard);
