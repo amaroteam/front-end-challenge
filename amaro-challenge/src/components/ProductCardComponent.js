@@ -23,9 +23,9 @@ const ProductDiv = styled.div `
 `
 
 class ProductCard extends Component {
-
   render() {
-    const { product } = this.props;
+    const { product, isOnShoppingCart } = this.props;
+
     return (
       <ProductDiv>
         <div>
@@ -35,9 +35,12 @@ class ProductCard extends Component {
           <p>{product.installments}</p>
           <button onClick={() => this.props.addProductToCart(product)}>Add to cart</button>
         </div>
-        <div>
-          <h2>Added to basket</h2>
-        </div>
+        {isOnShoppingCart ?
+          <div>
+            <h2>Added to cart</h2>
+          </div> : null
+        }
+
       </ProductDiv>
     )
   }

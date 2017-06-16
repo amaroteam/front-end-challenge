@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { products } from '../data/products.json';
 import ProductCard from './ProductCardComponent'
 
-const Catalog = () => {
-  return (
-    <div>
-      {products.map((product, id) => {
-        return (
-          <ProductCard key={id} product={product} />
-        )
-      })}
-    </div>
-  )
+class Catalog extends Component {
+  render() {
+
+    const { shoppingCartProducts } = this.props;
+    return (
+      <div>
+        {products.map((product, id) => {
+          console.log('found', shoppingCartProducts.find(shoppintCartProduct => shoppintCartProduct.name === product.name ))
+          return (
+            <ProductCard key={id} product={product} isOnShoppingCart={shoppingCartProducts.find(shoppintCartProduct => shoppintCartProduct.name === product.name) !== undefined}/> // como o json de produtos não tem id para ser identificado, estou usando o nome
+          )
+        })}
+      </div>
+    )
+  }
 }
 
-export default Catalog
+const mapStateToProps = state => ({
+  shoppingCartProducts: state.shoppingCart.products
+})
+
+export default connect(mapStateToProps)(Catalog)
