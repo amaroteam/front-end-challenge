@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from './HeaderComponent';
-import App from './CatalogComponent';
 
 class Base extends Component {
 
   render() {
     return (
       <div>
-        <Header />
+        <Header cartProductsQuantity={this.props.cartProductsQuantity}/>
         {this.props.children}
-
+        {/* TODO: footer */}
       </div>
     )
   }
 }
 
-export default Base;
+const mapStateToProps = state => ({
+  cartProductsQuantity: state.shoppingCart.products.length
+})
+
+export default connect(mapStateToProps)(Base);

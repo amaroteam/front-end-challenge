@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const HeaderDiv = styled.div`
   ul {
@@ -41,15 +42,18 @@ const HeaderDiv = styled.div`
 }
 `
 
-const Header = () => {
+const Header = ({cartProductsQuantity}) => {
   return (
     <HeaderDiv>
       <ul>
         <li><a className="active">Products</a></li>
-        <li className="right"><a>Cart</a></li>
+        <li className="right"><a>Cart {cartProductsQuantity}</a></li>
       </ul>
     </HeaderDiv>
   )
 }
 
+Header.propTypes = {
+  cartProductsQuantity: PropTypes.number.isRequired
+}
 export default Header;
