@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
@@ -46,8 +47,12 @@ const Header = ({cartProductsQuantity}) => {
   return (
     <HeaderDiv>
       <ul>
-        <li><a className="active">Products</a></li>
-        <li className="right"><a>Cart {cartProductsQuantity}</a></li>
+        <Link to ="/catalog">
+          <li><a className="active">Products</a></li>
+        </Link>
+        <Link to ="/shoppingCart">
+          <li className="right"><a>Cart {cartProductsQuantity}</a></li>
+        </Link>
       </ul>
     </HeaderDiv>
   )
