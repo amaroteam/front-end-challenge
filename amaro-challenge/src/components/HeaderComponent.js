@@ -51,7 +51,9 @@ const Header = ({cartProductsQuantity}) => {
           <li><a className="active">Products</a></li>
         </Link>
         <Link to ="/shoppingCart">
-          <li className="right"><a>Cart {cartProductsQuantity}</a></li>
+          <li className="right">
+            <a><i className="fa fa-shopping-cart" aria-hidden="true" style={{color: "#FFFFFF", marginRight: 15}}></i>{cartProductsQuantity}</a>
+          </li>
         </Link>
       </ul>
     </HeaderDiv>
