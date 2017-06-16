@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
@@ -23,7 +24,7 @@ const ProductCard = ({product}) => {
   return (
     <ProductDiv>
       <div>
-        <img src={product.image} alt={product.name} width={300} />
+        <img src={product.image} alt={product.name} />
         <p>{product.name}</p>
         <p>{product.regular_price}</p>
         <p>{product.installments}</p>
@@ -36,4 +37,7 @@ const ProductCard = ({product}) => {
   )
 }
 
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired
+}
 export default ProductCard

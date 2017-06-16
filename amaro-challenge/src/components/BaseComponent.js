@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './HeaderComponent';
-import Catalog from './CatalogComponent';
+import App from './CatalogComponent';
 
 class Base extends Component {
 
@@ -8,7 +8,6 @@ class Base extends Component {
     return (
       <div>
         <Header />
-        <Catalog />
         {this.props.children}
 
       </div>
