@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-router';
-import styled from 'styled-components';
-import Header from './HeaderComponent'
+import Header from './HeaderComponent';
+import Catalog from './CatalogComponent';
 
 class Base extends Component {
 
@@ -9,6 +8,7 @@ class Base extends Component {
     return (
       <div>
         <Header />
+        <Catalog />
         {this.props.children}
 
       </div>

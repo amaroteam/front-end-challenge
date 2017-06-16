@@ -5,7 +5,7 @@ import Base from './components/BaseComponent'
 import Catalog from './components/CatalogComponent'
 
 
-export const getRoutes = store => {
+export const getRoutes = () => {
 
   return (
     <Route path="/" component={Base}>
