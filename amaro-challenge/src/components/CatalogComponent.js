@@ -9,7 +9,7 @@ class Catalog extends Component {
     const { shoppingCartProducts } = this.props;
     return (
       <div>
-        {products.map((product, id) => {
+        {products.filter(product => product.image).map((product, id) => {
           return (
             <ProductCard key={id} product={product} isOnShoppingCart={shoppingCartProducts.find(currProduct => currProduct.product.name === product.name) !== undefined}/> // como o json de produtos não tem id para ser identificado, estou usando o nome
           )
