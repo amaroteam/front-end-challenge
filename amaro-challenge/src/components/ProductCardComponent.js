@@ -102,8 +102,14 @@ class ProductCard extends Component {
   }
 
   handleSizeChosen = (sizeChosen) => {
-    console.log('sizeChosen', sizeChosen);
     this.setState({ sizeChosen })
+  }
+
+  hendleAddToCart = (product, quantity, size) => {
+    if (!product || !quantity || !size) {
+      return;
+    }
+    this.props.addProductToCart(product, quantity, size)
   }
 
   render() {
@@ -128,7 +134,7 @@ class ProductCard extends Component {
               {product.sizes.filter(size => size.available).map(size => {
                 return (
                   <div key={size.size} className="sizeCircle"
-                       style={this.state.sizeChosen === size.size ? { backgroundColor: " #000"} : null}>
+                       style={this.state.sizeChosen === size.size ? { backgroundColor: "#000"} : null}>
                     <span style={this.state.sizeChosen === size.size ? {color: "#ccc"} : null}
                           onClick={() => this.handleSizeChosen(size.size)}>{size.size}
                     </span>
@@ -138,7 +144,7 @@ class ProductCard extends Component {
             </div>
           </div>
           <div className="addToCard">
-            <span onClick={() => this.props.addProductToCart(product, 1, this.state.sizeChosen)}>Add to cart</span>
+            <span onClick={() => this.hendleAddToCart(product, 1, this.state.sizeChosen)}>Add to cart</span>
           </div>
         </div>
       </ProductDiv>
