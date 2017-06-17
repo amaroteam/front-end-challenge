@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 const ShoppingCartDiv = styled.div `
-  body, html {
-    display: flex;
-    width: 750px;
-    height: 430px;
-    margin: 80px auto;
-    background: #FFFFFF;
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0, 0.10);
-    flex-direction: colunm;
-  }
   .title {
     height: 60px;
     border-bottom: 1px solid #E1E8EE;
@@ -33,15 +25,6 @@ const ShoppingCartDiv = styled.div `
     padding-top: 30px;
     margin-right: 60px;
   }
-  .delete-btn,
-  .like-btn {
-    display: inline-block;;
-    Cursor: pointer;
-  }
-  .delete-btn {
-    width: 18px;
-    height: 17px;
-  }
   .is-active {
     animation-name: animate;
     animation-duration: .8s;
@@ -51,7 +34,8 @@ const ShoppingCartDiv = styled.div `
     background-position: left;
   }
   .image {
-    margin-right: 50px;
+    margin-right: 100px;
+    margin-left: 150px;
   }
  .description {
   padding-top: 10px;
@@ -145,33 +129,43 @@ const ShoppingCartDiv = styled.div `
 
 class ShoppingCart extends Component {
   render() {
+    const { cartProducts } = this.props;
+    console.log('products: ', cartProducts)
     return (
       <ShoppingCartDiv>
         <div className="title">
           Shopping Cart
         </div>
-        <div className="item">
-          <div className="image">
-            <img src="item-1.png" alt />
-          </div>
-          <div className="description">
-            <span>Common Projects</span>
-            <span>Bball High</span>
-            <span>White</span>
-          </div>
-          <div className="quantity">
-            <i className="fa fa-minus" aria-hidden="true"></i>
-            <input type="text" name="name" defaultValue={1} />
-            <i className="fa fa-plus" aria-hidden="true"></i>
-          </div>
-          <div className="total-price">$549</div>
-          <div className="buttons">
-            <i className="fa fa-trash-o" aria-hidden="true"></i>
-          </div>
-        </div>
+        {cartProducts.map(product => {
+          return (
+            <div className="item">
+              <div className="image">
+                <img src={product.image} alt={product.name} height="100" />
+              </div>
+              <div className="description">
+                <span>{product.name}</span>
+                <span>{product.color}</span>
+              </div>
+              <div className="quantity">
+                <i className="fa fa-minus" aria-hidden="true"></i>
+                <input type="text" name="name" defaultValue={1} />
+                <i className="fa fa-plus" aria-hidden="true"></i>
+              </div>
+              <div className="total-price">{product.regular_price}</div>
+              <div className="buttons">
+                <i className="fa fa-trash-o" aria-hidden="true"></i>
+              </div>
+            </div>
+          )
+        })}
+
       </ShoppingCartDiv>
     );
   }
 }
 
-export default ShoppingCart;
+const mapStateToProps = state => ({
+  cartProducts: state.shoppingCart.products
+})
+
+export default connect(mapStateToProps)(ShoppingCart);
