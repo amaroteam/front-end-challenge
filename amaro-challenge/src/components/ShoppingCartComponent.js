@@ -7,11 +7,12 @@ import { addProductToCart, removeProductFromCart } from '../actions/shoppingCart
 const ShoppingCartDiv = styled.div `
   .title {
     height: 60px;
+    text-align: center;
     border-bottom: 1px solid #E1E8EE;
     padding: 20px 30px;
-    color: #5E6977;
-    font-size: 18px;
-    font-weight: 400;
+    color: #292b2c;
+    font-size: 24px;
+    font-weight: 700;
   }
   .item {
     display: flex;
@@ -24,8 +25,8 @@ const ShoppingCartDiv = styled.div `
   }
   .buttons {
     position: relative;
-    padding-top: 30px;
-    margin-right: 60px;
+    padding-top: 27px;
+    margin-left: 60px;
   }
   .is-active {
     animation-name: animate;
@@ -102,7 +103,11 @@ const ShoppingCartDiv = styled.div `
     font-weight: 300;
   }
 
-  @media (max-width: 800px) {
+  img {
+    height: 100px;
+  }
+
+  @media (max-width: 768px) {
     .shopping-cart {
       width: 100%;
       height: auto;
@@ -115,6 +120,7 @@ const ShoppingCartDiv = styled.div `
     }
     .image img {
       width: 50%;
+      height: auto;
     }
     .image,
     .quantity,
@@ -124,7 +130,7 @@ const ShoppingCartDiv = styled.div `
       margin: 6px 0;
     }
     .buttons {
-      margin-right: 20px;
+      padding-bottom: 40px;
     }
   }
 `
@@ -141,8 +147,11 @@ class ShoppingCart extends Component {
         {cartProducts.map((currProduct, id) => {
           return (
             <div key={id} className="item">
+              <div className="buttons">
+                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => this.props.removeProductFromCart(currProduct.product.name)}></i>
+              </div>
               <div className="image">
-                <img src={currProduct.product.image} alt={currProduct.product.name} height="100" />
+                <img src={currProduct.product.image} alt={currProduct.product.name} />
               </div>
               <div className="description">
                 <span>{currProduct.product.name}</span>
@@ -150,13 +159,10 @@ class ShoppingCart extends Component {
               </div>
               <div className="quantity">
                 <i style={{cursor: "pointer"}} className="fa fa-minus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, -1)}></i>
-                <input type="text" name="name" value={currProduct.quantity} />
+                <input type="text" name="name" value={currProduct.quantity} readOnly/>
                 <i style={{cursor: "pointer"}} className="fa fa-plus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, 1)}></i>
               </div>
               <div className="total-price">{currProduct.product.regular_price}</div>
-              <div className="buttons">
-                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => this.props.removeProductFromCart(currProduct.product.name)}></i>
-              </div>
             </div>
           )
         })}
