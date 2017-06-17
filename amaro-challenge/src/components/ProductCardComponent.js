@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import percentageImg from '../images/percentage.svg';
 
 import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartActions';
 
@@ -83,6 +84,23 @@ const ProductDiv = styled.div `
     margin: 10px;
     padding: 5px;
   }
+  .discount-percentage {
+    position: absolute;
+    margin: 10px;
+    padding-left: 240px;
+    font-weight: 100;
+    font-size: 18px;
+    text-align: right;
+    float: right;
+  }
+  .discount-percentage span {
+    font-family: Gotham-Book;
+    font-size: 20px;
+  }
+
+  .discount-percentage img {
+    padding-top: 5px;
+  }
 `
 
 class ProductCard extends Component {
@@ -118,11 +136,15 @@ class ProductCard extends Component {
     return (
       <ProductDiv>
         <div>
+          { product.discount_percentage ?
+            <div className="discount-percentage">
+              <span>{`-${product.discount_percentage.slice(0, -1)}`} </span>
+              <img src={percentageImg} alt={product.name} height="14" />
+            </div> : null }
           {product.image ?
             <img src={product.image} alt={product.name} /> :
             <div style={{margin: 60, marginTop: 135, marginBottom: 200, fontSize: 18}}>Image not available :(</div>
           }
-
           <h4>{product.name}</h4>
           <div className="price">
             {product.regular_price !== product.actual_price ?
