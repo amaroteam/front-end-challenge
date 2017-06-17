@@ -27,6 +27,7 @@ const ShoppingCartDiv = styled.div `
     position: relative;
     padding-top: 27px;
     margin-left: 60px;
+    cursor: pointer;
   }
   .is-active {
     animation-name: animate;
