@@ -5,9 +5,17 @@ import { Provider } from 'react-redux';
 import { getRoutes } from './routes';
 import configureStore from './store/configureStore';
 import registerServiceWorker from './registerServiceWorker';
+import { loadState, saveState } from './actions/localStorage';
+import throttle from 'lodash/throttle';
 import './index.css';
 
-const store = configureStore();
+const store = configureStore(loadState());
+
+store.subscribe(throttle(() => {
+  saveState({
+    shoppingCart: store.getState().shoppingCart
+  })
+}, 1000));
 
 ReactDOM.render(
   <Provider store={store}>

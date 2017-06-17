@@ -136,9 +136,9 @@ class ShoppingCart extends Component {
         <div className="title">
           Shopping Cart
         </div>
-        {cartProducts.map(product => {
+        {cartProducts.map((product, id) => {
           return (
-            <div className="item">
+            <div key={id} className="item">
               <div className="image">
                 <img src={product.image} alt={product.name} height="100" />
               </div>
