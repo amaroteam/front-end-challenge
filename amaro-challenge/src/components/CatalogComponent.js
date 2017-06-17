@@ -7,6 +7,7 @@ class Catalog extends Component {
   render() {
 
     const { shoppingCartProducts } = this.props;
+    console.log('products: ', products);
     return (
       <div>
         {products.map((product, id) => {

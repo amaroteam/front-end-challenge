@@ -97,11 +97,12 @@ class ProductCard extends Component {
 
   componentDidMount() {
     if (this.props.product.sizes.length === 1) {
-      this.setState({ sizeChosen: this.props.product.sizes[0] })
+      this.setState({ sizeChosen: this.props.product.sizes[0].size })
     }
   }
 
   handleSizeChosen = (sizeChosen) => {
+    console.log('sizeChosen', sizeChosen);
     this.setState({ sizeChosen })
   }
 
@@ -124,12 +125,12 @@ class ProductCard extends Component {
             <span className="regular-price">{product.actual_price}</span>
             <span className="installments">{product.installments}</span>
             <div className="sizes">
-              {product.sizes.map(size => {
+              {product.sizes.filter(size => size.available).map(size => {
                 return (
                   <div key={size.size} className="sizeCircle"
-                       style={this.state.sizeChosen === size ? { backgroundColor: " #000"} : null}>
-                    <span style={this.state.sizeChosen === size ? {color: "#ccc"} : null}
-                          onClick={() => this.handleSizeChosen(size)}>{size.size}
+                       style={this.state.sizeChosen === size.size ? { backgroundColor: " #000"} : null}>
+                    <span style={this.state.sizeChosen === size.size ? {color: "#ccc"} : null}
+                          onClick={() => this.handleSizeChosen(size.size)}>{size.size}
                     </span>
                   </div>
                 )
@@ -137,7 +138,7 @@ class ProductCard extends Component {
             </div>
           </div>
           <div className="addToCard">
-            <span onClick={() => this.props.addProductToCart(product, 1)}>Add to cart</span>
+            <span onClick={() => this.props.addProductToCart(product, 1, this.state.sizeChosen)}>Add to cart</span>
           </div>
         </div>
       </ProductDiv>
