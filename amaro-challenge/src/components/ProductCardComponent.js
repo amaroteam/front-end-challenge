@@ -17,8 +17,8 @@ const ProductDiv = styled.div `
   position: relative;
   flex: auto;
   img {
-    max-width: 100%;
-    height: auto
+    width: auto;
+    max-height: 330px
   }
   h4 {
     font-weight:100;
@@ -28,9 +28,11 @@ const ProductDiv = styled.div `
   .price {
     text-align: center;
     font-size: 12px;
+    height: 100px;
   }
   .regular-price {
     font-weight: bold;
+    margin-top: 50px;
     margin: 10px;
   }
   .installments {
@@ -67,6 +69,20 @@ const ProductDiv = styled.div `
     text-align: center;
     line-height: 30px;
   }
+
+  .addToCard {
+    cursor: pointer;
+  }
+  .addToCard span {
+    display: flow;
+    background-color: #000;
+    text-transform: uppercase;
+    color: #ccc;
+    border: .1px solid #000;
+    justify-content: center;
+    margin: 10px;
+    padding: 5px;
+  }
 `
 
 class ProductCard extends Component {
@@ -86,16 +102,20 @@ class ProductCard extends Component {
   }
 
   handleSizeChosen = (sizeChosen) => {
-    console.log('handle size change')
     this.setState({ sizeChosen })
   }
+
   render() {
     const { product } = this.props;
 
     return (
       <ProductDiv>
         <div>
-          <img src={product.image} alt={`Acessar o produto ${product.name}`} />
+          {product.image ?
+            <img src={product.image} alt={product.name} /> :
+            <div style={{margin: 60, marginTop: 135, marginBottom: 200, fontSize: 18}}>Image not available :(</div>
+          }
+
           <h4>{product.name}</h4>
           <div className="price">
             {product.regular_price !== product.actual_price ?
@@ -106,15 +126,20 @@ class ProductCard extends Component {
             <div className="sizes">
               {product.sizes.map(size => {
                 return (
-                  <div key={size.size} className="sizeCircle" style={this.state.sizeChosen === size ? { backgroundColor: " #000"} : null}>
-                    <span style={this.state.sizeChosen === size ? {color: "#ccc"} : null} onClick={() => this.handleSizeChosen(size)}>{size.size}</span>
+                  <div key={size.size} className="sizeCircle"
+                       style={this.state.sizeChosen === size ? { backgroundColor: " #000"} : null}>
+                    <span style={this.state.sizeChosen === size ? {color: "#ccc"} : null}
+                          onClick={() => this.handleSizeChosen(size)}>{size.size}
+                    </span>
                   </div>
                 )
               })}
             </div>
           </div>
+          <div className="addToCard">
+            <span onClick={() => this.props.addProductToCart(product, 1)}>Add to cart</span>
+          </div>
         </div>
-
       </ProductDiv>
     )
   }
