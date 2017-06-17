@@ -33,7 +33,7 @@ class ProductCard extends Component {
           <p>{product.name}</p>
           <p>{product.regular_price}</p>
           <p>{product.installments}</p>
-          <button disabled={isOnShoppingCart} onClick={() => this.props.addProductToCart(product)}>Add to cart</button>
+          <button onClick={() => this.props.addProductToCart(product)}>Add to cart</button>
         </div>
         {isOnShoppingCart ?
           <div>

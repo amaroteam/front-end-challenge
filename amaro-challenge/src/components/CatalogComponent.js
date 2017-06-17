@@ -11,7 +11,7 @@ class Catalog extends Component {
       <div>
         {products.map((product, id) => {
           return (
-            <ProductCard key={id} product={product} isOnShoppingCart={shoppingCartProducts.find(shoppintCartProduct => shoppintCartProduct.name === product.name) !== undefined}/> // como o json de produtos não tem id para ser identificado, estou usando o nome
+            <ProductCard key={id} product={product} isOnShoppingCart={shoppingCartProducts.find(currProduct => currProduct.product.name === product.name) !== undefined}/> // como o json de produtos não tem id para ser identificado, estou usando o nome
           )
         })}
       </div>
