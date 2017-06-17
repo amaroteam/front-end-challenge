@@ -20,6 +20,23 @@ const ProductDiv = styled.div `
     max-width: 100%;
     height: auto
   }
+  h4 {
+    font-weight:100;
+    color: #292b2c;
+    text-align: center;
+  }
+  .price {
+    text-align: center;
+    font-size: 12px;
+  }
+  .regular-price {
+    font-weight: bold;
+    margin: 10px;
+  }
+  .installments {
+    font-weight:100;
+    color: #999;
+  }
 `
 
 class ProductCard extends Component {
@@ -29,17 +46,13 @@ class ProductCard extends Component {
     return (
       <ProductDiv>
         <div>
-          <img src={product.image} alt={product.name} />
-          <p>{product.name}</p>
-          <p>{product.regular_price}</p>
-          <p>{product.installments}</p>
-          <button onClick={() => this.props.addProductToCart(product)}>Add to cart</button>
+          <img src={product.image} alt={`Acessar o produto ${product.name}`} />
+          <h4>{product.name}</h4>
+          <div className="price">
+            <span className="regular-price">{product.regular_price}</span>
+            <span className="installments">{product.installments}</span>
+          </div>
         </div>
-        {isOnShoppingCart ?
-          <div>
-            <h2>Added to cart</h2>
-          </div> : null
-        }
 
       </ProductDiv>
     )

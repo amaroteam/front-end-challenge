@@ -41,9 +41,9 @@ const ShoppingCartDiv = styled.div `
     margin-left: 150px;
   }
  .description {
-  padding-top: 10px;
-  margin-right: 60px;
-  width: 115px;
+    padding-top: 10px;
+    margin-right: 60px;
+    width: 115px;
   }
 
   .description span {
