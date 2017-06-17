@@ -56,7 +56,7 @@ const ShoppingCartDiv = styled.div `
   .description span:first-child {
     margin-bottom: 5px;
   }
-  .description span:last-child {
+  .description span:last-child, .description span:nth-child(2) {
     font-weight: 300;
     margin-top: 8px;
     color: #86939E;
@@ -155,7 +155,8 @@ class ShoppingCart extends Component {
               </div>
               <div className="description">
                 <span>{currProduct.product.name}</span>
-                <span>{currProduct.product.color}</span>
+                <span>{`cor: ${currProduct.product.color}`}</span>
+                <span>{`tam: ${currProduct.size}`}</span>
               </div>
               <div className="quantity">
                 <i style={{cursor: "pointer"}} className="fa fa-minus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, -1)}></i>
