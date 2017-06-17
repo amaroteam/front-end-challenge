@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartAction';
+import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartActions';
 
 const ProductDiv = styled.div `
   float: left;

@@ -1,7 +1,7 @@
 import {
   ADD_PRODUCT_TO_CART,
   REMOVE_PRODUCT_FROM_CART
-} from '../actions/shoppingCartAction'
+} from '../actions/shoppingCartActions'
 
 const SHOPPING_CART_STATE = {
   products: []
@@ -19,9 +19,9 @@ export const shoppingCart = (state = SHOPPING_CART_STATE, action) => {
             ...state.products.slice(0, indexOfDuplicatedProduct),
               {
                 ...state.products[indexOfDuplicatedProduct],
-                quantity: state.products[indexOfDuplicatedProduct].quantity + 1
+                quantity: (state.products[indexOfDuplicatedProduct].quantity + action.quantity) > 0 ? (state.products[indexOfDuplicatedProduct].quantity + action.quantity) : 1
               },
-            ...state.products.slice(indexOfDuplicatedProduct+1)
+            ...state.products.slice(indexOfDuplicatedProduct + 1)
           ]
         }
       }
@@ -37,9 +37,13 @@ export const shoppingCart = (state = SHOPPING_CART_STATE, action) => {
       }
 
     case REMOVE_PRODUCT_FROM_CART:
+      const indexOfProduct = state.products.indexOf(state.products.find(currProduct => currProduct.product.name === action.productName));
       return {
         ...state,
-        // TODO
+        products: [
+          ...state.products.slice(0, indexOfProduct),
+          ...state.products.slice(indexOfProduct + 1)
+        ]
       }
     default:
       return {

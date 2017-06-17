@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartActions';
+
 
 const ShoppingCartDiv = styled.div `
   .title {
@@ -136,24 +138,24 @@ class ShoppingCart extends Component {
         <div className="title">
           Shopping Cart
         </div>
-        {cartProducts.map((product, id) => {
+        {cartProducts.map((currProduct, id) => {
           return (
             <div key={id} className="item">
               <div className="image">
-                <img src={product.image} alt={product.name} height="100" />
+                <img src={currProduct.product.image} alt={currProduct.product.name} height="100" />
               </div>
               <div className="description">
-                <span>{product.name}</span>
-                <span>{product.color}</span>
+                <span>{currProduct.product.name}</span>
+                <span>{currProduct.product.color}</span>
               </div>
               <div className="quantity">
-                <i className="fa fa-minus" aria-hidden="true"></i>
-                <input type="text" name="name" defaultValue={1} />
-                <i className="fa fa-plus" aria-hidden="true"></i>
+                <i style={{cursor: "pointer"}} className="fa fa-minus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, -1)}></i>
+                <input type="text" name="name" value={currProduct.quantity} />
+                <i style={{cursor: "pointer"}} className="fa fa-plus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, 1)}></i>
               </div>
-              <div className="total-price">{product.regular_price}</div>
+              <div className="total-price">{currProduct.product.regular_price}</div>
               <div className="buttons">
-                <i className="fa fa-trash-o" aria-hidden="true"></i>
+                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => this.props.removeProductFromCart(currProduct.product.name)}></i>
               </div>
             </div>
           )
@@ -168,4 +170,7 @@ const mapStateToProps = state => ({
   cartProducts: state.shoppingCart.products
 })
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default connect(mapStateToProps, {
+  addProductToCart,
+  removeProductFromCart
+})(ShoppingCart);
