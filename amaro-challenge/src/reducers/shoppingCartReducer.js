@@ -10,10 +10,11 @@ const SHOPPING_CART_STATE = {
 export const shoppingCart = (state = SHOPPING_CART_STATE, action) => {
   switch(action.type) {
     case ADD_PRODUCT_TO_CART:
-      const isDuplicated = state.products.find(currProduct => currProduct.product.name === action.product.name);
+      const isDuplicated = state.products.find(currProduct => currProduct.product.name === action.product.name && currProduct.size === action.size);
       const indexOfDuplicatedProduct = state.products.indexOf(isDuplicated)
       console.log('duplicated: ', isDuplicated);
-      if (isDuplicated && isDuplicated.size === action.size) {
+      console.log('size: ',  action.size)
+      if (isDuplicated) {
         return {
           ...state,
           products: [
