@@ -7,12 +7,13 @@ import { addProductToCart, removeProductFromCart } from '../actions/shoppingCart
 const ShoppingCartDiv = styled.div `
   .title {
     height: 60px;
+    margin-top: 40px;
     text-align: center;
     border-bottom: 1px solid #E1E8EE;
-    padding: 20px 30px;
     color: #292b2c;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 300;
+    text-transform: uppercase;
   }
   .item {
     display: flex;
@@ -132,6 +133,9 @@ const ShoppingCartDiv = styled.div `
     }
     .buttons {
       padding-bottom: 40px;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 20px;
     }
   }
 `
