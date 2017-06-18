@@ -161,6 +161,14 @@ const ShoppingCartDiv = styled.div `
       margin: 0;
       margin-bottom: 20px;
     }
+    .total-price {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      margin-bottom: 50px;
+      margin-top: 40px;
+      padding: 0;
+    }
   }
 `
 
@@ -197,10 +205,10 @@ class ShoppingCart extends Component {
           )
         })}
         <div className="total-price">
-          Total price: {(cartProducts.reduce((total, currProduct) => {
+          Total price: R$ {(cartProducts.reduce((total, currProduct) => {
             const numericalPrice = (Number(currProduct.product.actual_price.replace(/\D/g,'')) / 100).toFixed(2) // converting string to number value
             return total + (currProduct.quantity * numericalPrice)
-          }, 0)).toFixed(2)}
+          }, 0)).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
         </div>
 
       </ShoppingCartDiv>
