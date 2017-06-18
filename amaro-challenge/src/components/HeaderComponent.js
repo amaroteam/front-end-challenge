@@ -112,6 +112,5 @@ Header.contextTypes = {
 Header.propTypes = {
   cartProductsQuantity: PropTypes.number.isRequired,
   isTopBarFixed: PropTypes.bool,
-  router: PropTypes.func.isRequired
 }
 export default Header;
