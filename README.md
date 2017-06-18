@@ -1,4 +1,4 @@
-#INSTRUCTIONS GUIDE
+# INSTRUCTIONS GUIDE
 
 On the project directory
 1. cd amaro-challenge
@@ -9,4 +9,3 @@ On the project directory
 1. cd amaro-challenge
 2. sudo npm install
 3. npm start
-# WE'RE HIRING!
