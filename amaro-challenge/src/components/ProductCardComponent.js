@@ -152,7 +152,7 @@ class ProductCard extends Component {
             </div> : null }
           {product.image ?
             <img src={product.image} alt={product.name} /> :
-            <div style={{margin: 60, marginTop: 135, marginBottom: 200, fontSize: 18}}>Image not available :(</div>
+            <div style={{margin: 50, marginTop: 135, marginBottom: 200, fontSize: 18}}>Image not available :(</div>
           }
           <h4>{product.name}</h4>
           <div className="price">
