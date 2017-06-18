@@ -6,30 +6,30 @@ The objective of this challenge is to build a catalog page for some _best-seller
 
 ## Rules
 
-- The page can't be static. It needs some logic to show all products dinamically.
-- All products from `products.json` must be shown.
-- In case you choose to use some _build_ tool (Grunt, Gulp, npm, Webpack, etc), don't forget to create an instructions guide to allow us to run the project.
-- If you got some questions, Google them or ask your friends. But do not ask them to solve the challenge for you.
+[x] - The page can't be static. It needs some logic to show all products dinamically.
+[x] - All products from `products.json` must be shown.
+[x] - In case you choose to use some _build_ tool (Grunt, Gulp, npm, Webpack, etc), don't forget to create an instructions guide to allow us to run the project.
+[x] - If you got some questions, Google them or ask your friends. But do not ask them to solve the challenge for you.
 
 ## Requirements
 
-- The page must be responsive. If possible, use a _mobile-first_ approach.
-- For each item on the catalog, the following information must be present on the page:
-    - Image
-    - Name
-    - Price
-    - Promo Status
-    - Promo price (if there's one)
-    - Available Sizes
-- It must be possible to add products to the cart.
-- It must be possible to verify how much and what items are on the cart.
+[x] - The page must be responsive. If possible, use a _mobile-first_ approach.
+[x] - For each item on the catalog, the following information must be present on the page:
+    [x] - Image
+    [x] - Name
+    [x] - Price
+    [x] - Promo Status
+    [x] - Promo price (if there's one)
+    [x] - Available Sizes
+[x] - It must be possible to add products to the cart.
+[x] - It must be possible to verify how much and what items are on the cart.
 
 ## Bonus points
 
-- Easy as pie? So add more functionality to cart allowing users to add, remove and change quantity of cart items.
-- Oh! Don't forget to show total value of cart.
+[x] - Easy as pie? So add more functionality to cart allowing users to add, remove and change quantity of cart items.
+[x] - Oh! Don't forget to show total value of cart.
 - Want more challenges? Add a filter to show only products `on_sale`.
-- Some products don't have all sizes available. Show only the ones on stock.
+[x] - Some products don't have all sizes available. Show only the ones on stock.
 - We like clean and testable code, right? Test your application and components, it will be a big bonus point.
 
 ## How we'll evaluate
