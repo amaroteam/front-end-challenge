@@ -7,7 +7,7 @@ class Base extends Component {
   render() {
     return (
       <div>
-        <Header cartProductsQuantity={this.props.cartProductsQuantity}/>
+        <Header cartProductsQuantity={this.props.cartProductsQuantity} />
         {this.props.children}
         {/* TODO: footer */}
       </div>

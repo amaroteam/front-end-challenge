@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 import registerServiceWorker from './registerServiceWorker';
 import { loadState, saveState } from './actions/localStorage';
 import throttle from 'lodash/throttle';
-import './index.css';
+import './css/index.css';
 
 const store = configureStore(loadState());
 

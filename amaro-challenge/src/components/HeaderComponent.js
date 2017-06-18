@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
 
-const HeaderDiv = styled.div`
+const HeaderDiv = styled.div `
   ul {
       list-style-type: none;
       margin: 0;
@@ -43,20 +43,34 @@ const HeaderDiv = styled.div`
 }
 `
 
+const HeaderTitle = styled.div `
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    font-family: Gotham-Book,Helvetica Neue,Helvetica,Arial,sans-serif;
+  }
+`
+
 const Header = ({cartProductsQuantity}) => {
   return (
-    <HeaderDiv>
-      <ul>
-        <Link to ="/catalog">
-          <li><a className="active">Products</a></li>
-        </Link>
-        <Link to ="/shoppingCart">
-          <li className="right">
-            <a><i className="fa fa-shopping-cart" aria-hidden="true" style={{color: "#FFFFFF", marginRight: 15}}></i>{cartProductsQuantity}</a>
-          </li>
-        </Link>
-      </ul>
-    </HeaderDiv>
+    <div>
+      <HeaderTitle>
+        <h1>Amaro Challenge</h1>
+      </HeaderTitle>
+      <HeaderDiv>
+        <ul>
+          <Link to ="/catalog">
+            <li><a className="active">Products</a></li>
+          </Link>
+          <Link to ="/shoppingCart">
+            <li className="right">
+              <a><i className="fa fa-shopping-cart" aria-hidden="true" style={{color: "#FFFFFF", marginRight: 15}}></i>{cartProductsQuantity}</a>
+            </li>
+          </Link>
+        </ul>
+      </HeaderDiv>
+    </div>
   )
 }
 
