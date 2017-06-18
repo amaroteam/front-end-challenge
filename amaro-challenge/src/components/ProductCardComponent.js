@@ -8,10 +8,9 @@ import { addProductToCart, removeProductFromCart } from '../actions/shoppingCart
 
 const ProductDiv = styled.div `
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  flex-wrap: nowrap | wrap | wrap-reverse;
-  box-shadow: 1px 5px 15px #CCC;
+  box-shadow: 1px 2px 8px #CCC;
   width: 300px;
   height: 580px;
   border-radius: 3px;
@@ -90,7 +89,8 @@ const ProductDiv = styled.div `
   .discount-percentage {
     position: absolute;
     margin: 10px;
-    padding-left: 240px;
+    color: #000;
+    padding-left: 190px;
     font-weight: 100;
     font-size: 18px;
     text-align: right;
@@ -146,6 +146,7 @@ class ProductCard extends Component {
         <div>
           { product.discount_percentage ?
             <div className="discount-percentage">
+              {/* removing the % sign from string */}
               <span>{`-${product.discount_percentage.slice(0, -1)}`} </span>
               <img src={percentageImg} alt={product.name} height="14" />
             </div> : null }
