@@ -72,14 +72,6 @@ const HeaderTitle = styled.div `
   }
 `
 
-const LockSideBar = styled.div `
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1
-`
-
 const lockTopBarStyle = {
   overflow: "hidden",
   position: "fixed",
