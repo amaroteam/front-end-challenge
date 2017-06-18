@@ -7,7 +7,7 @@ const Catalog = () => {
     <div style={{display: "flex", flexDirection: "column", flexFlow: "row wrap"}}>
       {products.map((product, id) => {
         return (
-          <ProductCard key={id} product={product} /> // como o json de produtos não tem id para ser identificado, estou usando o nome
+          <ProductCard key={id} product={product} />
         )
       })}
     </div>
