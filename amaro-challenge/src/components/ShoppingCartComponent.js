@@ -143,7 +143,7 @@ class ShoppingCart extends Component {
     return (
       <ShoppingCartDiv>
         <div className="title">
-          Shopping Cart
+          Shopping Bag
         </div>
         {cartProducts.map((currProduct, id) => {
           return (

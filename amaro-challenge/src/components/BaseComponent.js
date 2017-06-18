@@ -22,7 +22,7 @@ class Base extends Component {
   }
 
   handleScroll() {
-    if (window.scrollY > 72) {
+    if (window.scrollY >= 72) {
       this.setState({
         isTopBarFixed: true
       });
