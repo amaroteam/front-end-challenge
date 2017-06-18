@@ -7,7 +7,10 @@ import percentageImg from '../images/percentage.svg';
 import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartActions';
 
 const ProductDiv = styled.div `
-  float: left;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap | wrap | wrap-reverse;
   box-shadow: 1px 5px 15px #CCC;
   width: 300px;
   height: 580px;
@@ -94,12 +97,17 @@ const ProductDiv = styled.div `
     float: right;
   }
   .discount-percentage span {
-    font-family: Gotham-Book;
+    font-family: Gotham-Book,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-size: 20px;
   }
 
   .discount-percentage img {
     padding-top: 5px;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin: 0px;
+    margin-top: 20px;
   }
 `
 
