@@ -7,6 +7,9 @@ import { addProductToCart, removeProductFromCart } from '../actions/shoppingCart
 const ShoppingCartDiv = styled.div `
   display: flex;
   flex-direction: column;
+  img {
+    height: 100px;
+  }
   .title {
     height: 60px;
     margin-top: 40px;
@@ -32,14 +35,6 @@ const ShoppingCartDiv = styled.div `
     align-items: center;
     cursor: pointer;
   }
-  .is-active {
-    animation-name: animate;
-    animation-duration: .8s;
-    animation-iteration-count: 1;
-    animation-timing-function: steps(28);
-    animation-fill-mode: forwards;
-    background-position: left;
-  }
   .image {
     display: flex;
     align-items: center;
@@ -57,7 +52,6 @@ const ShoppingCartDiv = styled.div `
     color: #43484D;
     font-weight: 400;
   }
-
   .description span:first-child {
     margin-bottom: 5px;
   }
@@ -80,26 +74,6 @@ const ShoppingCartDiv = styled.div `
     color: #43484D;
     font-weight: 300;
   }
-
-  button[class*=btn] {
-    width: 30px;
-    height: 30px;
-    background-color: #E1E8EE;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-  }
-  .minus-btn img {
-    margin-bottom: 3px;
-  }
-  .plus-btn img {
-    margin-top: 2px;
-  }
-
-  button:focus,
-  input:focus {
-    outline:0;
-  }
   .price {
     display: flex;
     flex-direction: column;
@@ -111,11 +85,6 @@ const ShoppingCartDiv = styled.div `
     color: #43484D;
     font-weight: 300;
   }
-
-  img {
-    height: 100px;
-  }
-
   .total-price {
     display: flex;
     justify-content: flex-end;
@@ -175,7 +144,7 @@ const ShoppingCartDiv = styled.div `
 class ShoppingCart extends Component {
   render() {
     const { cartProducts } = this.props;
-    console.log('products: ', cartProducts)
+
     return (
       <ShoppingCartDiv>
         <div className="title">

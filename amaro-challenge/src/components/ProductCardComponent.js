@@ -72,7 +72,6 @@ const ProductDiv = styled.div `
     text-align: center;
     line-height: 30px;
   }
-
   .addToCard {
     cursor: pointer;
   }
@@ -110,11 +109,6 @@ const ProductDiv = styled.div `
     font-size: 12px;
     font-style: italic;
     text-align: center;
-  }
-
-  @media screen and (max-width: 320px) {
-    margin: 0px;
-    margin-top: 20px;
   }
 `
 

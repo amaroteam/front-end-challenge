@@ -28,9 +28,9 @@ The objective of this challenge is to build a catalog page for some _best-seller
 
 [x] - Easy as pie? So add more functionality to cart allowing users to add, remove and change quantity of cart items.
 [x] - Oh! Don't forget to show total value of cart.
-- Want more challenges? Add a filter to show only products `on_sale`.
+[x] - Want more challenges? Add a filter to show only products `on_sale`.
 [x] - Some products don't have all sizes available. Show only the ones on stock.
-- We like clean and testable code, right? Test your application and components, it will be a big bonus point.
+[x] - We like clean and testable code, right? Test your application and components, it will be a big bonus point.
 
 ## How we'll evaluate
 

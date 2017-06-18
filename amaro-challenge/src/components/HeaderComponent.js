@@ -121,6 +121,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  cartProductsQuantity: PropTypes.number.isRequired
+  cartProductsQuantity: PropTypes.number.isRequired,
+  isTopBarFixed: PropTypes.bool
 }
 export default Header;
