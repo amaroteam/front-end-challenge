@@ -52,13 +52,31 @@ const HeaderTitle = styled.div `
   }
 `
 
-const Header = ({cartProductsQuantity}) => {
+const LockSideBar = styled.div `
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1
+`
+
+const lockTopBarStyle = {
+  overflow: "hidden",
+  position: "fixed",
+  top: 0,
+  width: "100%",
+  zIndex: 1
+}
+
+const Header = ({cartProductsQuantity, isTopBarFixed}) => {
   return (
     <div>
       <HeaderTitle>
-        <h1>Amaro Challenge</h1>
+        <Link style={{textDecoration: "none"}} to="/">
+          <h1>Amaro Challenge</h1>
+        </Link>
       </HeaderTitle>
-      <HeaderDiv>
+      <HeaderDiv style={isTopBarFixed ? lockTopBarStyle : null}>
         <ul>
           <Link to ="/catalog">
             <li><a className="active">Products</a></li>
@@ -70,6 +88,7 @@ const Header = ({cartProductsQuantity}) => {
           </Link>
         </ul>
       </HeaderDiv>
+
     </div>
   )
 }

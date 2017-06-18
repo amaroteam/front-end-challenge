@@ -185,7 +185,7 @@ class ProductCard extends Component {
           </div>
           {(this.state.sizeChosen === null && this.state.hasClickedOnAddToCart) ?
             <div className="size-missing">
-              Por favor selecione um tamanho
+              Por favor, selecione um tamanho
             </div> : null
           }
 
