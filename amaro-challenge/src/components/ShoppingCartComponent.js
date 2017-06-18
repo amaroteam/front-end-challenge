@@ -7,7 +7,6 @@ import { addProductToCart, removeProductFromCart } from '../actions/shoppingCart
 const ShoppingCartDiv = styled.div `
   display: flex;
   flex-direction: column;
-  justify-content: center;
   .title {
     height: 60px;
     margin-top: 40px;
@@ -101,7 +100,7 @@ const ShoppingCartDiv = styled.div `
   input:focus {
     outline:0;
   }
-  .total-price {
+  .price {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,6 +114,13 @@ const ShoppingCartDiv = styled.div `
 
   img {
     height: 100px;
+  }
+
+  .total-price {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-right: 300px;
   }
 
   @media (max-width: 768px) {
@@ -182,14 +188,20 @@ class ShoppingCart extends Component {
                 <span>{`tam: ${currProduct.size}`}</span>
               </div>
               <div className="quantity">
-                <i style={{cursor: "pointer"}} className="fa fa-minus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, -1)}></i>
+                <i style={{cursor: "pointer"}} className="fa fa-minus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, -1, currProduct.size)}></i>
                 <input type="text" name="name" value={currProduct.quantity} readOnly/>
-                <i style={{cursor: "pointer"}} className="fa fa-plus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, 1)}></i>
+                <i style={{cursor: "pointer"}} className="fa fa-plus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, 1, currProduct.size)}></i>
               </div>
-              <div className="total-price">{currProduct.product.regular_price}</div>
+              <div className="price">{currProduct.product.regular_price}</div>
             </div>
           )
         })}
+        <div className="total-price">
+          Total price: {(cartProducts.reduce((total, currProduct) => {
+            const numericalPrice = (Number(currProduct.product.actual_price.replace(/\D/g,'')) / 100).toFixed(2) // converting string to number value
+            return total + (currProduct.quantity * numericalPrice)
+          }, 0)).toFixed(2)}
+        </div>
 
       </ShoppingCartDiv>
     );
