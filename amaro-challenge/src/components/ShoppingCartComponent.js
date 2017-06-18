@@ -25,9 +25,6 @@ const ShoppingCartDiv = styled.div `
     justify-content: center;
     padding: 20px 30px;
     height: 120px;
-  }
-  .item:nth-child(3) {
-    border-top: 1px solid #E1E8EE;
     border-bottom: 1px solid #E1E8EE;
   }
   .buttons {
@@ -89,6 +86,7 @@ const ShoppingCartDiv = styled.div `
     display: flex;
     justify-content: flex-end;
     margin-top: 30px;
+    margin-bottom: 90px;
     margin-right: 300px;
   }
 

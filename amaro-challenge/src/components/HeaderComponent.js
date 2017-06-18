@@ -64,12 +64,6 @@ const HeaderTitle = styled.div `
     color: #000;
     font-family: Gotham-Book,Helvetica Neue,Helvetica,Arial,sans-serif;
   }
-
-  @media screen and (max-width: 768px) {
-    h1 {
-
-    }
-  }
 `
 
 const lockTopBarStyle = {
@@ -82,15 +76,8 @@ const lockTopBarStyle = {
 
 class Header extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      catalogSelected: false
-    }
-  }
-
   render () {
+    const { pathname } = this.context.router.location;
     const {cartProductsQuantity, isTopBarFixed} = this.props;
     return (
       <div>
@@ -103,7 +90,7 @@ class Header extends Component {
           <ul>
             <Link to ="/catalog">
               <li className="catalog" onClick={() => this.setState({catalogSelected: true})}>
-                <a className={this.state.catalogSelected ? "active" : null}>Catalog</a>
+                <a className={pathname === '/catalog' ? "active" : null}>Catalog</a>
               </li>
             </Link>
             <Link to ="/shoppingCart">
@@ -113,15 +100,18 @@ class Header extends Component {
             </Link>
           </ul>
         </HeaderDiv>
-
       </div>
     )
   }
+}
 
+Header.contextTypes = {
+  router: PropTypes.object.isRequired,
 }
 
 Header.propTypes = {
   cartProductsQuantity: PropTypes.number.isRequired,
-  isTopBarFixed: PropTypes.bool
+  isTopBarFixed: PropTypes.bool,
+  router: PropTypes.func.isRequired
 }
 export default Header;
