@@ -8,7 +8,8 @@ export const addProductToCart = (product, quantity = 1, size) => ({
   size
 })
 
-export const removeProductFromCart = productName => ({ // estou usando name para identificar porque não vem id no json
+export const removeProductFromCart = (productName, size) => ({ // estou usando name para identificar porque não vem id no json
   type: REMOVE_PRODUCT_FROM_CART,
-  productName
+  productName,
+  size
 })

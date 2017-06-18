@@ -152,7 +152,7 @@ class ShoppingCart extends Component {
           return (
             <div key={id} className="item">
               <div className="buttons">
-                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => this.props.removeProductFromCart(currProduct.product.name)}></i>
+                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => this.props.removeProductFromCart(currProduct.product.name, currProduct.size)}></i>
               </div>
               <div className="image">
                 <img src={currProduct.product.image} alt={currProduct.product.name} />

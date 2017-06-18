@@ -38,7 +38,7 @@ export const shoppingCart = (state = SHOPPING_CART_STATE, action) => {
       }
 
     case REMOVE_PRODUCT_FROM_CART:
-      const indexOfProduct = state.products.indexOf(state.products.find(currProduct => currProduct.product.name === action.productName));
+      const indexOfProduct = state.products.indexOf(state.products.find(currProduct => currProduct.product.name === action.productName && currProduct.size === action.size));
       return {
         ...state,
         products: [

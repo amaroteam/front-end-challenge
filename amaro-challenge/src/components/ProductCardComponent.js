@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import percentageImg from '../images/percentage.svg';
 
-import { addProductToCart, removeProductFromCart } from '../actions/shoppingCartActions';
+import { addProductToCart } from '../actions/shoppingCartActions';
 
 const ProductDiv = styled.div `
   display: flex;
@@ -198,5 +198,4 @@ ProductCard.propTypes = {
 
 export default connect(null, {
   addProductToCart,
-  removeProductFromCart
 })(ProductCard);
