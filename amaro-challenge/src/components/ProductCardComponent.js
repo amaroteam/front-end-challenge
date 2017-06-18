@@ -105,6 +105,13 @@ const ProductDiv = styled.div `
     padding-top: 5px;
   }
 
+  .size-missing {
+    color: #cf3838;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+
   @media screen and (max-width: 320px) {
     margin: 0px;
     margin-top: 20px;
@@ -117,7 +124,8 @@ class ProductCard extends Component {
     super(props);
 
     this.state = {
-      sizeChosen: null
+      sizeChosen: null,
+      hasClickedOnAddToCart: false
     }
   }
 
@@ -132,6 +140,7 @@ class ProductCard extends Component {
   }
 
   hendleAddToCart = (product, quantity, size) => {
+    this.setState({hasClickedOnAddToCart: true})
     if (!product || !quantity || !size) {
       return;
     }
@@ -174,8 +183,14 @@ class ProductCard extends Component {
               })}
             </div>
           </div>
+          {(this.state.sizeChosen === null && this.state.hasClickedOnAddToCart) ?
+            <div className="size-missing">
+              Por favor selecione um tamanho
+            </div> : null
+          }
+
           <div className="addToCard">
-            <span onClick={() => this.hendleAddToCart(product, 1, this.state.sizeChosen)}>Add to cart</span>
+            <span onClick={() => this.hendleAddToCart(product, 1, this.state.sizeChosen) }>Add to cart</span>
           </div>
         </div>
       </ProductDiv>
