@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url(./fonts/ghotam-book.TTF);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Gotham-Book,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
