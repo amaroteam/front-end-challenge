@@ -167,7 +167,7 @@ class ShoppingCart extends Component {
                 <input type="text" name="name" value={currProduct.quantity} readOnly/>
                 <i style={{cursor: "pointer"}} className="fa fa-plus" aria-hidden="true" onClick={() => this.props.addProductToCart(currProduct.product, 1, currProduct.size)}></i>
               </div>
-              <div className="price">{currProduct.product.regular_price}</div>
+              <div className="price">{currProduct.product.actual_price}</div>
             </div>
           )
         })}
