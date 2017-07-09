@@ -1,6 +1,6 @@
 const products = (
   state = {
-    items: [],
+    products: [],
     isFetching: true
   },
   action
