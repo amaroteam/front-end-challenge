@@ -9,7 +9,7 @@ const products = (
     case 'LOAD_PRODUCTS_LIST':
       return Object.assign({}, state, {
         isFetching: false,
-        products: action.products
+        products: action.products.products
       })
 
     default:

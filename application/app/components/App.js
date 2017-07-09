@@ -6,9 +6,14 @@ import { bindActionCreators } from 'redux'
 
 import { loadProductsList } from '../actions'
 
+import { BrowserRouter, Route } from 'react-router-dom'
+
 // I gonna load it here to keed the app simple,
 // in a real application I would made in async.
 import products from '../products.json'
+
+// views
+import ProductsList from './ProductsList'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,9 +28,18 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className="app">
-        <h1>Shooping Sample</h1>
-      </div>
+      <BrowserRouter>
+        <div className="app">
+          <header>
+            <h1>Shopping</h1>
+          </header>
+          <Route exact path="/" component={ProductsList} />
+          <footer>
+            <p>Copyright © 2017</p>
+          </footer>
+        </div>
+      </BrowserRouter>
+
     )
   }
 }
