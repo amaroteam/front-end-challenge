@@ -13,6 +13,7 @@ module.exports = {
       experimentalObjectRestSpread: true
     },
   },
+  parser: 'babel-eslint',
   rules: {
     'no-console': 0
   }

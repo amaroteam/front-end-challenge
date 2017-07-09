@@ -48,14 +48,14 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  dispatch: PropTypes.func.isRequired
+}
+
 function mapDispatchToProps (dispatch) {
   return {
     dispatch: bindActionCreators(loadProductsList, dispatch)
   }
-}
-
-App.propTypes = {
-  dispatch: PropTypes.func.isRequired
 }
 
 export default connect(mapDispatchToProps)(App)
