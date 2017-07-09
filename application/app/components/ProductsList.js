@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 
+import { Link } from 'react-router-dom'
+
 class ProductsList extends React.Component {
   constructor (props) {
     super(props)
@@ -12,7 +14,7 @@ class ProductsList extends React.Component {
     return this.props.products.map((item, index) => {
       return (
         <div className="product" key={index}>
-          {item.name}
+          <Link to={`/product/${item.style}`}>{item.name} ({item.style})</Link>
         </div>
       )
     })
