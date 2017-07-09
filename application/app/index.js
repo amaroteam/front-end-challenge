@@ -1,0 +1,2 @@
+// create store
+// render app
