@@ -15,6 +15,7 @@ import products from '../products.json'
 // views
 import ProductsList from './ProductsList'
 import ProductDetails from './ProductDetails'
+import ShoppingCart from './ShoppingCart'
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends React.Component {
           </header>
           <Route exact path="/" component={ProductsList} />
           <Route path="/product/:id" component={ProductDetails} />
+          <Route path="/shopping-cart" component={ShoppingCart} />
           <footer>
             <p>Copyright © 2017</p>
           </footer>

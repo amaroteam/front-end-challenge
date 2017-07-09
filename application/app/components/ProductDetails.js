@@ -17,7 +17,7 @@ class ProductDetails extends React.Component {
 
     return (
       <div className="product-details">
-        <p>{product.name}</p>
+        {product && <p>{product.name}</p>}
       </div>
     )
   }
