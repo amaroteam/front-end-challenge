@@ -1,7 +1,6 @@
 .shopping-cart {
-  padding: 0 20px;
-  padding-top: 70px;
-  min-height: calc(100vh - 70px - 40px);
+  padding: 70px 20px 0;
+  min-height: calc(100vh - 70px - 90px);
   max-width: 1040px;
   margin: 0 auto;
 
@@ -23,11 +22,8 @@
     }
   }
 
-
   button {
     // display: inline-block;
-    margin: 0;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin: 0 20px 20px 0;
   }
 }

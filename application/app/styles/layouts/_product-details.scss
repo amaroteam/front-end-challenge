@@ -1,14 +1,17 @@
 .product-details {
-  // padding: 0 20px;
   padding-top: 70px;
-  min-height: calc(100vh - 70px - 40px);
+  min-height: calc(100vh - 70px - 90px);
   max-width: 1040px;
   margin: 0 auto;
 
   img {
-    width: 100%;
-    min-height: 300px;
-    background: #eee;
+    margin: 0 auto;
+    display: block;
+    max-height: 300px;
+  }
+
+  button {
+    margin-bottom: 20px;
   }
 
   h3, p {
