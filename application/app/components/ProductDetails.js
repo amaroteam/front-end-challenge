@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { Link } from 'react-router-dom'
+
 import { cartAddProduct } from '../actions'
 
 class ProductDetails extends React.Component {
@@ -59,7 +61,8 @@ class ProductDetails extends React.Component {
         {this.product && this.renderProductDetails()}
 
         <button onClick={this.onclick_handler}>Add to Cart</button>
-        <button>Back to List</button>
+        <Link to="/"><button>Back to List</button></Link>
+
       </div>
     )
   }

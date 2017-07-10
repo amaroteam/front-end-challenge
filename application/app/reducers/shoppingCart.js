@@ -6,8 +6,9 @@ const shoppingCart = (state = [], action) => {
         action.product.product
       ]
     case 'CART_REMOVE_PRODUCT': {
-      const index = state.findIndex((product) => product.style === action.style)
 
+      const index = state.findIndex((product) => product.style === action.style.style)
+      
       return [
         ...state.slice(0,index),
         ...state.slice(index+1)

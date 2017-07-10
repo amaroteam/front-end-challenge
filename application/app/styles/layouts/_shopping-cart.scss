@@ -16,10 +16,18 @@
     text-align: right;
   }
 
+  table {
+    button {
+      margin: 0;
+      padding: 10px;
+    }
+  }
+
 
   button {
     // display: inline-block;
     margin: 0;
     margin-right: 20px;
+    margin-bottom: 20px;
   }
 }

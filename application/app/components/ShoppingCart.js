@@ -4,11 +4,19 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { Link } from 'react-router-dom'
+
 import { cartRemoveProduct } from '../actions'
 
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  removeItem = (style) => {
+    const { dispatch } = this.props
+
+    dispatch(cartRemoveProduct(style))
   }
 
   renderProductsList () {
@@ -17,6 +25,8 @@ class ShoppingCart extends React.Component {
         <tr key={index}>
           <td>{item.name}</td>
           <td>{item.actual_price}</td>
+          <th>1</th>
+          <th><button onClick={()=>{this.removeItem(item.style)}}>X</button></th>
         </tr>
       )
     })
@@ -43,24 +53,29 @@ class ShoppingCart extends React.Component {
       <div className="shopping-cart">
         <h2>ShoppingCart</h2>
         <table width="100%">
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-          {this.renderProductsList()}
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Qtt</th>
+              <th>Remove</th>
+            </tr>
+            {this.renderProductsList()}
+          </tbody>
         </table>
 
         {this.renderTotalPrice()}
 
         <button>Checkout</button>
-        <button>Continue Shopping</button>
+        <Link to="/"><button>Continue Shopping</button></Link>
       </div>
     )
   }
 }
 
 ShoppingCart.propTypes = {
-  shoppingCart: PropTypes.array.isRequired
+  shoppingCart: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 function mapStateToProps (state) {
