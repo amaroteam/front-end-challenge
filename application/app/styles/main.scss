@@ -1,6 +1,20 @@
 @import './normalize';
+@import './variables';
+
 @import './layouts/header';
+@import './layouts/footer';
+@import './layouts/products-list';
+@import './layouts/product-details';
+@import './layouts/shopping-cart';
 
 body {
   font-family: sans-serif;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
 }

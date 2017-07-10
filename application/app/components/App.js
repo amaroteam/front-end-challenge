@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 
 import { loadProductsList } from '../actions'
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 // I gonna load it here to keed the app simple,
 // in a real application I would made in async.
@@ -33,7 +33,10 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="app">
           <header>
-            <h1>Shopping</h1>
+            <Link to='/'>
+              <h1>Shopping</h1>
+            </Link>
+            <Link to='/shopping-cart'>View Cart</Link>
           </header>
           <Route exact path="/" component={ProductsList} />
           <Route path="/product/:id" component={ProductDetails} />

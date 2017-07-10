@@ -12,9 +12,15 @@ class ProductsList extends React.Component {
 
   renderProductsList () {
     return this.props.products.map((item, index) => {
+
+      const styles = {
+        backgroundImage: `url(${item.image}`
+      }
       return (
-        <div className="product" key={index}>
-          <Link to={`/product/${item.style}`}>{item.name} ({item.style})</Link>
+        <div className="product" key={index} style={styles}>
+          <Link to={`/product/${item.style}`}>
+            <h2>{item.name}</h2>
+          </Link>
         </div>
       )
     })

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import { cartAddProduct } from '../actions'
 
@@ -16,7 +16,7 @@ class ProductDetails extends React.Component {
   onclick_handler = () => {
     const { dispatch } = this.props
 
-    dispatch(cartAddProduct(this.props.products[this.productPos]))
+    dispatch(cartAddProduct(this.product))
   }
 
   render () {
@@ -24,11 +24,13 @@ class ProductDetails extends React.Component {
     this.productStyle = this.props.match.params.id
     this.productPos = this.props.products.findIndex((product) => product.style === this.productStyle)
 
+    this.product = this.props.products[this.productPos]
+
     return (
       <div className="product-details">
-        {this.props.products[this.productPos] && <p>{this.props.products[this.productPos].name}</p>}
+        {this.product && <img src={this.props.products[this.productPos].image}/>}
+        {this.product && <p>{this.props.products[this.productPos].name}</p>}
         <button onClick={this.onclick_handler}>Add to Cart</button>
-        <Link to='/shopping-cart'>View Cart</Link>
       </div>
     )
   }
