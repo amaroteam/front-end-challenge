@@ -2,8 +2,8 @@
 
   display: flex;
   flex-wrap: wrap;
-  // flex-direction: column;
   align-items: center;
+  min-height: calc(100vh - 70px - 40px);
 
   padding-top: 70px;
 
@@ -40,5 +40,16 @@
       // height: 60vw;
     }
 
+  }
+}
+
+@media (min-width: 970px) {
+
+  .products-list {
+    justify-content: space-around;
+    .product {
+      max-width: 33.33vw;
+      max-height: 33.33vw;
+    }
   }
 }

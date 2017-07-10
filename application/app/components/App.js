@@ -62,5 +62,3 @@ function mapDispatchToProps (dispatch) {
 }
 
 export default connect(mapDispatchToProps)(App)
-
-// react router

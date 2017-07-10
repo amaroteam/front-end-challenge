@@ -1,5 +1,25 @@
 .shopping-cart {
+  padding: 0 20px;
   padding-top: 70px;
   min-height: calc(100vh - 70px - 40px);
+  max-width: 1040px;
+  margin: 0 auto;
 
+  h2 {
+    margin: 50px 0;
+  }
+
+  .total {
+    padding: 15px;
+    border: 2px solid black;
+    margin-bottom: 50px;
+    text-align: right;
+  }
+
+
+  button {
+    // display: inline-block;
+    margin: 0;
+    margin-right: 20px;
+  }
 }

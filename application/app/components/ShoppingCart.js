@@ -14,9 +14,10 @@ class ShoppingCart extends React.Component {
   renderProductsList () {
     return this.props.shoppingCart.map((item, index) => {
       return (
-        <li key={index}>
-          {item.name} {item.actual_price}
-        </li>
+        <tr key={index}>
+          <td>{item.name}</td>
+          <td>{item.actual_price}</td>
+        </tr>
       )
     })
   }
@@ -40,12 +41,19 @@ class ShoppingCart extends React.Component {
   render () {
     return (
       <div className="shopping-cart">
-        <p>This is the shopping cart</p>
-        <ul>
+        <h2>ShoppingCart</h2>
+        <table width="100%">
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
           {this.renderProductsList()}
-        </ul>
+        </table>
 
         {this.renderTotalPrice()}
+
+        <button>Checkout</button>
+        <button>Continue Shopping</button>
       </div>
     )
   }

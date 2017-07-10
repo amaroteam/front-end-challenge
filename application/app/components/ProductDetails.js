@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-// import { Link } from 'react-router-dom'
-
 import { cartAddProduct } from '../actions'
 
 class ProductDetails extends React.Component {
@@ -19,6 +17,35 @@ class ProductDetails extends React.Component {
     dispatch(cartAddProduct(this.product))
   }
 
+  renderProductDetails () {
+    return (
+      <div className="info">
+        <h3>{this.product.name}</h3>
+
+        {this.product.on_sale &&
+          <p>De: {this.product.regular_price}<br/><strong>Por: {this.product.actual_price}</strong></p>}
+        {!this.product.on_sale && <p>{this.product.actual_price}</p>}
+
+        <div className="sizes">
+          {this.renderSizes()}
+        </div>
+
+      </div>
+    )
+  }
+
+  renderSizes () {
+    return this.product.sizes.map((size, index) => {
+      const classname = (size.available) ? 'size' : 'size unavailable'
+      return (
+        <div className={classname} key={index}>
+          {size.available && <spam>{size.size}</spam>}
+          {!size.available && <spam>{size.size}</spam>}
+        </div>
+      )
+    })
+  }
+
   render () {
 
     this.productStyle = this.props.match.params.id
@@ -28,9 +55,11 @@ class ProductDetails extends React.Component {
 
     return (
       <div className="product-details">
-        {this.product && <img src={this.props.products[this.productPos].image}/>}
-        {this.product && <p>{this.props.products[this.productPos].name}</p>}
+        {this.product && <img src={this.product.image}/>}
+        {this.product && this.renderProductDetails()}
+
         <button onClick={this.onclick_handler}>Add to Cart</button>
+        <button>Back to List</button>
       </div>
     )
   }
