@@ -1,0 +1,39 @@
+.ttl {
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+}
+
+.ttl a {
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+}
+
+.bar {
+  background-color: #000;
+  margin: 0 -15px;
+  padding: 10px;
+}
+
+.bar .link-home, 
+.bar .link-bag {
+  color: #FFF;
+  font-size: 12px;
+}
+
+.bar .link-home {
+  float: left;
+}
+
+.bar .link-bag {
+  float: right;
+  margin-top: 18px
+}
+.mdl-layout__header-row {
+  background-color: #000;
+}
+
+svg {
+  fill: aliceblue;
+}
