@@ -1,0 +1,24 @@
+.products-container {
+    padding: 20px 0;
+}
+
+.product-list {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.product-list__item {
+    list-style: none;
+    width: 24%;
+    margin: 0 10px 10px 0;
+}
+
+.btn-buy {
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+}
