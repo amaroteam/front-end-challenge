@@ -1,6 +1,4 @@
-# WE'RE HIRING!
-
-## `AMARO front-end challenge` 
+# `AMARO front-end challenge` 
 
 This is our challenge for the front-end developer position at [@amarofashion](https://github.com/amarofashion).
 
