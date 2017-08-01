@@ -1,0 +1,32 @@
+{
+  "name": "amarro",
+  "private": true,
+  "devDependencies": {
+    "gh-pages": "^0.12.0",
+    "react-scripts": "0.9.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "material-design-icons": "^3.0.1",
+    "material-design-lite": "^1.3.0",
+    "prop-types": "^15.5.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

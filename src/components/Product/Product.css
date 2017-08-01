@@ -1,0 +1,110 @@
+.product {
+    margin: 0;
+    overflow: auto;
+}
+
+.discount-percentage,
+.regular-price,
+.installments,
+.product__price {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    font-size: 12px;
+}
+
+.discount-percentage,
+.regular-price {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.discount-percentage {
+    color: #cf3838
+}
+
+.is-old {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.product__button-wrap {
+    display: block;
+}
+
+.product__button-wrap .btn-sale {
+    background-color: #000;
+    color: #FFF;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    border: none;
+}
+
+.product__button-wrap .btn-sale:disabled {
+    background-color: #d0d0d0;
+    cursor: not-allowed;
+}
+
+.box-prices {
+    min-height: 82px;
+}
+
+.product-title {
+    font-size: 14px;
+    color: #000;        
+    cursor: pointer;
+    margin: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.none {
+    display: none;
+}
+
+.product-thumbnail {
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+
+    transition: border .2s ease-in-out;
+}
+
+.product-image {
+    cursor: pointer;
+}
+
+.disable-image {
+    opacity: 0.4;
+}
+
+.mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.mdl-card__media {
+    background-color:transparent!important;
+}
+
+.button-buy {
+    background: #000;
+    color: #FFF;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.mdl-card__supporting-text {
+    min-height: 70px;
+}
