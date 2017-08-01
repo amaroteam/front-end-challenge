@@ -1,0 +1,60 @@
+@import './normalize';
+@import './variables';
+
+@import './layouts/header';
+@import './layouts/footer';
+@import './layouts/products-list';
+@import './layouts/product-details';
+@import './layouts/shopping-cart';
+
+body {
+  font-family: sans-serif;
+}
+
+button {
+  margin-left: 20px;
+  padding: 20px 50px;
+  text-transform: uppercase;
+  color: white;
+  background: $blue-light;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  transition: all 0.2s ease-in-out;
+
+  a {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  text-transform: uppercase;
+}
+
+td {
+  text-transform: capitalize;
+}

@@ -1,0 +1,29 @@
+.shopping-cart {
+  padding: 70px 20px 0;
+  min-height: calc(100vh - 70px - 90px);
+  max-width: 1040px;
+  margin: 0 auto;
+
+  h2 {
+    margin: 50px 0;
+  }
+
+  .total {
+    padding: 15px;
+    border: 2px solid black;
+    margin-bottom: 50px;
+    text-align: right;
+  }
+
+  table {
+    button {
+      margin: 0;
+      padding: 10px;
+    }
+  }
+
+  button {
+    // display: inline-block;
+    margin: 0 20px 20px 0;
+  }
+}
