@@ -1,4 +1,9 @@
-# `AMARO front-end challenge` 
+
+### Starting
+
+To start the project, simply run `npm start` :)
+
+# `AMARO front-end challenge`
 
 This is our challenge for the front-end developer position at [@amarofashion](https://github.com/amarofashion).
 
