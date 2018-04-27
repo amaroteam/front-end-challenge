@@ -1,21 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
-import Cart from './cart'
+import AppComponent from '../components/app'
 import { addItem } from '../actions/cart'
-
-import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
-import Subheader from 'material-ui/List/ListSubheader'
-import Icon from 'material-ui/Icon'
-import IconButton from 'material-ui/IconButton'
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
-import Button from 'material-ui/Button'
-
-import { withStyles } from 'material-ui/styles'
-
 
 class App extends React.Component {
   constructor () {
@@ -71,44 +58,9 @@ class App extends React.Component {
     const { products, cols } = this.state
     if (!products.length) return ( <small>carregando...</small> )
 
-    return (
-      <section role="main">
-        <AppBar position="fixed" style={{ backgroundColor: '#42A5F5' }}>
-          <Toolbar>
-            <Cart />
-          </Toolbar>
-        </AppBar>
-        <GridList className={classes.list} cellHeight={240} cols={cols} spacing={16}>
-          {products.map(prod => (
-            <GridListTile cols={1} key={prod.id}>
-              <img src={prod.image} alt={prod.name} />
-              <GridListTileBar
-                title={prod.name}
-                subtitle={<span>Por: {prod.installments}</span>}
-                actionIcon={
-                  <IconButton
-                    className={classes.icon}
-                    onClick={() => this.props.add(prod)}
-                    aria-label="Add to shopping cart">
-                    <AddShoppingCartIcon />
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          ))}
-        </GridList>
-      </section>
-    )
-  }
-}
+    const mergedProps = { ...this.props, ...this.state }
 
-const styles = {
-  list: {
-    margin: 0,
-    padding: '0 2rem',
-  },
-  icon: {
-    color: 'white'
+    return ( <AppComponent { ...mergedProps } /> )
   }
 }
 
@@ -116,5 +68,4 @@ const mapDispatchToProps = dispatch => ({
   add: item => dispatch(addItem(item))
 })
 
-const styledApp = withStyles(styles)(App)
-export default connect(null, mapDispatchToProps)(styledApp)
+export default connect(null, mapDispatchToProps)(App)
