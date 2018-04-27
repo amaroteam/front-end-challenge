@@ -1,7 +1,7 @@
 
 ### Starting
 
-To start the project, simply run `npm start` :)
+To start the project, simply run `npm i && npm start` :)
 
 # `AMARO front-end challenge`
 
