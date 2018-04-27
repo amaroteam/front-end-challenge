@@ -4,7 +4,7 @@ The objective of this challenge is to build a catalog page for some products of 
 
 ## Rules
 
-- The page can't be static. It needs some logic to show all products dinamically.
+- The page can't be static. It needs some logic to show all products dynamically.
 - All products from `products.json` must be shown.
 - You need to use some build tool (~~Grunt~~, Gulp, npm, Webpack, etc) to bundle your files. And ES2015+ features of course. And don't forget to add instructions on how to run the project.
 - Do not ask your friends to solve the challenge for you. You'll need to explain your choices in person.
@@ -39,4 +39,4 @@ The objective of this challenge is to build a catalog page for some products of 
 
 ## Got questions?
 
-- The challenge is harder than you anticipated? Would you like to show your experience with something else? Contact us by opening an _issue_. 
+- The challenge is harder than you anticipated? Would you like to show your experience with something else? Contact us by opening an _issue_.
