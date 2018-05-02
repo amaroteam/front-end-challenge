@@ -19,8 +19,10 @@ The objective of this challenge is to build a catalog page for some products of 
     - Promo Status
     - Promo price (if available)
     - Available Sizes
-- It must be possible to add products to the cart.
-- It must be possible to view the cart with the items you've added (name, image, price) and the total.
+    - Sale badge
+- It must be possible to add products by size to the cart.
+- It must be possible to view the cart with the items you've added (name, image, price, quantity) and the grand total.
+- The cart should be persisted between reloads.
 
 ## Bonus points
 
@@ -33,7 +35,7 @@ The objective of this challenge is to build a catalog page for some products of 
 
 - Your code will be evaluated by: semantics, structure, legibility, size, among other factors.
 - The `git` history will be avaluated.
-- Our stack here is React, Redux, Sass, Webpack so using the same stack will make a difference.
+- Our stack here is React, Redux, SCSS and Webpack so using the same stack will make a difference.
 - We're looking for a front-end developer who knows how to build layouts and knows a lot about JavaScript. Use this as an opportunity to show us how good you are on both areas.
 - Do not forget to document the process needed to run and build your app. Or else how are we going to evaluate your work if we can't init the project on our machines?
 
