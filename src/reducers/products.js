@@ -2,6 +2,7 @@ import types from '../constants/products';
 
 const initialState = {
     items: [],
+    searchable: [],
 };
 
 const reducer = {
@@ -9,7 +10,14 @@ const reducer = {
         return {
             ...state,
             items: action.payload,
+            searchable: action.payload,
         };
+    },
+    [types.SEARCH_PRODUCT]: (state, action) => {
+        return {
+            ...state,
+            items: state.searchable.filter(product => product.name.indexOf(action.payload) > -1),
+        }
     }
 };
 

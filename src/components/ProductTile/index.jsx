@@ -68,7 +68,7 @@ class ProductTile extends Component {
 
     render() {
         const { product } = this.props;
-        console.log(product);
+
         return (
             <Tile>
                 <ProductImage url={product.image} />

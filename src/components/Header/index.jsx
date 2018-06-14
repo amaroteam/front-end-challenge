@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo';
 import CartResume from '../CartResume';
+import SearchBox from '../SearchBox';
 
 const HeaderWrapper = styled.header`
     display: flex;
@@ -21,15 +22,18 @@ const HeaderWrapper = styled.header`
 class Header extends PureComponent {
     static propTypes = {
         count: PropTypes.number,
+        search: PropTypes.func,
     }
 
     render() {
-        const {count} = this.props;
+        const { count, search } = this.props;
+
         return (
             <HeaderWrapper>
                 <Link to="/">
                     <Logo />
                 </Link>
+                <SearchBox search={search} />
                 <Link to="/cart">
                     <CartResume count={count} />
                 </Link>

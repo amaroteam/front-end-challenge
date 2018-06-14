@@ -22,3 +22,8 @@ export const getProducts = () =>
             .then(response => dispatch(getProductsSuccess(response)))
             .catch(() => dispatch(getProductsError()));
     };
+
+export const searchProduct = payload => ({
+    type: types.SEARCH_PRODUCT,
+    payload,
+});
