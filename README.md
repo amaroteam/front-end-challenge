@@ -6,6 +6,28 @@ You're probably already participating in our hiring process, but if you stumble 
 
 If you are not a developer, you can have a look at our other opportunities at: [amaro.com/jobs](https://amaro.com/jobs)
 
+## Run and build the Project
+
+Before anything you will just have to install things.
+
+```
+npm install
+```
+
+After this. You just need one command to start the project on the port `1234`
+
+```
+npm start
+```
+
+and to build too ( Note that the production code will be available into the `/dist` folder):
+
+```
+npm build
+```
+
+Thanks for the opportunity
+
 ## About the challenge
 
 This is a challenge, not a college test, so there are multiple correct answers.
