@@ -79,9 +79,16 @@
 			width: 20px;
 			margin: 0 5px;
 			padding: 6px 0 4px 0;
+			color: #000;
 			font-size: 1rem;
+			font-weight: 700;
 			text-decoration: none;
-			border: solid 1px #666;
+			border: solid 1px #000;
+
+			&.selected {
+				color: #fff;
+				background-color: #000;
+			}
 		}
 	}
 
@@ -92,5 +99,6 @@
 		height: 40px;
 		border: none;
 		background: #000;
+		cursor: pointer;
 	}
 }

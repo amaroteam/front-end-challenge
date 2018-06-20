@@ -4,24 +4,40 @@ import PropTypes from 'prop-types';
 class CardItem extends React.Component {
 	constructor (props){
 		super(props);
+		this.state = {
+			itemSize: null
+		};
 	}
 
 	normalizePrice (value) {
 		return parseFloat(value.replace('R$ ', '').replace(',', '.'));
 	}
 
+	selectSize (e, size) {
+		e.preventDefault();
+		this.setState({
+			itemSize: size
+		});
+	}
+
 	getAvailableSizes (sizes) {
 		let sizeList = [];
 
 		sizes.map((item, i) => {
-			item.available && sizeList.push(<a href="#" key={i} className="size">{item.size}</a>)
+			item.available && sizeList.push(
+				<a href="#" key={i} className={`size ${this.state.itemSize === item.size ? 'selected' : ''}`} onClick={(e) => this.selectSize(e, item.size)}>{item.size}</a>
+			);
 		});
 
 		return sizeList;
 	}
 
 	addToCart (product) {
-		console.log(product);
+		if (this.state.itemSize) {
+			console.log(product);
+		} else {
+			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
+		}
 	}
 
 	render () {
