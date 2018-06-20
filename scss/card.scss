@@ -1,0 +1,96 @@
+.card__container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card__product-item {
+	position: relative;
+	width: calc(50% - 2.2rem);
+	margin: 1rem;
+	font-size: 1.2rem;
+	text-align: center;
+	overflow: hidden;
+	border: solid 1px #eee;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+	background-color: #f3f3f3;
+
+	@media #{$medium} {
+		width: calc(33.3% - 2.2rem);
+	}
+
+	@media #{$large-up} {
+		width: calc(25% - 2.2rem);
+	}
+
+	.stamp {
+		position: absolute;
+		right: 0;
+		top: 10px;
+		padding: 3px 8px;
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #fff;
+		background: #f00;
+	}
+
+	.product-image {
+		width: 100%;
+	}
+
+	.product-name,
+	.product-price,
+	.product-sizes {
+		margin: 10px 0;
+	}
+
+	.product-name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.product-price {
+		.actual-price,
+		.installments {
+			font-size: 1.1rem;
+		}
+
+		.regular-price {
+			margin-right: 10px;
+			color: #ccc;
+		}
+
+		.actual-price {
+			font-weight: 700;
+		}
+
+		.installments {
+			margin-left: 10px;
+			color: #666;
+		}
+	}
+
+
+	.product-sizes {
+		display: flex;
+		justify-content: center;
+
+		.size {
+			width: 20px;
+			margin: 0 5px;
+			padding: 6px 0 4px 0;
+			font-size: 1rem;
+			text-decoration: none;
+			border: solid 1px #666;
+		}
+	}
+
+	.button__AddToCart {
+		width: 100%;
+		font-weight: 700;
+		color: #fff;
+		height: 40px;
+		border: none;
+		background: #000;
+	}
+}
