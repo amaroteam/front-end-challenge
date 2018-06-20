@@ -20,6 +20,10 @@ class CardItem extends React.Component {
 		return sizeList;
 	}
 
+	addToCart (product) {
+		console.log(product);
+	}
+
 	render () {
 		const product = this.props.product;
 		const fallbackImage = '//dummyimage.com/470x594/fff/000?text=imagem indisponível';
@@ -36,7 +40,7 @@ class CardItem extends React.Component {
 					<span className="installments">{product.installments}</span>
 				</p>
 				<p className="product-sizes">{this.getAvailableSizes(product.sizes)}</p>
-				<button className="button__AddToCart">Adicionar à sacola</button>
+				<button className="button__AddToCart" onClick={() => this.addToCart(product)}>Adicionar à sacola</button>
 			</li>
 		);
 	}
