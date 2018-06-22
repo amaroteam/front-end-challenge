@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { AddToCart } from '../../actions/addCartAction';
 
 class CardItem extends React.Component {
 	constructor (props){
@@ -34,7 +36,9 @@ class CardItem extends React.Component {
 
 	addToCart (product) {
 		if (this.state.itemSize) {
-			console.log(product);
+			// const { clickButton } = this.props;
+			// clickButton(product);
+			this.props.funcAddToCard(product);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
 		}
@@ -66,4 +70,16 @@ CardItem.propTypes = {
 	product: PropTypes.object
 };
 
-module.exports = CardItem;
+function mapStateToProps({cart}) {
+	return {
+		cart
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		funcAddToCard: (item) => dispatch(AddToCart(item))
+	}
+}
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(CardItem);

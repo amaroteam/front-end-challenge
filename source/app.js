@@ -2,6 +2,7 @@ import React from 'react';
 import data from '../products.json';
 import Header from './components/header/header';
 import Card from './components/card/card';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
 	render () {
@@ -14,4 +15,10 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+function mapStateToProps({cart}) {
+	return {
+		cart
+	}
+}
+
+module.exports = connect(mapStateToProps)(App);

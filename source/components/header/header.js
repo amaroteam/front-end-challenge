@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Header extends React.Component {
 	render () {
@@ -11,4 +12,10 @@ class Header extends React.Component {
 	}
 }
 
-module.exports = Header;
+function mapStateToProps({cart}) {
+	return {
+		cart
+	}
+}
+
+module.exports = connect(mapStateToProps)(Header);
