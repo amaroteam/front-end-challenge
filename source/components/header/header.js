@@ -10,7 +10,9 @@ class Header extends React.Component {
 		};
 	}
 
-	handleClick () {
+	handleClick (e) {
+		e.preventDefault();
+
 		this.setState({
 			showCart: !this.state.showCart
 		});
@@ -20,7 +22,7 @@ class Header extends React.Component {
 		return (
 			<div className="header">
 				<h1>Amaro</h1>
-				<a href="#" className="ico-cart" onClick={() => this.handleClick()}>{this.props.cart.length}</a>
+				<a href="#" className="ico-cart" onClick={(e) => this.handleClick(e)}>{this.props.cart.length}</a>
 				{this.state.showCart &&
 					<Cart />
 				}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { AddToCart } from '../../actions/addCartAction';
+import { UpdateCart } from '../../actions/cartAction';
 
 class CatalogItem extends React.Component {
 	constructor (props){
@@ -39,10 +39,12 @@ class CatalogItem extends React.Component {
 			let item = {
 				name: product.name,
 				image: product.image,
-				price: product.actual_price
+				regular_price: product.regular_price,
+				actual_price: product.actual_price,
+				quantity: 1
 			};
 			let cart = this.props.cart.concat(item);
-			this.props.funcAddToCart(cart);
+			this.props.funcUpdateCart(cart);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
 		}
@@ -85,7 +87,7 @@ function mapStateToProps({cart}) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		funcAddToCart: (item) => dispatch(AddToCart(item))
+		funcUpdateCart: (item) => dispatch(UpdateCart(item))
 	}
 }
 

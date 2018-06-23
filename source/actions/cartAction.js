@@ -1,8 +1,8 @@
 import * as ActionType from './actionTypes';
 
-export function AddToCart (product) {
+export function UpdateCart (product) {
 	return {
-		type: ActionType.ADD_TO_CART,
+		type: ActionType.UPDATE_CART,
 		cart: product
 	};
 }
