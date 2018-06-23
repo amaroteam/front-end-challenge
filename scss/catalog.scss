@@ -1,9 +1,9 @@
-.card__container {
+.catalog__container {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.card__product-item {
+.catalog__product-item {
 	position: relative;
 	width: calc(50% - 2.2rem);
 	margin: 1rem;
@@ -12,7 +12,7 @@
 	overflow: hidden;
 	border: solid 1px #eee;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
-	background-color: #f3f3f3;
+	background-color: #fafafa;
 
 	@media #{$medium} {
 		width: calc(33.3% - 2.2rem);

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CardItem from './cardItem';
+import CatalogItem from './catalogItem';
 
-class Card extends React.Component {
+class Catalog extends React.Component {
 	constructor (props) {
 		super(props);
 	}
@@ -12,7 +12,7 @@ class Card extends React.Component {
 		let cardList = [];
 
 		data.map((item, i) => {
-			cardList.push(<CardItem key={i} product={item} />);
+			cardList.push(<CatalogItem key={i} product={item} />);
 		});
 
 		return cardList;
@@ -20,15 +20,15 @@ class Card extends React.Component {
 
 	render () {
 		return (
-			<ul className="card__container">
+			<ul className="catalog__container">
 				{this.renderCardItem()}
 			</ul>
 		);
 	}
 }
 
-Card.propTypes = {
+Catalog.propTypes = {
 	products: PropTypes.array
 };
 
-module.exports = Card;
+module.exports = Catalog;

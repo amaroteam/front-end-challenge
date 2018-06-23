@@ -1,7 +1,12 @@
 @import 'reset';
 @import 'media-queries';
 @import 'header';
-@import 'card';
+@import 'cart';
+@import 'catalog';
+
+#app {
+	background-color: #fafafa;
+}
 
 .container {
 	padding-top: 55px;

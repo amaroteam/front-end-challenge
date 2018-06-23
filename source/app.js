@@ -1,7 +1,7 @@
 import React from 'react';
 import data from '../products.json';
 import Header from './components/header/header';
-import Card from './components/card/card';
+import Catalog from './components/catalog/catalog';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
 		return (
 			<div className="container">
 				<Header />
-				<Card products={data.products} />
+				<Catalog products={data.products} />
 			</div>
 		)
 	}

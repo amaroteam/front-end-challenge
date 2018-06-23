@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { AddToCart } from '../../actions/addCartAction';
 
-class CardItem extends React.Component {
+class CatalogItem extends React.Component {
 	constructor (props){
 		super(props);
 		this.state = {
@@ -36,8 +36,13 @@ class CardItem extends React.Component {
 
 	addToCart (product) {
 		if (this.state.itemSize) {
-			let cart = this.props.cart.concat(product);
-			this.props.funcAddToCard(cart);
+			let item = {
+				name: product.name,
+				image: product.image,
+				price: product.actual_price
+			};
+			let cart = this.props.cart.concat(item);
+			this.props.funcAddToCart(cart);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
 		}
@@ -48,7 +53,7 @@ class CardItem extends React.Component {
 		const fallbackImage = '//dummyimage.com/470x594/fff/000?text=imagem indisponível';
 
 		return (
-			<li className="card__product-item">
+			<li className="catalog__product-item">
 				{product.on_sale &&
 					<span className="stamp">{product.discount_percentage} OFF</span>
 				}
@@ -68,7 +73,7 @@ class CardItem extends React.Component {
 	}
 }
 
-CardItem.propTypes = {
+CatalogItem.propTypes = {
 	product: PropTypes.object
 };
 
@@ -80,8 +85,8 @@ function mapStateToProps({cart}) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		funcAddToCard: (item) => dispatch(AddToCart(item))
+		funcAddToCart: (item) => dispatch(AddToCart(item))
 	}
 }
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(CardItem);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(CatalogItem);

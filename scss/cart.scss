@@ -1,0 +1,22 @@
+.cart__container {
+	position: fixed;
+	right: 10px;
+	top: 60px;
+	width: calc(100vw - 52px);
+	padding: 10px 15px;
+	background: #eee;
+	border: solid 1px #666;
+
+	&:before {
+		content: '';
+		position: absolute;
+		right: 13px;
+		top: -6px;
+		width: 10px;
+		height: 10px;
+		background: #eee;
+		border-left: solid 1px #000;
+		border-top: solid 1px #000;
+		transform: rotate(45deg);
+	}
+}
