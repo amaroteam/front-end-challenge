@@ -36,7 +36,8 @@ class CardItem extends React.Component {
 
 	addToCart (product) {
 		if (this.state.itemSize) {
-			this.props.funcAddToCard(product);
+			let cart = this.props.cart.concat(product);
+			this.props.funcAddToCard(cart);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
 		}
