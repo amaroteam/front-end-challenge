@@ -36,8 +36,6 @@ class CardItem extends React.Component {
 
 	addToCart (product) {
 		if (this.state.itemSize) {
-			// const { clickButton } = this.props;
-			// clickButton(product);
 			this.props.funcAddToCard(product);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
@@ -56,8 +54,11 @@ class CardItem extends React.Component {
 				<img src={product.image} onError={(e) => {e.target.src = fallbackImage}} className="product-image" />
 				<p className="product-name">{product.name}</p>
 				<p className="product-price">
+					{product.on_sale &&
+						<del className="regular-price">{product.regular_price}</del>
+					}
 					<span className="actual-price">{product.actual_price}</span>
-					<span className="installments">{product.installments}</span>
+					<span className="installments">em até {product.installments}</span>
 				</p>
 				<p className="product-sizes">{this.getAvailableSizes(product.sizes)}</p>
 				<button className="button__AddToCart" onClick={() => this.addToCart(product)}>Adicionar à sacola</button>
