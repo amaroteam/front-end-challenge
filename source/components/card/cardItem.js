@@ -11,10 +11,6 @@ class CardItem extends React.Component {
 		};
 	}
 
-	normalizePrice (value) {
-		return parseFloat(value.replace('R$ ', '').replace(',', '.'));
-	}
-
 	selectSize (e, size) {
 		e.preventDefault();
 		this.setState({
@@ -36,8 +32,6 @@ class CardItem extends React.Component {
 
 	addToCart (product) {
 		if (this.state.itemSize) {
-			// const { clickButton } = this.props;
-			// clickButton(product);
 			this.props.funcAddToCard(product);
 		} else {
 			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
