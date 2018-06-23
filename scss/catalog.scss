@@ -3,6 +3,26 @@
 	flex-wrap: wrap;
 }
 
+.filter {
+	padding: 15px 0 10px 0;
+	font-size: 1.1rem;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		margin-left: 10px;
+		padding: 3px 6px;
+		color: #000;
+		text-decoration: none;
+		border: solid 1px #ccc;
+		border-radius: 5px;
+
+		&.selected {
+			background-color: #ccc
+		}
+	}
+}
+
 .catalog__product-item {
 	position: relative;
 	width: calc(50% - 2.2rem);
