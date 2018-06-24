@@ -11,10 +11,6 @@ class CatalogItem extends React.Component {
 		};
 	}
 
-	normalizePrice (value) {
-		return parseFloat(value.replace('R$ ', '').replace(',', '.'));
-	}
-
 	selectSize (e, size) {
 		e.preventDefault();
 		this.setState({
