@@ -7,14 +7,18 @@ class CartItem extends React.Component {
 		super(props);
 	}
 
-	removeFromCart (pos) {
+	removeFromCart (e, pos) {
+		e.preventDefault();
+
 		let { cart, funcUpdateCart } = this.props;
 
 		cart.splice(pos, 1);
 		funcUpdateCart([...cart]);
 	}
 
-	changeQuantity (type, pos) {
+	changeQuantity (e, type, pos) {
+		e.preventDefault();
+
 		let { cart, funcUpdateCart } = this.props;
 		let itemQty = cart[pos].quantity;
 
@@ -41,12 +45,12 @@ class CartItem extends React.Component {
 						{product.actual_price}
 					</p>
 					<p className="quantity">
-						<a href="#" className="ico-minus" onClick={() => this.changeQuantity('minus', pos)}>+</a>
+						<a href="#" className="ico-minus" onClick={(e) => this.changeQuantity(e, 'minus', pos)}>+</a>
 						{product.quantity}
-						<a href="#" className="ico-plus" onClick={() => this.changeQuantity('plus', pos)}>-</a>
+						<a href="#" className="ico-plus" onClick={(e) => this.changeQuantity(e, 'plus', pos)}>-</a>
 					</p>
 				</div>
-				<a href="#" title="remover do carrinho" className="ico-remove" onClick={() => this.removeFromCart(pos)}>remover</a>
+				<a href="#" title="remover do carrinho" className="ico-remove" onClick={(e) => this.removeFromCart(e, pos)}>remover</a>
 			</li>
 		);
 	}

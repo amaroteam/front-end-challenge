@@ -21,7 +21,7 @@ class Header extends React.Component {
 	render () {
 		return (
 			<div className="header">
-				<h1>Amaro</h1>
+				<h1>AMARO</h1>
 				<a href="#" className="ico-cart" onClick={(e) => this.handleClick(e)}>{this.props.cart.length}</a>
 				{this.state.showCart &&
 					<Cart />
