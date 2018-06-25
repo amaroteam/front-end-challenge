@@ -7,14 +7,16 @@ class CatalogItem extends React.Component {
 	constructor (props){
 		super(props);
 		this.state = {
-			itemSize: null
+			itemSize: null,
+			showError: false
 		};
 	}
 
 	selectSize (e, size) {
 		e.preventDefault();
 		this.setState({
-			itemSize: size
+			itemSize: size,
+			showError: false
 		});
 	}
 
@@ -42,13 +44,16 @@ class CatalogItem extends React.Component {
 			let cart = this.props.cart.concat(item);
 			this.props.funcUpdateCart(cart);
 		} else {
-			alert(`Você precisa selecionar um tamanho para adicionar o produto ${product.name} ao carrinho.`);
+			this.setState({
+				showError: true
+			});
 		}
 	}
 
 	render () {
 		const product = this.props.product;
 		const fallbackImage = '//dummyimage.com/470x594/fff/000?text=imagem indisponível';
+		const {showError} = this.state;
 
 		return (
 			<li className="catalog__product-item">
@@ -65,6 +70,9 @@ class CatalogItem extends React.Component {
 					<span className="installments">em até {product.installments}</span>
 				</p>
 				<p className="product-sizes">{this.getAvailableSizes(product.sizes)}</p>
+				{showError &&
+					<span className="select-size">Selecione um tamanho.</span>
+				}
 				<button className="button__AddToCart" onClick={() => this.addToCart(product)}>Adicionar à sacola</button>
 			</li>
 		);

@@ -45,8 +45,8 @@
 	.stamp {
 		position: absolute;
 		right: 0;
-		top: 10px;
-		padding: 3px 8px;
+		top: 0;
+		padding: 10px;
 		font-size: 1.1rem;
 		font-weight: 700;
 		color: #fff;
@@ -110,6 +110,28 @@
 				color: #fff;
 				background-color: #000;
 			}
+		}
+	}
+
+	.select-size {
+		position: absolute;
+		left: calc(50% - 90px);
+		bottom: 82px;
+		padding: 11px;
+		width: 160px;
+		text-align: center;
+		border-radius: 3px;
+		background: #ccc;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			left: calc(50% - 5px);
+			bottom: -5px;
+			background: #ccc;
+			transform: rotate(45deg);
 		}
 	}
 
