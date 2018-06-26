@@ -106,13 +106,14 @@
 			text-decoration: none;
 			border: solid 1px #000;
 
+			&:hover {
+				color: #000;
+				background-color: #ddd;
+			}
+
 			&.selected {
 				color: #fff;
 				background-color: #000;
-			}
-
-			&:hover {
-				background-color: #ddd;
 			}
 		}
 	}
