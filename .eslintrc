@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "react-app", 
+    "airbnb", 
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "globals": {
+    "document": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": [
+      "off"
+    ],
+    "react/prefer-stateless-function": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
+  }
+}
