@@ -1,0 +1,49 @@
+@import '../../styles/shared';
+
+.header {
+  backface-visibility: hidden;
+  background-color: #fff;
+  height: 5.5rem;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .02);
+
+  &__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
+  }
+
+  &__brand {
+    height: 2rem;
+  }
+
+  &__icons {
+    align-items: center;
+    display: flex;
+
+    &--search,
+    &--cart {
+      line-height: 0;
+      border-radius: 100%;
+      position: relative;
+      padding: 0;
+      cursor: pointer;
+      padding: .5rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 2rem;
+    }
+
+    &--search {
+      margin-right: 1rem;
+    }
+  }
+}

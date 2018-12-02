@@ -1,0 +1,27 @@
+@import '../../styles/shared';
+
+.products {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  &__box {
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    width: calc(100% / 2);
+
+    & .badge {
+      position: absolute;
+      right: 0;
+      margin: 0;
+    }
+  }
+}

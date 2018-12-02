@@ -1,0 +1,16 @@
+@import '../../styles/shared';
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+
+  &__container {
+    display: block;
+    margin: 0 auto;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    position: relative;
+    width: 100%;
+  }
+}
