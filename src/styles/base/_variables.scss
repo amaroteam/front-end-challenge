@@ -1,0 +1,37 @@
+/* Amaro - Theme Config */
+
+/*
+* Colors
+*/
+
+$black: #212529;
+$dark-grey: #a7a7a7;
+$light-grey: #f9f9f9;
+$white: #fff;
+$red: #cf3838;
+
+/*
+* Colors Sets
+*/
+$background-color: $light-grey;
+
+$brand-color: $black;
+
+$danger-color: $red;
+$color-inverse: $white;
+/*
+* Typography
+*/
+
+$default-font-family: 'Noto Sans SC', sans-serif;
+$default-font-size: 1.6rem;
+$default-font-weight: 400;
+$default-font-color: $brand-color;
+$secondary-font-color: $dark-grey;
+
+/*
+* Media Queries Break Points
+*/
+
+$break-small: 320px;
+$break-large: 1024px;
