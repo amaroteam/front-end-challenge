@@ -1,0 +1,13 @@
+@import '../../styles/shared';
+
+.badge {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: .2rem;
+
+  &--discount {
+    background-color: $brand-color;
+    color: $color-inverse;
+  }
+}

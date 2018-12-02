@@ -1,0 +1,44 @@
+@import '../../styles/shared';
+
+.product {
+  width: 100%;
+
+  &__image {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &__pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__price {
+    font-size: 1.4rem;
+
+    &--from {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      color: $secondary-font-color;
+      text-decoration: line-through;
+    }
+  }
+}
