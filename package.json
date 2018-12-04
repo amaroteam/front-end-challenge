@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "connected-react-router": "^5.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "history": "^4.7.2",
     "node-sass": "^4.10.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
@@ -16,7 +17,9 @@
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "reduxsauce": "^1.0.0",
     "uuid": "^3.3.2",
     "webfontloader": "^1.6.28"
   },
