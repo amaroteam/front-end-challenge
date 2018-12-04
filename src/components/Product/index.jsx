@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProductImage from './ProductImage';
+import slugfy from '../../utils/slugfy';
 import './Product.scss';
-
 
 const Product = ({
   className,
@@ -16,21 +17,22 @@ const Product = ({
   actual_price,
 }) => (
   <div className={className} key={style}>
-    <ProductImage
-      image={image}
-      onSale={on_sale}
-      discount={discount_percentage}
-      altAttr={name}
-    />
+    <Link to={`/product/${slugfy(name)}`}>
+      <ProductImage
+        image={image}
+        onSale={on_sale}
+        discount={discount_percentage}
+        altAttr={name}
+      />
 
-    <h3 className="product__name">{name}</h3>
-    <div className="product__pricing">
-      {on_sale
-        && <span className="product__price product__price--from">{regular_price}</span>
-      }
-      <span className="product__price product__price--to">{actual_price}</span>
-    </div>
-
+      <h3 className="product__name">{name}</h3>
+      <div className="product__pricing">
+        {on_sale
+          && <span className="product__price product__price--from">{regular_price}</span>
+        }
+        <span className="product__price product__price--to">{actual_price}</span>
+      </div>
+    </Link>
   </div>
 );
 

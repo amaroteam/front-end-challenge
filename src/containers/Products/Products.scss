@@ -10,6 +10,10 @@
     justify-content: center;
     margin-left: -1rem;
     margin-right: -1rem;
+
+    @media screen and (min-width: $break-medium) {
+      justify-content: left;
+    }
   }
 
   &__box {
@@ -17,6 +21,10 @@
     position: relative;
     text-align: center;
     width: calc(100% / 2);
+
+    @media screen and (min-width: $break-medium) {
+      width: calc(100% / 4);
+    }
 
     & .badge {
       position: absolute;

@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import Header from '../Header';
-import Products from '../Products';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import './App.scss';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="app">
-        <Header />
-        <Products />
-      </div>
-    );
-  }
-}
+const App = ({ children }) => (
+  <div className="app">
+    {children}
+  </div>
+);
+
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default App;

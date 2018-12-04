@@ -12,5 +12,9 @@
     padding-right: 1.6rem;
     position: relative;
     width: 100%;
+
+    @media screen and (min-width: $break-large) {
+      width: $break-large;
+    }
   }
 }
