@@ -20,3 +20,11 @@ body {
   text-rendering: optimizeLegibility;
   padding-top: 5.5rem;
 }
+
+a,
+a:active,
+a:focus,
+a:hover {
+  color: $default-font-color;
+  text-decoration: none;
+}
