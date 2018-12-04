@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WebFont from 'webfontloader';
-import App from './containers/App';
-import './styles/main.scss';
+import { Provider } from 'react-redux';
+import Routes from './routes';
+import fetchProductsThunk from './store/ducks/thunks';
 import * as serviceWorker from './serviceWorker';
+
+import './styles/main.scss';
+import store from './store';
 
 WebFont.load({
   google: {
@@ -12,7 +16,12 @@ WebFont.load({
 });
 
 ReactDOM.render(
-  <App />,
+  <Provider
+    store={store}
+    onLoad={store.dispatch(fetchProductsThunk())}
+  >
+    <Routes />
+  </Provider>,
   document.getElementById('root'),
 );
 
