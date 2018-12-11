@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import WebFont from 'webfontloader';
 import { Provider } from 'react-redux';
 import Routes from './routes';
-import fetchProductsThunk from './store/ducks/thunks';
+import { fetchProductsThunk } from './store/ducks/thunks';
 import * as serviceWorker from './serviceWorker';
 
 import './styles/main.scss';
