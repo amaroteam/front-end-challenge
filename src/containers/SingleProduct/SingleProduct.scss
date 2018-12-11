@@ -1,0 +1,46 @@
+@import '../../styles/shared';
+
+.single-product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  padding-bottom: 6.5rem;
+
+  @media screen and (min-width: $break-large) {
+    width: $break-large;
+    padding-top: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  & .product {
+    &__image,
+    &__content {
+      width: 100%;
+
+      @media screen and (min-width: $break-large) {
+        width: calc(100% / 2);
+      }
+    }
+  }
+
+  & .badge {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0;
+    margin: 0;
+
+    @media screen and (min-width: $break-large) {
+      right: 0;
+      top: 0;
+      left: auto;
+      bottom: auto;
+      margin: 0;
+    }
+  }
+}
