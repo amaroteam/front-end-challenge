@@ -17,7 +17,7 @@ const Product = ({
   actual_price,
 }) => (
   <div className={className} key={style}>
-    <Link to={`/product/${slugfy(name)}`}>
+    <Link to={`/produto/${slugfy(name)}`}>
       <ProductImage
         image={image}
         onSale={on_sale}
