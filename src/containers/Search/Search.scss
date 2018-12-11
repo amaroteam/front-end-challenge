@@ -1,0 +1,57 @@
+@import '../../styles/shared';
+
+.search {
+  padding-bottom: 5rem;
+  width: 100%;
+
+  &__form {
+    background: #f6f6f6;
+    box-shadow: 0 0.2rem 2rem 0 rgba(0, 0, 0, .1);
+    color: #fff;
+    display: inline-block;
+    padding: 1rem 1.6rem;
+    width: 100%;
+  }
+
+  &__input {
+    background: #fff;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, .2);
+    color: $brand-color;
+    font-size: 1.4rem;
+    font-weight: 600;
+    height: auto;
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0 1px 0 $brand-color;
+    }
+
+    &::placeholder {
+      color: $secondary-font-color;
+    }
+  }
+
+  & a {
+    display: block;
+  }
+
+  & .product__image {
+    width: 15%;
+  }
+
+  & .product__list__pricing {
+    width: 35%;
+  }
+
+  & .header__title {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    color: #a7a7a7;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
