@@ -1,15 +1,15 @@
 import productsEndpoint from './products.json';
-import { productSlugFilter } from '../utils/productHandler';
+import { filterProductBySlug } from '../utils/productHandler';
 
 const getProducts = mockedData => new Promise(resolve => resolve([...mockedData.products]));
 
-const getProductBySlug = slug => new Promise(resolve => (
-  resolve(productSlugFilter(slug, productsEndpoint, getProducts))
+const getProductByPathname = pathname => new Promise(resolve => (
+  resolve(filterProductBySlug(pathname, productsEndpoint, getProducts))
 ));
 
 const api = {
   getProducts: () => getProducts(productsEndpoint),
-  getProductBySlug: slug => getProductBySlug(slug),
+  getProductByPathname: pathname => getProductByPathname(pathname),
 };
 
 export default api;
