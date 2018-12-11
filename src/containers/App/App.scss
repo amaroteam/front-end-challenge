@@ -4,6 +4,7 @@
   min-height: 100vh;
   position: relative;
   width: 100%;
+  padding-top: 5.5rem;
 
   &__container {
     display: block;
@@ -16,5 +17,26 @@
     @media screen and (min-width: $break-large) {
       width: $break-large;
     }
+  }
+
+  &.app--is-drawer-visible {
+    overflow-y: hidden;
+    transition: opacity 225ms;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+
+      &:before {
+        backface-visibility: visible;
+        background: radial-gradient(ellipse at center,#7a7a7a 0,#000 100%);
+        bottom: 0;
+        content: "";
+        height: 100vh;
+        opacity: .75;
+        pointer-events: all;
+        position: fixed;
+        right: 0;
+        visibility: visible;
+        width: 100vw;
+        z-index: 15;
+      }
   }
 }

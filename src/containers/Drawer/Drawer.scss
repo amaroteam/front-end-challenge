@@ -1,0 +1,38 @@
+@import '../../styles/shared';
+
+.drawer {
+  backface-visibility: hidden;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.3s ease-out;
+  width: 100%;
+  z-index: 20;
+
+  @media screen and (min-width: $break-large) {
+    right: 0;
+    width: 375px;
+
+    & .app__container {
+      width: 375px;
+    }
+  }
+
+  &.drawer--is-visible {
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, .30),
+                0 15px 12px rgba(0, 0, 0, .22);
+  }
+
+  &__content {
+    background: #f9f9f9;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 5.5rem;
+    width: 100%;
+  }
+}
