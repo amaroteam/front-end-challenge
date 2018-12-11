@@ -1,44 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Vinícius Ribeiro - Amaro Front-end Challenge
 
-In the project directory, you can run:
+### Application Architecture
+This project was developed with the following stack of technologies:
 
-### `npm start`
+>  - Create React App
+>  - React
+>  - Redux
+>  - React Router 4
+>  - Redux Thunk
+>  - SASS
+___
 
-Runs the app in the development mode.<br>
+### Locally Running Application
+
+##### In the project directory, you can run:
+```$ yarn install``` or ```$ npm install```
+  
+##### In the project directory, you can run:
+```$ yarn start``` or ```$ npm start```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+___
 
-### `npm test`
+### About the Challenge
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### What was done ?
+* ~~-   The page can't be static. It needs some logic to show all products dynamically.~~
+*   ~~All products from  `products.json`  must be shown.~~
+*  ~~You need to use some build tool (Grunt, Gulp, npm, Webpack, etc) to bundle your files. And ES2015+ features of course. And don't forget to add instructions on how to run the project.~~
+* ~~Do not ask your friends to solve the challenge for you. You'll need to explain your choices in person.~~
+* ~~The app must be responsive. Use a  **mobile-first**  approach.~~
+* ~~It must be possible to add products by size to the cart.~~
+* ~~It must be possible to view the cart with the items you've added (name, image, price, quantity) and the grand total.~~
+* ~~The cart should be persisted between reloads.~~
+* ~~Add more functionality to cart allowing users to add, remove and change quantity of cart items.~~
+* ~~Add a Search box.~~
+* ~~Some products don't have all sizes available. Show only the ones on stock.~~
+* Test your application and components.
+	* ***This task is missing, I left the jest and enzyme tests to the end, and due to the rush I ended up not writing tests. But in my routine, I write unit tests.***
 
-### `npm run build`
+___
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### How it was done ?
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+ - No framework was used such as bootstrap, material-ui or antd so you can evaluate the way I write components and scss.
+ - No javascript library, such as ramda or lodash, has been used so you can gauge how I solve problems with vanilla js.
+ - BEM CSS Methodology
+ - AirbnB StyleGuide
+ - Pure Function Components
+ - Ducks folders and files structure pattern
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
