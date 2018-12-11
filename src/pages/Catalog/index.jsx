@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import Header from '../../containers/Header';
+import HeaderDefault from '../../containers/Header/HeaderDefault';
 import Products from '../../containers/Products';
 
 const Catalog = () => (
-  <React.Fragment>
-    <Header />
+  <Fragment>
+    <HeaderDefault />
     <Products />
-  </React.Fragment>
+  </Fragment>
 );
 
 export default Catalog;

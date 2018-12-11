@@ -1,10 +1,13 @@
-import React from 'react';
-import Header from '../../containers/Header';
+import React, { Fragment } from 'react';
+
+import HeaderDefault from '../../containers/Header/HeaderDefault';
+import SingleProduct from '../../containers/SingleProduct';
 
 const Product = () => (
-  <React.Fragment>
-    <Header />
-  </React.Fragment>
+  <Fragment>
+    <HeaderDefault />
+    <SingleProduct />
+  </Fragment>
 );
 
 export default Product;
