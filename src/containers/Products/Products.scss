@@ -8,8 +8,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
 
     @media screen and (min-width: $break-medium) {
       justify-content: left;
@@ -17,7 +17,7 @@
   }
 
   &__box {
-    padding: 1rem;
+    padding: 1rem .25rem;
     position: relative;
     text-align: center;
     width: calc(100% / 2);
@@ -31,5 +31,11 @@
       right: 0;
       margin: 0;
     }
+  }
+
+  & .header__title {
+    color: #a7a7a7;
+    font-size: 1.4rem;
+    font-weight: 400;
   }
 }
