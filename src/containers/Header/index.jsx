@@ -1,28 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { SearchButton, CartButton } from '../../components/Button/IconButtons';
-import { Counter as CartCounter } from '../../components/Counter';
-
-import Brand from '../../components/Brand';
+import PropTypes from 'prop-types';
 import './Header.scss';
 
-const Header = () => (
+const Header = ({ children }) => (
   <header className="header">
     <div className="app__container">
-      <div className="header__content">
-        <Link to="/">
-          <Brand className="header__brand" />
-        </Link>
-
-        <div className="header__icons">
-          <SearchButton className="header__icons--search" />
-          <CartButton className="header__icons--cart">
-            <CartCounter />
-          </CartButton>
-        </div>
-      </div>
+      {children}
     </div>
   </header>
 );
+
+Header.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default Header;
