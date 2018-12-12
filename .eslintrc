@@ -1,0 +1,73 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "spread": true,
+      "restParams": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      { "components": ["Link"], "specialLink": ["to"] }
+    ],
+    "max-len": [1, 80, 2],
+    "quotes": 1,
+    "semi": 1,
+    "strict": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/no-find-dom-node": 0,
+    "react/no-children-prop": 0,
+    "require-jsdoc": 0,
+    "global-require": "off",
+    "skipBlankLines": 0,
+    "func-call-spacing": ["error", "never"],
+    "space-before-function-paren": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "multiline-ternary": 0,
+    "one-var": ["error", { "initialized": "never" }],
+    "guard-for-in": 0,
+    "no-invalid-this": 0,
+    "eqeqeq": [1, "smart"],
+    "no-var": 1,
+    "no-alert": 1,
+    "no-console": 1,
+    "no-debugger": 1,
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "array-bracket-spacing": [
+      2,
+      "always",
+      {
+        "objectsInArrays": false
+      }
+    ],
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }]
+  }
+}

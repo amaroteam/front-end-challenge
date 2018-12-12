@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-black;
+  background: $color-white;
+  font-family: Roboto, sans-serif;
+  font-size: map_get($fontsize, 'normal');
+  font-weight: 400;
+  margin: 0;
+}
+
+.App {
+  &__logo {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    max-width: 480px;
+
+    @include mq('desktop') {
+      margin-bottom: rem(30px);
+    }
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+    max-width: map_get($breakpoints, 'desktop');
+  }
+
+  &__header {
+    padding: 10px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: map_get($fontsize, 'x-large');
+
+    @include mq('desktop') {
+      font-size: map_get($fontsize, 'xx-large');
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    margin-top: rem(20px);
+    padding: rem(10px) rem(20px);
+    background-color: $color-black;
+    color: $color-white;
+    font-size: map_get($fontsize, 'normal');
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    border: 1px solid $color-black;
+
+    @include mq('desktop') {
+      font-size: map_get($fontsize, 'medium');
+    }
+
+    &:hover {
+      color: $color-black;
+      background: $color-white;
+    }
+
+    &__favorite {
+      background-color: $color-gray;
+      margin-top: 0;
+      padding: rem(10px) rem(15px);
+      font-size: map_get($fontsize, 'small');
+      border: 0;
+
+      &:hover {
+        opacity: 0.8;
+        background-color: $color-gray;
+      }
+
+      &--positive {
+        border-right: 1px solid $color-white;
+        border-radius: 0 0 0 rem(5px);
+      }
+
+      &--negative {
+        border-radius: 0 0 rem(5px) 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.App {
+  &__products {
+    padding: rem(10px);
+
+    &__wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-content: flex-start;
+      flex-flow: row wrap;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &__item {
+      margin-bottom: rem(10px);
+      padding: rem(10px);
+      flex: 0 1 auto;
+      border: 1px solid $color-white;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border-color: $color-gray;
+        z-index: 2;
+      }
+
+      &--large {
+        padding: 0;
+        flex: 1;
+
+        &:hover {
+          border-color: transparent;
+          transform: none;
+        }
+      }
+
+      @include mq('mobile') {
+        flex-basis: (100% / 2);
+      }
+
+      @include mq('desktop') {
+        flex-basis: (100% / 3);
+      }
+    }
+
+    &__picture {
+      position: relative;
+    }
+
+    &__color {
+      padding: rem(5px) rem(10px);
+      font-weight: 700;
+      background-color: $color-white;
+      border-radius: rem(5px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+      @include mq('desktop') {
+        font-size: map_get($fontsize, 'large');
+      }
+
+      &__wrapper {
+        position: absolute;
+        right: 0;
+        z-index: 1;
+      }
+    }
+
+    &__photo {
+      position: relative;
+      display: block;
+      width: 100%;
+      background-color: $color-black;
+      z-index: 0;
+    }
+
+    &__title {
+      margin: rem(40px) 0 0 0;
+      font-size: map_get($fontsize, 'normal');
+
+      @include mq('desktop') {
+        font-size: map_get($fontsize, 'medium');
+      }
+
+      &--large {
+        margin: 0 0 rem(40px) 0;
+        font-size: map_get($fontsize, 'x-large');
+
+        @include mq('desktop') {
+          font-size: map_get($fontsize, 'xx-large');
+        }
+      }
+    }
+
+    &__subtitle {
+      display: block;
+      font-size: 75%;
+    }
+
+    &__description,
+    &__details {
+      line-height: 150%;
+
+      @include mq('desktop') {
+        font-size: map_get($fontsize, 'medium');
+      }
+
+      &--large {
+        margin-top: (40px);
+      }
+    }
+
+    &__details {
+      margin: 0;
+    }
+
+    &__name {
+      padding-right: rem(10px);
+    }
+
+    &__sizes {
+      margin: 0 0 rem(10px) 0;
+      display: inline-block;
+      line-height: 150%;
+
+      &__item {
+        display: inline-block;
+        margin-right: rem(5px);
+        padding: 0 rem(5px);
+        font-size: map_get($fontsize, 'small');
+        color: $color-white;
+        background-color: $color-black;
+        border-radius: rem(5px);
+
+        @include mq('desktop') {
+          margin-top: rem(5px);
+          font-size: map_get($fontsize, 'normal');
+        }
+      }
+    }
+  }
+}

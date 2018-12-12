@@ -1,0 +1,20 @@
+$color-white: white;
+$color-black: black;
+$color-gray: #ccc;
+
+$stars-length: 88px;
+$stars-width: 18px;
+
+$breakpoints: (
+  'mobile': 480px,
+  'desktop': 1024px,
+);
+
+$fontsize: (
+  'small': 14px,
+  'normal': 16px,
+  'medium': 18px,
+  'large': 21px,
+  'x-large': 24px,
+  'xx-large': 36px,
+);

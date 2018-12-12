@@ -1,0 +1,57 @@
+{
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "no-duplicate-selectors": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "color-named": "always-where-possible",
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-brackets-space-inside": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "number-leading-zero": "always",
+    "function-url-quotes": "always",
+    "font-weight-notation": "numeric",
+    "font-family-name-quotes": "always-where-recommended",
+    "comment-whitespace-inside": "always",
+    "comment-empty-line-before": "always",
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-class-parentheses-space-inside": "never",
+    "property-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "media-feature-range-operator-space-before": "never",
+    "media-feature-range-operator-space-after": "never",
+    "media-feature-parentheses-space-inside": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-colon-space-before": "never",
+    "media-feature-colon-space-after": "always",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global"
+        ]
+      }
+    ],
+    "rule-empty-line-before": [ "always", {
+      "except": ["first-nested"],
+      "ignore": ["after-comment"]
+    }],
+    "max-empty-lines": 2,
+    "unit-case": "lower",
+    "no-eol-whitespace": [true, {
+      "ignore": ["empty-lines"]
+    }],
+    "block-closing-brace-newline-after": [ "always", { "ignoreAtRules": ["if", "else"] }],
+    "at-rule-no-unknown": [ true, {
+      ignoreAtRules: ['extend', 'at-root', 'debug', 'warn', 'error', 'if', 'else', 'for', 'each', 'while', 'mixin', 'include', 'content', 'return', 'function']
+    }]
+  }
+}
