@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  name: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  color: PropTypes.string,
   isTitle: PropTypes.bool.isRequired,
+};
+
+const defaultProps = {
+  name: '',
+  color: '',
 };
 
 const ProductsTitle = ({ name, color, isTitle }) => {
@@ -29,5 +34,6 @@ const ProductsTitle = ({ name, color, isTitle }) => {
 };
 
 ProductsTitle.propTypes = propTypes;
+ProductsTitle.defaultProps = defaultProps;
 
 export default ProductsTitle;

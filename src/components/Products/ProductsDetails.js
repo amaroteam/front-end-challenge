@@ -38,6 +38,10 @@ class ProductsDetails extends PureComponent {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   getProduct = (style, code_color) => {
     const { products } = this.props;
 
