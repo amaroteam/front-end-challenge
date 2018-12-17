@@ -1,8 +1,10 @@
 .App {
   &__products {
+    margin-top: $header-height;
     padding: rem(10px);
 
-    &__wrapper {
+    &__wrapper,
+    &__main {
       display: flex;
       justify-content: flex-start;
       align-content: flex-start;
@@ -14,12 +16,13 @@
       margin-bottom: rem(10px);
       padding: rem(10px);
       flex: 0 1 auto;
+      color: $color-black;
       border: 1px solid $color-white;
+      text-decoration: none;
       transition: all 0.3s ease-in-out;
 
       &:hover {
         border-color: $color-gray;
-        z-index: 2;
       }
 
       &--large {
@@ -36,13 +39,34 @@
         flex-basis: (100% / 2);
       }
 
-      @include mq('desktop') {
+      @include mq('tablet') {
         flex-basis: (100% / 3);
+      }
+
+      @include mq('desktop') {
+        flex-basis: (100% / 4);
       }
     }
 
     &__picture {
       position: relative;
+
+      &--large {
+        width: 100%;
+
+        @include mq('mobile') {
+          width: 50%;
+        }
+      }
+    }
+
+    &__info {
+      width: 100%;
+      padding: 0 rem(10px);
+
+      @include mq('mobile') {
+        width: 50%;
+      }
     }
 
     &__color {
@@ -69,18 +93,23 @@
       width: 100%;
       background-color: $color-black;
       z-index: 0;
+
+      &--large {
+        width: 50%;
+      }
     }
 
     &__title {
       margin: rem(40px) 0 0 0;
       font-size: map_get($fontsize, 'normal');
+      text-transform: capitalize;
 
       @include mq('desktop') {
         font-size: map_get($fontsize, 'medium');
       }
 
       &--large {
-        margin: 0 0 rem(40px) 0;
+        margin: 0 0 rem(20px) 0;
         font-size: map_get($fontsize, 'x-large');
 
         @include mq('desktop') {
@@ -105,6 +134,10 @@
       &--large {
         margin-top: (40px);
       }
+
+      &--discount {
+        text-decoration: line-through;
+      }
     }
 
     &__details {
@@ -117,7 +150,7 @@
 
     &__sizes {
       margin: 0 0 rem(10px) 0;
-      display: inline-block;
+      display: block;
       line-height: 150%;
 
       &__item {
@@ -127,11 +160,23 @@
         font-size: map_get($fontsize, 'small');
         color: $color-white;
         background-color: $color-black;
+        border: 1px solid $color-white;
         border-radius: rem(5px);
+        cursor: pointer;
 
         @include mq('desktop') {
           margin-top: rem(5px);
           font-size: map_get($fontsize, 'normal');
+        }
+
+        &[disabled] {
+          opacity: 0.3;
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+
+        &--selected {
+          border-color: $color-black;
         }
       }
     }

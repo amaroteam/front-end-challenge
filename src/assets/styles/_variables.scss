@@ -2,12 +2,12 @@ $color-white: white;
 $color-black: black;
 $color-gray: #ccc;
 
-$stars-length: 88px;
-$stars-width: 18px;
+$header-height: 100px;
 
 $breakpoints: (
-  'mobile': 480px,
-  'desktop': 1024px,
+  'mobile': 481px,
+  'tablet': 769px,
+  'desktop': 1025px,
 );
 
 $fontsize: (

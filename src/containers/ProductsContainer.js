@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { setProducts } from '../actions/products';
+import { setProducts, setBasket } from '../actions/products';
 
 import ProductsList from '../components/Products/ProductsList';
 
@@ -48,6 +48,7 @@ ProductsContainer.propTypes = propTypes;
 const mapStateToProps = state => {
   return {
     ...state.store,
+    ...state.basket,
   };
 };
 
@@ -55,6 +56,9 @@ const mapDispatchToProps = dispatch => {
   return {
     setProducts: data => {
       dispatch(setProducts(data));
+    },
+    setBasket: data => {
+      dispatch(setBasket(data));
     },
   };
 };

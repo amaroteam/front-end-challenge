@@ -15,12 +15,7 @@ body {
   &__logo {
     display: block;
     margin: 0 auto;
-    width: 25%;
-    max-width: 480px;
-
-    @include mq('desktop') {
-      margin-bottom: rem(30px);
-    }
+    width: $header-height * 2;
   }
 
   &__loading {
@@ -38,7 +33,15 @@ body {
   }
 
   &__header {
-    padding: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: $header-height;
+    background: $color-white;
+    border-bottom: 1px solid $color-gray;
+    z-index: 9;
   }
 
   &__title {
@@ -47,6 +50,18 @@ body {
 
     @include mq('desktop') {
       font-size: map_get($fontsize, 'xx-large');
+    }
+  }
+
+  &__input {
+    font-size: map_get($fontsize, 'normal');
+    line-height: normal;
+    border: 1px solid $color-black;
+    padding: rem(10px) rem(20px);
+
+    &--amount {
+      width: 75px;
+      margin-right: rem(20px);
     }
   }
 
@@ -71,28 +86,6 @@ body {
     &:hover {
       color: $color-black;
       background: $color-white;
-    }
-
-    &__favorite {
-      background-color: $color-gray;
-      margin-top: 0;
-      padding: rem(10px) rem(15px);
-      font-size: map_get($fontsize, 'small');
-      border: 0;
-
-      &:hover {
-        opacity: 0.8;
-        background-color: $color-gray;
-      }
-
-      &--positive {
-        border-right: 1px solid $color-white;
-        border-radius: 0 0 0 rem(5px);
-      }
-
-      &--negative {
-        border-radius: 0 0 rem(5px) 0;
-      }
     }
   }
 }

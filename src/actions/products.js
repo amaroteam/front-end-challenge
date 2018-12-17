@@ -5,7 +5,11 @@ export const setProducts = data => ({
   data,
 });
 
-export const setBasket = data => ({
+export const setBasket = (id, size, qtd) => ({
   type: SET_BASKET,
-  data,
+  data: {
+    id: id,
+    size: size,
+    qtd: qtd,
+  },
 });

@@ -1,8 +1,13 @@
-const friendlyURL = (name = '', style = '') => {
-  return name
-    .toLowerCase()
+const replaceValue = value => {
+  return value
     .trim()
-    .replace(/[^\w]+/g, '-')
+    .toLowerCase()
+    .replace(/[^\w]+/g, '-');
+};
+
+const friendlyURL = (name = '', color = '', style = '') => {
+  return replaceValue(name)
+    .concat(`-${replaceValue(color)}`)
     .concat(`-${style}`);
 };
 
