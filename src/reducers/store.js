@@ -29,7 +29,7 @@ const storeReducer = (state = defaultState, action) => {
     case REMOVE_BASKET:
       return {
         ...state,
-        basket: state.basket.splice((item, index) => index !== action.index),
+        basket: state.basket.filter((item, index) => index !== action.index),
       };
 
     default:
