@@ -18,12 +18,10 @@ const ProductsImage = ({ name, color, image, isLarge }) => {
   const nameLowerCase = name.toLowerCase();
   const colorLowerCase = color.toLowerCase();
 
+  const isLargeClassName = isLarge ? 'App__products__picture--large' : '';
+
   return (
-    <div
-      className={`App__products__picture ${
-        isLarge ? 'App__products__picture--large' : ''
-      }`}
-    >
+    <div className={`App__products__picture ${isLargeClassName}`}>
       <picture>
         <img
           src={image || 'https://via.placeholder.com/470x594'}

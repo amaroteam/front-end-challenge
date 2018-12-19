@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { setBasket } from '../../actions/products';
+import { Link, withRouter } from 'react-router-dom';
+import { setBasket } from '../../actions/store';
 
 import ProductsTitle from './ProductsTitle';
 import ProductsImage from './ProductsImage';
@@ -32,9 +32,13 @@ class ProductsDetails extends PureComponent {
     super();
 
     this.state = {
+      isSizeSelected: false,
       productName: '',
+      productImage: '',
+      productColor: '',
       productSize: '',
-      productAmount: 1,
+      productQtd: 1,
+      productPrice: 0,
     };
   }
 
@@ -52,20 +56,41 @@ class ProductsDetails extends PureComponent {
     );
   };
 
-  handleBasketAmount = event => {
-    this.setState({ productAmount: event.target.value });
+  handleSize = event => {
+    this.setState({ isSizeSelected: true, productSize: event.target.value });
+  };
+
+  handleBasketQtd = event => {
+    this.setState({ productQtd: event.target.value });
   };
 
   handleAdd = () => {
-    const { productName, productSize, productAmount } = this.state;
-    const { setBasket } = this.props;
+    const {
+      isSizeSelected,
+      productName,
+      productImage,
+      productColor,
+      productSize,
+      productQtd,
+      productPrice,
+    } = this.state;
 
-    setBasket(productName, productSize, productAmount);
-  };
+    const { history, setBasket } = this.props;
 
-  handleGoBack = () => {
-    const { history } = this.props;
-    history.goBack();
+    if (isSizeSelected) {
+      setBasket(
+        productName,
+        productImage,
+        productColor,
+        productSize,
+        productQtd,
+        productPrice
+      );
+
+      history.push('/sacola');
+    } else {
+      this.setState({ isSizeSelected: true });
+    }
   };
 
   render() {
@@ -96,6 +121,15 @@ class ProductsDetails extends PureComponent {
       sizes,
     } = this.getProduct(style, code_color);
 
+    this.setState({
+      productName: name,
+      productImage: image,
+      productColor: color,
+      productPrice: regular_price,
+    });
+
+    const { isSizeSelected, productSize } = this.state;
+
     return (
       <div className="App__products__item App__products__item--large">
         <ProductsTitle name={name} color={color} isTitle />
@@ -113,32 +147,39 @@ class ProductsDetails extends PureComponent {
 
             <p className="App__products__details">{installments}</p>
 
-            <ProductsSizes sizes={sizes} />
+            <ProductsSizes
+              sizes={sizes}
+              sizeSelected={productSize}
+              onClick={this.handleSize}
+            />
+
+            {isSizeSelected && !productSize.length && (
+              <p className="App__message--error">Selecione o tamanho...</p>
+            )}
 
             <input
               type="number"
-              id="productAmount"
               defaultValue="1"
-              className="App__input App__input--amount"
-              onChange={this.handleBasketAmount}
+              className="App__input App__input--qtd"
+              onChange={this.handleBasketQtd}
             />
             <button
               type="button"
               className="App__button App__button--more-detail"
-              onClick={() => this.handleAdd(name, 1, 2)}
+              onClick={this.handleAdd}
             >
               {'Adicionar'}
             </button>
           </div>
         </div>
 
-        <button
+        <Link
+          to="/"
           type="button"
           className="App__button App__button--more-detail"
-          onClick={this.handleGoBack}
         >
           {'Voltar'}
-        </button>
+        </Link>
       </div>
     );
   }
@@ -155,8 +196,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setBasket: (name, size, qtd) => {
-      dispatch(setBasket(name, size, qtd));
+    setBasket: (name, image, color, size, qtd, price) => {
+      dispatch(setBasket(name, image, color, size, qtd, price));
     },
   };
 };

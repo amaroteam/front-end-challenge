@@ -1,27 +1,24 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { applyMiddleware, compose, createStore } from 'redux';
-import { createBrowserHistory } from 'history';
-import { routerMiddleware, connectRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
-import productsReducer from './reducers';
+import { PersistGate } from 'redux-persist/integration/react';
+import createHistory from 'history/createBrowserHistory';
+
+import configureStore from './configureStore';
 
 import App from './components/App';
 
-const history = createBrowserHistory();
+const initialState = {};
 
-const composeEnhancer =
-  (process.env.NODE_ENV !== 'production' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-const store = createStore(
-  connectRouter(history)(productsReducer),
-  composeEnhancer(applyMiddleware(routerMiddleware(history)))
-);
+const history = createHistory();
+
+const { store, persistor } = configureStore(initialState, history);
 
 render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

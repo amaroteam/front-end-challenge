@@ -1,0 +1,69 @@
+.App {
+  &__basket {
+    width: 100%;
+
+    .App__products__picture {
+      width: 75px;
+    }
+
+    .App__products__title {
+      margin: 0 0 0 rem(10px);
+      flex: 1 1 40%;
+      font-size: map_get($fontsize, 'small');
+      font-weight: 500;
+    }
+
+    .App__products__subtitle {
+      font-size: 100%;
+    }
+
+    &__item {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: rem(10px);
+      padding: rem(10px);
+      border-bottom: 1px solid $color-gray;
+
+      @include mq('mobile') {
+        flex-direction: row;
+      }
+    }
+
+    &__qtd,
+    &__size,
+    &__price {
+      flex: 0 0 auto;
+      text-align: center;
+
+      @include mq('mobile') {
+        flex: 0 0 80px;
+        text-align: left;
+      }
+    }
+
+    &__qtd {
+      font-size: map_get($fontsize, 'small');
+    }
+
+    &__size {
+      margin: 0;
+      font-size: map_get($fontsize, 'small');
+    }
+
+    &__price {
+      margin: 0;
+      font-size: map_get($fontsize, 'small');
+      text-align: right;
+    }
+
+    &__button {
+      position: absolute;
+      right: rem(10px);
+      top: rem(10px);
+      z-index: 1;
+    }
+  }
+}

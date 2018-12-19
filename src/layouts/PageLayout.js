@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Header from '../components/Header';
 
@@ -23,4 +25,10 @@ const PageLayout = props => {
 
 PageLayout.propTypes = propTypes;
 
-export default PageLayout;
+const mapStateToProps = state => {
+  return {
+    ...state.store,
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(PageLayout));

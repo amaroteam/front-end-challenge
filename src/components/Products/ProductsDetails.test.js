@@ -3,7 +3,11 @@ import { shallow } from 'enzyme';
 import ProductsDetails from './ProductsDetails';
 
 test('expect to render ProductsDetails component', () => {
-  const mockProducts = [];
+  const mockProducts = {
+    products: [],
+  };
 
-  expect(shallow(<ProductsDetails products={mockProducts} />)).toHaveLength(1);
+  expect(
+    shallow(<ProductsDetails products={mockProducts.products} />)
+  ).toHaveLength(1);
 });

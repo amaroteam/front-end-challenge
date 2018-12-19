@@ -17,12 +17,16 @@
       padding: rem(10px);
       flex: 0 1 auto;
       color: $color-black;
+      background-color: $color-white;
       border: 1px solid $color-white;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
+      will-change: transform;
+      transform: translate(center, center);
 
       &:hover {
         border-color: $color-gray;
+        z-index: 1;
       }
 
       &--large {
@@ -91,8 +95,6 @@
       position: relative;
       display: block;
       width: 100%;
-      background-color: $color-black;
-      z-index: 0;
 
       &--large {
         width: 50%;
@@ -100,7 +102,7 @@
     }
 
     &__title {
-      margin: rem(40px) 0 0 0;
+      margin: rem(10px) 0 0 0;
       font-size: map_get($fontsize, 'normal');
       text-transform: capitalize;
 
@@ -155,13 +157,12 @@
 
       &__item {
         display: inline-block;
-        margin-right: rem(5px);
-        padding: 0 rem(5px);
+        margin-right: rem(10px);
+        padding: rem(10px);
         font-size: map_get($fontsize, 'small');
-        color: $color-white;
-        background-color: $color-black;
-        border: 1px solid $color-white;
-        border-radius: rem(5px);
+        color: $color-black;
+        background-color: $color-white;
+        border: 1px solid $color-gray;
         cursor: pointer;
 
         @include mq('desktop') {
@@ -176,7 +177,8 @@
         }
 
         &--selected {
-          border-color: $color-black;
+          color: $color-white;
+          background-color: $color-black;
         }
       }
     }

@@ -31,7 +31,17 @@ test('expect to render ProductsSizes component', () => {
         sku: '5807_343_0_GG',
       },
     ],
+    sizeSelected: false,
+    onClick: () => {},
   };
 
-  expect(shallow(<ProductsSizes sizes={mockSizes.sizes} />)).toHaveLength(1);
+  expect(
+    shallow(
+      <ProductsSizes
+        sizes={mockSizes.sizes}
+        sizeSelected={mockSizes.sizeSelected}
+        onClick={mockSizes.onClick}
+      />
+    )
+  ).toHaveLength(1);
 });

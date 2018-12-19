@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   on_sale: PropTypes.bool,
-  regular_price: PropTypes.string.isRequired,
-  actual_price: PropTypes.string.isRequired,
+  regular_price: PropTypes.string,
+  actual_price: PropTypes.string,
   discount_percentage: PropTypes.string,
 };
 
 const defaultProps = {
   on_sale: false,
+  regular_price: '',
+  actual_price: '',
   discount_percentage: '',
 };
 

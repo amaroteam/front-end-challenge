@@ -2,21 +2,32 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { setProducts, setBasket } from '../actions/products';
+import withLoader from '../components/withLoader';
 
+import { setProducts } from '../actions/store';
+
+import ProductsFilter from '../components/Products/ProductsFilter';
 import ProductsList from '../components/Products/ProductsList';
 
 import productsJSON from '../data/products.json';
 
 const propTypes = {
   products: PropTypes.instanceOf(Array).isRequired,
-  loading: PropTypes.bool.isRequired,
   setProducts: PropTypes.func.isRequired,
 };
 
-class ProductsContainer extends PureComponent {
+class Products extends PureComponent {
+  constructor() {
+    super();
+
+    this.state = {
+      isOnSale: false,
+    };
+  }
+
   componentDidMount() {
     const { products } = this.props;
+
     if (!products.length) {
       this.fetchAllProducts();
     }
@@ -31,24 +42,38 @@ class ProductsContainer extends PureComponent {
 
     setProducts({
       products: data,
-      loading: false,
     });
   };
 
-  render() {
-    const { loading, products } = this.props;
-    if (loading) return <p className="App__loading">Loading...</p>;
+  handleOnSale = () => {
+    this.setState(prevState => ({
+      isOnSale: !prevState.isOnSale,
+    }));
+  };
 
-    return <ProductsList products={products} />;
+  render() {
+    const { products } = this.props;
+    const { isOnSale } = this.state;
+
+    return (
+      <React.Fragment>
+        <ProductsFilter isOnSale={isOnSale} onClick={this.handleOnSale} />
+
+        <ProductsList
+          products={products}
+          isOnSale={isOnSale}
+          isLoading={false}
+        />
+      </React.Fragment>
+    );
   }
 }
 
-ProductsContainer.propTypes = propTypes;
+Products.propTypes = propTypes;
 
 const mapStateToProps = state => {
   return {
     ...state.store,
-    ...state.basket,
   };
 };
 
@@ -57,15 +82,14 @@ const mapDispatchToProps = dispatch => {
     setProducts: data => {
       dispatch(setProducts(data));
     },
-    setBasket: data => {
-      dispatch(setBasket(data));
-    },
   };
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ProductsContainer)
+export default withLoader(
+  withRouter(
+    connect(
+      mapStateToProps,
+      mapDispatchToProps
+    )(Products)
+  )
 );

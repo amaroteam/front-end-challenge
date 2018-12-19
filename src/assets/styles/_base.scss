@@ -41,7 +41,11 @@ body {
     height: $header-height;
     background: $color-white;
     border-bottom: 1px solid $color-gray;
-    z-index: 9;
+    z-index: 2;
+
+    &__link {
+      margin: 0 auto;
+    }
   }
 
   &__title {
@@ -53,15 +57,31 @@ body {
     }
   }
 
+  &__filter {
+    width: 100%;
+    margin-bottom: rem(20px);
+    text-align: center;
+  }
+
   &__input {
     font-size: map_get($fontsize, 'normal');
     line-height: normal;
     border: 1px solid $color-black;
     padding: rem(10px) rem(20px);
 
-    &--amount {
+    &--qtd {
       width: 75px;
       margin-right: rem(20px);
+    }
+  }
+
+  &__message {
+    width: 100%;
+    margin-bottom: rem(20px);
+    font-size: map_get($fontsize, 'normal');
+
+    &--error {
+      color: red;
     }
   }
 
@@ -86,6 +106,12 @@ body {
     &:hover {
       color: $color-black;
       background: $color-white;
+    }
+
+    &--small {
+      font-size: map_get($fontsize, 'small');
+      margin-top: 0;
+      padding: rem(5px) rem(10px);
     }
   }
 }

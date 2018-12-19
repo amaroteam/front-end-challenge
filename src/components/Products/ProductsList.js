@@ -5,12 +5,17 @@ import ProductsItem from './ProductsItem';
 
 const propTypes = {
   products: PropTypes.instanceOf(Array).isRequired,
+  isOnSale: PropTypes.bool.isRequired,
 };
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, isOnSale }) => {
+  const productsFiltered = products.filter(
+    product => product.on_sale === isOnSale
+  );
+
   return (
     <React.Fragment>
-      {products.map((product, index) => {
+      {productsFiltered.map((product, index) => {
         return <ProductsItem key={index.toString()} product={product} />;
       })}
     </React.Fragment>
