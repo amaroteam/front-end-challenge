@@ -45,10 +45,10 @@ class Products extends PureComponent {
     });
   };
 
-  handleOnSale = () => {
-    this.setState(prevState => ({
-      isOnSale: !prevState.isOnSale,
-    }));
+  handleOnSale = event => {
+    this.setState({
+      isOnSale: event.target.value,
+    });
   };
 
   render() {
@@ -57,13 +57,9 @@ class Products extends PureComponent {
 
     return (
       <React.Fragment>
-        <ProductsFilter isOnSale={isOnSale} onClick={this.handleOnSale} />
+        <ProductsFilter onClick={this.handleOnSale} />
 
-        <ProductsList
-          products={products}
-          isOnSale={isOnSale}
-          isLoading={false}
-        />
+        <ProductsList products={products} isOnSale={isOnSale} />
       </React.Fragment>
     );
   }

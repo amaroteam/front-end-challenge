@@ -2,21 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  isOnSale: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-const ProductsFilter = ({ isOnSale, onClick }) => {
+const ProductsFilter = ({ onClick }) => {
   return (
     <div className="App__filter">
       <button
         type="button"
         className="App__button App__button--small"
+        value="sim"
         onClick={onClick}
       >
-        Filtrar Promoções -
-        {' '}
-        {isOnSale ? 'Sim' : 'Não'}
+        Com Promoção
+      </button>
+
+      <button
+        type="button"
+        className="App__button App__button--small"
+        value="não"
+        onClick={onClick}
+      >
+        Sem Promoção
+      </button>
+
+      <button
+        type="button"
+        className="App__button App__button--small"
+        value=""
+        onClick={onClick}
+      >
+        Todos
       </button>
     </div>
   );
