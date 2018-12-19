@@ -26,10 +26,30 @@ class Basket extends PureComponent {
   render() {
     const { basket } = this.props;
 
+    const sumTotal = basket.reduce((total, item) => {
+      const itemValue = parseFloat(
+        item.price.replace(/R\$ /gi, '').replace(/,/gi, '.')
+      );
+      const itemQtd = item.qtd;
+
+      return total + itemValue * itemQtd;
+    }, 0);
+
     return (
       <div className="App__basket">
         {basket.length > 0 ? (
-          <BasketList basket={basket} onClick={this.handleRemoveBasket} />
+          <React.Fragment>
+            <BasketList basket={basket} onClick={this.handleRemoveBasket} />
+
+            <div className="App__basket__item">
+              <div className="App__basket__price App__basket__total">
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(sumTotal)}
+              </div>
+            </div>
+          </React.Fragment>
         ) : (
           <React.Fragment>
             <div className="App__message">

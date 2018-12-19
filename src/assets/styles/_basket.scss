@@ -53,10 +53,16 @@
       font-size: map_get($fontsize, 'small');
     }
 
-    &__price {
+    &__price,
+    &__total {
       margin: 0;
       font-size: map_get($fontsize, 'small');
       text-align: right;
+    }
+
+    &__total {
+      flex: 0 0 auto;
+      width: 100%;
     }
 
     &__button {
