@@ -31,7 +31,7 @@ test('expect to render ProductsSizes component', () => {
         sku: '5807_343_0_GG',
       },
     ],
-    sizeSelected: false,
+    sizeSelected: 'PP',
     onClick: () => {},
   };
 
