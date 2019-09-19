@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <ProductList>
       {products.map(product => (
-        <li key={product.code_color}>
+        <li className="product-item" key={product.code_color}>
           {
             product.on_sale && 
           <div className="discount-stamp">
@@ -53,7 +53,7 @@ export default function Home() {
               product.sizes.map(size => {
                 return (<li key={size.size}>
                 <input type="radio" name={product.code_color} id={product.code_color+size.size} ></input>
-                <label for={product.code_color+size.size}>{size.size}</label>
+                <label htmlFor={product.code_color+size.size}>{size.size}</label>
                 </li>)
               })
             }

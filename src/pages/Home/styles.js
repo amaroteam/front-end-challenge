@@ -5,9 +5,8 @@ export const ProductList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
-  list-style: none;
 
-  li {
+  .product-item {
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -97,18 +96,26 @@ export const ProductList = styled.ul`
   }
 
   .size-list {
-    li {
-      display: inline-block;
-      margin-right: 15px;
-    }
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; 
   }
-  input {
-    visibility:hidden;
+
+  input[type=radio] {
+    display: none;
   }
+
   label {
     cursor: pointer;
+    display:flex;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid #000;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
   }
   input:checked + label {
-    background: red;
+    background: ${lighten(0.9, '#000')}
   }
 `;

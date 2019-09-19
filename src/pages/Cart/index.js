@@ -26,12 +26,12 @@ export default function Cart() {
 
   const dispatch = useDispatch();
   
-  function increment(product) {
-    dispatch(CartActions.updateAmountRequest(product.code_color, product.amount + 1));
+  function increment(product, idx) {
+    dispatch(CartActions.updateAmountRequest(product.amount + 1, idx));
   }
 
-  function decrement(product) {
-    dispatch(CartActions.updateAmountRequest(product.code_color, product.amount - 1));
+  function decrement(product, idx) {
+    dispatch(CartActions.updateAmountRequest(product.amount - 1, idx));
   }
 
   return (
@@ -47,23 +47,23 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map(product => {
+          {cart.map((product, idx) => {
             return (
               <tr key={product.code_color}>
                 <td>
-                  <img src={product.image} alt={product.title} />
+                  <img src={product.image} alt={product.name} />
                 </td>
                 <td>
-                  <strong>{product.title}</strong>
+                  <strong>{product.name}</strong>
                   <span>{product.actual_price}</span>
                 </td>
                 <td>
                   <div>
-                    <button type="button" onClick={() => decrement(product)}>
+                    <button type="button" onClick={() => decrement(product, idx)}>
                       <MdRemoveCircleOutline size={20} color="#000" />
                     </button>
                     <input readOnly type="number" value={product.amount} />
-                    <button type="button" onClick={() => increment(product)}>
+                    <button type="button" onClick={() => increment(product, idx)}>
                       <MdAddCircleOutline size={20} color="#000" />
                     </button>
                   </div>

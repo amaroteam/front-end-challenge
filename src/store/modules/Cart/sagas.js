@@ -1,7 +1,6 @@
 import { put, select, all, takeLatest } from "redux-saga/effects";
 import { getProduct } from "../../../services/api";
 import history from "../../../services/history";
-// import { toast } from "react-toastify";
 
 import { addToCartSuccess, updateAmountSuccess } from "./actions";
 
@@ -26,23 +25,10 @@ function* addToCart({ id }) {
   }
 }
 
-function* updateAmount({ code_color, amount }) {
-  if (amount <= 0) return;
+function* updateAmount({ amount, idx }) {
+  if (amount < 1) return;
 
-  // const stock = getProducts();
-  // const stockAmount = stock.data.amount;
-
-  // if (amount > stockAmount) {
-  //   if (!toast.isActive("updateToast")) {
-  //     toast.error("Estoque insuficiente", {
-  //       position: "bottom-right",
-  //       toastId: "updateToast"
-  //     });
-  //   }
-  //   return;
-  // }
-
-  yield put(updateAmountSuccess(code_color, amount));
+  yield put(updateAmountSuccess(amount, idx));
 }
 
 export default all([

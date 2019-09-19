@@ -31,4 +31,8 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  ul {
+    list-style: none;
+  }
+
 `;
