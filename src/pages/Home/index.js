@@ -16,10 +16,10 @@ export default function Home() {
   }, {}))
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     async function loadProducts() {
-      const response = getProducts();  
+      const response = getProducts();
       setProducts(response);
     }
 
@@ -34,10 +34,31 @@ export default function Home() {
     <ProductList>
       {products.map(product => (
         <li key={product.code_color}>
-          <img src={product.image} alt={product.title} />
-          <strong>{product.title}</strong>
-          <span className="discount-applied">{product.discount_percentage && `De: ${product.regular_price} por ` }</span>
-          <span>{product.actual_price}</span>
+          {
+            product.on_sale && 
+          <div className="discount-stamp">
+            <span>{product.discount_percentage}</span>
+            <span>OFF</span>
+          </div>
+          }
+          <img src={product.image} alt={product.name} />
+          <strong>{product.name}</strong>
+          {
+            product.on_sale && 
+              <span><del>{product.regular_price}</del></span>
+          }
+          <p>{product.actual_price}</p>
+          <ul className="size-list">
+            {
+              product.sizes.map(size => {
+                return (<li key={size.size}>
+                <input type="radio" name={product.code_color} id={product.code_color+size.size} ></input>
+                <label for={product.code_color+size.size}>{size.size}</label>
+                </li>)
+              })
+            }
+
+          </ul>
           <button
             type="button"
             onClick={() => handleAddProduct(product.code_color)}
@@ -46,7 +67,6 @@ export default function Home() {
               <MdAddShoppingCart size={16} color="#fff" />{" "}
               {amount[product.code_color] || 0}
             </div>
-
             <span>ADICIONAR AO CARRINHO</span>
           </button>
         </li>

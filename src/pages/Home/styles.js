@@ -13,6 +13,7 @@ export const ProductList = styled.ul`
     background: #fff;
     border-radius: 4px;
     padding: 20px;
+    position: relative;
 
     img {
       align-self: center;
@@ -26,16 +27,38 @@ export const ProductList = styled.ul`
       margin-top: 5px;
     }
 
-    > span {
+    > p {
       font-size: 21px;
       font-weight: bold;
       margin: 5px 0 20px;
     }
 
-    .discount-applied {
-      font-size: 14px;
+    .discount-stamp {
+      font-size: 16px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: ${lighten(0.3, '#000')};
+      color: white;
       font-weight: bold;
-      margin: 5px 0 20px;
+      border-top-right-radius: 4px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 30px 30px 0 30px;
+        border-color: ${lighten(0.3, '#000')} transparent transparent transparent;
+        position: absolute;
+        bottom: -30px;
+        right: -1px;
+      }
+      span {
+        line-height: 1.6;
+      }
     }
 
     button {
@@ -71,5 +94,21 @@ export const ProductList = styled.ul`
         font-weight: bold;
       }
     }
+  }
+
+  .size-list {
+    li {
+      display: inline-block;
+      margin-right: 15px;
+    }
+  }
+  input {
+    visibility:hidden;
+  }
+  label {
+    cursor: pointer;
+  }
+  input:checked + label {
+    background: red;
   }
 `;
