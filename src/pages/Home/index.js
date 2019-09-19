@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { MdAddShoppingCart } from "react-icons/md";
 
 import { getProducts } from "../../services/api";
 import { ProductList } from "./styles";

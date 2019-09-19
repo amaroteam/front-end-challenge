@@ -2,21 +2,24 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const ProductList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .product-item {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     background: #fff;
     border-radius: 4px;
     padding: 20px;
     position: relative;
+    margin-bottom: 20px;
 
     img {
       align-self: center;
       max-width: 250px;
+      margin: auto;
     }
 
     > strong {
@@ -66,7 +69,6 @@ export const ProductList = styled.ul`
       border: 0;
       border-radius: 4px;
       overflow: hidden;
-      margin-top: auto;
       transition: background 0.2s;
       display: flex;
       align-items: center;
@@ -130,4 +132,12 @@ export const ProductList = styled.ul`
     border-color: ${lighten(0.8, '#000')}
     cursor: default; 
   }
+
+  @media (min-width: 769px) 
+  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
 `;

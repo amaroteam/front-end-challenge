@@ -74,7 +74,7 @@ export default function Cart() {
                 <td>
                   <button
                     type="button"
-                    onClick={() => dispatch(CartActions.removeFromCart(product.code_color))}
+                    onClick={() => dispatch(CartActions.removeFromCartRequest(product.code_color))}
                   >
                     <MdDelete size={20} color="#000" />
                   </button>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { MdAddShoppingCart } from "react-icons/md";
-
+import Logo from '../../assets/Amaro_logo.png'
 import * as CartActions from "../../store/modules/Cart/actions";
 
 export default function Product({ product }) {
@@ -34,7 +34,7 @@ export default function Product({ product }) {
           <span>OFF</span>
         </div>
       }
-      <img src={product.image} alt={product.name} />
+      <img src={product.image || Logo} alt={product.name} />
       <strong>{product.name}</strong>
       {
         product.on_sale &&
