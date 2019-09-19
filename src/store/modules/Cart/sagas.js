@@ -16,9 +16,7 @@ function* addToCart({ id }) {
     const response = getProduct(id);
     const data = {
       ...response,
-      amount: 1,
-      priceFormatted: response.actual_price
-    };
+      amount: 1    };
 
     yield put(addToCartSuccess(data));
     history.push("/cart");

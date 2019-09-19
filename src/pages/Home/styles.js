@@ -95,6 +95,11 @@ export const ProductList = styled.ul`
     }
   }
 
+  .alert-size {
+    color: red;
+    padding: 10px 0;
+  }
+
   .size-list {
     display: flex;
     justify-content: space-between;
@@ -115,7 +120,14 @@ export const ProductList = styled.ul`
     align-items: center;
     width: 40px;
   }
+  
   input:checked + label {
     background: ${lighten(0.9, '#000')}
+  }
+
+  input:disabled + label {
+    color: ${lighten(0.8, '#000')}
+    border-color: ${lighten(0.8, '#000')}
+    cursor: default; 
   }
 `;
