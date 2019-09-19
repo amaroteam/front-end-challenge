@@ -8,11 +8,10 @@ export default function cart(state = [], action) {
       ];
     case "@cart/REMOVE":
       return state.filter((product) => product.code_color !== action.id)
-    case "@cart/UPDATE_AMOUNT_SUCCESS": {
+    case "@cart/UPDATE_AMOUNT_SUCCESS": 
       const newCart = [...state]
       newCart[action.idx].amount = Number(action.amount);
       return newCart
-    }
     default:
       return state;
   }

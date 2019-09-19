@@ -1,27 +1,32 @@
 import { put, select, all, takeLatest } from "redux-saga/effects";
 import { toast } from 'react-toastify';
 import { getProduct } from "../../../services/api";
-import history from "../../../services/history";
 
 import { addToCartSuccess, updateAmountSuccess, removeFromCart } from "./actions";
 
-function* addToCart({ id }) {
+function* addToCart({ id, size }) {
   const productExists = yield select(state =>
     state.cart.find(p => p.code_color === id)
   );
 
   if (productExists) {
     const desiredAmount = productExists.amount + 1;
-     yield put(updateAmountSuccess(id, desiredAmount));
+    const idx = yield select(state =>
+      state.cart.findIndex(p => p.code_color === id)
+    );
+
+    yield put(updateAmountSuccess(desiredAmount, idx));
   } else {
     const response = getProduct(id);
     const data = {
       ...response,
-      amount: 1    };
+      amount: 1
+    };
 
     yield put(addToCartSuccess(data));
-    history.push("/cart");
   }
+
+  toast.success('Item adicionado ao carrinho');
 }
 
 function* updateAmount({ amount, idx }) {

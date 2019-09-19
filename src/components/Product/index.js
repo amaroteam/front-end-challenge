@@ -19,7 +19,6 @@ export default function Product({ product }) {
   const handleAddProduct = id => {
     if(productSize) {
       dispatch(CartActions.addToCartRequest(id, productSize));
-      setShowAlert(false)
     } else {
       setShowAlert(true)
     }

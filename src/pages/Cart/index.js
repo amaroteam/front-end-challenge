@@ -1,7 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { Container, ProductTable, Total } from "./styles";
 import {
   MdAddCircleOutline,
   MdRemoveCircleOutline,
@@ -10,6 +8,8 @@ import {
 import * as CartActions from "../../store/modules/Cart/actions";
 
 import { formatPrice } from "../../util/format";
+import { Container, ProductTable, Total } from "./styles";
+import Logo from '../../assets/Amaro_logo.png'
 
 export default function Cart() {
   
@@ -51,7 +51,7 @@ export default function Cart() {
             return (
               <tr key={product.code_color}>
                 <td>
-                  <img src={product.image} alt={product.name} />
+                  <img src={product.image || Logo} alt={product.name} />
                 </td>
                 <td>
                   <strong>{product.name}</strong>
