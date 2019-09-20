@@ -41,12 +41,13 @@ export default function Cart() {
         <Grid>
           {cart.map((product, idx) => {
             return (
-              <Grid className="body-item" key={product.code_color}>
+              <Grid className="body-item" key={product.code_color+product.size.sku}>
                 <div className="product-description">
                   <img src={product.image || Logo} alt={product.name} />
                   <div>
                     <p>{product.name}</p>
                     <p>Unitário: {product.actual_price}</p>
+                    <p>Tamanho: {product.size.size}</p>
                   </div>
                   <div className="product-quantity md">
                     <button type="button" onClick={() => decrement(product, idx)}>

@@ -10,15 +10,17 @@ export default function Product({ product }) {
   const [productSize, setProductSize] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const amount = useSelector(state => state.cart.reduce((sumAmount, product) => {
-    sumAmount[product.code_color] = product.amount;
+    sumAmount[product.code_color] = (sumAmount[product.code_color] || 0) + product.amount
     return sumAmount;
   }, {}))
 
+  // console.log(amount)
   const dispatch = useDispatch();
 
   const handleAddProduct = id => {
     if(productSize) {
       dispatch(CartActions.addToCartRequest(id, productSize));
+      setShowAlert(false)
     } else {
       setShowAlert(true)
     }

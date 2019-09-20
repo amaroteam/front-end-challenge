@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 export const ProductList = styled.ul`
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

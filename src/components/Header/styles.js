@@ -5,7 +5,14 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px 0px;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 1) 100%);
+  width: 97%;
+  height: 100px;
+  margin: 0;
 
   svg {
     fill: white;
@@ -25,15 +32,14 @@ export const Cart = styled(Link)`
   div {
     text-align: right;
     margin-right: 10px;
+    color: #fff;
 
     strong {
       display: block;
-      color: #fff;
     }
 
     span {
       font-size: 12px;
-      color: #999;
     }
   }
 `;

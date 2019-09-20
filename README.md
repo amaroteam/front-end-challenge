@@ -1,43 +1,48 @@
 # `AMARO front-end challenge` 
 
-This is our challenge for the front-end developer position at [@amarofashion](https://github.com/amarofashion).
+The objective of this challenge is to build a catalog page for some products of AMARO.
 
-You're probably already participating in our hiring process, but if you stumble here by accident, read the document to the end and if you are interested, you can start the process from here.
+## Result
 
-If you are not a developer, you can have a look at our other opportunities at: [amaro.com/jobs](https://amaro.com/jobs)
+http://challenge-test.surge.sh/
 
-## About the challenge
+## Requirements
 
-This is a challenge, not a college test, so there are multiple correct answers.
+- nodejs (latest stable version)
+- npm/yarn
 
-We'll give you some requirements that must be done and for which you'll be evaluated, but you're free to choose a solution method.
+## Technologies
 
-What we expect to learn from you with this challenge:
+The project was created using the boilerplate create-react-app.
 
-- Your work style.
-- How you think and solve problems.
-- How you communicate.
+Libraries installed:
+- Reactjs - create UI interfaces
+- React router dom - navigational components
+- Redux - state management
+- Redux saga - make side effects easier to manage
+- Styled components - 
+- React icons
 
-What we expect that you learn from us:
+## Development enviroment
 
-- How we work as a team.
-- Have a close look at some of the problems we face daily.
+- To run the application locally you have to clone this repository, access front-end-challenge folder and install the dependencies:
 
-## Next steps
+`shell
+git clone https://github.com/kimmikirino/front-end-challenge.git
+cd front-end-challenge
+npm install
+`
 
-1. Fork this repository to your personal account.
-2. Follow the instructions in the [`challenge-description`](/challenge-description.md) file.
-3. Solve the challenge in the best way you can.
-4. Send us a PR with your solution.
+- After that you can run the project by executing the following command:
 
-## Considerations
+`shell
+npm start
+`
 
-- We won't limit your choice of tools or libraries. But make choices that suits your needs. There's no need to use a bazooka to kill an ant but the point of the challenge is to evaluate your skills.
-- Despite not having a time limit, we recommend that you don't spend more than **10 to 12 hours** working on this challenge.
-- Try to write the best code you possibly can. It will make our life easier when evaluating your solution. And remember: you'll have to explain it in person for us.
+## Production enviroment
 
-## Doubts?
+- To build the application:
 
-Do you have in doubt related to the process? Open an [issue](https://github.com/amaroteam/front-end-challenge/issues) and we'll be happy to help.
-
-**Break a leg!**
+`shell
+npm build
+`

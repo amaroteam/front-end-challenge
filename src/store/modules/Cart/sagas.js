@@ -6,7 +6,7 @@ import { addToCartSuccess, updateAmountSuccess, removeFromCart } from "./actions
 
 function* addToCart({ id, size }) {
   const productExists = yield select(state =>
-    state.cart.find(p => p.code_color === id)
+    state.cart.find(p => p.code_color === id && p.size.sku === size.sku)
   );
 
   if (productExists) {
@@ -20,7 +20,8 @@ function* addToCart({ id, size }) {
     const response = getProduct(id);
     const data = {
       ...response,
-      amount: 1
+      amount: 1,
+      size
     };
 
     yield put(addToCartSuccess(data));

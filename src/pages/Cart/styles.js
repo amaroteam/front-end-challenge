@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { lighten, darken } from 'polished';
+import { darken } from 'polished';
 
 export const Container = styled.div`
+  padding-top: 100px;
   footer {
     margin-top: 30px;
     display: flex;
