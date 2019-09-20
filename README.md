@@ -31,22 +31,22 @@ Libraries installed:
 
 - To run the application locally you have to clone this repository, access `front-end-challenge` folder and install the dependencies:
 
-`s
+```shell
 git clone https://github.com/kimmikirino/front-end-challenge.git
 cd front-end-challenge
 npm install
-`
+```
 
 - After that you can run the project by executing the following command:
 
-`
+```
 npm start
-`
+```
 
 ## Production enviroment
 
 - To build the application:
 
-`shell
+```
 npm build
-`
+```
