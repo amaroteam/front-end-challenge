@@ -48,5 +48,5 @@ npm start
 - To build the application:
 
 ```
-npm build
+npm run build
 ```

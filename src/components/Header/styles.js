@@ -9,8 +9,9 @@ export const Container = styled.div`
   top: 0;
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.6);
-  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 1) 100%);
-  width: 97%;
+  background: linear-gradient(to top, transparent 0%, rgba(22, 22, 22, 1) 100%);
+  width: 94%;
+  max-width: 1400px;
   height: 100px;
   margin: 0;
 
