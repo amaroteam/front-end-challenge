@@ -12,7 +12,6 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-toastify": "^5.3.2",
-    "reactotron-redux-saga": "^4.2.2",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
     "styled-components": "^4.3.2"
@@ -40,6 +39,7 @@
   },
   "devDependencies": {
     "reactotron-react-js": "^3.3.2",
-    "reactotron-redux": "^3.1.1"
+    "reactotron-redux": "^3.1.1",
+    "reactotron-redux-saga": "^4.2.2"
   }
 }
