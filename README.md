@@ -13,21 +13,25 @@ http://challenge-test.surge.sh/
 
 ## Technologies
 
-The project was created using the boilerplate create-react-app.
+The project was created using the boilerplate `create-react-app`.
 
 Libraries installed:
 - Reactjs - create UI interfaces
 - React router dom - navigational components
 - Redux - state management
 - Redux saga - make side effects easier to manage
-- Styled components - 
-- React icons
+- Styled components - can write css in your js
+- React icons - popular icons
+- polished - to use darken or lighten colors
+- react-toastify - add notifications
+- history - to use createBrowserHistory
+
 
 ## Development enviroment
 
-- To run the application locally you have to clone this repository, access front-end-challenge folder and install the dependencies:
+- To run the application locally you have to clone this repository, access `front-end-challenge` folder and install the dependencies:
 
-`shell
+`s
 git clone https://github.com/kimmikirino/front-end-challenge.git
 cd front-end-challenge
 npm install
@@ -35,7 +39,7 @@ npm install
 
 - After that you can run the project by executing the following command:
 
-`shell
+`
 npm start
 `
 
