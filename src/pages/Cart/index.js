@@ -8,24 +8,25 @@ import {
 import * as CartActions from "../../store/modules/Cart/actions";
 
 import { formatPrice } from "../../util/format";
-import { Container, ProductTable, Total } from "./styles";
+import { Container, Grid, ProductTable, Total } from "./styles";
 import Logo from '../../assets/Amaro_logo.png'
 
 export default function Cart() {
-  
+
   const cart = useSelector(state => state.cart.map(product => {
     return ({
-    ...product,
-    subtotal: formatPrice(parseFloat(product.actual_price.replace('R$', '').replace(',','.')) * product.amount)
-  })}));
+      ...product,
+      subtotal: formatPrice(parseFloat(product.actual_price.replace('R$', '').replace(',', '.')) * product.amount)
+    })
+  }));
   const total = useSelector(state => formatPrice(
     state.cart.reduce((total, product) => {
-      return total +  parseFloat(product.actual_price.replace('R$', '').replace(',','.')) * product.amount;
+      return total + parseFloat(product.actual_price.replace('R$', '').replace(',', '.')) * product.amount;
     }, 0)
   ));
 
   const dispatch = useDispatch();
-  
+
   function increment(product, idx) {
     dispatch(CartActions.updateAmountRequest(product.amount + 1, idx));
   }
@@ -37,28 +38,17 @@ export default function Cart() {
   return (
     <Container>
       <ProductTable>
-        <thead>
-          <tr>
-            <th />
-            <th>PRODUTO</th>
-            <th>QTD</th>
-            <th>SUBTOTAL</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
+        <Grid>
           {cart.map((product, idx) => {
             return (
-              <tr key={product.code_color}>
-                <td>
+              <Grid className="body-item" key={product.code_color}>
+                <div className="product-description">
                   <img src={product.image || Logo} alt={product.name} />
-                </td>
-                <td>
-                  <strong>{product.name}</strong>
-                  <span>{product.actual_price}</span>
-                </td>
-                <td>
                   <div>
+                    <p>{product.name}</p>
+                    <p>Unitário: {product.actual_price}</p>
+                  </div>
+                  <div className="product-quantity md">
                     <button type="button" onClick={() => decrement(product, idx)}>
                       <MdRemoveCircleOutline size={20} color="#000" />
                     </button>
@@ -67,22 +57,30 @@ export default function Cart() {
                       <MdAddCircleOutline size={20} color="#000" />
                     </button>
                   </div>
-                </td>
-                <td>
-                  <strong>{product.subtotal}</strong>
-                </td>
-                <td>
+                  <p className="md">{product.subtotal}</p>
                   <button
                     type="button"
                     onClick={() => dispatch(CartActions.removeFromCartRequest(product.code_color))}
                   >
                     <MdDelete size={20} color="#000" />
                   </button>
-                </td>
-              </tr>
+                </div>
+                <Grid className="product-subtotal">
+                  <div className="product-quantity">
+                    <button type="button" onClick={() => decrement(product, idx)}>
+                      <MdRemoveCircleOutline size={20} color="#000" />
+                    </button>
+                    <input readOnly type="number" value={product.amount} />
+                    <button type="button" onClick={() => increment(product, idx)}>
+                      <MdAddCircleOutline size={20} color="#000" />
+                    </button>
+                  </div>
+                  <p>{product.subtotal}</p>
+                </Grid>
+              </Grid>
             );
           })}
-        </tbody>
+        </Grid>
       </ProductTable>
       <footer>
         <button type="button">FINALIZAR PEDIDO</button>

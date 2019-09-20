@@ -1,50 +1,70 @@
 import styled from 'styled-components';
-import { lighten } from 'polished';
+import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
-  padding: 30px;
-  background: #fff;
-  border-radius: 4px;
-
   footer {
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 
     button {
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: #000;
       border: 0;
       border-radius: 4px;
       padding: 12px 20px;
-      font-weight: bold;
+      font-weight: bold;  
       text-transform: uppercase;
       transition: background 0.2s;
 
       &:hover {
-        background: ${lighten(0.2, '#000')}
+        background: ${darken(0.2, '#fff')}
       }
+    }
+    @media (min-width: 769px) 
+    {
+      flex-direction: row;
     }
   }
 `;
 
-export const ProductTable = styled.table`
-  width: 100%;
+export const Grid = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`
 
-  thead th {
-    color: #999;
-    text-align: left;
-    padding: 12px;
+export const ProductTable = styled(Grid)`
+  .body-item {
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
   }
 
-  tbody td {
-    padding: 12px;
-    border-bottom: 1px solid #eee;
+  .product-description {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .product-subtotal {
+    padding-top: 10px;
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: row;
+    border-top: 1px solid #eee;
+    
+    p {
+      font-weight: bold;
+      font-size: 16px;
+    }
   }
 
   img {
-    max-width: 100px;
+    max-width: 110px;
   }
 
   strong {
@@ -52,14 +72,12 @@ export const ProductTable = styled.table`
     display: block;
   }
 
-  span {
-    display: block;
+  p {
     margin-top: 5px;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 14px;
   }
 
-  div {
+  .product-quantity {
     display: flex;
     align-items: center;
 
@@ -69,6 +87,7 @@ export const ProductTable = styled.table`
       color: #666;
       padding: 6px;
       width: 50px;
+      text-align: center;
     }
   }
 
@@ -77,12 +96,37 @@ export const ProductTable = styled.table`
     border: 0;
     padding: 6px;
   }
+
+  .md {
+    display: none;
+  }
+
+  @media (min-width: 769px) 
+  {
+    .product-subtotal {
+      display: none;
+    }
+
+    .md {
+      display: flex;
+    }
+
+    .product-description {
+      align-items: center;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Total = styled.div`
   display: flex;
+  justify-content: center;
   align-items: baseline;
-  
+  padding-top: 10px;
+
   span {
     color: #999;
     font-weight: bold;
@@ -91,5 +135,11 @@ export const Total = styled.div`
   strong {
     font-size: 28px;
     margin-left: 5px;
+    color: white;
+  }
+
+  @media (min-width: 769px) 
+  {
+    padding-top: 0px;
   }
 `;
