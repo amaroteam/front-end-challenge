@@ -10,10 +10,11 @@ export const Container = styled.div`
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.6);
   background: linear-gradient(to top, transparent 0%, rgba(22, 22, 22, 1) 100%);
-  width: 94%;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1440px;
   height: 100px;
   margin: 0;
+  padding: 0 10px;
 
   svg {
     fill: white;

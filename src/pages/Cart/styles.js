@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  padding: 0 10px;
   padding-top: 100px;
   footer {
     margin-top: 30px;
@@ -37,6 +38,7 @@ export const Grid = styled.div`
 `
 
 export const ProductTable = styled(Grid)`
+  
   .body-item {
     text-align: center;
     padding: 10px;

@@ -6,6 +6,7 @@ export const ProductList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0 10px;
 
   .product-item {
     display: flex;
