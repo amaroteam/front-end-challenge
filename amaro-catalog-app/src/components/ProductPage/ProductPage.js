@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import './ProductPage.css'
 
 class ProductPage extends Component {
@@ -12,7 +12,7 @@ class ProductPage extends Component {
 
   render() {
     return (
-      <div>
+      <>
       
         <NavigationBar />,
         <div className="card">
@@ -99,7 +99,7 @@ class ProductPage extends Component {
             </aside>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
