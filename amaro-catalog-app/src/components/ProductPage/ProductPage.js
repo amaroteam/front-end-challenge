@@ -3,7 +3,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
 import './ProductPage.css'
-
+const SelectSize  = () =><div class="alert alert-primary" role="alert">Por favor escolha um tamanho</div>
 class ProductPage extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,6 @@ class ProductPage extends Component {
    
     let _currentProduct = {};
     if ( this.props.location.query ){
-      console.log(this.props.location)
       _currentProduct = this.props.location.query.product;
       localStorage.productSelected = JSON.stringify(_currentProduct);
     }else{
@@ -20,7 +19,7 @@ class ProductPage extends Component {
     
      this.state = {
        product: _currentProduct,
-       qtySelected: 0,
+       qtySelected: 1,
        sizeSelected: null
      };
    
@@ -49,9 +48,12 @@ class ProductPage extends Component {
       quantity: this.state.qtySelected,
       product_size: this.state.sizeSelected
     };
-    this.props.dispatch(
-      ShoppingCartActions.addItemToShoppingCart(itemToBeadded)
-    );
+    if (this.state.sizeSelected) {
+      this.props.dispatch(
+        ShoppingCartActions.addItemToShoppingCart(itemToBeadded)
+      );
+    }
+      
   }
 
   render() {
@@ -65,6 +67,7 @@ class ProductPage extends Component {
                 <div className="img-big-wrap">
                   <div>
                     <img
+                      align="center"
                       alt={this.state.product.image}
                       src={this.state.product.image}
                     />
@@ -83,7 +86,6 @@ class ProductPage extends Component {
                     </span>
                   </span>
                   <span>
-                    {" "}
                     {this.state.product.actual_price <
                     this.state.product.regular_price
                       ? ` was ${this.state.product.regular_price} `
@@ -101,7 +103,10 @@ class ProductPage extends Component {
                     <dl className="param param-inline">
                       <dt>Quantidade: </dt>
                       <dd>
-                        <select onChange={(e) => this._changeQtySelected(e)} className="form-control form-control-sm">
+                        <select
+                          onChange={e => this._changeQtySelected(e)}
+                          className="form-control form-control-sm"
+                        >
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -134,11 +139,16 @@ class ProductPage extends Component {
                             </label>
                           );
                         })}
+                        {this.state.sizeSelected === null ? <SelectSize /> : ""}
                       </dd>
                     </dl>
                   </div>
                 </div>
-                <button onClick={() => this._addItemToShoppingCart()} className="btn btn-primary">
+                <button
+                  disabled={this.state.sizeSelected === null}
+                  onClick={() => this._addItemToShoppingCart()}
+                  className="btn btn-outline-primary"
+                >
                   Adicionar ao Carrinho
                 </button>
               </article>

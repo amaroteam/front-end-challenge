@@ -84,14 +84,12 @@ class ShoppingCart extends Component {
             <div className="col mb-2">
               <div className="row">
                 <div className="col-sm-12  col-md-6">
-                  <button className="btn btn-block btn-light">
-                    Continue Shopping
+                  <button className="btn btn-outline-secondary">
+                    Continuar Comprando
                   </button>
                 </div>
                 <div className="col-sm-12 col-md-6 text-right">
-                  <button className="btn btn-lg btn-block btn-success text-uppercase">
-                    Checkout
-                  </button>
+                  <button className="btn  btn-outline-success">Finalizar</button>
                 </div>
               </div>
             </div>
