@@ -3,7 +3,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
 import './ProductPage.css'
-const SelectSize  = () =><div class="alert alert-primary" role="alert">Por favor escolha um tamanho</div>
+const SelectSize  = () =><div className="alert alert-primary" role="alert">Por favor escolha um tamanho</div>
 class ProductPage extends Component {
   constructor(props) {
     super(props);
@@ -119,12 +119,9 @@ class ProductPage extends Component {
                     <dl className="param param-inline">
                       <dt>Tamanhos: </dt>
                       <dd>
-                        {this.state.product.sizes.filter((size)=>size.available).map((size, i) => {
+                        {this.state.product.sizes.filter( (size) => size.available ).map((size, i) => {
                           return (
-                            <label
-                              key={i}
-                              className="form-check form-check-inline"
-                            >
+                            <label key={i} className="form-check form-check-inline">
                               <input
                                 onClick={() => this._changeSizeSelected(i)}
                                 className="form-check-input"
