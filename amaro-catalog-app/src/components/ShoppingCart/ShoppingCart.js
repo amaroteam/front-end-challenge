@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
-
-
 import NavigationBar from '../NavigationBar/NavigationBar';
 import './ShoppingCart.css'
 
+
+
 class ShoppingCart extends Component {
   
-    _removeItemFromCart(i){
-        this.props.dispatch(
-          ShoppingCartActions.removeItemFromShoppingCart(i)
-        );
-    }
+
+  _removeItemFromCart(i) {
+    this.props.dispatch(ShoppingCartActions.removeItemFromShoppingCart(i));
+  }
 
   render() {
     return (
@@ -89,7 +88,9 @@ class ShoppingCart extends Component {
                   </button>
                 </div>
                 <div className="col-sm-12 col-md-6 text-right">
-                  <button className="btn  btn-outline-success">Finalizar</button>
+                  <button className="btn  btn-outline-success">
+                    Finalizar
+                  </button>
                 </div>
               </div>
             </div>

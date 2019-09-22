@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
-import './ProductPage.css'
+import Swal from "sweetalert2";
+
+
+import withReactContent from "sweetalert2-react-content";
+import "./ProductPage.css";
+
+
+const amaroAlert = withReactContent(Swal);
+
 const SelectSize  = () =><div className="alert alert-primary" role="alert">Por favor escolha um tamanho</div>
+
 class ProductPage extends Component {
   constructor(props) {
     super(props);
-    
+   
    
     let _currentProduct = {};
     if ( this.props.location.query ){
@@ -20,7 +29,8 @@ class ProductPage extends Component {
      this.state = {
        product: _currentProduct,
        qtySelected: 1,
-       sizeSelected: null
+       sizeSelected: null,
+       redirect: false
      };
    
     
@@ -48,10 +58,25 @@ class ProductPage extends Component {
       quantity: this.state.qtySelected,
       product_size: this.state.sizeSelected
     };
-    if (this.state.sizeSelected) {
-      this.props.dispatch(
-        ShoppingCartActions.addItemToShoppingCart(itemToBeadded)
-      );
+    if (this.state.sizeSelected != null) {
+      this.props.dispatch(ShoppingCartActions.addItemToShoppingCart(itemToBeadded));
+
+      amaroAlert
+        .fire({
+          title: itemToBeadded.product.name,
+          text: "Adicionado com sucesso ao carrinho!",
+          type: "success",
+          showCancelButton: true,
+          confirmButtonColor: "#a5dc86",
+          cancelButtonColor: "#000000",
+          confirmButtonText: "Ir ao carrinho",
+          cancelButtonText: "Continuar comprando"
+        })
+        .then(result => {
+          result.value
+            ? (window.location.href = "/carrinho")
+            : (window.location.href = "/");
+        });
     }
       
   }
@@ -60,7 +85,7 @@ class ProductPage extends Component {
     return (
       <>
         <NavigationBar />,
-        <div className="card">
+        <div className="card" >
           <div className="row">
             <aside className="col-sm-5 border-right">
               <article className="gallery-wrap">
@@ -119,23 +144,28 @@ class ProductPage extends Component {
                     <dl className="param param-inline">
                       <dt>Tamanhos: </dt>
                       <dd>
-                        {this.state.product.sizes.filter( (size) => size.available ).map((size, i) => {
-                          return (
-                            <label key={i} className="form-check form-check-inline">
-                              <input
-                                onClick={() => this._changeSizeSelected(i)}
-                                className="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="inlineRadio2"
-                                value="option2"
-                              />
-                              <span className="form-check-label">
-                                {size.size}
-                              </span>
-                            </label>
-                          );
-                        })}
+                        {this.state.product.sizes
+                          .filter(size => size.available)
+                          .map((size, i) => {
+                            return (
+                              <label
+                                key={i}
+                                className="form-check form-check-inline"
+                              >
+                                <input
+                                  onClick={() => this._changeSizeSelected(i)}
+                                  className="form-check-input"
+                                  type="radio"
+                                  name="inlineRadioOptions"
+                                  id="inlineRadio2"
+                                  value="option2"
+                                />
+                                <span className="form-check-label">
+                                  {size.size}
+                                </span>
+                              </label>
+                            );
+                          })}
                         {this.state.sizeSelected === null ? <SelectSize /> : ""}
                       </dd>
                     </dl>
