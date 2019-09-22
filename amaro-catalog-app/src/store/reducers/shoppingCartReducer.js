@@ -28,14 +28,19 @@ export default (state = initialState, action) => {
       };
 
     case "REMOVE_ITEM":
-      let _tempRemoveCart = JSON.parse(
-        localStorage.getItem("shoppingCartItens")
-      );
-      let _newCart = _tempRemoveCart.slice(action.payload);
+     
+      let _tempRemoveCart = JSON.parse(localStorage.getItem("shoppingCartItens"));
+     
+       let _newCart = _tempRemoveCart.filter( product => product.product.code_color !== action.payload.code_color)
+         
+     
+      
       localStorage.setItem("shoppingCartItens", JSON.stringify(_newCart));
       return {
         ...state,
-        shoppingCartItens: state.shoppingCartItens.slice(action.payload)
+        shoppingCartItens: state.shoppingCartItens.filter(
+          product => product.product !== action.payload
+        )
       };
 
     default:

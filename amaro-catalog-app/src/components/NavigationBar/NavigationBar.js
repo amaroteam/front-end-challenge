@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Modal, { closeStyle } from "simple-react-modal";
 import DontGo from '../DontGo/DontGo'
+import AmaroLogo from "../../logo.svg";
 
 
 const NavItem = props =>{
@@ -52,10 +53,7 @@ export default class NavigationBar extends Component {
             show={this.state.goingOut}
             onClose={this.close.bind(this)}
           >
-            <button
-              style={closeStyle}
-              onClick={this.close.bind(this)}
-            >
+            <button style={closeStyle} onClick={this.close.bind(this)}>
               X
             </button>
             <DontGo />
@@ -79,11 +77,10 @@ export default class NavigationBar extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div
-            className="collapse navbar-collapse"
-            id="navbarSupportedContent"
-          >
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <img alt="Logo Amaro" src={AmaroLogo} />
             <ul className="navbar-nav mr-auto">
+             
               <NavItem path="/" name="Catalogo" />
               <NavItem path="/carrinho" name="Carrinho" />
             </ul>
