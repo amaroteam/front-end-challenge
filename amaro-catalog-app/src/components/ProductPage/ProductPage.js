@@ -7,13 +7,27 @@ import './ProductPage.css'
 class ProductPage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      product: this.props.location.query.product,
-      qtySelected: 0,
-      sizeSelected: null
-    };
+    
+   
+    let _currentProduct = {};
+    if ( this.props.location.query ){
+      console.log(this.props.location)
+      _currentProduct = this.props.location.query.product;
+      localStorage.productSelected = JSON.stringify(_currentProduct);
+    }else{
+       _currentProduct = JSON.parse(localStorage.productSelected);
+    }
+    
+     this.state = {
+       product: _currentProduct,
+       qtySelected: 0,
+       sizeSelected: null
+     };
+   
+    
   }
+
+  
 
   _changeQtySelected(newQtdy) {
     this.setState({

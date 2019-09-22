@@ -3,7 +3,7 @@ export default {
     return { type: "ADD_ITEM", payload: itemToBeAdded };
   },
 
-  removeItemFromShoppingCart(product) {
-    return { type: "REMOVE_ITEM", payload: product };
+  removeItemFromShoppingCart(positionAtTheList) {
+    return { type: "REMOVE_ITEM", payload: positionAtTheList };
   }
 };
