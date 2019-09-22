@@ -119,7 +119,7 @@ class ProductPage extends Component {
                     <dl className="param param-inline">
                       <dt>Tamanhos: </dt>
                       <dd>
-                        {this.state.product.sizes.map((size, i) => {
+                        {this.state.product.sizes.filter((size)=>size.available).map((size, i) => {
                           return (
                             <label
                               key={i}
