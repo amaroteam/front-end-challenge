@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
 import NavigationBar from '../NavigationBar/NavigationBar';
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import './ShoppingCart.css'
-
+const amaroAlert = withReactContent(Swal);
 const CarrinhoVazio = () => <h2>Seu carrinho está vazio.</h2>
 
 class ShoppingCart extends Component {
@@ -11,6 +13,22 @@ class ShoppingCart extends Component {
 
   _removeItemFromCart(i) {
     this.props.dispatch(ShoppingCartActions.removeItemFromShoppingCart(i));
+  }
+
+  _finishBuyingProcess(){
+    amaroAlert
+      .fire({
+        title: "Te inspiramos a descobrir, experimentar e ousar.",
+        text: "Obrigado por comprar conosco! Arrase!",
+        type: "success",
+        showCancelButton: false,
+        confirmButtonColor: "rgb(251, 101, 85)",
+        cancelButtonColor: "#000000",
+        confirmButtonText: "OK"
+      })
+      .then(result => {
+        window.location.href = "/";
+      });
   }
 
   render() {
@@ -22,9 +40,10 @@ class ShoppingCart extends Component {
             <h1 className="jumbotron-heading">Meu Carrinho Amaro </h1>
           </div>
         </section>
-        
-          <div className="container mb-4">
-          {this.props.shoppingCartList.length === 0 ? <CarrinhoVazio /> : 
+        <div className="container mb-4">
+          {this.props.shoppingCartList.length === 0 ? (
+            <CarrinhoVazio />
+          ) : (
             <div className="row">
               <div className="col-12">
                 <div className="table-responsive-sm">
@@ -43,7 +62,7 @@ class ShoppingCart extends Component {
                         <th scope="col" className="text-right">
                           Total
                         </th>
-                        <th> </th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -66,7 +85,12 @@ class ShoppingCart extends Component {
                               {item.product.actual_price}
                             </td>
                             <td className="text-right">
-                              {item.product.actual_price}
+                              R$
+                              {parseFloat(
+                                item.product.actual_price
+                                  .replace("R$", "")
+                                  .replace(",", ".")
+                              ) * item.quantity}
                             </td>
                             <td className="text-right">
                               <button
@@ -88,20 +112,28 @@ class ShoppingCart extends Component {
               <div className="col mb-2">
                 <div className="row">
                   <div className="col-sm-12  col-md-6">
-                    <button className="btn btn-outline-secondary">
+                    <button
+                      onClick={() => {
+                        window.location.href = "/";
+                      }}
+                      className="btn btn-outline-secondary"
+                    >
                       Continuar Comprando
                     </button>
                   </div>
                   <div className="col-sm-12 col-md-6 text-right">
-                    <button className="btn  btn-outline-success">
+                    <button
+                      onClick={()=>this._finishBuyingProcess()}
+                      className="btn  btn-outline-secondary"
+                    >
                       Finalizar
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          }
-          </div>
+          )}
+        </div>
         )
       </>
     );

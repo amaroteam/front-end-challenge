@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from "react";
 import { Link } from 'react-router-dom';
+
 import slugify from 'react-slugify';
 import AmaroApi from '../../services/api';
 import './Catalog.css';
 
 export const ProductBox = ({ product }) => {
-
+  const [isHovered, setisHovered] = useState(0);
+    const hoverImageClass = isHovered
+      ? "card-img-top animated bounce"
+      : "card-img-top";
     return (
       <div className="col-md-4 mb-3">
-     
         <Link
+          
           to={{
             pathname: `/produto/${slugify(product.name)}`,
             query: { product: product }
           }}
         >
-          <div className="card border-0 rounded-0">
-            <img
-              className="card-img-top"
-              src={
-                product.image ||
-                "https://place-hold.it/470x594/ffffff?text=Imagem Indisponível"
-              }
+          <div className="card border-0 rounded-0" >
+            <img onMouseEnter={() => setisHovered(isHovered + 1)}className={hoverImageClass}
+              src={product.image || "https://place-hold.it/470x594/ffffff?text=Imagem Indisponível"}
               alt={product.name}
             />
 

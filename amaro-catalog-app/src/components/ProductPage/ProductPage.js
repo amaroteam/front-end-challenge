@@ -3,15 +3,15 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 import { connect } from "react-redux";
 import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
 import Swal from "sweetalert2";
-
-
 import withReactContent from "sweetalert2-react-content";
+import ReactImageMagnify from "react-image-magnify";
+
 import "./ProductPage.css";
 
 
 const amaroAlert = withReactContent(Swal);
 
-const SelectSize  = () =><div className="alert alert-primary" role="alert">Por favor escolha um tamanho</div>
+const SelectSize  = () =><div className="alert alert-danger" role="alert">Escolha um tamanho</div>
 
 class ProductPage extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ class ProductPage extends Component {
           text: "Adicionado com sucesso ao carrinho!",
           type: "success",
           showCancelButton: true,
-          confirmButtonColor: "#a5dc86",
+          confirmButtonColor: "rgb(251, 101, 85)",
           cancelButtonColor: "#000000",
           confirmButtonText: "Ir ao carrinho",
           cancelButtonText: "Continuar comprando"
@@ -85,101 +85,115 @@ class ProductPage extends Component {
     return (
       <>
         <NavigationBar />,
-        <div className="card" >
-          <div className="row">
-            <aside className="col-sm-5 border-right">
-              <article className="gallery-wrap">
-                <div className="img-big-wrap">
-                  <div>
-                    <img
-                      align="center"
-                      alt={this.state.product.image}
-                      src={this.state.product.image}
-                    />
+        <div className="container">
+          <div className="card">
+            <div className="row">
+              <aside className="col-sm-5 border-right">
+                <article className="gallery-wrap">
+                  <div className="img-big-wrap">
+                    <div>
+                      <ReactImageMagnify
+                        {...{
+                          smallImage: {
+                            alt: this.state.product.name,
+                            isFluidWidth: true,
+                            src: this.state.product.image
+                          },
+                          largeImage: {
+                            src: this.state.product.image,
+                            width: 1200,
+                            height: 1800
+                          },
+                          enlargedImagePosition: "over",
+                          isHintEnabled: true,
+                          hintTextMouse: "Passe o mouse para ampliar"
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </article>
-            </aside>
-            <aside className="col-sm-7">
-              <article className="card-body p-5">
-                <h3 className="title mb-3">{this.state.product.name}</h3>
+                </article>
+              </aside>
+              <aside className="col-sm-7">
+                <article className="card-body p-5">
+                  <h3 className="title mb-3">{this.state.product.name}</h3>
 
-                <p className="price-detail-wrap">
-                  <span className="price h3 text-warning">
-                    <span className="num">
-                      {this.state.product.actual_price}
+                  <p className="price-detail-wrap">
+                    <span className="price h3 text-warning">
+                      <span className="num">
+                        {this.state.product.actual_price}
+                      </span>
                     </span>
-                  </span>
-                  <span>
-                    {this.state.product.actual_price <
-                    this.state.product.regular_price
-                      ? ` was ${this.state.product.regular_price} `
-                      : ""}
-                  </span>
-                </p>
+                    <span>
+                      {this.state.product.actual_price <
+                      this.state.product.regular_price
+                        ? ` was ${this.state.product.regular_price} `
+                        : ""}
+                    </span>
+                  </p>
 
-                <dl className="param param-feature">
-                  <dt>Cor</dt>
-                  <dd>{this.state.product.color}</dd>
-                </dl>
+                  <dl className="param param-feature">
+                    <dt>Cor</dt>
+                    <dd>{this.state.product.color}</dd>
+                  </dl>
 
-                <div className="row">
-                  <div className="col-sm-5">
-                    <dl className="param param-inline">
-                      <dt>Quantidade: </dt>
-                      <dd>
-                        <select
-                          onChange={e => this._changeQtySelected(e)}
-                          className="form-control form-control-sm"
-                        >
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                        </select>
-                      </dd>
-                    </dl>
-                  </div>
-
-                  <div className="col-sm-7">
-                    <dl className="param param-inline">
-                      <dt>Tamanhos: </dt>
-                      <dd>
-                        {this.state.product.sizes
-                          .filter(size => size.available)
-                          .map((size, i) => {
-                            return (
-                              <label
-                                key={i}
-                                className="form-check form-check-inline"
-                              >
-                                <input
-                                  onClick={() => this._changeSizeSelected(i)}
-                                  className="form-check-input"
-                                  type="radio"
-                                  name="inlineRadioOptions"
-                                  id="inlineRadio2"
-                                  value="option2"
-                                />
-                                <span className="form-check-label">
-                                  {size.size}
-                                </span>
-                              </label>
-                            );
-                          })}
+                  <div className="row">
+                    <div className="col-sm-5">
+                      <dl className="param param-inline">
+                        <dt>Quantidade: </dt>
+                        <dd>
+                          <select
+                            onChange={e => this._changeQtySelected(e)}
+                            className="form-control form-control-sm"
+                          >
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                          </select>
+                        </dd>
                         {this.state.sizeSelected === null ? <SelectSize /> : ""}
-                      </dd>
-                    </dl>
+                      </dl>
+                    </div>
+
+                    <div className="col-sm-7">
+                      <dl className="param param-inline">
+                        <dt>Tamanhos: </dt>
+                        <dd>
+                          {this.state.product.sizes
+                            .filter(size => size.available)
+                            .map((size, i) => {
+                              return (
+                                <label
+                                  key={i}
+                                  className="form-check form-check-inline"
+                                >
+                                  <input
+                                    onClick={() => this._changeSizeSelected(i)}
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="inlineRadioOptions"
+                                    id="inlineRadio2"
+                                    value="option2"
+                                  />
+                                  <span className="form-check-label">
+                                    {size.size}
+                                  </span>
+                                </label>
+                              );
+                            })}
+                        </dd>
+                      </dl>
+                    </div>
                   </div>
-                </div>
-                <button
-                  disabled={this.state.sizeSelected === null}
-                  onClick={() => this._addItemToShoppingCart()}
-                  className="btn btn-outline-primary"
-                >
-                  Adicionar ao Carrinho
-                </button>
-              </article>
-            </aside>
+                  <button
+                    disabled={this.state.sizeSelected === null}
+                    onClick={() => this._addItemToShoppingCart()}
+                    className="btn btn-outline-primary"
+                  >
+                    Adicionar ao Carrinho
+                  </button>
+                </article>
+              </aside>
+            </div>
           </div>
         </div>
       </>
