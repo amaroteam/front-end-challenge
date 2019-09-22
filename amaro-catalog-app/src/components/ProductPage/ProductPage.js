@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
+import { connect } from "react-redux";
+import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
 import './ProductPage.css'
 
 class ProductPage extends Component {
-    
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-        super(props); 
-        this.state = { product: this.props.location.query.product };
-    }
+    this.state = {
+      product: this.props.location.query.product,
+      qtySelected: 0,
+      sizeSelected: null
+    };
+  }
+
+  _changeQtySelected(newQtdy) {
+    this.setState({
+      qtySelected: newQtdy.target.value
+    });
+    
+  }
+
+  _changeSizeSelected(newSizeSelected) {
+    this.setState({
+      sizeSelected: newSizeSelected
+    });
+    ;
+  }
+
+  _addItemToShoppingCart() {
+    let itemToBeadded = {
+      product: this.state.product,
+      quantity: this.state.qtySelected,
+      product_size: this.state.sizeSelected
+    };
+    this.props.dispatch(
+      ShoppingCartActions.addItemToShoppingCart(itemToBeadded)
+    );
+  }
 
   render() {
     return (
       <>
-      
         <NavigationBar />,
         <div className="card">
           <div className="row">
@@ -21,9 +50,10 @@ class ProductPage extends Component {
               <article className="gallery-wrap">
                 <div className="img-big-wrap">
                   <div>
-                   
-                      <img alt={this.state.product.image} src={this.state.product.image} />
-                    
+                    <img
+                      alt={this.state.product.image}
+                      src={this.state.product.image}
+                    />
                   </div>
                 </div>
               </article>
@@ -38,24 +68,29 @@ class ProductPage extends Component {
                       {this.state.product.actual_price}
                     </span>
                   </span>
-                  <span> { this.state.product.actual_price < this.state.product.regular_price ? ` was ${this.state.product.regular_price} ` : ''}</span>
+                  <span>
+                    {" "}
+                    {this.state.product.actual_price <
+                    this.state.product.regular_price
+                      ? ` was ${this.state.product.regular_price} `
+                      : ""}
+                  </span>
                 </p>
 
                 <dl className="param param-feature">
-                  <dt>Color</dt>
+                  <dt>Cor</dt>
                   <dd>{this.state.product.color}</dd>
                 </dl>
-
 
                 <div className="row">
                   <div className="col-sm-5">
                     <dl className="param param-inline">
-                      <dt>Quantity: </dt>
+                      <dt>Quantidade: </dt>
                       <dd>
-                        <select className="form-control form-control-sm">
-                          <option> 1 </option>
-                          <option> 2 </option>
-                          <option> 3 </option>
+                        <select onChange={(e) => this._changeQtySelected(e)} className="form-control form-control-sm">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
                         </select>
                       </dd>
                     </dl>
@@ -63,38 +98,35 @@ class ProductPage extends Component {
 
                   <div className="col-sm-7">
                     <dl className="param param-inline">
-                      <dt>Sizes: </dt>
+                      <dt>Tamanhos: </dt>
                       <dd>
-                          
-                        { 
-                            this.state.product.sizes.map( size => {
-                                return (
-                                    <label className="form-check form-check-inline">
-                                    <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        name="inlineRadioOptions"
-                                        id="inlineRadio2"
-                                        value="option2"
-                                    />
-                                    <span className="form-check-label"> { size.size }</span>
-                                    </label>
-                                );
-
-                            }) 
-                        }
+                        {this.state.product.sizes.map((size, i) => {
+                          return (
+                            <label
+                              key={i}
+                              className="form-check form-check-inline"
+                            >
+                              <input
+                                onClick={() => this._changeSizeSelected(i)}
+                                className="form-check-input"
+                                type="radio"
+                                name="inlineRadioOptions"
+                                id="inlineRadio2"
+                                value="option2"
+                              />
+                              <span className="form-check-label">
+                                {size.size}
+                              </span>
+                            </label>
+                          );
+                        })}
                       </dd>
                     </dl>
                   </div>
                 </div>
-
-                <a
-                  href="http://google.com.br"
-                  className="btn btn-lg btn-outline-primary text-uppercase"
-                >
-                  {" "}
-                  <i className="fas fa-shopping-cart"></i> Add to cart{" "}
-                </a>
+                <button onClick={() => this._addItemToShoppingCart()} className="btn btn-primary">
+                  Adicionar ao Carrinho
+                </button>
               </article>
             </aside>
           </div>
@@ -103,6 +135,6 @@ class ProductPage extends Component {
     );
   }
 }
+export default connect(store => ({ shoppingCartItens: store} ))(ProductPage)
 
-export default ProductPage;
 
