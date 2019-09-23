@@ -5,5 +5,9 @@ export default {
 
   removeItemFromShoppingCart(positionAtTheList) {
     return { type: "REMOVE_ITEM", payload: positionAtTheList };
+  },
+
+  clearShoppingCart() {
+    return { type: "CLEAR_SHOPPING_CART", payload: '_CLEAR_' };
   }
 };

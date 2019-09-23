@@ -16,6 +16,7 @@ class ShoppingCart extends Component {
   }
 
   _finishBuyingProcess(){
+    this.props.dispatch(ShoppingCartActions.clearShoppingCart());
     amaroAlert
       .fire({
         title: "Te inspiramos a descobrir, experimentar e ousar.",
@@ -37,7 +38,7 @@ class ShoppingCart extends Component {
         <NavigationBar />
         <section className="jumbotron text-center">
           <div className="container">
-            <h1 className="jumbotron-heading">Meu Carrinho Amaro </h1>
+            <h2 className="jumbotron-heading">Meu Carrinho </h2>
           </div>
         </section>
         <div className="container mb-4">

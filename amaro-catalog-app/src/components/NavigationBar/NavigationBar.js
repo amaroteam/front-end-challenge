@@ -78,12 +78,21 @@ export default class NavigationBar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <img alt="Logo Amaro" src={AmaroLogo} />
-            <ul className="navbar-nav mr-auto">
-             
-              <NavItem path="/" name="Catalogo" />
-              <NavItem path="/carrinho" name="Carrinho" />
-            </ul>
+            <div className="container-fluid text-center mt-3">
+              <div className="row">
+                <div className="col-md-12">
+                  <img alt="Logo Amaro" src={AmaroLogo} />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col">
+                  <ul className="navbar-nav m-auto justify-content-center">
+                    <NavItem path="/" name="CATÁLOGO" />
+                    <NavItem path="/carrinho" name="MEU CARRINHO" />
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
       </>
