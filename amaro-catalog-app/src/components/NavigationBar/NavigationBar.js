@@ -4,7 +4,6 @@ import Modal, { closeStyle } from "simple-react-modal";
 import DontGo from '../DontGo/DontGo'
 import AmaroLogo from "../../logo.svg";
 
-
 const NavItem = props =>{
   const pageURI = window.location.pathname+window.location.search;
   const liClassName = (props.path === pageURI) ? "nav-item-active" : "navitem";
@@ -17,7 +16,6 @@ const NavItem = props =>{
 }
 
 
- 
 export default class NavigationBar extends Component {
   constructor(props) {
     super(props);

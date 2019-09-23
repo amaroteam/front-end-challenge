@@ -11,7 +11,7 @@ import './ProductPage.css';
 const amaroAlert = withReactContent(Swal);
 
 const SelectSize = () => (
-  <div className="alert alert-danger" role="alert">
+  <div className="alert alert-dark" role="alert">
     Escolha um tamanho
   </div>
 );
