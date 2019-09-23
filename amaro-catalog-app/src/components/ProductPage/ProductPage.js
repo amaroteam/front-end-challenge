@@ -1,84 +1,81 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import { connect } from "react-redux";
-import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import ReactImageMagnify from "react-image-magnify";
+import { connect } from 'react-redux';
+import ShoppingCartActions from '../../store/actions/ShoppingCartActions';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import ReactImageMagnify from 'react-image-magnify';
 
-import "./ProductPage.css";
-
+import './ProductPage.css';
 
 const amaroAlert = withReactContent(Swal);
 
-const SelectSize  = () =><div className="alert alert-danger" role="alert">Escolha um tamanho</div>
+const SelectSize = () => (
+  <div className="alert alert-danger" role="alert">
+    Escolha um tamanho
+  </div>
+);
 
 class ProductPage extends Component {
   constructor(props) {
     super(props);
-   
-   
+
     let _currentProduct = {};
-    if ( this.props.location.query ){
+    if (this.props.location.query) {
       _currentProduct = this.props.location.query.product;
       localStorage.productSelected = JSON.stringify(_currentProduct);
-    }else{
-       _currentProduct = JSON.parse(localStorage.productSelected);
+    } else {
+      _currentProduct = JSON.parse(localStorage.productSelected);
     }
-    
-     this.state = {
-       product: _currentProduct,
-       qtySelected: 1,
-       sizeSelected: null,
-       redirect: false
-     };
-   
-    
-  }
 
-  
+    this.state = {
+      product: _currentProduct,
+      qtySelected: 1,
+      sizeSelected: null,
+      redirect: false,
+    };
+  }
 
   _changeQtySelected(newQtdy) {
     this.setState({
-      qtySelected: newQtdy.target.value
+      qtySelected: newQtdy.target.value,
     });
-    
   }
 
   _changeSizeSelected(newSizeSelected) {
     this.setState({
-      sizeSelected: newSizeSelected
+      sizeSelected: newSizeSelected,
     });
-    ;
   }
 
   _addItemToShoppingCart() {
     let itemToBeadded = {
       product: this.state.product,
       quantity: this.state.qtySelected,
-      product_size: this.state.sizeSelected
+      product_size: this.state.sizeSelected,
     };
     if (this.state.sizeSelected != null) {
-      this.props.dispatch(ShoppingCartActions.addItemToShoppingCart(itemToBeadded));
+      this.props.dispatch(
+        ShoppingCartActions.addItemToShoppingCart(itemToBeadded)
+      );
 
       amaroAlert
         .fire({
           title: itemToBeadded.product.name,
-          text: "Adicionado com sucesso ao carrinho!",
-          type: "success",
+          text: 'Adicionado com sucesso ao carrinho!',
+          type: 'success',
           showCancelButton: true,
-          confirmButtonColor: "rgb(251, 101, 85)",
-          cancelButtonColor: "#000000",
-          confirmButtonText: "Ir ao carrinho",
-          cancelButtonText: "Continuar comprando"
+          confirmButtonColor: 'rgb(251, 101, 85)',
+          cancelButtonColor: '#000000',
+          confirmButtonText: 'Ir ao carrinho',
+          cancelButtonText: 'Continuar comprando',
         })
         .then(result => {
           result.value
-            ? (window.location.href = "/carrinho")
-            : (window.location.href = "/");
+            ? (window.location.href = '/carrinho')
+            : (window.location.href = '/');
         });
     }
-      
   }
 
   render() {
@@ -97,16 +94,16 @@ class ProductPage extends Component {
                           smallImage: {
                             alt: this.state.product.name,
                             isFluidWidth: true,
-                            src: this.state.product.image
+                            src: this.state.product.image,
                           },
                           largeImage: {
                             src: this.state.product.image,
                             width: 1200,
-                            height: 1800
+                            height: 1800,
                           },
-                          enlargedImagePosition: "over",
+                          enlargedImagePosition: 'over',
                           isHintEnabled: true,
-                          hintTextMouse: "Passe o mouse para ampliar"
+                          hintTextMouse: 'Passe o mouse para ampliar',
                         }}
                       />
                     </div>
@@ -127,7 +124,7 @@ class ProductPage extends Component {
                       {this.state.product.actual_price <
                       this.state.product.regular_price
                         ? ` was ${this.state.product.regular_price} `
-                        : ""}
+                        : ''}
                     </span>
                   </p>
 
@@ -150,7 +147,7 @@ class ProductPage extends Component {
                             <option>3</option>
                           </select>
                         </dd>
-                        {this.state.sizeSelected === null ? <SelectSize /> : ""}
+                        {this.state.sizeSelected === null ? <SelectSize /> : ''}
                       </dl>
                     </div>
 
@@ -200,6 +197,4 @@ class ProductPage extends Component {
     );
   }
 }
-export default connect(store => ({ shoppingCartItens: store} ))(ProductPage)
-
-
+export default connect(store => ({ shoppingCartItens: store }))(ProductPage);

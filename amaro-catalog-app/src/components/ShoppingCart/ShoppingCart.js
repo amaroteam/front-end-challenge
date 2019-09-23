@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import ShoppingCartActions from "../../store/actions/ShoppingCartActions";
+import { connect } from 'react-redux';
+import ShoppingCartActions from '../../store/actions/ShoppingCartActions';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import './ShoppingCart.css'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import './ShoppingCart.css';
 const amaroAlert = withReactContent(Swal);
-const CarrinhoVazio = () => <h2>Seu carrinho está vazio.</h2>
+const CarrinhoVazio = () => <h2>Seu carrinho está vazio.</h2>;
 
 class ShoppingCart extends Component {
-  
-
   _removeItemFromCart(i) {
     this.props.dispatch(ShoppingCartActions.removeItemFromShoppingCart(i));
   }
 
-  _finishBuyingProcess(){
+  _finishBuyingProcess() {
     this.props.dispatch(ShoppingCartActions.clearShoppingCart());
     amaroAlert
       .fire({
-        title: "Te inspiramos a descobrir, experimentar e ousar.",
-        text: "Obrigado por comprar conosco! Arrase!",
-        type: "success",
+        title: 'Te inspiramos a descobrir, experimentar e ousar.',
+        text: 'Obrigado por comprar conosco! Arrase!',
+        type: 'success',
         showCancelButton: false,
-        confirmButtonColor: "rgb(251, 101, 85)",
-        cancelButtonColor: "#000000",
-        confirmButtonText: "OK"
+        confirmButtonColor: 'rgb(251, 101, 85)',
+        cancelButtonColor: '#000000',
+        confirmButtonText: 'OK',
       })
       .then(result => {
-        window.location.href = "/";
+        window.location.href = '/';
       });
   }
 
@@ -89,8 +87,8 @@ class ShoppingCart extends Component {
                               R$
                               {parseFloat(
                                 item.product.actual_price
-                                  .replace("R$", "")
-                                  .replace(",", ".")
+                                  .replace('R$', '')
+                                  .replace(',', '.')
                               ) * item.quantity}
                             </td>
                             <td className="text-right">
@@ -115,7 +113,7 @@ class ShoppingCart extends Component {
                   <div className="col-sm-12  col-md-6">
                     <button
                       onClick={() => {
-                        window.location.href = "/";
+                        window.location.href = '/';
                       }}
                       className="btn btn-outline-secondary"
                     >
@@ -124,7 +122,7 @@ class ShoppingCart extends Component {
                   </div>
                   <div className="col-sm-12 col-md-6 text-right">
                     <button
-                      onClick={()=>this._finishBuyingProcess()}
+                      onClick={() => this._finishBuyingProcess()}
                       className="btn  btn-outline-secondary"
                     >
                       Finalizar
@@ -140,4 +138,6 @@ class ShoppingCart extends Component {
     );
   }
 }
-export default connect(store => ({ shoppingCartList: store.shoppingCartItens }))(ShoppingCart);
+export default connect(store => ({
+  shoppingCartList: store.shoppingCartItens,
+}))(ShoppingCart);

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './DontGo.css';
-import AmaroLogo from '../../logo.svg'
+import AmaroLogo from '../../logo.svg';
 
-class DontGo extends Component{
+class DontGo extends Component {
   render() {
     return (
       <>
@@ -46,9 +46,7 @@ class DontGo extends Component{
         </div>
       </>
     );
-
   }
-  
 }
 
 export default DontGo;
