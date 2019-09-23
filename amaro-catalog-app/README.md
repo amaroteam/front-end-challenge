@@ -24,7 +24,7 @@ The main objective is to create a catalog and shopping cart for some Amaro produ
 
 ```shell
 git clone https://github.com/joelgarciajr84/front-end-challenge
-cd front-end-challenge
+cd amaro-catalog-app
 npm install
 ```
 
