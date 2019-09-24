@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "immer": "^4.0.0",
     "json-server": "^0.15.1",
     "polished": "^3.4.1",
     "react": "^16.9.0",

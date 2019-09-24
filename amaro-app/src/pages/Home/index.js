@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { formatPrice } from '../../utils/format';
 import api from '../../services/api';
+
+import * as CartActions from '../../store/modules/cart/actions';
 
 import { ProductList } from './styles';
 
@@ -16,12 +18,10 @@ export default function Home() {
     fetchData();
   }, []);
 
-  const cart = useSelector(state => state.cart);
-
   const dispatch = useDispatch();
 
   function handleAddProduct(product) {
-    dispatch({ type: 'ADD_TO_CART', product });
+    dispatch(CartActions.addToCart(product));
   }
 
   return (
