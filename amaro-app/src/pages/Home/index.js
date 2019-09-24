@@ -18,7 +18,7 @@ export default function Home() {
           </div>
           <span>Adicionar ao carrinho</span>
         </button>
-      </li>{' '}
+      </li>
       <li>
         <img
           alt="sapato"
@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <span>Adicionar ao carrinho</span>
         </button>
-      </li>{' '}
+      </li>
       <li>
         <img
           alt="sapato"
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <span>Adicionar ao carrinho</span>
         </button>
-      </li>{' '}
+      </li>
       <li>
         <img
           alt="sapato"
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           <span>Adicionar ao carrinho</span>
         </button>
-      </li>{' '}
+      </li>
       <li>
         <img
           alt="sapato"
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <span>Adicionar ao carrinho</span>
         </button>
-      </li>{' '}
+      </li>
       <li>
         <img
           alt="sapato"
