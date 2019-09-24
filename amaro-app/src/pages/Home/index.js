@@ -36,7 +36,7 @@ export default function Home() {
           <span>{formatPrice(product.regular_price)}</span>
           <button type="button" onClick={() => handleAddProduct(product)}>
             <div>
-              <MdAddShoppingCart size={16} color="#000" />2
+              <MdAddShoppingCart size={16} color="#000" />
             </div>
             <span>Adicionar ao carrinho</span>
           </button>
