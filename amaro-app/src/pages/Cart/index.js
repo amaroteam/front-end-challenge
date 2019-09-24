@@ -23,7 +23,10 @@ export default function Cart() {
         <tbody>
           <tr>
             <td>
-              <img src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg" />
+              <img
+                alt="produtofak"
+                src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
+              />
             </td>
             <td>
               <strong>oculos roxo</strong>

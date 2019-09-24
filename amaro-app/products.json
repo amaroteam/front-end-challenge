@@ -1,7 +1,89 @@
 {
+    "stock": [
+        {
+            "id": 1,
+            "amount": 3
+        },
+        {
+            "id": 2,
+            "amount": 3
+        },
+        {
+            "id": 3,
+            "amount": 3
+        },
+        {
+            "id": 4,
+            "amount": 3
+        },
+        {
+            "id": 5,
+            "amount": 3
+        },
+        {
+            "id": 6,
+            "amount": 3
+        },
+        {
+            "id": 7,
+            "amount": 3
+        },
+        {
+            "id": 8,
+            "amount": 3
+        },
+        {
+            "id": 9,
+            "amount": 3
+        },
+        {
+            "id": 10,
+            "amount": 3
+        },
+        {
+            "id": 11,
+            "amount": 3
+        },
+        {
+            "id": 12,
+            "amount": 3
+        },
+        {
+            "id": 13,
+            "amount": 3
+        },
+        {
+            "id": 14,
+            "amount": 3
+        },
+        {
+            "id": 15,
+            "amount": 3
+        },
+        {
+            "id": 16,
+            "amount": 3
+        },
+        {
+            "id": 17,
+            "amount": 3
+        },
+        {
+            "id": 18,
+            "amount": 3
+        },
+        {
+            "id": 19,
+            "amount": 3
+        },
+        {
+            "id": 20,
+            "amount": 3
+        }
+    ],
     "products": [
         {
-            "product_id": "1",
+            "id": "1",
             "name": "VESTIDO TRANSPASSE BOW",
             "style": "20002605",
             "code_color": "20002605_613",
@@ -42,7 +124,7 @@
             ]
         },
         {
-            "product_id": "2",
+            "id": "2",
             "name": "REGATA ALCINHA FOLK",
             "style": "20002570",
             "code_color": "20002570_614",
@@ -83,7 +165,7 @@
             ]
         },
         {
-            "product_id": "3",
+            "id": "3",
             "name": "TOP CROPPED SUEDE",
             "style": "20002575",
             "code_color": "20002575_035",
@@ -124,7 +206,7 @@
             ]
         },
         {
-            "product_id": "4",
+            "id": "4",
             "name": "BATA DECOTE FLUID",
             "style": "20002581",
             "code_color": "20002581_614",
@@ -165,7 +247,7 @@
             ]
         },
         {
-            "product_id": "5",
+            "id": "5",
             "name": "T-SHIRT LEATHER DULL",
             "style": "20002602",
             "code_color": "20002602_027",
@@ -206,7 +288,7 @@
             ]
         },
         {
-            "product_id": "6",
+            "id": "6",
             "name": "CAMISA SUEDE SPAN",
             "style": "20002584",
             "code_color": "20002584_027",
@@ -247,7 +329,7 @@
             ]
         },
         {
-            "product_id": "7",
+            "id": "7",
             "name": "CALÇA CLASSIC PRINT",
             "style": "20002634",
             "code_color": "20002634_613",
@@ -288,7 +370,7 @@
             ]
         },
         {
-            "product_id": "8",
+            "id": "8",
             "name": "REGATA ALCINHA FOLK",
             "style": "20002570",
             "code_color": "20002570_612",
@@ -329,7 +411,7 @@
             ]
         },
         {
-            "product_id": "9",
+            "id": "9",
             "name": "MACAQUINHO ALFAIATARIA PEACE",
             "style": "20002612",
             "code_color": "20002612_612",
@@ -370,7 +452,7 @@
             ]
         },
         {
-            "product_id": "10",
+            "id": "10",
             "name": "BOLSA FLAP TRIANGLE",
             "style": "20002945",
             "code_color": "20002945_027",
@@ -391,7 +473,7 @@
             ]
         },
         {
-            "product_id": "11",
+            "id": "11",
             "name": "VESTIDO LONGO FLOAT",
             "style": "20002606",
             "code_color": "20002606_612",
@@ -432,7 +514,7 @@
             ]
         },
         {
-            "product_id": "12",
+            "id": "12",
             "name": "BATA DECOTE FLUID",
             "style": "20002581",
             "code_color": "20002581_612",
@@ -473,7 +555,7 @@
             ]
         },
         {
-            "product_id": "13",
+            "id": "13",
             "name": "VESTIDO FRANZIDO RECORTES",
             "style": "20001609",
             "code_color": "20001609_029",
@@ -514,7 +596,7 @@
             ]
         },
         {
-            "product_id": "14",
+            "id": "14",
             "name": "CALÇA COMFORT TASSEL",
             "style": "20001786",
             "code_color": "20001786_594",
@@ -555,7 +637,7 @@
             ]
         },
         {
-            "product_id": "15",
+            "id": "15",
             "name": "SAIA DENIM BOTÕES",
             "style": "20001695",
             "code_color": "20001695_063",
@@ -596,7 +678,7 @@
             ]
         },
         {
-            "product_id": "16",
+            "id": "16",
             "name": "BLUSA LAÇO ISTAMBUL",
             "style": "20002600",
             "code_color": "20002600_293",
@@ -637,7 +719,7 @@
             ]
         },
         {
-            "product_id": "17",
+            "id": "17",
             "name": "BLUSA RIB STRIPES",
             "style": "20002829",
             "code_color": "20002829_006",
@@ -678,7 +760,7 @@
             ]
         },
         {
-            "product_id": "18",
+            "id": "18",
             "name": "CASACO WHITE FUR",
             "style": "20002648",
             "code_color": "20002648_029",
@@ -719,7 +801,7 @@
             ]
         },
         {
-            "product_id": "19",
+            "id": "19",
             "name": "VESTIDO CURTO FESTIVAL",
             "style": "20001684",
             "code_color": "20001684_587",
@@ -760,7 +842,7 @@
             ]
         },
         {
-            "product_id": "20",
+            "id": "20",
             "name": "ÓCULOS DE SOL BOLD",
             "style": "20001882",
             "code_color": "20001882_008",
@@ -781,7 +863,7 @@
             ]
         },
         {
-            "product_id": "21",
+            "id": "21",
             "name": "ÓCULOS DE SOL AVIADOR VINTAGE",
             "style": "20001883",
             "code_color": "20001883_019",
@@ -802,7 +884,7 @@
             ]
         },
         {
-            "product_id": "22",
+            "id": "22",
             "name": "PULSEIRA STYLISH",
             "style": "20001913",
             "code_color": "20001913_009",
