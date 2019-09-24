@@ -1,94 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdAddShoppingCart } from 'react-icons/md';
+import api from '../../services/api';
+
 import { ProductList } from './styles';
 
 export default function Home() {
+  const [productsData, setProductsData] = useState([]);
+
+  useEffect(async () => {
+    const response = await api.get('products');
+    setProductsData(response.data);
+  }, []);
+
   return (
     <ProductList>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img
-          alt="sapato"
-          src="https://d3l7rqep7l31az.cloudfront.net/images/products/20001883_019_catalog_1.jpg"
-        />
-        <strong>Renis legal</strong>
-        <span>R$120</span>
-        <button type="button">
-          <div>
-            <MdAddShoppingCart size={16} color="#000" />2
-          </div>
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
+      {productsData.map(product => (
+        <li key={product.id}>
+          <img
+            alt={product.name + product.color - product.slug}
+            src={product.image}
+          />
+          <strong>{product.name}</strong>
+          <span>{product.regular_price}</span>
+          <button type="button">
+            <div>
+              <MdAddShoppingCart size={16} color="#000" />2
+            </div>
+            <span>Adicionar ao carrinho</span>
+          </button>
+        </li>
+      ))}
     </ProductList>
   );
 }
