@@ -10,9 +10,17 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import { Container, ProductTable, Total } from './styles';
 
-export default function Cart() {
+export default function Cart({ cart, removeFromCart, updateAmount }) {
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart);
+  const cartProducts = useSelector(state => state.cart);
+
+  function increment(product) {
+    dispatch(CartActions.updateAmount(product.id, product.amount + 1));
+  }
+  function decrement(product) {
+    dispatch(CartActions.updateAmount(product.id, product.amount - 1));
+  }
+
   return (
     <Container>
       <ProductTable>
@@ -26,7 +34,7 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map(product => (
+          {cartProducts.map(product => (
             <tr>
               <td>
                 <img
@@ -42,11 +50,11 @@ export default function Cart() {
               </td>
               <td>
                 <div>
-                  <button type="button">
+                  <button type="button" onClick={() => decrement(product)}>
                     <MdRemoveCircleOutline size={20} color="#f8c1b8" />
                   </button>
                   <input type="number" readOnly value={product.amount} />
-                  <button type="button">
+                  <button type="button" onClick={() => increment(product)}>
                     <MdAddCircleOutline size={20} color="#f3988a" />
                   </button>
                 </div>
