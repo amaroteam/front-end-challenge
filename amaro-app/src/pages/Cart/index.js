@@ -6,13 +6,20 @@ import {
   MdDelete,
 } from 'react-icons/md';
 
+import { formatPrice } from '../../utils/format';
+
 import * as CartActions from '../../store/modules/cart/actions';
 
 import { Container, ProductTable, Total } from './styles';
 
 export default function Cart({ cart, removeFromCart, updateAmount }) {
   const dispatch = useDispatch();
-  const cartProducts = useSelector(state => state.cart);
+  const cartProducts = useSelector(state =>
+    state.cart.map(product => ({
+      ...product,
+      subtotal: formatPrice(product.regular_price * product.amount),
+    }))
+  );
 
   function increment(product) {
     dispatch(CartActions.updateAmount(product.id, product.amount + 1));
@@ -60,7 +67,7 @@ export default function Cart({ cart, removeFromCart, updateAmount }) {
                 </div>
               </td>
               <td>
-                <strong>R$258,50</strong>
+                <strong>{product.subtotal}</strong>
               </td>
               <td>
                 <button
