@@ -22,8 +22,8 @@ export default function Home() {
 
   const dispatch = useDispatch();
 
-  function handleAddProduct(product) {
-    dispatch(CartActions.addToCart(product));
+  function handleAddProduct(id) {
+    dispatch(CartActions.addToCartRequest(id));
   }
 
   const amount = useSelector(state =>
@@ -43,7 +43,7 @@ export default function Home() {
           />
           <strong>{product.name}</strong>
           <span>{formatPrice(product.regular_price)}</span>
-          <button type="button" onClick={() => handleAddProduct(product)}>
+          <button type="button" onClick={() => handleAddProduct(product.id)}>
             <div>
               <MdAddShoppingCart size={16} color="#000" />
               {amount[product.id] || 0}
