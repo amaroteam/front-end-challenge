@@ -91,3 +91,42 @@ export const Total = styled.div`
     margin-left: 5px;
   }
 `;
+
+export const TotalContainer = styled.div`
+  margin-top: 30px;
+`;
+export const TotalText = styled.p`
+  text-align: center;
+  color: #999;
+  font-weight: bold;
+`;
+export const TotalAmount = styled.p`
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: bold;
+`;
+export const Order = styled.div`
+  background: #f3988a;
+  padding: 12px;
+  border-radius: 4px;
+`;
+
+export const OrderText = styled.p`
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+`;
+
+export const EmptyContainer = styled.div`
+  align-items: center;
+  justify-content: center;
+`;
+
+export const EmptyText = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 18px;
+`;
