@@ -1,22 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import {
-  IoIosInformationCircleOutline,
-  IoIosChatbubbles,
-  IoIosMail,
-  IoMdClose,
-} from 'react-icons/io';
-import {
-  FaWhatsapp,
-  FaUserCircle,
-  FaRegStar,
-  FaStar,
-  FaStarHalfAlt,
-  FaRegHeart,
-  FaChevronDown,
-  FaChevronLeft,
-} from 'react-icons/fa';
-import { FiPlusCircle } from 'react-icons/fi';
+import { FiShoppingBag } from 'react-icons/fi';
 
 const defaultProps = {
   color: '',
@@ -32,19 +16,7 @@ const propTypes = {
 };
 
 export const iconsLibrary = {
-  info: IoIosInformationCircleOutline,
-  whatsapp: FaWhatsapp,
-  user: FaUserCircle,
-  plus: FiPlusCircle,
-  emptyStar: FaRegStar,
-  fullStar: FaStar,
-  halfStar: FaStarHalfAlt,
-  chat: IoIosChatbubbles,
-  mail: IoIosMail,
-  heart: FaRegHeart,
-  arrowDown: FaChevronDown,
-  arrowLeft: FaChevronLeft,
-  close: IoMdClose,
+  cart: FiShoppingBag,
 };
 
 function Icon({ name, color, size, className }) {

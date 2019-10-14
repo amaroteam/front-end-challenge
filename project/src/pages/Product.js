@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import actions from '../store/actions';
 import colors from '../theme/colors';
 
 const StyledWrapper = styled.div`
@@ -56,19 +55,6 @@ const StyledWrapper = styled.div`
 
 function Products() {
   const list = useSelector(state => state.products);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (list.length === 0) dispatch(actions.getProducts());
-  });
-
-  const addToCart = product =>
-    dispatch({
-      type: 'ADD_PRODUCT_CART',
-      product,
-    });
-
-  console.log(list);
 
   return (
     <StyledWrapper>
@@ -90,7 +76,7 @@ function Products() {
                 ))}
               </ul>
             </div>
-            <button type='button' onClick={() => dispatch(addToCart(product))}>
+            <button type='button' onClick={() => {}}>
               COMPRAR
             </button>
           </li>

@@ -1,9 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Products, Cart } from './pages';
-import { Logo } from './components';
+import Products from './pages/Products';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
+
+import Nav from './components/Nav';
 
 import './Normalize.css';
 import './App.css';
@@ -14,31 +17,27 @@ const StyledWrapper = styled.div`
   margin: 0 auto;
   text-align: center;
   vertical-align: center;
-
-  .logo {
-    margin: 0 0 30px;
-  }
 `;
 
 function App() {
   return (
     <StyledWrapper>
-      <div className='logo'>
-        <Logo />
-      </div>
-      <Router>
-        <Switch>
-          <Route path='/products'>
-            <Products />
-          </Route>
-          <Route path='/cart'>
-            <Cart />
-          </Route>
-          <Route path='/'>
-            <Products />
-          </Route>
-        </Switch>
-      </Router>
+      <Nav />
+
+      <Switch>
+        <Route path='/products'>
+          <Products />
+        </Route>
+        <Route path='/product'>
+          <Product />
+        </Route>
+        <Route path='/cart'>
+          <Cart />
+        </Route>
+        <Route path='/'>
+          <Products />
+        </Route>
+      </Switch>
     </StyledWrapper>
   );
 }
