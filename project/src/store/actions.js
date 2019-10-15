@@ -1,7 +1,15 @@
 import { axiosInstance } from '../utils/client';
 
-const addProductToCart = product => ({ type: 'ADD_PRODUCT_CART', product });
-const deleteProductFromCart = id => ({ type: 'DELETE_PRODUCT_CART', id });
+export const addProductToCart = ({ product, selectedSize }) => ({
+  type: 'ADD_PRODUCT_CART',
+  product,
+  selectedSize,
+});
+
+export const deleteProductFromCart = id => ({
+  type: 'DELETE_PRODUCT_CART',
+  id,
+});
 
 export const loadProducts = list => ({
   type: 'LOAD_PRODUCTS',
@@ -13,10 +21,4 @@ export const getProducts = () => {
     axiosInstance.get('/products').then(({ data: { products } }) => {
       dispatch(loadProducts(products));
     });
-};
-
-export default {
-  addProductToCart,
-  deleteProductFromCart,
-  getProducts,
 };

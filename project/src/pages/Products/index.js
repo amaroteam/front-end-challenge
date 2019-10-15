@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 
-import { getProducts } from '../../store/actions';
+import { getProducts, addProductToCart } from '../../store/actions';
 import Product from '../../components/Product';
 import DetailedProduct from '../../components/DetailedProduct';
 import Modal from '../../components/Modal';
@@ -89,6 +89,11 @@ function Products() {
     setFilter(!filter);
   };
 
+  const addToCart = ({ product, selectedSize }) => {
+    dispatch(addProductToCart({ product, selectedSize }));
+    dispatch({ type: 'CLOSE_MODAL' });
+  };
+
   useEffect(() => {
     if (list.length === 0) dispatch(getProducts());
   });
@@ -99,7 +104,9 @@ function Products() {
         <Modal>
           <DetailedProduct
             {...selected}
-            callback={() => dispatch({ type: 'CLOSE_MODAL' })}
+            callback={selectedSize =>
+              addToCart({ product: selected, selectedSize })
+            }
           />
         </Modal>
       )}

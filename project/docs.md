@@ -1,7 +1,7 @@
 todo
 
 - [x] products dinamically;
-- [ ] every product with:
+- [x] every product with:
   - Image;
   - Name;
   - Price;
@@ -23,7 +23,7 @@ extras
 
 - [ ] mais funcionalidades do carrinho
   - adicionar, remover ou alterar a quantidade de items;
-- [ ] searchbox com filtro de +on_sale+
+- [x] searchbox com filtro de +on_sale+
 - [ ] mostrar somente produtos do stock
 - [ ] teste unitários
 - [ ] testes funcionais

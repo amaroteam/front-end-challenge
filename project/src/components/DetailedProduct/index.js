@@ -43,7 +43,7 @@ function DetailedProduct({
     if (validate({ selectedSize }) === false) return setError(true);
 
     setError(false);
-    return callback();
+    return callback(sizes[selectedSize - 1]);
   };
 
   useEffect(() => {

@@ -15,16 +15,18 @@ const cart = (state = initialState.cart, action) => {
 
   switch (action.type) {
     case 'ADD_PRODUCT_CART': {
-      const { product } = action;
+      let alreadyAdded = false;
+      const { product, selectedSize } = action;
 
-      const alreadyAdded =
-        state.filter(item => {
-          return item.id === product.id;
-        }).length > 0;
+      console.log(state);
+
+      if (state.length > 0) {
+        alreadyAdded = state.filter(item => item.id === product.id).length > 0;
+      }
 
       if (alreadyAdded) return state;
 
-      return [action.product, ...state];
+      return [{ ...action.product, selectedSize }, ...state];
     }
 
     case 'DELETE_PRODUCT_CART': {
