@@ -19,7 +19,7 @@ export const StyledWrapper = styled.div`
   position: relative;
   width: 100%;
   height: calc(100% - 30px);
-  top: 100px;
+  top: 50px;
   left: 0;
 
   ${breakpoint('tablet')`

@@ -1,6 +1,8 @@
 export const initialState = {
   products: [],
-  productsFilters: {},
+  productsFilters: {
+    sale: false,
+  },
   cart: [],
   cartFilters: {},
   modal: {
@@ -36,13 +38,6 @@ const cart = (state = initialState.cart, action) => {
 
 const cartFilters = (state = initialState.cartFilters, action) => {
   switch (action.type) {
-    case 'UPDATE_FILTER': {
-      return {
-        ...state,
-        active: action.filter,
-      };
-    }
-
     default:
       return state;
   }
@@ -54,12 +49,15 @@ const products = (state = initialState.products, action) => {
   switch (action.type) {
     case 'LOAD_PRODUCTS': {
       return action.list.map((item, index) => ({
-        ...item,
         id: index,
         regularPrice: item.regular_price,
         actualPrice: item.actual_price,
         discountPercentage: item.discount_percentage,
         onSale: item.on_sale,
+        sizes: item.sizes,
+        name: item.name,
+        image: item.image,
+        installments: item.installments,
       }));
     }
 
@@ -70,6 +68,11 @@ const products = (state = initialState.products, action) => {
 
 const productsFilters = (state = initialState.productsFilters, action) => {
   switch (action.type) {
+    case 'UPDATE_SALE_FILTER':
+      return {
+        sale: !state.sale,
+      };
+
     default:
       return state;
   }

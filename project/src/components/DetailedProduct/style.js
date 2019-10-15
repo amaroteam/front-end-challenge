@@ -56,7 +56,7 @@ export const StyledWrapper = styled.div`
   .bottomContent {
     width: 100%;
     display: inline-block;
-    padding: 5px 10px 15px;
+    padding: 5px 10px 50px;
     margin-top: 10px;
 
     ${breakpoint('tablet')`

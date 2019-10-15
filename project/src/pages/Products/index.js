@@ -7,6 +7,8 @@ import { getProducts } from '../../store/actions';
 import Product from '../../components/Product';
 import DetailedProduct from '../../components/DetailedProduct';
 import Modal from '../../components/Modal';
+import Icon from '../../components/Icon';
+import colors from '../../theme/colors';
 
 const StyledWrapper = styled.div`
   ul {
@@ -38,37 +40,76 @@ const StyledWrapper = styled.div`
       `}
     }
   }
+
+  .order {
+    margin: 0 0 20px;
+
+    button {
+      background: none;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      span {
+        color: ${colors.secondary};
+        font-weight: bold;
+      }
+
+      svg {
+        position: relative;
+        top: 3px;
+        right: -3px;
+      }
+    }
+  }
 `;
 
 function Products() {
   const dispatch = useDispatch();
-  const list = useSelector(state => state.products);
+
+  const isSaleSelected = useSelector(state => state.productsFilters.sale);
+
+  let list = useSelector(state => state.products);
+  if (isSaleSelected) list = list.filter(item => item.onSale);
+
   const [selected, setSelected] = useState({});
+  const [filter, setFilter] = useState(true);
 
   const hasSelected = Object.keys(selected).length > 0;
-
-  const detailedCallback = () => {
-    return dispatch({ type: 'CLOSE_MODAL' });
-  };
 
   const selectProduct = product => {
     dispatch({ type: 'OPEN_MODAL' });
     setSelected(product);
   };
 
+  const updateFilter = () => {
+    dispatch({ type: 'UPDATE_SALE_FILTER' });
+    setFilter(!filter);
+  };
+
   useEffect(() => {
     if (list.length === 0) dispatch(getProducts());
   });
 
-  const ModalComponent = hasSelected && (
-    <Modal>
-      <DetailedProduct {...selected} callback={() => detailedCallback()} />
-    </Modal>
-  );
-
   return (
     <StyledWrapper>
-      {ModalComponent}
+      {hasSelected && (
+        <Modal>
+          <DetailedProduct
+            {...selected}
+            callback={() => dispatch({ type: 'CLOSE_MODAL' })}
+          />
+        </Modal>
+      )}
+
+      <div className='order'>
+        <button type='button' onClick={() => updateFilter()}>
+          only <span>sale</span>
+          <Icon name={filter ? 'down' : 'delete'} size='1em' />
+        </button>
+      </div>
 
       <ul>
         {list.map((product, index) => (
