@@ -1,14 +1,13 @@
-import React from 'react';
-import { string, bool, func, shape, arrayOf } from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { string, bool, shape, arrayOf, func } from 'prop-types';
 
-import { StyledWrapper } from './style';
+import { StyledWrapper, StyledButton } from './style';
 
 const propTypes = {
   image: string.isRequired,
   name: string.isRequired,
   regularPrice: string.isRequired,
   actualPrice: string.isRequired,
-  discountPercentage: string.isRequired,
   installments: string.isRequired,
   onSale: bool.isRequired,
   sizes: arrayOf(
@@ -21,28 +20,40 @@ const propTypes = {
   callback: func.isRequired,
 };
 
-function Product({
+function validate({ selectedSize }) {
+  if (!selectedSize) return false;
+
+  return true;
+}
+
+function DetailedProduct({
   image,
   name,
   regularPrice,
   onSale,
   actualPrice,
-  discountPercentage,
   installments,
   sizes,
   callback,
 }) {
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [error, setError] = useState(false);
+
+  const addToCart = () => {
+    if (validate({ selectedSize }) === false) return setError(true);
+
+    setError(false);
+    return callback();
+  };
+
+  useEffect(() => {
+    setError(false);
+  }, [selectedSize]);
+
   return (
-    <StyledWrapper onClick={() => callback()} sale={onSale}>
+    <StyledWrapper sale={onSale}>
       <div className='content'>
         <div className='image'>
-          {onSale && (
-            <div className='sale'>
-              <p className='title'>SALE</p>
-              <p className='percentage'>{discountPercentage}</p>
-            </div>
-          )}
-
           <img src={image} alt={`Foto do produto ${name}`} />
         </div>
 
@@ -70,22 +81,35 @@ function Product({
                 </p>,
               ]}
 
-          <div className='sizes'>
+          <div>
             {sizes.map(
               ({ available, size }, index) =>
                 available && (
-                  <div key={`size-${index}`} className='size'>
+                  <StyledButton
+                    key={`size-${index}`}
+                    onClick={() => setSelectedSize(index + 1)}
+                    type='button'
+                    selected={index + 1 === selectedSize}
+                  >
                     <span>{size}</span>
-                  </div>
+                  </StyledButton>
                 )
             )}
           </div>
+
+          <div className='submit'>
+            <button onClick={() => addToCart()} type='button'>
+              adicionar ao carrinho
+            </button>
+          </div>
+
+          <div>{error && <span>é necessário selecionar um tamanho</span>}</div>
         </div>
       </div>
     </StyledWrapper>
   );
 }
 
-Product.propTypes = propTypes;
+DetailedProduct.propTypes = propTypes;
 
-export default Product;
+export default DetailedProduct;

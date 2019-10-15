@@ -10,8 +10,8 @@ export const StyledWrapper = styled.div`
 
   .menu {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 30px;
+    right: 30px;
 
     svg {
       color: ${colors.dark};
@@ -20,10 +20,7 @@ export const StyledWrapper = styled.div`
     a {
       width: 50px;
       height: 34px;
-      display: block;
-      position: relative;
-      top: 20px;
-      left: -11px;
+      display: inline-block;
     }
   }
 `;

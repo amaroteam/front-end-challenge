@@ -16,6 +16,11 @@ export const StyledWrapper = styled.div`
   .content {
     border: 1px solid ${colors.gray};
     position: relative;
+
+    &:hover {
+      border-color: #ccc;
+      transition: 0.2s all ease-in-out;
+    }
   }
 
   .sale {
@@ -57,8 +62,8 @@ export const StyledWrapper = styled.div`
   }
 
   .regularPrice {
-    ${({ onSale }) =>
-      onSale
+    ${({ sale }) =>
+      sale
         ? `
           font-size: 12px;
           position: relative;
@@ -74,8 +79,8 @@ export const StyledWrapper = styled.div`
     color: ${colors.black};
     font-weight: normal;
 
-    ${({ onSale }) =>
-      onSale &&
+    ${({ sale }) =>
+      sale &&
       `
         color: ${colors.primary};
         font-weight: bold;

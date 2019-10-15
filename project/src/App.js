@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Products from './pages/Products';
-import Product from './pages/Product';
 import Cart from './pages/Cart';
 
 import Nav from './components/Nav';
@@ -15,8 +14,8 @@ const StyledWrapper = styled.div`
   padding: 30px 20px;
   max-width: 1400px;
   margin: 0 auto;
-  text-align: center;
   vertical-align: center;
+  position: relative;
 `;
 
 function App() {
@@ -27,9 +26,6 @@ function App() {
       <Switch>
         <Route path='/products'>
           <Products />
-        </Route>
-        <Route path='/product'>
-          <Product />
         </Route>
         <Route path='/cart'>
           <Cart />

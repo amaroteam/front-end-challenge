@@ -3,6 +3,9 @@ export const initialState = {
   productsFilters: {},
   cart: [],
   cartFilters: {},
+  modal: {
+    isOpen: false,
+  },
 };
 
 const cart = (state = initialState.cart, action) => {
@@ -49,11 +52,14 @@ const products = (state = initialState.products, action) => {
   if (!action) return false;
 
   switch (action.type) {
-    /* TODO remove if not contract update */
     case 'LOAD_PRODUCTS': {
       return action.list.map((item, index) => ({
         ...item,
         id: index,
+        regularPrice: item.regular_price,
+        actualPrice: item.actual_price,
+        discountPercentage: item.discount_percentage,
+        onSale: item.on_sale,
       }));
     }
 
@@ -69,9 +75,27 @@ const productsFilters = (state = initialState.productsFilters, action) => {
   }
 };
 
+const modal = (state = initialState.modal, action) => {
+  switch (action.type) {
+    case 'OPEN_MODAL':
+      return {
+        isOpen: true,
+      };
+
+    case 'CLOSE_MODAL':
+      return {
+        isOpen: false,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export default {
   products,
   productsFilters,
   cart,
   cartFilters,
+  modal,
 };

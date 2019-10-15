@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { FiShoppingBag } from 'react-icons/fi';
+import { FiShoppingBag, FiSearch, FiXCircle } from 'react-icons/fi';
 
 const defaultProps = {
   color: '',
@@ -17,6 +17,8 @@ const propTypes = {
 
 export const iconsLibrary = {
   cart: FiShoppingBag,
+  search: FiSearch,
+  close: FiXCircle,
 };
 
 function Icon({ name, color, size, className }) {

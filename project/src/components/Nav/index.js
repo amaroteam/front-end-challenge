@@ -13,8 +13,11 @@ function Nav() {
       </div>
 
       <div className='menu'>
+        <Link to='/products'>
+          <Icon name='search' size='1.7em' />
+        </Link>
         <Link to='/cart'>
-          <Icon name='cart' size='2.2em' />
+          <Icon name='cart' size='1.7em' />
         </Link>
       </div>
     </StyledWrapper>

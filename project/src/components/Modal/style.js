@@ -19,8 +19,9 @@ export const StyledWrapper = styled.div`
   position: relative;
   width: 100%;
   height: calc(100% - 30px);
-  top: 30px;
+  top: 100px;
   left: 0;
+
   ${breakpoint('tablet')`
     position: fixed;
     width: auto;
@@ -33,7 +34,7 @@ export const StyledWrapper = styled.div`
 
 export const StyledButton = styled.button`
   position: absolute;
-  top: -30px;
+  top: -40px;
   right: 0;
   height: 30px;
   width: 30px;
@@ -42,12 +43,11 @@ export const StyledButton = styled.button`
   background: none;
   padding: 0;
   margin: 0;
+  color: ${colors.light};
+
   &:hover {
     cursor: pointer;
   }
-  ${breakpoint('tablet')`
-    right: -7px;
-  `}
 `;
 
 export const StyledIcon = styled(Icon)`
@@ -57,6 +57,7 @@ export const StyledIcon = styled(Icon)`
 export const StyledScroll = styled.div`
   overflow-y: auto !important;
   height: 100%;
+
   ${breakpoint('tablet')`
     max-height: 600px;
   `};

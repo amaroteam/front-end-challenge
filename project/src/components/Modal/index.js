@@ -1,5 +1,6 @@
-import React from 'react';
-import { node, bool, func } from 'prop-types';
+import React, { useRef, useEffect } from 'react';
+import { node } from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   StyledBackground,
@@ -11,18 +12,38 @@ import {
 
 const propTypes = {
   children: node.isRequired,
-  shouldShow: bool.isRequired,
-  callback: func.isRequired,
 };
 
-function Modal({ children, shouldShow, callback }) {
+function useOutsideAlerter(ref, callback) {
+  function handleClickOutside(event) {
+    if (ref.current && !ref.current.contains(event.target)) {
+      callback();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
+}
+
+function Modal({ children }) {
+  const dispatch = useDispatch();
+  const wrapperRef = useRef(null);
+  const isOpen = useSelector(({ modal }) => modal.isOpen);
+  const closeModal = () => dispatch({ type: 'CLOSE_MODAL' });
+
+  useOutsideAlerter(wrapperRef, closeModal);
+
   return (
-    shouldShow && (
+    isOpen && (
       <StyledBackground>
-        <StyledWrapper>
+        <StyledWrapper ref={wrapperRef}>
           <StyledButton
             type='button'
-            onClick={() => callback()}
+            onClick={() => closeModal()}
             data-cypress='close-button'
           >
             <StyledIcon name='close' size='2em' />
