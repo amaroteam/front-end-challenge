@@ -9,7 +9,7 @@ todo
   - Promo price (if available);
   - Available Sizes;
   - Sale badge;
-- [ ] adicionar produtos por tamanho no carrinho;
+- [x] adicionar produtos por tamanho no carrinho;
 - [ ] ver o carrinho;
 - [ ] o carrinho precisa mostrar
   - name;
@@ -18,6 +18,7 @@ todo
   - quantity;
 - [ ] o carrinho precisa mostrar o grand total;
 - [x] o carrinho precisa permancer entre carregamentos de página;
+- [ ] atualizar quando tamanho unico
 
 extras
 
