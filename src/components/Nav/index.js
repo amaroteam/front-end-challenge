@@ -12,7 +12,9 @@ function Nav() {
   return (
     <StyledWrapper>
       <div className='logo'>
-        <Logo />
+        <Link to='/products'>
+          <Logo />
+        </Link>
       </div>
 
       <div className='menu'>
