@@ -14,7 +14,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
   });
 });
 
-describe('Quero Bolsa, favorites page', () => {
+describe('Amaro App', () => {
   beforeEach(() => {
     cy.restoreLocalStorage();
   });
