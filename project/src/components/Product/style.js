@@ -4,10 +4,6 @@ import colors from '../../theme/colors';
 
 export const StyledWrapper = styled.div`
   display: flex;
-  flex-flow: column;
-  align-items: stretch;
-  justify-content: stretch;
-  height: auto;
 
   &:hover {
     cursor: pointer;
@@ -16,6 +12,7 @@ export const StyledWrapper = styled.div`
   .content {
     border: 1px solid ${colors.gray};
     position: relative;
+    flex: 1;
 
     &:hover {
       border-color: #ccc;

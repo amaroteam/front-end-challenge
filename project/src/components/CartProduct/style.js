@@ -6,7 +6,6 @@ export const StyledWrapper = styled.div`
   width: 100%;
   display: inline-block;
   border: 1px solid #ccc;
-  margin: 0 10px 20px;
   padding: 10px 10px 30px;
   position: relative;
 

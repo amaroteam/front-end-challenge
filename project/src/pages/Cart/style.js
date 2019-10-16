@@ -11,13 +11,28 @@ export const StyledWrapper = styled.div`
   }
 
   .list {
-    width: 70%;
+    width: 100%;
     display: inline-flex;
     flex-wrap: wrap;
 
+    ${breakpoint('tablet')`
+      width: 70%;
+      display: inline-flex;
+    `}
+
     & > div {
       flex-grow: 1;
-      width: calc(33% - 20px);
+      width: 100%;
+      margin: 0 0 20px;
+
+      ${breakpoint('tablet')`
+        width: calc(50% - 20px);
+        margin: 0 10px 20px;
+      `}
+
+      ${breakpoint('desktop')`
+        width: calc(33% - 20px);
+      `}
     }
 
     & > div:last-child,
@@ -27,10 +42,15 @@ export const StyledWrapper = styled.div`
   }
 
   .checkout {
-    width: 30%;
-    display: inline-block;
+    width: 100%;
+    display: block;
     border: 1px solid #ccc;
     padding: 20px;
+
+    ${breakpoint('tablet')`
+      width: 30%;
+      display: inline-block;
+    `}
 
     .columnLeft,
     .columnRight {
@@ -66,16 +86,6 @@ export const StyledWrapper = styled.div`
       }
     }
   }
-
-      /* ${breakpoint('tablet')`
-        width: calc(33% - 30px);
-        margin: 0 15px 30px;
-      `}
-
-      ${breakpoint('desktop')`
-        width: calc(25% - 30px);
-        margin: 0 15px 30px;
-      `} */
 `;
 
 export const StyledSize = styled.div``;
