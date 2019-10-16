@@ -40,9 +40,13 @@ function DetailedProduct({
   const [error, setError] = useState(false);
 
   const addToCart = () => {
-    if (validate({ selectedSize }) === false) return setError(true);
+    const hasUniqueSize = sizes.length === 1;
+    if (validate({ selectedSize }) === false && !hasUniqueSize)
+      return setError(true);
 
     setError(false);
+
+    if (hasUniqueSize) return callback(sizes[0]);
     return callback(sizes[selectedSize - 1]);
   };
 

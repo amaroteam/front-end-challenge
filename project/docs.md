@@ -29,6 +29,8 @@ extras
 * [ ] atualizar quando tamanho unico
 * [ ] teste unitários
 * [ ] testes funcionais
-* [ ] remover erros do log
+* [x] remover erros do log
 * [x] remover comentários
 * [x] checkup css
+
+- [ ] storybook checkup

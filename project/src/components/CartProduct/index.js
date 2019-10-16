@@ -38,6 +38,8 @@ function CartProduct({
     quantityCallback(parseInt(value, 10));
   };
 
+  const hasUniqueSize = selectedSize.size === 'U';
+
   return (
     <StyledWrapper>
       <button type='button' className='delete' onClick={() => deleteCallback()}>
@@ -72,13 +74,15 @@ function CartProduct({
               </p>,
             ]}
 
-        <div className='sizes'>
-          <span>selected size:</span>
+        {!hasUniqueSize && (
+          <div className='sizes'>
+            <span>selected size:</span>
 
-          <div className='size'>
-            <span>{selectedSize.size}</span>
+            <div className='size'>
+              <span>{selectedSize.size}</span>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className='quantity'>
           <span>quantity:</span>
