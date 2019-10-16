@@ -26,11 +26,12 @@ extras
 - [x] searchbox com filtro de +on_sale+
 - [x] mostrar somente produtos do stock
 
-* [ ] atualizar quando tamanho unico
+* [x] atualizar quando tamanho unico
 * [ ] teste unitários
 * [ ] testes funcionais
 * [x] remover erros do log
 * [x] remover comentários
 * [x] checkup css
 
+- [ ] deploy
 - [ ] storybook checkup

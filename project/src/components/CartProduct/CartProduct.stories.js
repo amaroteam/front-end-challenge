@@ -9,7 +9,7 @@ export default {
 const props = {
   name: 'VESTIDO TRANSPASSE BOW',
   style: '20002605',
-  onSale: true,
+  onSale: false,
   regularPrice: 'R$ 199,90',
   actualPrice: 'R$ 199,90',
   discountPercentage: '',
@@ -53,7 +53,13 @@ const props = {
 };
 
 export const regular = () => (
-  <div style={{ margin: 10 }}>
+  <div style={{ margin: 10, width: 500 }}>
     <CartProduct {...props} />
+  </div>
+);
+
+export const onSale = () => (
+  <div style={{ margin: 10, width: 500 }}>
+    <CartProduct {...props} onSale />
   </div>
 );
