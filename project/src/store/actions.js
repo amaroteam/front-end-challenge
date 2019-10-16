@@ -11,6 +11,11 @@ export const deleteProductFromCart = id => ({
   id,
 });
 
+export const updateProductFromCart = product => ({
+  type: 'EDIT_PRODUCT_CART',
+  product,
+});
+
 export const loadProducts = list => ({
   type: 'LOAD_PRODUCTS',
   list,

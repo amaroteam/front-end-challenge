@@ -18,19 +18,27 @@ const cart = (state = initialState.cart, action) => {
       let alreadyAdded = false;
       const { product, selectedSize } = action;
 
-      console.log(state);
-
       if (state.length > 0) {
         alreadyAdded = state.filter(item => item.id === product.id).length > 0;
       }
 
       if (alreadyAdded) return state;
 
-      return [{ ...action.product, selectedSize }, ...state];
+      return [{ ...action.product, selectedSize, quantity: 1 }, ...state];
     }
 
     case 'DELETE_PRODUCT_CART': {
       return state.filter(product => product.id !== action.id);
+    }
+
+    case 'EDIT_PRODUCT_CART': {
+      const result = state.map(product => {
+        if (product.id === action.product.id) return action.product;
+
+        return product;
+      });
+
+      return result;
     }
 
     default:
