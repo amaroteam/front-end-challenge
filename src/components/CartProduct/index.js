@@ -41,7 +41,7 @@ function CartProduct({
   const hasUniqueSize = selectedSize.size === 'U';
 
   return (
-    <StyledWrapper>
+    <StyledWrapper data-cypress='cart-item'>
       <button type='button' className='delete' onClick={() => deleteCallback()}>
         <Icon name='close' />
       </button>

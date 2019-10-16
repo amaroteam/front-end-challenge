@@ -62,7 +62,7 @@ function Products() {
 
       <ul>
         {list.map((product, index) => (
-          <li key={`product-${index}`}>
+          <li key={`product-${index}`} data-cypress='products-item'>
             <Product {...product} callback={() => selectProduct(product)} />
           </li>
         ))}

@@ -94,6 +94,7 @@ function DetailedProduct({
                     onClick={() => setSelectedSize(index + 1)}
                     type='button'
                     selected={index + 1 === selectedSize}
+                    data-cypress='size-item'
                   >
                     <span>{size}</span>
                   </StyledButton>
@@ -102,7 +103,11 @@ function DetailedProduct({
           </div>
 
           <div className='submit'>
-            <button onClick={() => addToCart()} type='button'>
+            <button
+              onClick={() => addToCart()}
+              type='button'
+              data-cypress='detailed-submit'
+            >
               adicionar ao carrinho
             </button>
           </div>

@@ -33,6 +33,6 @@ extras
 * [x] remover comentários
 * [x] checkup css
 
-- [ ] deploy
+- [x] deploy
 - [x] storybook checkup
 - [ ] readme

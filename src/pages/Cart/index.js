@@ -32,7 +32,7 @@ function Cart() {
         </div>
       )}
 
-      <div className='list'>
+      <div className='list' data-cypress='cart-list'>
         {list.map((item, index) => (
           <CartProduct
             {...item}

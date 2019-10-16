@@ -21,6 +21,7 @@
     "@storybook/addons": "^5.2.3",
     "@storybook/react": "^5.2.3",
     "babel-eslint": "^10.0.3",
+    "cypress": "^3.4.1",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -33,7 +34,8 @@
     "lint-staged": "^9.4.1",
     "prettier": "^1.18.2",
     "reactotron-react-js": "^3.3.4",
-    "reactotron-redux": "^3.1.2"
+    "reactotron-redux": "^3.1.2",
+    "wait-on": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +43,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "functional-test:open": "$(npm bin)/cypress open",
+    "functional-test:run": "yarn start & $(npm bin)/wait-on -w 3000 -l http://localhost:3000 && $(npm bin)/cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
