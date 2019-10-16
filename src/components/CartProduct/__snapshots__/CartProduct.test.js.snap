@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CartProduct /> with default props shoud match snapshot with default props 1`] = `
+<CartProduct
+  actualPrice="R$ 199,90"
+  deleteCallback={[Function]}
+  discountPercentage=""
+  image="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+  installments="3x R$ 66,63"
+  name="VESTIDO TRANSPASSE BOW"
+  onSale={false}
+  quantity={1}
+  quantityCallback={[Function]}
+  regularPrice="R$ 199,90"
+  selectedSize={
+    Object {
+      "available": false,
+      "size": "PP",
+      "sku": "5807_343_0_PP",
+    }
+  }
+  sizes={
+    Array [
+      Object {
+        "available": false,
+        "size": "PP",
+        "sku": "5807_343_0_PP",
+      },
+      Object {
+        "available": true,
+        "size": "P",
+        "sku": "5807_343_0_P",
+      },
+      Object {
+        "available": true,
+        "size": "M",
+        "sku": "5807_343_0_M",
+      },
+      Object {
+        "available": true,
+        "size": "G",
+        "sku": "5807_343_0_G",
+      },
+      Object {
+        "available": false,
+        "size": "GG",
+        "sku": "5807_343_0_GG",
+      },
+    ]
+  }
+  style="20002605"
+>
+  <styled.div
+    data-cypress="cart-item"
+  >
+    <StyledComponent
+      data-cypress="cart-item"
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "eBZscz",
+            "rules": Array [
+              "
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 10px 10px 30px;
+  position: relative;
+
+  .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      color: ",
+              "#000",
+              ";
+    }
+  }
+
+  .columnLeft {
+    width: 50%;
+    object-fit: contain;
+    display: inline-block;
+
+    img {
+      width: 100%;
+      border: 1px solid #eee;
+    }
+  }
+
+  .columnRight {
+    width: calc(50% - 10px);
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    text-align: center;
+    padding-top: 30px;
+
+    .name {
+      margin-bottom: 10px;
+    }
+
+    .regularPrice {
+      margin-bottom: 5px;
+    }
+
+    .actualPrice {
+      font-size: 12px;
+      text-decoration: line-through;
+      margin-bottom: 5px;
+    }
+
+    .installments {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .sizes {
+      margin-top: 20px;
+
+      & > span {
+        font-size: 12px;
+        display: block;
+      }
+    }
+
+    .size {
+      border: 1px solid #ddd;
+      text-align: center;
+      width: 25px;
+      display: inline-block;
+      margin: 4px 2px 0;
+      padding: 0px 0px 8px;
+
+      span {
+        font-size: 10px;
+      }
+    }
+
+    .quantity {
+      margin-top: 20px;
+      font-size: 12px;
+
+      input {
+        background: ",
+              "#fff",
+              ";
+        margin-top: 5px;
+        width: 50px;
+        height: 35px;
+        border: 1px solid #ccc;
+        padding: 10px 0 10px 10px;
+        text-align: center;
+      }
+    }
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <div
+        className="sc-bdVaJa eBZscz"
+        data-cypress="cart-item"
+      >
+        <button
+          className="delete"
+          onClick={[Function]}
+          type="button"
+        >
+          <Icon
+            className=""
+            color=""
+            name="close"
+            size=""
+          >
+            <FiXCircle
+              className=""
+              color=""
+              name="close"
+              size=""
+            >
+              <IconBase
+                attr={
+                  Object {
+                    "fill": "none",
+                    "stroke": "currentColor",
+                    "strokeLinecap": "round",
+                    "strokeLinejoin": "round",
+                    "strokeWidth": "2",
+                    "viewBox": "0 0 24 24",
+                  }
+                }
+                className=""
+                color=""
+                name="close"
+                size=""
+              >
+                <svg
+                  color=""
+                  fill="none"
+                  height="1em"
+                  name="close"
+                  size=""
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    key="0"
+                    r="10"
+                  />
+                  <line
+                    key="1"
+                    x1="15"
+                    x2="9"
+                    y1="9"
+                    y2="15"
+                  />
+                  <line
+                    key="2"
+                    x1="9"
+                    x2="15"
+                    y1="9"
+                    y2="15"
+                  />
+                </svg>
+              </IconBase>
+            </FiXCircle>
+          </Icon>
+        </button>
+        <div
+          className="columnLeft"
+        >
+          <img
+            alt=""
+            src="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+          />
+        </div>
+        <div
+          className="columnRight"
+        >
+          <p
+            className="name"
+          >
+            VESTIDO TRANSPASSE BOW
+          </p>
+          <p
+            className="regularPrice"
+            key="regularPrice"
+          >
+            R$ 199,90
+          </p>
+          <p
+            className="installments"
+            key="installments"
+          >
+            3x R$ 66,63
+          </p>
+          <div
+            className="sizes"
+          >
+            <span>
+              selected size:
+            </span>
+            <div
+              className="size"
+            >
+              <span>
+                PP
+              </span>
+            </div>
+          </div>
+          <div
+            className="quantity"
+          >
+            <span>
+              quantity:
+            </span>
+            <div>
+              <input
+                onChange={[Function]}
+                type="number"
+                value={1}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledComponent>
+  </styled.div>
+</CartProduct>
+`;

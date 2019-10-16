@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Product /> with default props shoud match snapshot with default props 1`] = `
+<Product
+  actualPrice="R$ 199,90"
+  callback={[Function]}
+  discountPercentage=""
+  image="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+  installments="3x R$ 66,63"
+  name="VESTIDO TRANSPASSE BOW"
+  onSale={false}
+  regularPrice="R$ 199,90"
+  sizes={
+    Array [
+      Object {
+        "available": false,
+        "size": "PP",
+        "sku": "5807_343_0_PP",
+      },
+      Object {
+        "available": true,
+        "size": "P",
+        "sku": "5807_343_0_P",
+      },
+      Object {
+        "available": true,
+        "size": "M",
+        "sku": "5807_343_0_M",
+      },
+      Object {
+        "available": true,
+        "size": "G",
+        "sku": "5807_343_0_G",
+      },
+      Object {
+        "available": false,
+        "size": "GG",
+        "sku": "5807_343_0_GG",
+      },
+    ]
+  }
+  style="20002605"
+>
+  <styled.div
+    onClick={[Function]}
+    sale={false}
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "dMvMzd",
+            "rules": Array [
+              "
+  display: flex;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .content {
+    border: 1px solid ",
+              "#eee",
+              ";
+    position: relative;
+    flex: 1;
+
+    &:hover {
+      border-color: #ccc;
+      transition: 0.2s all ease-in-out;
+    }
+  }
+
+  .sale {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: ",
+              "#000",
+              ";
+    color: ",
+              "#fff",
+              ";
+    padding: 10px;
+    text-align: center;
+
+    .title {
+      margin-bottom: 7px;
+      text-decoration: underline;
+    }
+  }
+
+  .image {
+    position: relative;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .bottomContent {
+    padding: 5px 10px 15px;
+  }
+
+  .name {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .prices {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .regularPrice {
+    ",
+              [Function],
+              "
+  }
+
+  .actualPrice {
+    color: ",
+              ";
+    font-weight: normal;
+
+    ",
+              [Function],
+              "
+  }
+
+  .installments {
+    color: #bbb;
+    font-size: 12px;
+    position: relative;
+    top: -2px;
+  }
+
+  .size {
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 25px;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0px 0px 8px;
+
+    span {
+      font-size: 10px;
+    }
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      onClick={[Function]}
+      sale={false}
+    >
+      <div
+        className="sc-bdVaJa dMvMzd"
+        onClick={[Function]}
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="image"
+          >
+            <img
+              alt="Foto do produto VESTIDO TRANSPASSE BOW"
+              src="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+            />
+          </div>
+          <div
+            className="bottomContent"
+          >
+            <p
+              className="name"
+            >
+              VESTIDO TRANSPASSE BOW
+            </p>
+            <p
+              className="regularPrice prices"
+              key="regularPrice"
+            >
+              R$ 199,90
+            </p>
+            <p
+              className="installments prices"
+              key="installments"
+            >
+              3x R$ 66,63
+            </p>
+            <div
+              className="sizes"
+            >
+              <div
+                className="size"
+                key="size-1"
+              >
+                <span>
+                  P
+                </span>
+              </div>
+              <div
+                className="size"
+                key="size-2"
+              >
+                <span>
+                  M
+                </span>
+              </div>
+              <div
+                className="size"
+                key="size-3"
+              >
+                <span>
+                  G
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledComponent>
+  </styled.div>
+</Product>
+`;

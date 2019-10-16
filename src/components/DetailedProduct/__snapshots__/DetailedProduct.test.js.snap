@@ -1,0 +1,501 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailedProduct /> with default props shoud match snapshot with default props 1`] = `
+<DetailedProduct
+  actualPrice="R$ 199,90"
+  callback={[Function]}
+  discountPercentage=""
+  image="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+  installments="3x R$ 66,63"
+  name="VESTIDO TRANSPASSE BOW"
+  onSale={false}
+  regularPrice="R$ 199,90"
+  sizes={
+    Array [
+      Object {
+        "available": false,
+        "size": "PP",
+        "sku": "5807_343_0_PP",
+      },
+      Object {
+        "available": true,
+        "size": "P",
+        "sku": "5807_343_0_P",
+      },
+      Object {
+        "available": true,
+        "size": "M",
+        "sku": "5807_343_0_M",
+      },
+      Object {
+        "available": true,
+        "size": "G",
+        "sku": "5807_343_0_G",
+      },
+      Object {
+        "available": false,
+        "size": "GG",
+        "sku": "5807_343_0_GG",
+      },
+    ]
+  }
+  style="20002605"
+>
+  <styled.div
+    sale={false}
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "kBWAJs",
+            "rules": Array [
+              "
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  justify-content: stretch;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  background: ",
+              "#fff",
+              ";
+
+  .content {
+    border: 1px solid ",
+              "#eee",
+              ";
+    position: relative;
+    padding: 0 20px;
+    height: auto;
+    width: 100%;
+
+    ",
+              [Function],
+              "
+
+    &:hover {
+      border-color: #ccc;
+      transition: 0.2s all ease-in-out;
+    }
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+    position: relative;
+
+    ",
+              [Function],
+              "
+
+    img {
+      width: 50%;
+      object-fit: cover;
+      margin: 10px auto;
+
+      ",
+              [Function],
+              "
+    }
+  }
+
+  .bottomContent {
+    width: 100%;
+    display: inline-block;
+    padding: 5px 10px 50px;
+    margin-top: 10px;
+
+    ",
+              [Function],
+              "
+  }
+
+  .name {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .prices {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .regularPrice {
+    ",
+              [Function],
+              "
+  }
+
+  .actualPrice {
+    color: ",
+              ";
+    font-weight: normal;
+
+    ",
+              [Function],
+              "
+  }
+
+  .installments {
+    color: #bbb;
+    font-size: 12px;
+    position: relative;
+    top: -2px;
+  }
+
+  .submit {
+    button {
+      padding: 10px 20px;
+      width: 100%;
+      margin: 20px 0px;
+      text-transform: uppercase;
+      background: ",
+              "#E56A54",
+              ";
+      color: ",
+              "#fff",
+              ";
+      font-weight: bold;
+      border: 2px solid ",
+              "#E56A54",
+              ";
+
+      &:hover {
+        cursor: pointer;
+        border: 2px solid ",
+              "#000",
+              ";
+        transition: 0.2s all ease-in-out;
+      }
+    }
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "div",
+          "toString": [Function],
+          "usesTheme": false,
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      sale={false}
+    >
+      <div
+        className="sc-bdVaJa kBWAJs"
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="image"
+          >
+            <img
+              alt="Foto do produto VESTIDO TRANSPASSE BOW"
+              src="https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912"
+            />
+          </div>
+          <div
+            className="bottomContent"
+          >
+            <p
+              className="name"
+            >
+              VESTIDO TRANSPASSE BOW
+            </p>
+            <p
+              className="regularPrice prices"
+              key="regularPrice"
+            >
+              R$ 199,90
+            </p>
+            <p
+              className="installments prices"
+              key="installments"
+            >
+              3x R$ 66,63
+            </p>
+            <div>
+              <styled.button
+                data-cypress="size-item"
+                key="size-1"
+                onClick={[Function]}
+                selected={false}
+                type="button"
+              >
+                <StyledComponent
+                  data-cypress="size-item"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "kKqhND",
+                        "rules": Array [
+                          "
+  margin-top: 15px;
+  text-align: center;
+  width: 40px;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 0px 10px;
+  background: ",
+                          "#fff",
+                          ";
+  font-size: 14px;
+  font-weight: bold;
+
+  border: ",
+                          [Function],
+                          ";
+
+  &:hover {
+    border-color: ",
+                          "#000",
+                          ";
+    color: ",
+                          "#000",
+                          ";
+    background: ",
+                          "#fff",
+                          ";
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+  }
+
+  span {
+    font-size: 10px;
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.button",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "button",
+                      "toString": [Function],
+                      "usesTheme": false,
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                  onClick={[Function]}
+                  selected={false}
+                  type="button"
+                >
+                  <button
+                    className="sc-bwzfXH kKqhND"
+                    data-cypress="size-item"
+                    onClick={[Function]}
+                    selected={false}
+                    type="button"
+                  >
+                    <span>
+                      P
+                    </span>
+                  </button>
+                </StyledComponent>
+              </styled.button>
+              <styled.button
+                data-cypress="size-item"
+                key="size-2"
+                onClick={[Function]}
+                selected={false}
+                type="button"
+              >
+                <StyledComponent
+                  data-cypress="size-item"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "kKqhND",
+                        "rules": Array [
+                          "
+  margin-top: 15px;
+  text-align: center;
+  width: 40px;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 0px 10px;
+  background: ",
+                          "#fff",
+                          ";
+  font-size: 14px;
+  font-weight: bold;
+
+  border: ",
+                          [Function],
+                          ";
+
+  &:hover {
+    border-color: ",
+                          "#000",
+                          ";
+    color: ",
+                          "#000",
+                          ";
+    background: ",
+                          "#fff",
+                          ";
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+  }
+
+  span {
+    font-size: 10px;
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.button",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "button",
+                      "toString": [Function],
+                      "usesTheme": false,
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                  onClick={[Function]}
+                  selected={false}
+                  type="button"
+                >
+                  <button
+                    className="sc-bwzfXH kKqhND"
+                    data-cypress="size-item"
+                    onClick={[Function]}
+                    selected={false}
+                    type="button"
+                  >
+                    <span>
+                      M
+                    </span>
+                  </button>
+                </StyledComponent>
+              </styled.button>
+              <styled.button
+                data-cypress="size-item"
+                key="size-3"
+                onClick={[Function]}
+                selected={false}
+                type="button"
+              >
+                <StyledComponent
+                  data-cypress="size-item"
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "kKqhND",
+                        "rules": Array [
+                          "
+  margin-top: 15px;
+  text-align: center;
+  width: 40px;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 0px 10px;
+  background: ",
+                          "#fff",
+                          ";
+  font-size: 14px;
+  font-weight: bold;
+
+  border: ",
+                          [Function],
+                          ";
+
+  &:hover {
+    border-color: ",
+                          "#000",
+                          ";
+    color: ",
+                          "#000",
+                          ";
+    background: ",
+                          "#fff",
+                          ";
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+  }
+
+  span {
+    font-size: 10px;
+  }
+",
+                        ],
+                      },
+                      "displayName": "styled.button",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "button",
+                      "toString": [Function],
+                      "usesTheme": false,
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                  onClick={[Function]}
+                  selected={false}
+                  type="button"
+                >
+                  <button
+                    className="sc-bwzfXH kKqhND"
+                    data-cypress="size-item"
+                    onClick={[Function]}
+                    selected={false}
+                    type="button"
+                  >
+                    <span>
+                      G
+                    </span>
+                  </button>
+                </StyledComponent>
+              </styled.button>
+            </div>
+            <div
+              className="submit"
+            >
+              <button
+                data-cypress="detailed-submit"
+                onClick={[Function]}
+                type="button"
+              >
+                adicionar ao carrinho
+              </button>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </StyledComponent>
+  </styled.div>
+</DetailedProduct>
+`;

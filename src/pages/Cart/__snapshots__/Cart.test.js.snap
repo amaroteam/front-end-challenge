@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cart /> with default props shoud match snapshot with default props 1`] = `
+<WithStore>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <WithRouter>
+      <BrowserRouter>
+        <Router
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+        >
+          <Cart>
+            <styled.div>
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bwzfXH",
+                      "isStatic": false,
+                      "lastClassName": "ierQoz",
+                      "rules": Array [
+                        "
+  .list,
+  .checkout {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .list {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    ",
+                        [Function],
+                        "
+
+    & > div {
+      flex-grow: 1;
+      width: 100%;
+      margin: 0 0 20px;
+
+      ",
+                        [Function],
+                        "
+
+      ",
+                        [Function],
+                        "
+    }
+
+    & > div:last-child,
+    & > div:nth-last-child(2) {
+      flex-grow: 0;
+    }
+  }
+
+  .checkout {
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 20px;
+
+    ",
+                        [Function],
+                        "
+
+    .columnLeft,
+    .columnRight {
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      .total {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+
+    .submit {
+      button {
+        padding: 10px;
+        width: 100%;
+        display: block;
+        background: ",
+                        "#E56A54",
+                        ";
+        color: ",
+                        "#fff",
+                        ";
+        font-size: 22px;
+        font-weight: bold;
+        margin: 30px 0 0;
+        letter-spacing: 5px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bwzfXH",
+                    "target": "div",
+                    "toString": [Function],
+                    "usesTheme": false,
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <div
+                  className="sc-bwzfXH ierQoz"
+                >
+                  <div>
+                    <p>
+                      Pesquise 
+                      <Link
+                        to="/products"
+                      >
+                        <LinkAnchor
+                          href="/products"
+                          navigate={[Function]}
+                        >
+                          <a
+                            href="/products"
+                            onClick={[Function]}
+                          >
+                            aqui
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                       para adicionar mais produtos!
+                    </p>
+                  </div>
+                  <div
+                    className="list"
+                    data-cypress="cart-list"
+                  />
+                </div>
+              </StyledComponent>
+            </styled.div>
+          </Cart>
+        </Router>
+      </BrowserRouter>
+    </WithRouter>
+  </Provider>
+</WithStore>
+`;

@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Products /> with default props shoud match snapshot with default props 1`] = `
+<WithStore>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <WithRouter>
+      <BrowserRouter>
+        <Router
+          history={
+            Object {
+              "action": "POP",
+              "block": [Function],
+              "createHref": [Function],
+              "go": [Function],
+              "goBack": [Function],
+              "goForward": [Function],
+              "length": 1,
+              "listen": [Function],
+              "location": Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              },
+              "push": [Function],
+              "replace": [Function],
+            }
+          }
+        >
+          <Products>
+            <styled.div>
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-htoDjs",
+                      "isStatic": false,
+                      "lastClassName": "eVHVmW",
+                      "rules": Array [
+                        "
+  ul {
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    & > li:last-child,
+    & > li:nth-last-child(2),
+    & > li:nth-last-child(3) {
+      flex-grow: 0;
+    }
+
+    li {
+      width: calc(100% - 20px);
+      margin: 0 10px 20px;
+      flex-grow: 1;
+      display: flex;
+      
+      ",
+                        [Function],
+                        "
+      
+      ",
+                        [Function],
+                        "
+      
+      ",
+                        [Function],
+                        ";
+    }
+  }
+
+  .order {
+    margin: 0 0 20px;
+
+    button {
+      background: none;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      span {
+        color: ",
+                        "#92BFB1",
+                        ";
+        font-weight: bold;
+      }
+
+      svg {
+        position: relative;
+        top: 3px;
+        right: -3px;
+      }
+    }
+  }
+",
+                      ],
+                    },
+                    "displayName": "styled.div",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-htoDjs",
+                    "target": "div",
+                    "toString": [Function],
+                    "usesTheme": false,
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <div
+                  className="sc-htoDjs eVHVmW"
+                >
+                  <div
+                    className="order"
+                  >
+                    <button
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      only 
+                      <span>
+                        sale
+                      </span>
+                      <Icon
+                        className=""
+                        color=""
+                        name="down"
+                        size="1em"
+                      >
+                        <FiChevronsDown
+                          className=""
+                          color=""
+                          name="down"
+                          size="1em"
+                        >
+                          <IconBase
+                            attr={
+                              Object {
+                                "fill": "none",
+                                "stroke": "currentColor",
+                                "strokeLinecap": "round",
+                                "strokeLinejoin": "round",
+                                "strokeWidth": "2",
+                                "viewBox": "0 0 24 24",
+                              }
+                            }
+                            className=""
+                            color=""
+                            name="down"
+                            size="1em"
+                          >
+                            <svg
+                              color=""
+                              fill="none"
+                              height="1em"
+                              name="down"
+                              size="1em"
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              style={
+                                Object {
+                                  "color": undefined,
+                                }
+                              }
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <polyline
+                                key="0"
+                                points="7 13 12 18 17 13"
+                              />
+                              <polyline
+                                key="1"
+                                points="7 6 12 11 17 6"
+                              />
+                            </svg>
+                          </IconBase>
+                        </FiChevronsDown>
+                      </Icon>
+                    </button>
+                  </div>
+                  <ul />
+                </div>
+              </StyledComponent>
+            </styled.div>
+          </Products>
+        </Router>
+      </BrowserRouter>
+    </WithRouter>
+  </Provider>
+</WithStore>
+`;
