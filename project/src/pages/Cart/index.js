@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import {
   deleteProductFromCart,
@@ -14,6 +15,7 @@ function Cart() {
   const dispatch = useDispatch();
   const list = useSelector(state => state.cart);
   const prices = getPrices(list);
+  const hasItems = list.length > 0;
 
   const deleteProduct = id => dispatch(deleteProductFromCart(id));
   const updateProductQuantity = (product, quantity) =>
@@ -21,6 +23,15 @@ function Cart() {
 
   return (
     <StyledWrapper>
+      {!hasItems && (
+        <div>
+          <p>
+            Pesquise <Link to='/products'>aqui</Link> para adicionar mais
+            produtos!
+          </p>
+        </div>
+      )}
+
       <div className='list'>
         {list.map((item, index) => (
           <CartProduct
@@ -33,25 +44,27 @@ function Cart() {
         ))}
       </div>
 
-      <div className='checkout'>
-        <div className='columnLeft'>
-          <p className='subtotal'>Subtotal</p>
-          <p className='discount'>Desconto</p>
-          <p className='total'>Total</p>
-        </div>
+      {hasItems && (
+        <div className='checkout'>
+          <div className='columnLeft'>
+            <p className='subtotal'>Subtotal</p>
+            <p className='discount'>Desconto</p>
+            <p className='total'>Total</p>
+          </div>
 
-        <div className='columnRight'>
-          <p className='subtotal'>{translateToReal(prices.subTotal)}</p>
-          <p className='discount'>{translateToReal(prices.totalDiscount)}</p>
-          <p className='total'>{translateToReal(prices.total)}</p>
-        </div>
+          <div className='columnRight'>
+            <p className='subtotal'>{translateToReal(prices.subTotal)}</p>
+            <p className='discount'>{translateToReal(prices.totalDiscount)}</p>
+            <p className='total'>{translateToReal(prices.total)}</p>
+          </div>
 
-        <div className='submit'>
-          <button type='button' onClick={() => {}}>
-            COMPRAR
-          </button>
+          <div className='submit'>
+            <button type='button' onClick={() => {}}>
+              COMPRAR
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </StyledWrapper>
   );
 }

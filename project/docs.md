@@ -30,5 +30,5 @@ extras
 * [ ] teste unitários
 * [ ] testes funcionais
 * [ ] remover erros do log
-* [ ] remover comentários
-* [ ] checkup css
+* [x] remover comentários
+* [x] checkup css
