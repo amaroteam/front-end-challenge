@@ -35,3 +35,4 @@ extras
 
 - [ ] deploy
 - [x] storybook checkup
+- [ ] readme
