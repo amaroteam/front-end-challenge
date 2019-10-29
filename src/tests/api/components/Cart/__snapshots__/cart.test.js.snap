@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cart Component Wrapper cart component test 1`] = `
+<div
+  className="cart"
+>
+  <span
+    className="bag bag--cart-closed"
+    onClick={[Function]}
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
+    <span
+      className="bag__quantity"
+    >
+      0
+    </span>
+  </span>
+  <div
+    className="cart__content"
+  >
+    <div
+      className="cart__header"
+    >
+      <span
+        className="header-title"
+      >
+        Produtos 
+        0
+      </span>
+    </div>
+    <div
+      className="cart__list-container"
+    >
+      <p
+        className="list-empty"
+      >
+        Carrinho Vazio
+        <br />
+        :(
+      </p>
+    </div>
+    <div
+      className="cart__footer"
+    >
+      <div
+        className="sub"
+      >
+        SUBTOTAL
+      </div>
+      <div
+        className="sub-price"
+      >
+        <p
+          className="sub-price__val"
+        >
+          0.00
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart Component Wrapper cart component test 2`] = `
+<div
+  className="cart"
+>
+  <span
+    className="bag bag--cart-closed"
+    onClick={[Function]}
+  >
+    <svg
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+      />
+    </svg>
+    <span
+      className="bag__quantity"
+    >
+      0
+    </span>
+  </span>
+  <div
+    className="cart__content"
+  >
+    <div
+      className="cart__header"
+    >
+      <span
+        className="header-title"
+      >
+        Produtos 
+        0
+      </span>
+    </div>
+    <div
+      className="cart__list-container"
+    >
+      <p
+        className="list-empty"
+      >
+        Carrinho Vazio
+        <br />
+        :(
+      </p>
+    </div>
+    <div
+      className="cart__footer"
+    >
+      <div
+        className="sub"
+      >
+        SUBTOTAL
+      </div>
+      <div
+        className="sub-price"
+      >
+        <p
+          className="sub-price__val"
+        >
+          0.00
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cart Component Wrapper product cart component test 1`] = `
+<div
+  className="list-item"
+>
+  <div
+    className="list-item__del"
+    onClick={[Function]}
+  >
+    Remover
+  </div>
+  <div
+    className="list-item__thumb"
+  >
+    <img
+      alt="CASACO WHITE FUR"
+      src="https://d3l7rqep7l31az.cloudfront.net/images/products/20002648_029_catalog_1.jpg?1459552552"
+    />
+  </div>
+  <div
+    className="list-item__details"
+  >
+    <p
+      className="title"
+    >
+      CASACO WHITE FUR
+    </p>
+    <p
+      className="desc"
+    >
+      PP
+       
+      <br />
+      Quantidade: 
+    </p>
+  </div>
+  <div
+    className="list-item__price"
+  >
+    <p>
+      R$ 239,90
+    </p>
+    <div>
+      <button
+        className="change-product-button"
+        disabled={false}
+        onClick={[Function]}
+      >
+        -
+      </button>
+      <button
+        className="change-product-button"
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;
