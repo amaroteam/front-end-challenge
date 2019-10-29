@@ -3,14 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "concurrently": "^4.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "moxios": "^0.4.0",
+    "node-sass": "^4.13.0",
+    "nodemon": "^1.19.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-icons": "^3.8.0",
+    "react-redux": "^5.1.1",
+    "react-scripts": "3.2.0",
+    "reactjs-popup": "^1.5.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"react-scripts start\"",
+    "server": "nodemon server/index",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
