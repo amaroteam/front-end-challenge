@@ -19,22 +19,26 @@ const Product = ({ product, addProduct }) => {
 
   return (
     <div className="product-item" data-sku={product.sku}>
-      {product.on_sale && <div className="product-promotion">Sale</div>}
+      {product.on_sale && (
+        <div className="product-promotion">
+          {product.discount_percentage && (
+            <small>{product.discount_percentage} off</small>
+          )}
+        </div>
+      )}
       <Thumb
         classes="product-item__thumb"
         src={product.image}
         alt={product.title}
       />
       <p className="product-item__title">{product.name}</p>
+
       <div className="product-item__price">
         <div className="val">
-          <small>{product.currencyFormat}</small>
-          <b>
-            {product.actual_price.substr(0, product.actual_price.length - 3)}
-          </b>
-          <span>
-            {product.actual_price.substr(product.actual_price.length - 3, 3)}
-          </span>
+          {product.discount_percentage && (
+            <span>De: {product.regular_price} Por:</span>
+          )}
+          <b>{product.actual_price}</b>
         </div>
         {productInstallment}
       </div>
@@ -48,20 +52,20 @@ const Product = ({ product, addProduct }) => {
             <div className="product-item__size" onClick={close}>
               {product.sizes.map(value => {
                 return (
-                <Fragment key={uuid.v4()}>
-                  <button
-                    disabled={!value.available}
-                    onClick={() =>
-                      addProduct({
-                        ...product,
-                        id: value.sku,
-                        variant: value.size
-                      })
-                    }
-                  >
-                    {value.size}
-                  </button>
-                </Fragment>
+                  <Fragment key={uuid.v4()}>
+                    <button
+                      disabled={!value.available}
+                      onClick={() =>
+                        addProduct({
+                          ...product,
+                          id: value.sku,
+                          variant: value.size
+                        })
+                      }
+                    >
+                      {value.size}
+                    </button>
+                  </Fragment>
                 );
               })}
             </div>
