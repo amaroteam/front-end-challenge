@@ -1,0 +1,105 @@
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 600px;
+
+    .product-item {
+      width: 23%;
+      position: relative;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 10px;
+      margin-bottom: 30px;
+      border: 1px solid transparent;
+      border: 1px solid #eee;
+      margin: 10px;
+      &:hover {
+        .product-item__buy-btn {
+          background-color: #000000;
+          color: #eee;
+        }
+      }
+  
+      .product-promotion {
+        position: absolute;
+        color: #000;
+        border: solid 1px #000;
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+        border-radius: 50%;
+        font-size: 1em;
+        background-color: #fff;
+        cursor: default;
+      }
+  
+      &__thumb {
+        img {
+          width: 100%;
+        }
+      }
+  
+      &__title {
+        position: relative;
+        padding: 0 20px;
+        height: 35px;
+        @media only screen and (max-width: 1024px) {
+           height: 50px;  
+        }
+      }
+      &__size {
+          button {
+            align-items: center;
+            border: .1rem solid #ccc;
+            border-radius: 50%;
+            display: inline-flex;
+            font-size: 1.4rem;
+            height: 4.8rem;
+            justify-content: center;
+            line-height: 1;
+            margin-left: .5rem;
+            margin-right: .5rem;
+            margin-top: 1rem;
+            text-decoration: none;
+            width: 4.8rem;
+            &:disabled {
+                background-color: #e6e6e6;
+                pointer-events: none;
+            }
+          }
+      }
+  
+      &__price {
+        height: 60px;
+        .val {
+          b {
+            font-size: 1.5em;
+            margin-left: 5px;
+          }
+        }
+        .installment {
+          color: #000000;
+        }
+      }
+  
+      &__buy-btn {
+        color: #fff;
+        padding: 15px 0;
+        margin-top: 10px;
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #000000;
+        transition: background-color 0.2s;
+      }
+    }
+  }
+  
