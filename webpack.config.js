@@ -8,23 +8,27 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader', 'eslint-loader'],
       },
-      { 
-        test: /\.scss$/, 
-        use: ['style-loader', 'css-loader', 'sass-loader' ] 
+      {
+        test: /\.(png|jpg|gif|woff|woff2)$/,
+        use: ['file-loader'],
       },
-      { 
-        enforce: "pre", 
-        test: /\.js$/, 
-        loader: "source-map-loader" 
-      }
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
     ],
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   output: {
     path: `${__dirname}/dist`,
     filename: 'bundle.js',
