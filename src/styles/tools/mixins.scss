@@ -1,0 +1,31 @@
+%center {
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+}
+
+%container {
+  max-width: 1135px;
+  @extend %center;
+  @media(max-width: 768px){
+    padding: 0 $gap-medium;  
+  }
+}
+
+%flex-column{ 
+  display: flex;
+  flex-direction: column;
+} 
+
+%flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex-spaced {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

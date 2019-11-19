@@ -1,0 +1,12 @@
+{
+  "name": "amaro-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rodrigoreeis/amaro-store.git",
+  "author": "Rodrigo Reis <roreis99@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.15.1",
+    "sass-rem": "^2.0.1"
+  }
+}
