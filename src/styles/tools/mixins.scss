@@ -8,7 +8,7 @@
   max-width: 1135px;
   @extend %center;
   @media(max-width: 768px){
-    padding: 0 $gap-medium;  
+    padding: 0 24px;  
   }
 }
 

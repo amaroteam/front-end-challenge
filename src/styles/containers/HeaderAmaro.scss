@@ -1,0 +1,12 @@
+@import '../settings/index.scss';
+
+.header{
+  width: 100%;
+  height: $gap-biggest;
+  background: $color-white;
+  @extend %flex-centered;
+  &__nav{
+    @extend %container;
+    width: 100%;
+  }
+}
