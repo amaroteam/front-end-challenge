@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import '../../styles/pages/HomePage.scss';
+
 import api from '../../service/api';
 
-import Container from '../../layout/Container';
 import ProductsShelf from '../../containers/ProductsShelf';
+import Toolbar from '../../containers/Toolbar';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -31,9 +33,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Container>
+    <>
+      <Toolbar title="Produtos" />
       <ProductsShelf content={products} />
-    </Container>
+    </>
   );
 };
 export default HomePage;

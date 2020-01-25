@@ -1,0 +1,6 @@
+@import '../settings/index.scss';
+
+.am-toolbar{
+  @include rem(border-bottom, 1px solid $color-gray);
+  width: 100%;
+}
