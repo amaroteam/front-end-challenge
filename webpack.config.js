@@ -11,7 +11,7 @@ const config = {
         use: ['babel-loader', 'eslint-loader'],
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2)$/,
+        test: /\.(png|jpg|gif|woff|woff2|svg)$/,
         use: ['file-loader'],
       },
       {

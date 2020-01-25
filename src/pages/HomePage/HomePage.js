@@ -1,7 +1,6 @@
 import React from 'react';
-import HeaderAmaro from '../../containers/HeaderAmaro';
 
 const HomePage = () => {
-  return <HeaderAmaro />;
+  return <div>Home</div>;
 };
 export default HomePage;
