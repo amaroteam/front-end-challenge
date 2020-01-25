@@ -9,6 +9,8 @@ const Shelf = ({
   actualPrice,
   regularPrice,
   discount,
+  color,
+  colorName,
 }) => {
   return (
     <div className="am-shelf">
@@ -47,6 +49,9 @@ const Shelf = ({
           </>
         )}
       </div>
+      <figure className="am-shelf__color">
+        <img src={color} alt={colorName} />
+      </figure>
     </div>
   );
 };

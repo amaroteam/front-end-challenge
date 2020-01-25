@@ -10,14 +10,19 @@ const ProductsShelf = ({ content }) => {
     <section className="am-products-shelf">
       {content.map(product => {
         console.log(!!product.image);
+        console.log(product);
         const {
           name,
           image,
           installments,
+          color,
+          code_color: codeColor,
           regular_price: regularPrice,
           actual_price: actualPrice,
           discount_percentage: discount,
         } = product;
+        const link = name.replace(/\s+/g, '-').toLowerCase();
+        console.log(link);
         return (
           <Shelf
             key={shortid.generate()}
@@ -27,6 +32,8 @@ const ProductsShelf = ({ content }) => {
             regularPrice={regularPrice}
             actualPrice={actualPrice}
             discount={discount}
+            colorName={color}
+            color={`https://cdn.amaro.com/uploads/icons/${codeColor}.gif`}
           />
         );
       })}

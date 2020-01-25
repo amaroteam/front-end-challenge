@@ -59,4 +59,17 @@
       @include rem(padding-left, $gap-normal);
     }
   }
+
+  &__color{
+    @extend %flex-centered;
+    @include rem(width, $gap-half-biggest);
+    @include rem(height, $gap-half-biggest);
+    @include rem(padding, $gap-smallest);
+    @include rem(border, 1px solid $color-gray);
+    margin: $gap-normal auto 0 auto;
+    border-radius: 100%;
+    img {
+      border-radius: 50%;
+    }
+  }
 }
