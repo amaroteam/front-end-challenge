@@ -12,7 +12,14 @@ const HomePage = () => {
     try {
       const response = await api.get('/products');
       const { data } = response;
-      return setProducts(data);
+
+      const items = data.map(product => ({
+        ...product,
+        link: product.name.replace(/\s+/g, '-').toLowerCase(),
+        bullet_color: `https://cdn.amaro.com/uploads/icons/${product.code_color}.gif`,
+      }));
+
+      return setProducts(items);
     } catch (error) {
       console.log('bar', error);
     }
@@ -22,8 +29,6 @@ const HomePage = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  console.log(products);
 
   return (
     <Container>

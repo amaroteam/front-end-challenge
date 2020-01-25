@@ -6,23 +6,22 @@ import '../../styles/containers/ProductsShelf.scss';
 import Shelf from '../../components/Shelf';
 
 const ProductsShelf = ({ content }) => {
+  console.group('Products');
+  console.log(content);
+  console.groupEnd();
   return (
     <section className="am-products-shelf">
       {content.map(product => {
-        console.log(!!product.image);
-        console.log(product);
         const {
           name,
           image,
           installments,
           color,
-          code_color: codeColor,
           regular_price: regularPrice,
           actual_price: actualPrice,
           discount_percentage: discount,
+          bullet_color: bulletColor,
         } = product;
-        const link = name.replace(/\s+/g, '-').toLowerCase();
-        console.log(link);
         return (
           <Shelf
             key={shortid.generate()}
@@ -33,7 +32,7 @@ const ProductsShelf = ({ content }) => {
             actualPrice={actualPrice}
             discount={discount}
             colorName={color}
-            color={`https://cdn.amaro.com/uploads/icons/${codeColor}.gif`}
+            color={bulletColor}
           />
         );
       })}
