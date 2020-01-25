@@ -19,3 +19,40 @@
   align-items: center;
 }
 
+
+/// Arrow helper 
+/// @author Rodrigo Reis @[https://github.com/rodrigoreeis]
+/// @param {Direction} $direction - Arrow direction, either `top` or `bottom` 
+/// @param {Color} $color [currentcolor] - Arrow color 
+/// @param {Length} $size - Arrow size
+@mixin arrow($direction, $color: currentcolor, $size: 0.5em) {
+  display: block;
+  @if not index(top bottom, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+  content: '';
+  width: $size;
+  height: $size;
+  border-top: 0.5px solid $color;
+  border-right: 0.5px solid $color;
+  position: absolute;
+  @if $direction == top {
+    transform: rotate(315deg);
+  } @else if $direction == bottom {
+    transform: rotate(135deg);
+  }
+}
+
+$z-index: (
+  overlay  : 1,
+  modal    : 2,
+  minicart : 3,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}
