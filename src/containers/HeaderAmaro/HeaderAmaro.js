@@ -23,7 +23,10 @@ const HeaderAmaro = () => {
           </Link>
           <Button type="button" className="am-header__wrapper-cart">
             <span className="am-header__wrapper-cart-qty">5</span>
-            <ReactSVG src={CartIcon} />
+            <ReactSVG
+              className="am-header__wrapper-cart-icon"
+              src={CartIcon}
+            />
           </Button>
         </div>
       </Container>

@@ -11,7 +11,7 @@
     @include rem(padding-right, 48px);
   }
   @media(max-width: 600px){
-    @include rem(padding-left, 32px);
-    @include rem(padding-right, 32px);
+    @include rem(padding-left, 22px);
+    @include rem(padding-right, 22px);
   }
 }

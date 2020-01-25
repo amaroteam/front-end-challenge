@@ -19,5 +19,31 @@
     }    
   }
   &__wrapper{
+    @extend %flex-centered;
+    @include rem(padding-bottom, $gap-great);
+    @include rem(padding-top, $gap-great);
+    &-logo,
+    &-cart{
+      margin-left: auto;
+    }
+    &-cart{
+      display: flex;
+      position: relative;
+      &-icon{
+        @include rem(width, $gap-half-biggest);
+      }
+      &-qty{
+        @include rem(font-size, $font-small);
+        @include rem(width, $gap-medium);
+        @include rem(height, $gap-medium);
+        @include rem(line-height, $gap-medium);
+        position: absolute;
+        top: 0;
+        right: -5px;
+        border-radius: 50%;
+        background-color: $color-red;
+        color: $color-white;
+      }
+    }
   }
 }
