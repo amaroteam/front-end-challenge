@@ -7,6 +7,8 @@
   flex-direction: column;
   @extend %flex-centered;
   @include rem(border-bottom, 1px solid $color-gray);
+  @include z-index(header);
+  position: relative;
   &__top{
     width: 100%;
     background-color: $color-pink;

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Button = ({ children, type, onClick, className, onSubmit }) => (
-  // eslint-disable-next-line react/button-has-type
+const Button = ({ children, role, onClick, className, onSubmit }) => (
   <button
     className={className}
-    type={type}
+    type="button"
+    role={role}
     onClick={onClick}
     onSubmit={onSubmit}
   >

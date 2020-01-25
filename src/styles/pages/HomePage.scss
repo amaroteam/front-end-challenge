@@ -1,13 +1,5 @@
 @import '../settings/index.scss';
 
-.am-intro{
-  @include rem(padding, $gap-great);
-  @include rem(font-size, $font-medium);
-  @include rem(border-bottom, 1px solid $color-gray);
-  @extend %flex-centered;
-  width: 100%;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: $color-white;
+// .am-intro{
 
-}
+// }

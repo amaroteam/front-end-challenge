@@ -6,6 +6,7 @@ import api from '../../service/api';
 
 import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
+import Overlay from '../../components/Overlay/Overlay';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -34,7 +35,8 @@ const HomePage = () => {
 
   return (
     <>
-      <Toolbar title="Produtos" />
+      <Overlay />
+      <Toolbar intro="Produtos" />
       <ProductsShelf content={products} />
     </>
   );

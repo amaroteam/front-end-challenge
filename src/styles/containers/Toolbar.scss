@@ -1,6 +1,47 @@
 @import '../settings/index.scss';
 
 .am-toolbar{
-  @include rem(border-bottom, 1px solid $color-gray);
   width: 100%;
+  &__wrapper{
+    @include rem(border-bottom, 1px solid $color-gray);
+    @include z-index(header);
+    background-color: $color-white;
+    width: 100%;
+    @include rem(padding-top, $gap-medium);
+    @include rem(padding-bottom, $gap-medium);
+    @extend %flex-centered;
+    flex-direction: column;
+    &:first-of-type{
+      @include z-index(header);
+      position: relative;
+    }
+  }
+  &__nav{
+    width: 100%;
+    @extend %flex-spaced;
+    &-itens{
+      @include rem(font-size, $font-normal);
+      color: $color-gray-1;
+    }
+    &-filter{
+      position: relative;
+      &-button{
+        @include rem(font-size, $font-normalest);
+        @include rem(margin-left, $gap-half-biggest);
+        text-transform: uppercase;
+        position: relative;
+        outline: none;
+        &:before{
+          @include arrow(bottom, $color-black);
+          @include rem(left, -10px);
+        }
+      }
+    }
+  }
+  &__intro{
+    @include rem(font-size, $font-medium);
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-black-1;
+  }
 }

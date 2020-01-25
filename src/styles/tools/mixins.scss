@@ -45,8 +45,9 @@
 
 $z-index: (
   overlay  : 1,
-  modal    : 2,
-  minicart : 3,
+  header   : 2,
+  modal    : 3,
+  minicart : 4,
 );
 
 @function z-index($key) {
@@ -55,4 +56,28 @@ $z-index: (
 
 @mixin z-index($key) {
   z-index: z-index($key);
+}
+
+
+@function get-item($list, $current, $offset:0) {
+  $result-position: ($current + $offset) % length($list);
+  @if $result-position == 0 {
+      $result-position: length($list);
+  }
+  @return nth($list, $result-position);
+}
+
+@mixin arrow-generator($direction, $color, $size) {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  
+  $directions: top, right, bottom, left;
+  @for $i from 1 through length($directions) {
+      @if nth($directions, $i) == $direction {
+          border-#{get-item($directions, $i, -1)}: $size solid transparent; 
+          border-#{get-item($directions, $i, 1)}: $size solid transparent; 
+          border-#{get-item($directions, $i, 2)}: $size solid $color; 
+      } 
+  }
 }

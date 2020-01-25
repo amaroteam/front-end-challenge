@@ -2,10 +2,24 @@ import React from 'react';
 
 import '../../styles/components/Overlay.scss';
 
-const Overlay = ({ onClick, className = '' }) => (
+const Overlay = ({
+  className = '',
+  onClick,
+  onKeyDown,
+  onKeyPress,
+  onKeyUp,
+  ariaLabel,
+  tabIndex,
+}) => (
   <div
-    onClick={onClick}
     className={`am-overlay ${className}`}
+    onClick={onClick}
+    onKeyDown={onKeyDown}
+    onKeyPress={onKeyPress}
+    onKeyUp={onKeyUp}
+    role="button"
+    tabIndex={tabIndex}
+    aria-label={ariaLabel}
   />
 );
 
