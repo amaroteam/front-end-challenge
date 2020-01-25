@@ -2,9 +2,20 @@
 
 .am-shelf{
   @extend %flex-column;
-  @include rem(max-width, 440px);
-  width: 100%;
-  flex: 1;
+  @include rem(max-width, 400px);
+  @include rem(padding, $gap-medium);
+  width: 25%;
+  @media(max-width: 1024px){
+    width: 30%;
+  }
+  @media(max-width: 800px){
+    width: 50%;
+  }
+
+  @media(max-width: 320px){
+    width: 100%;
+  }
+  
   &__image{
     position: relative;
     background-color: $color-gray-2;
@@ -16,6 +27,9 @@
     @include rem(margin, $gap-normal 0);
     text-transform: uppercase;
     text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &__pricing{

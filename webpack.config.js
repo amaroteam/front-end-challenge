@@ -2,7 +2,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
-  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -27,6 +26,10 @@ const config = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+  },
+  devServer: {
+    historyApiFallback: true,
+    inline: true,
   },
   devtool: 'source-map',
   output: {

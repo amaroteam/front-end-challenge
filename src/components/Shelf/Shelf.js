@@ -31,7 +31,7 @@ const Shelf = ({
               {regularPrice}
             </del>
             <span className="am-shelf__pricing-discount">
-              {`(${discount} off) `}
+              {`(${discount} off)`}
             </span>
           </>
         ) : (
