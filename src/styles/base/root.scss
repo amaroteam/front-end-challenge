@@ -6,14 +6,18 @@ html {
 body {
   box-sizing: border-box;
   min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   font-family: 'Nunito', sans-serif;
+}
+
+#app {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 h1,

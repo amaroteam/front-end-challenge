@@ -1,12 +1,23 @@
 @import '../settings/index.scss';
 
-.header{
+.am-header{
   width: 100%;
-  height: $gap-biggest;
-  background: $color-white;
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
   @extend %flex-centered;
-  &__nav{
-    @extend %container;
+  @include rem(border-bottom, 1px solid $color-gray);
+  &__top{
     width: 100%;
+    background-color: $color-pink;
+    @include rem(height, $gap-great);
+    @extend %flex-centered;
+    &-text{
+      @include rem(font-size, $font-small);
+      text-decoration: underline;
+      text-transform: uppercase;
+    }    
+  }
+  &__wrapper{
   }
 }

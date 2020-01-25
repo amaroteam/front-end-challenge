@@ -6,5 +6,5 @@ ReactDOM.render(
   <>
     <App />
   </>,
-  document.querySelector('[data-js="app"]'),
+  document.querySelector('#app'),
 );

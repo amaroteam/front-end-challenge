@@ -7,23 +7,26 @@ import '../../styles/containers/HeaderAmaro.scss';
 import LogoIcon from '../../assets/icons/logo.svg';
 import CartIcon from '../../assets/icons/shopping-bag.svg';
 
+import Button from '../../components/Button';
+import Container from '../../layout/Container';
+
 const HeaderAmaro = () => {
   return (
-    <header className="header">
-      <div className="header__top-bar">
-        <strong className="header__top-bar-text">
-          Amaro Teste Front-End
-        </strong>
+    <header className="am-header">
+      <div className="am-header__top">
+        <p className="am-header__top-text">Amaro Teste Front-End</p>
       </div>
-      <div className="header__container">
-        <Link to="/">
-          <ReactSVG src={LogoIcon} />
-        </Link>
-        <button className="header__container-cart" type="button">
-          <span className="header__container-cart-qty">5</span>
-          <ReactSVG src={CartIcon} />
-        </button>
-      </div>
+      <Container>
+        <div className="am-header__wrapper">
+          <Link to="/" className="am-header__wrapper-logo">
+            <ReactSVG src={LogoIcon} />
+          </Link>
+          <Button type="button" className="am-header__wrapper-cart">
+            <span className="am-header__wrapper-cart-qty">5</span>
+            <ReactSVG src={CartIcon} />
+          </Button>
+        </div>
+      </Container>
     </header>
   );
 };

@@ -1,15 +1,5 @@
 %center {
-  margin-left: 0;
-  margin-right: 0;
-  display: block;
-}
-
-%container {
-  max-width: 1135px;
-  @extend %center;
-  @media(max-width: 768px){
-    padding: 0 24px;  
-  }
+  margin: 0 auto;
 }
 
 %flex-column{ 
