@@ -39,7 +39,7 @@
         @include rem(line-height, $gap-medium);
         position: absolute;
         top: 0;
-        right: -5px;
+        @include rem(right, -5px);
         border-radius: 50%;
         background-color: $color-red;
         color: $color-white;

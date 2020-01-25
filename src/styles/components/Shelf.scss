@@ -1,0 +1,48 @@
+@import '../settings/index.scss';
+
+.am-shelf{
+  @extend %flex-column;
+  @include rem(max-width, 440px);
+  width: 100%;
+  flex: 1;
+  &__image{
+    position: relative;
+    background-color: $color-gray-2;
+    cursor: pointer;
+  }
+
+  &__name{
+    @include rem(font-size, $font-normal);
+    @include rem(margin, $gap-normal 0);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__pricing{
+    @include rem(font-size, $font-small);
+    @include rem(max-width, 160px);
+    @extend %center;
+    @extend %flex-centered;
+    flex-wrap: wrap;
+    &-price{
+      font-weight: bold;
+      color: $color-black;
+    }
+    &-price,
+    &-installments{
+      @include rem(margin-bottom, $gap-small);
+    }
+    &-installments,
+    &-old-price{
+      color: $color-gray-1;
+    }
+    &-discount{
+      font-weight: bold;
+      color: $color-red;
+    }
+    &-discount,
+    &-installments{
+      @include rem(padding-left, $gap-normal);
+    }
+  }
+}
