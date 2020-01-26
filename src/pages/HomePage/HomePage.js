@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
 import '../../styles/pages/HomePage.scss';
 
@@ -18,7 +19,7 @@ const HomePage = () => {
 
       const items = data.map(product => ({
         ...product,
-        link: product.name.replace(/\s+/g, '-').toLowerCase(),
+        url: product.name.replace(/\s+/g, '-').toLowerCase(),
         bullet_color: `https://cdn.amaro.com/uploads/icons/${product.code_color}.gif`,
       }));
 
@@ -41,4 +42,4 @@ const HomePage = () => {
     </>
   );
 };
-export default HomePage;
+export default connect(null, null)(HomePage);

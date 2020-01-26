@@ -7,9 +7,9 @@ import Shelf from '../../components/Shelf';
 import Container from '../../layout/Container';
 
 const ProductsShelf = ({ content }) => {
-  console.group('Products');
-  console.log(content);
-  console.groupEnd();
+  const handleOpenProduct = () => {
+    console.log('eae');
+  };
   return (
     <Container>
       <section className="am-products-shelf">
@@ -19,6 +19,7 @@ const ProductsShelf = ({ content }) => {
             image,
             installments,
             color,
+            url,
             regular_price: regularPrice,
             actual_price: actualPrice,
             discount_percentage: discount,
@@ -27,6 +28,7 @@ const ProductsShelf = ({ content }) => {
           return (
             <Shelf
               key={shortid.generate()}
+              url={url}
               name={name}
               image={image || 'http://via.placeholder.com/470x594'}
               installments={installments}
@@ -35,6 +37,7 @@ const ProductsShelf = ({ content }) => {
               discount={discount}
               colorName={color}
               color={bulletColor}
+              onClick={ev => handleOpenProduct(ev)}
             />
           );
         })}

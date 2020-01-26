@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import '../../styles/components/Shelf.scss';
 
 const Shelf = ({
@@ -11,47 +11,51 @@ const Shelf = ({
   discount,
   color,
   colorName,
+  onClick,
+  url,
 }) => {
   return (
     <div className="am-shelf">
-      <figure className="am-shelf__image">
-        <img src={image} alt={name} />
-      </figure>
-      <h4 className="am-shelf__name">{name}</h4>
-      <div className="am-shelf__pricing">
-        {discount ? (
-          <>
-            <span className="am-shelf__pricing-price">
-              {actualPrice}
-            </span>
-            {installments && (
-              <span className="am-shelf__pricing-installments">
-                {installments}
+      <Link to={`/produto/${url}`} onClick={onClick}>
+        <figure className="am-shelf__image">
+          <img src={image} alt={name} />
+        </figure>
+        <h4 className="am-shelf__name">{name}</h4>
+        <div className="am-shelf__pricing">
+          {discount ? (
+            <>
+              <span className="am-shelf__pricing-price">
+                {actualPrice}
               </span>
-            )}
-            <del className="am-shelf__pricing-old-price">
-              {regularPrice}
-            </del>
-            <span className="am-shelf__pricing-discount">
-              {`(${discount} off)`}
-            </span>
-          </>
-        ) : (
-          <>
-            <span className="am-shelf__pricing-price">
-              {actualPrice}
-            </span>
-            {installments && (
-              <span className="am-shelf__pricing-installments">
-                {installments}
+              {installments && (
+                <span className="am-shelf__pricing-installments">
+                  {installments}
+                </span>
+              )}
+              <del className="am-shelf__pricing-old-price">
+                {regularPrice}
+              </del>
+              <span className="am-shelf__pricing-discount">
+                {`(${discount} off)`}
               </span>
-            )}
-          </>
-        )}
-      </div>
-      <figure className="am-shelf__color">
-        <img src={color} alt={colorName} />
-      </figure>
+            </>
+          ) : (
+            <>
+              <span className="am-shelf__pricing-price">
+                {actualPrice}
+              </span>
+              {installments && (
+                <span className="am-shelf__pricing-installments">
+                  {installments}
+                </span>
+              )}
+            </>
+          )}
+        </div>
+        <figure className="am-shelf__color">
+          <img src={color} alt={colorName} />
+        </figure>
+      </Link>
     </div>
   );
 };
