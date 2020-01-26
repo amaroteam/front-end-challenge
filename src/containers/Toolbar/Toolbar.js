@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import '../../styles/containers/Toolbar.scss';
 
@@ -7,6 +8,11 @@ import Button from '../../components/Button';
 import FilterOptions from '../../components/FilterOptions';
 
 const Toolbar = ({ intro }) => {
+  const [toggleOpen, setToggleOpen] = useState();
+
+  const handleToggleFilters = () =>
+    !toggleOpen ? setToggleOpen(true) : setToggleOpen(false);
+
   return (
     <div className="am-toolbar">
       <Container className="am-toolbar__wrapper">
@@ -19,10 +25,11 @@ const Toolbar = ({ intro }) => {
             <Button
               className="am-toolbar__nav-filter-button"
               type="button"
+              onClick={() => handleToggleFilters()}
             >
               Ordernar
             </Button>
-            <FilterOptions />
+            <FilterOptions visible={toggleOpen} />
           </div>
         </nav>
       </Container>
@@ -33,4 +40,4 @@ const Toolbar = ({ intro }) => {
   );
 };
 
-export default Toolbar;
+export default connect(null, null)(Toolbar);

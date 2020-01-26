@@ -8,7 +8,7 @@ import api from '../../service/api';
 import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
 import Overlay from '../../components/Overlay/Overlay';
-import QuickView from '../../containers/QuickView';
+// import QuickView from '../../containers/QuickView';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -40,7 +40,7 @@ const HomePage = () => {
       <Overlay />
       <Toolbar intro="Produtos" />
       <ProductsShelf content={products} />
-      <QuickView />
+      {/* <QuickView /> */}
     </>
   );
 };

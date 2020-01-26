@@ -2,9 +2,11 @@ import React from 'react';
 
 import '../../styles/components/FilterOptions.scss';
 
-const FilterOptions = ({ className }) => {
+const FilterOptions = ({ visible }) => {
   return (
-    <ul className={`am-filter-options ${className}`}>
+    <ul
+      className={`am-filter-options ${visible ? 'is--active' : ''}`}
+    >
       <li className="am-filter-options__item" data-value="lowest">
         <span>Menor Preço</span>
       </li>
