@@ -1,15 +1,23 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable array-callback-return */
 import api from '../../service/api';
+import priceToNumber from '../../utils/priceToNumber';
 
 export const Types = {
   initGetProducts: '@product/INIT_GET_PRODUCTS',
   successGetProducts: '@product/SUCCESS_GET_PRODUCTS',
   errorGetProducts: '@product/ERROR_GET_PRODUCTS',
+
+  productOrderByBestPrice: '@product/BEST_PRICE',
+  productOrderByBiggestPrice: '@product/BIGGEST_PRICE',
+  productOrderByDiscount: '@product/DISCOUNT',
 };
 
 const INITIAL_STATE = {
   data: [],
   loading: false,
   error: false,
+  changed: '',
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -19,18 +27,45 @@ export default function reducer(state = INITIAL_STATE, action) {
         data: [],
         loading: true,
         error: false,
+        changed: false,
       };
     case Types.successGetProducts:
       return {
         data: action.data,
         loading: false,
         error: false,
+        changed: false,
       };
     case Types.errorGetProducts:
       return {
         data: [],
         loading: false,
         error: true,
+        changed: false,
+      };
+
+    case Types.productOrderByBestPrice:
+      const orderByBestPrice = state.data.sort(
+        (a, b) =>
+          priceToNumber(a.actual_price) -
+          priceToNumber(b.actual_price),
+      );
+      return {
+        ...state,
+        data: orderByBestPrice,
+        changed: 'best price',
+      };
+
+    case Types.productOrderByBiggestPrice:
+      const orderBiggestPrice = state.data.sort(
+        (a, b) =>
+          priceToNumber(b.actual_price) -
+          priceToNumber(a.actual_price),
+      );
+      return {
+        ...state,
+        data: orderBiggestPrice,
+        changed: 'biggest price',
       };
     default:
       return state;
@@ -80,4 +115,12 @@ export const Creators = {
       }
     };
   },
+
+  orderByBestPrice: () => ({
+    type: Types.productOrderByBestPrice,
+  }),
+
+  orderByBiggestPrice: () => ({
+    type: Types.productOrderByBiggestPrice,
+  }),
 };

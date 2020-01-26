@@ -12,15 +12,15 @@ const FilterOptions = ({
 }) => {
   const listItem = [
     {
-      filter: 'lowest',
+      filter: 'BEST_PRICE',
       name: 'Menor preço',
     },
     {
-      filter: 'highest',
+      filter: 'BIGGEST_PRICE',
       name: 'Maior preço',
     },
     {
-      filter: 'discount',
+      filter: 'DISCOUNT',
       name: 'Maior disconto',
     },
   ];
@@ -49,5 +49,5 @@ const FilterOptions = ({
 };
 
 export default connect(state => ({
-  toggle: state.filter.toggle,
+  toggle: state.filter,
 }))(FilterOptions);

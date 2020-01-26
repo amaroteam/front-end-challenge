@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as FilterActionsCreator } from '../../store/ducks/filter';
 import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
+import { Creators as ProductsActionsCreator } from '../../store/ducks/products';
 
 import '../../styles/containers/Toolbar.scss';
 
@@ -16,11 +17,13 @@ const Toolbar = ({
   visible,
   filterActions,
   overlayActions,
+  productsActions,
 }) => {
   const [active, setActive] = useState(-1);
 
-  const { toggleFilter, filterOption } = filterActions;
+  const { toggleFilter } = filterActions;
   const { toggleOverlay } = overlayActions;
+  const { orderByBestPrice, orderByBiggestPrice } = productsActions;
 
   const handleToggleFilters = () => {
     if (visible) {
@@ -35,9 +38,14 @@ const Toolbar = ({
   const handleFilterOption = ev => {
     const { value, index } = ev.target.dataset;
     setActive(index);
-    filterOption(value);
     toggleFilter(false);
     toggleOverlay(false);
+    if (value === 'BEST_PRICE') {
+      orderByBestPrice();
+    }
+    if (value === 'BIGGEST_PRICE') {
+      orderByBiggestPrice();
+    }
   };
 
   return (
@@ -80,6 +88,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   filterActions: bindActionCreators(FilterActionsCreator, dispatch),
   overlayActions: bindActionCreators(OverlayActionsCreator, dispatch),
+  productsActions: bindActionCreators(
+    ProductsActionsCreator,
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
