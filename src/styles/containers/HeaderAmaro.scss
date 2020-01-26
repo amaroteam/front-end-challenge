@@ -1,19 +1,19 @@
 @import '../settings/index.scss';
 
 .am-header{
+  @extend %flex-centered;
+  @include rem(border-bottom, 1px solid $color-gray);
+  @include z-index(header);
   width: 100%;
   background-color: $color-white;
   display: flex;
   flex-direction: column;
-  @extend %flex-centered;
-  @include rem(border-bottom, 1px solid $color-gray);
-  @include z-index(header);
   position: relative;
   &__top{
-    width: 100%;
-    background-color: $color-pink;
     @include rem(height, $gap-great);
     @extend %flex-centered;
+    width: 100%;
+    background-color: $color-pink;
     &-text{
       @include rem(font-size, $font-small);
       text-decoration: underline;
@@ -39,9 +39,9 @@
         @include rem(width, $gap-medium);
         @include rem(height, $gap-medium);
         @include rem(line-height, $gap-medium);
+        @include rem(right, -5px);
         position: absolute;
         top: 0;
-        @include rem(right, -5px);
         border-radius: 50%;
         background-color: $color-red;
         color: $color-white;

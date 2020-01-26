@@ -2,10 +2,10 @@
 
 
 .am-modal{
-  position: fixed;
   @include z-index(modal);
-  background-color: $color-white;
   @extend %center;
+  position: fixed;
+  background-color: $color-white;
   top: 0;
   left: 0;
   width: 95vw;
@@ -24,11 +24,11 @@
   &__close{
     @include rem(width, $gap-greatest);
     @include rem(height, $gap-greatest);
+    @include icon-more(20px, 1px, $color-black);
     margin-left: auto;
     position: relative;
     display: block;
     outline: none;
     transform: rotate(45deg);
-    @include icon-more(20px, 1px, $color-black);
   }
 }

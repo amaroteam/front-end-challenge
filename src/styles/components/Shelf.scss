@@ -68,8 +68,8 @@
     margin: $gap-normal auto 0 auto;
     border-radius: 100%;
     img {
-      border-radius: 50%;
       @include rem(padding, $gap-smallest);
+      border-radius: 50%;
     }
   }
 }

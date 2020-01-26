@@ -1,14 +1,14 @@
 @import '../settings/index.scss';
 
 .am-overlay{
+  @extend %flex-centered;
+  @include z-index(overlay);
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  @extend %flex-centered;
-  @include z-index(overlay);
   visibility: hidden;
   opacity: 0;
   transition: all 200ms linear;

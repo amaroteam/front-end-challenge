@@ -5,9 +5,9 @@
   @include rem(padding, $gap-normal);
   @include rem(top, 50px);
   @include rem(width, 190px);
+  @include z-index(modal);
   right: 0;
   position: absolute;
-  @include z-index(modal);
   background-color: $color-white;
   opacity: 0;
   visibility: hidden;

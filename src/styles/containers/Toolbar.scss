@@ -5,11 +5,11 @@
   &__wrapper{
     @include rem(border-bottom, 1px solid $color-gray);
     @include z-index(header);
-    background-color: $color-white;
-    width: 100%;
     @include rem(padding-top, $gap-medium);
     @include rem(padding-bottom, $gap-medium);
     @extend %flex-centered;
+    background-color: $color-white;
+    width: 100%;
     flex-direction: column;
     &:first-of-type{
       @include z-index(header);
@@ -32,19 +32,19 @@
         position: relative;
         outline: none;
         &:after{
+          @include rem(height, 1px);
           content: '';
           position: absolute;
           bottom: 0;
-          @include rem(height, 1px);
           width: 0%;
           right: 0;
           background-color: $color-black;
           transition: width 400ms ease-in-out;
         }
         &:before{
-          top: 0;
           @include rem(left, -15px);
           @include arrow(bottom, $color-black);
+          top: 0;
           transition: all 200ms linear;
         }
         &.is--active{
