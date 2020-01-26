@@ -81,3 +81,26 @@ $z-index: (
       } 
   }
 }
+
+/// Icon more or close
+/// @author Rodrigo Reis @[https://github.com/rodrigoreeis]
+/// @param {Width} $width - width icon
+/// @param {Size} $size - size icon
+/// @param {color} $color - color icon
+
+@mixin icon-more($width, $size ,$color) {
+  &::after,
+  &::before{
+    content: '';
+    width: $width;
+    height: $size;
+    background-color: $color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &::before{
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}

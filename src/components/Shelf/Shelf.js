@@ -16,7 +16,7 @@ const Shelf = ({
 }) => {
   return (
     <div className="am-shelf">
-      <Link to={`/produto/${url}`} onClick={onClick}>
+      <Link to={`/p/${url}`} onClick={onClick}>
         <figure className="am-shelf__image">
           <img src={image} alt={name} />
         </figure>

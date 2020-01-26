@@ -1,0 +1,34 @@
+@import '../settings/index.scss';
+
+
+.am-modal{
+  position: fixed;
+  @include z-index(modal);
+  background-color: $color-white;
+  @extend %center;
+  top: 0;
+  left: 0;
+  width: 95vw;
+  height: 90vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-200%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 300ms linear;
+  &.is--active{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+  }
+  &__close{
+    @include rem(width, $gap-greatest);
+    @include rem(height, $gap-greatest);
+    margin-left: auto;
+    position: relative;
+    display: block;
+    outline: none;
+    transform: rotate(45deg);
+    @include icon-more(20px, 1px, $color-black);
+  }
+}
