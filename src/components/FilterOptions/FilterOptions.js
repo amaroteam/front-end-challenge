@@ -1,14 +1,15 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { connect } from 'react-redux';
 
 import '../../styles/components/FilterOptions.scss';
 
-const FilterOptions = ({ visible, onClick }) => {
+const FilterOptions = ({ toggle, onClick }) => {
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <ul
+      className={`am-filter-options ${toggle ? 'is--active' : ''}`}
+      role="menu"
       onClick={onClick}
-      className={`am-filter-options ${visible ? 'is--active' : ''}`}
+      onKeyPress={() => {}}
     >
       <li className="am-filter-options__item" data-value="lowest">
         Menor Preço
@@ -23,4 +24,6 @@ const FilterOptions = ({ visible, onClick }) => {
   );
 };
 
-export default FilterOptions;
+export default connect(state => ({
+  toggle: state.filter.toggle,
+}))(FilterOptions);

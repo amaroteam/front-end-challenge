@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Creators as OverlayActions } from '../../store/ducks/overlay';
+import { Creators as FilterActionsCreator } from '../../store/ducks/filter';
+import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
 
 import '../../styles/containers/Toolbar.scss';
 
@@ -10,30 +11,24 @@ import Container from '../../layout/Container';
 import Button from '../../components/Button';
 import FilterOptions from '../../components/FilterOptions';
 
-const Toolbar = ({ intro, toggleOverlay }) => {
-  // console.log(activeOverlay());
-  const [toggleOpen, setToggleOpen] = useState();
-  const [filter, setFilter] = useState('');
+const Toolbar = ({
+  intro,
+  visible,
+  filterActions,
+  overlayActions,
+}) => {
+  const { toggleFilter } = filterActions;
+  const { toggleOverlay } = overlayActions;
 
   const handleToggleFilters = () => {
-    if (!toggleOpen) {
-      toggleOverlay(true);
-      setToggleOpen(true);
-    } else {
-      setToggleOpen(false);
+    if (visible) {
+      toggleFilter(false);
       toggleOverlay(false);
+    } else {
+      toggleFilter(true);
+      toggleOverlay(true);
     }
   };
-
-  const handleFilter = ev => {
-    const { target } = ev;
-    const currentFilter = target.dataset.value;
-    setFilter(currentFilter);
-    setToggleOpen(false);
-    toggleOverlay(false);
-  };
-  console.log('filter', filter);
-
   return (
     <div className="am-toolbar">
       <Container className="am-toolbar__wrapper">
@@ -50,10 +45,7 @@ const Toolbar = ({ intro, toggleOverlay }) => {
             >
               Ordernar
             </Button>
-            <FilterOptions
-              visible={toggleOpen}
-              onClick={ev => handleFilter(ev)}
-            />
+            <FilterOptions />
           </div>
         </nav>
       </Container>
@@ -64,7 +56,14 @@ const Toolbar = ({ intro, toggleOverlay }) => {
   );
 };
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(OverlayActions, dispatch);
+const mapStateToProps = state => ({
+  visible: state.filter.toggle,
+  overlay: state.overlay,
+});
 
-export default connect(null, mapDispatchToProps)(Toolbar);
+const mapDispatchToProps = dispatch => ({
+  filterActions: bindActionCreators(FilterActionsCreator, dispatch),
+  overlayActions: bindActionCreators(OverlayActionsCreator, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
