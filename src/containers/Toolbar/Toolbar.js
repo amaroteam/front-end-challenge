@@ -39,7 +39,9 @@ const Toolbar = ({
           </span>
           <div className="am-toolbar__nav-filter">
             <Button
-              className="am-toolbar__nav-filter-button"
+              className={`am-toolbar__nav-filter-button ${
+                visible ? 'is--active' : ''
+              }`}
               type="button"
               onClick={() => handleToggleFilters()}
             >
