@@ -1,11 +1,11 @@
 export const Types = {
   TOGGLE_FILTER: '@filter/TOGGLE_FILTER',
-  FILTER_SELECTED: '@filter/FILTER_SELECTED',
+  FILTER_OPTION: '@filter/FILTER_OPTION',
 };
 
 const INITIAL_STATE = {
   toggle: false,
-  selected: '',
+  option: '',
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -16,13 +16,13 @@ export default function reducer(state = INITIAL_STATE, action) {
         toggle: action.payload,
       };
 
-    case Types.FILTER_SELECTED:
-      return action.payload;
-    default:
+    case Types.FILTER_OPTION:
       return {
         ...state,
-        selected: action.payload,
+        option: action.payload,
       };
+    default:
+      return state;
   }
 }
 
@@ -31,8 +31,8 @@ export const Creators = {
     type: Types.TOGGLE_FILTER,
     payload: boolean,
   }),
-  filterSelected: text => ({
-    type: Types.FILTER_SELECTED,
-    payload: text,
+  filterOption: option => ({
+    type: Types.FILTER_OPTION,
+    payload: option,
   }),
 };

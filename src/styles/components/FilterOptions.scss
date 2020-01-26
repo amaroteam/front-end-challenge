@@ -49,5 +49,18 @@
     &:not(:last-of-type){
       @include rem(border-bottom, 1px solid $color-gray);
     }
+    &.is--active{
+      &::after{
+        content: '';
+        @include rem(width, 14px);
+        @include rem(height, 14px);
+        @include rem(left, 4px);
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $color-black-1;
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,7 +17,9 @@ const Toolbar = ({
   filterActions,
   overlayActions,
 }) => {
-  const { toggleFilter } = filterActions;
+  const [active, setActive] = useState(-1);
+
+  const { toggleFilter, filterOption } = filterActions;
   const { toggleOverlay } = overlayActions;
 
   const handleToggleFilters = () => {
@@ -29,6 +31,15 @@ const Toolbar = ({
       toggleOverlay(true);
     }
   };
+
+  const handleFilterOption = ev => {
+    const { value, index } = ev.target.dataset;
+    setActive(index);
+    filterOption(value);
+    toggleFilter(false);
+    toggleOverlay(false);
+  };
+
   return (
     <div className="am-toolbar">
       <Container className="am-toolbar__wrapper">
@@ -47,7 +58,10 @@ const Toolbar = ({
             >
               Ordernar
             </Button>
-            <FilterOptions />
+            <FilterOptions
+              activeIndex={active}
+              onClick={ev => handleFilterOption(ev)}
+            />
           </div>
         </nav>
       </Container>
