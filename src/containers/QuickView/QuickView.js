@@ -1,12 +1,14 @@
 import React from 'react';
-import Modal from '../../components/Modal';
 
-// import { Container } from './styles';
+import '../../styles/containers/QuickView.scss';
+
+import Modal from '../../components/Modal';
 
 const QuickView = () => {
   return (
-    <Modal>
-      <div className="am-quick-view"> EAE </div>
+    <Modal className="is--active am-quick-view">
+      <div className="am-quick-view__left"> left </div>
+      <div className="am-quick-view__right"> right </div>
     </Modal>
   );
 };
