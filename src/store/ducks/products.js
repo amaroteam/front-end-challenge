@@ -67,6 +67,18 @@ export default function reducer(state = INITIAL_STATE, action) {
         data: orderBiggestPrice,
         changed: 'biggest price',
       };
+
+    case Types.productOrderByDiscount:
+      const orderByDiscount = state.data.sort(
+        (a, b) =>
+          priceToNumber(b.discount_percentage) -
+          priceToNumber(a.discount_percentage),
+      );
+      return {
+        ...state,
+        data: orderByDiscount,
+        changed: 'best discount',
+      };
     default:
       return state;
   }
@@ -122,5 +134,9 @@ export const Creators = {
 
   orderByBiggestPrice: () => ({
     type: Types.productOrderByBiggestPrice,
+  }),
+
+  orderByDiscount: () => ({
+    type: Types.productOrderByDiscount,
   }),
 };

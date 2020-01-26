@@ -23,7 +23,11 @@ const Toolbar = ({
 
   const { toggleFilter } = filterActions;
   const { toggleOverlay } = overlayActions;
-  const { orderByBestPrice, orderByBiggestPrice } = productsActions;
+  const {
+    orderByBestPrice,
+    orderByBiggestPrice,
+    orderByDiscount,
+  } = productsActions;
 
   const handleToggleFilters = () => {
     if (visible) {
@@ -45,6 +49,9 @@ const Toolbar = ({
     }
     if (value === 'BIGGEST_PRICE') {
       orderByBiggestPrice();
+    }
+    if (value === 'DISCOUNT') {
+      orderByDiscount();
     }
   };
 
