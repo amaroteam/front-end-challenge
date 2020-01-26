@@ -1,38 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as ProductsActionsCreator } from '../../store/ducks/products';
 
 import '../../styles/pages/HomePage.scss';
-
-import api from '../../service/api';
 
 import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
 import Overlay from '../../components/Overlay/Overlay';
 // import QuickView from '../../containers/QuickView';
 
-const HomePage = () => {
-  const [products, setProducts] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const response = await api.get('/products');
-      const { data } = response;
-
-      const items = data.map(product => ({
-        ...product,
-        url: product.name.replace(/\s+/g, '-').toLowerCase(),
-        bullet_color: `https://cdn.amaro.com/uploads/icons/${product.code_color}.gif`,
-      }));
-
-      return setProducts(items);
-    } catch (error) {
-      console.log('bar', error);
-    }
-    return false;
-  };
-
+const HomePage = ({ getProducts, products }) => {
   useEffect(() => {
-    fetchData();
+    getProducts();
   }, []);
 
   return (
@@ -44,4 +24,16 @@ const HomePage = () => {
     </>
   );
 };
-export default connect(null, null)(HomePage);
+
+const mapStateToProps = state => ({
+  products: state.products.data.map(product => ({
+    ...product,
+    url: product.name.replace(/\s+/g, '-').toLowerCase(),
+    bullet_color: `https://cdn.amaro.com/uploads/icons/${product.code_color}.gif`,
+  })),
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(ProductsActionsCreator, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
