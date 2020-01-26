@@ -13,7 +13,6 @@ const Overlay = ({
   tabIndex,
   toggle,
 }) => {
-  console.log(toggle);
   return (
     <div
       className={`am-overlay ${className} ${

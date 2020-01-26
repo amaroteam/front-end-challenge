@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as OverlayActions } from '../../store/ducks/overlay';
 
 import '../../styles/containers/Toolbar.scss';
 
@@ -7,11 +10,29 @@ import Container from '../../layout/Container';
 import Button from '../../components/Button';
 import FilterOptions from '../../components/FilterOptions';
 
-const Toolbar = ({ intro }) => {
+const Toolbar = ({ intro, toggleOverlay }) => {
+  // console.log(activeOverlay());
   const [toggleOpen, setToggleOpen] = useState();
+  const [filter, setFilter] = useState('');
 
-  const handleToggleFilters = () =>
-    !toggleOpen ? setToggleOpen(true) : setToggleOpen(false);
+  const handleToggleFilters = () => {
+    if (!toggleOpen) {
+      toggleOverlay(true);
+      setToggleOpen(true);
+    } else {
+      setToggleOpen(false);
+      toggleOverlay(false);
+    }
+  };
+
+  const handleFilter = ev => {
+    const { target } = ev;
+    const currentFilter = target.dataset.value;
+    setFilter(currentFilter);
+    setToggleOpen(false);
+    toggleOverlay(false);
+  };
+  console.log('filter', filter);
 
   return (
     <div className="am-toolbar">
@@ -29,7 +50,10 @@ const Toolbar = ({ intro }) => {
             >
               Ordernar
             </Button>
-            <FilterOptions visible={toggleOpen} />
+            <FilterOptions
+              visible={toggleOpen}
+              onClick={ev => handleFilter(ev)}
+            />
           </div>
         </nav>
       </Container>
@@ -40,4 +64,7 @@ const Toolbar = ({ intro }) => {
   );
 };
 
-export default connect(null, null)(Toolbar);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(OverlayActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Toolbar);

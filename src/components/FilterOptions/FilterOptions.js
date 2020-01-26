@@ -1,20 +1,23 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
 import '../../styles/components/FilterOptions.scss';
 
-const FilterOptions = ({ visible }) => {
+const FilterOptions = ({ visible, onClick }) => {
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <ul
+      onClick={onClick}
       className={`am-filter-options ${visible ? 'is--active' : ''}`}
     >
       <li className="am-filter-options__item" data-value="lowest">
-        <span>Menor Preço</span>
+        Menor Preço
       </li>
       <li className="am-filter-options__item" data-value="highest">
-        <span>Maior Preço</span>
+        Maior Preço
       </li>
       <li className="am-filter-options__item" data-value="discount">
-        <span>Maior Desconto</span>
+        Maior Desconto
       </li>
     </ul>
   );
