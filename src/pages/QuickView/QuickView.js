@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import { connect } from 'react-redux';
 
 import '../../styles/containers/QuickView.scss';
@@ -7,8 +8,6 @@ import Modal from '../../components/Modal';
 import ProductInfos from '../../containers/ProductInfos';
 
 const QuickView = ({ toggle, product = {} }) => {
-  const [active, setActive] = useState(-1);
-  const [size, setSize] = useState();
   const {
     name,
     image,
@@ -21,13 +20,6 @@ const QuickView = ({ toggle, product = {} }) => {
     bullet_color: bulletColor,
   } = product;
 
-  const handleSizeSelected = ev => {
-    const { index } = ev.target.dataset;
-    const { value } = ev.target;
-    setSize(value);
-    setActive(index);
-  };
-
   return (
     <Modal className={`am-quick-view ${toggle ? 'is--active' : ''}`}>
       <ProductInfos
@@ -39,10 +31,7 @@ const QuickView = ({ toggle, product = {} }) => {
         color={bulletColor}
         colorName={color}
         discount={discount}
-        size={size}
         sizes={sizes}
-        activeIndex={active}
-        onClick={ev => handleSizeSelected(ev)}
       />
     </Modal>
   );

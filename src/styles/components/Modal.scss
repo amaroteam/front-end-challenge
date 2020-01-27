@@ -1,7 +1,6 @@
 @import '../settings/index.scss';
 
-
-.am-modal{
+.am-modal {
   @include z-index(modal);
   @extend %center;
   position: fixed;
@@ -15,19 +14,19 @@
   visibility: hidden;
   opacity: 0;
   transition: transform 300ms ease-in-out;
-  @media(min-width: 1025px){
-    height: 70vh;
+  @media (min-width: 1025px) {
+    height: 90vh;
   }
-  @media(max-width: 768px){
+  @media (max-width: 768px) {
     width: 100%;
     min-height: 100vh;
   }
-  &.is--active{
+  &.is--active {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
   }
-  &__close{
+  &__close {
     @include rem(width, $gap-greatest);
     @include rem(height, $gap-greatest);
     @include rem(top, $gap-normal);

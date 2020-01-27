@@ -22,11 +22,12 @@ const Overlay = ({
 }) => {
   const { toggleFilter } = filterActions;
   const { toggleOverlay } = overlayActions;
-  const { toggleQuickView } = quickViewActions;
+  const { toggleQuickView, sizeProductQuickView } = quickViewActions;
   const handleCloseAll = () => {
     toggleFilter(false);
     toggleOverlay(false);
     toggleQuickView(false);
+    sizeProductQuickView('');
   };
   return (
     <div

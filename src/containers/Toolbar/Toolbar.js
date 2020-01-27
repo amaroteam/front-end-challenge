@@ -19,7 +19,7 @@ const Toolbar = ({
   filterActions,
   overlayActions,
   productsActions,
-  quantity
+  quantity,
 }) => {
   const [active, setActive] = useState(-1);
 
@@ -62,7 +62,7 @@ const Toolbar = ({
       <Container className="am-toolbar__wrapper">
         <nav className="am-toolbar__nav">
           <span className="am-toolbar__nav-itens">
-            <strong> {quantity} </strong>
+            <strong>{quantity}</strong>
             itens
           </span>
           <div className="am-toolbar__nav-filter">
@@ -92,7 +92,7 @@ const Toolbar = ({
 const mapStateToProps = state => ({
   visible: state.filter,
   overlay: state.overlay,
-  quantity: state.products.data.length
+  quantity: state.products.data.length,
 });
 
 const mapDispatchToProps = dispatch => ({

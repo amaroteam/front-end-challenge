@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as QuickViewActionsCreator } from '../../store/ducks/quickview';
 
 import '../../styles/containers/ProductInfo.scss';
 
@@ -15,10 +18,18 @@ const ProductInfo = ({
   color,
   colorName,
   sizes,
-  size,
-  activeIndex,
-  onClick,
+  sizeProductQuickView,
 }) => {
+  const [active, setActive] = useState(-1);
+  const [size, setSize] = useState();
+
+  const handleSizeSelected = ev => {
+    const { index } = ev.target.dataset;
+    const { value } = ev.target;
+    setSize(value);
+    setActive(index);
+    sizeProductQuickView(value);
+  };
   return (
     <div className="am-product">
       <figure className="am-product__image">
@@ -73,10 +84,10 @@ const ProductInfo = ({
             <strong>{size}</strong>
           </span>
           <SizeBullets
-            onClick={onClick}
+            onClick={ev => handleSizeSelected(ev)}
             className="am-product__info-size-bullets"
             sizes={sizes}
-            activeIndex={activeIndex}
+            activeIndex={active}
           />
         </div>
         <Button
@@ -91,4 +102,7 @@ const ProductInfo = ({
   );
 };
 
-export default ProductInfo;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(QuickViewActionsCreator, dispatch);
+
+export default connect(null, mapDispatchToProps)(ProductInfo);

@@ -16,10 +16,11 @@ const Modal = ({
   quickViewActions,
 }) => {
   const { toggleOverlay } = overlayActions;
-  const { toggleQuickView } = quickViewActions;
+  const { toggleQuickView, sizeProductQuickView } = quickViewActions;
   const handleClose = () => {
     toggleOverlay(false);
-    toggleQuickView();
+    toggleQuickView(false);
+    sizeProductQuickView('');
   };
   return (
     <div className={`am-modal ${className}`}>
