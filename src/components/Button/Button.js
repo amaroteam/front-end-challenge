@@ -6,16 +6,20 @@ const Button = ({
   children,
   role,
   onClick,
-  variant,
   onSubmit,
+  disabled,
+  variant = '',
   className = '',
+  ...props
 }) => (
   <button
+    {...props}
     className={`am-button${variant} ${className}`}
     type="button"
     role={role}
     onClick={onClick}
     onSubmit={onSubmit}
+    disabled={disabled}
   >
     {children}
   </button>

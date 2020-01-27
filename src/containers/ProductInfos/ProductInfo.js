@@ -14,30 +14,35 @@ const ProductInfo = ({
   regularPrice,
   color,
   colorName,
+  sizes,
+  size,
+  activeIndex,
+  onClick,
 }) => {
   return (
     <div className="am-product">
       <figure className="am-product__image">
-        <img src={image} alt={name} />
+        <img
+          src={image || 'http://via.placeholder.com/470x594'}
+          alt={name}
+        />
       </figure>
       <div className="am-product__info">
         <h1 className="am-product__info-name">{name}</h1>
         <div className="am-product__info-pricing">
           {discount ? (
             <>
-              <span className="am-product__info-pricing-price">
-                {actualPrice}
-              </span>
-              {installments && (
-                <span className="am-product__info-pricing-installments">
-                  {installments}
-                </span>
-              )}
               <del className="am-product__info-pricing-old-price">
                 {regularPrice}
               </del>
+              <span className="am-product__info-pricing-price">
+                {actualPrice}
+              </span>
               <span className="am-product__info-pricing-discount">
                 {`(${discount} off)`}
+              </span>
+              <span className="am-product__info-pricing-installments">
+                {installments}
               </span>
             </>
           ) : (
@@ -65,9 +70,14 @@ const ProductInfo = ({
         <div className="am-product__info-size">
           <span className="am-product__info-size-name">
             Tamanho:
-            <strong>p</strong>
+            <strong>{size}</strong>
           </span>
-          <SizeBullets className="am-product__info-size-bullets" />
+          <SizeBullets
+            onClick={onClick}
+            className="am-product__info-size-bullets"
+            sizes={sizes}
+            activeIndex={activeIndex}
+          />
         </div>
         <Button
           variant="--primary"

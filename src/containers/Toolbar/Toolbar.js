@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import { Creators as FilterActionsCreator } from '../../store/ducks/filter';
 import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
 import { Creators as ProductsActionsCreator } from '../../store/ducks/products';

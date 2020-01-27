@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../../styles/components/Shelf.scss';
 
 const Shelf = ({
@@ -12,11 +12,11 @@ const Shelf = ({
   color,
   colorName,
   onClick,
-  url,
+  // url,
 }) => {
   return (
     <div className="am-shelf">
-      <Link to={`/p/${url}`} onClick={onClick}>
+      <button type="button" onClick={onClick}>
         <figure className="am-shelf__image">
           <img src={image} alt={name} />
         </figure>
@@ -55,7 +55,7 @@ const Shelf = ({
         <figure className="am-shelf__color">
           <img src={color} alt={colorName} />
         </figure>
-      </Link>
+      </button>
     </div>
   );
 };

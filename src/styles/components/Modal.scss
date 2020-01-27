@@ -11,10 +11,10 @@
   width: 80vw;
   left: 50%;
   top: 50%;
-  transform: translate(-200%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   visibility: hidden;
   opacity: 0;
-  transition: transform 300ms linear;
+  transition: transform 300ms ease-in-out;
   @media(min-width: 1025px){
     height: 70vh;
   }
@@ -26,7 +26,7 @@
   &.is--active{
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
   }
   &__close{
     @include rem(width, $gap-greatest);

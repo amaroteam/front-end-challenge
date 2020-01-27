@@ -47,11 +47,17 @@
     }
     &-pricing{
       @extend %flex-centered;
-      @include rem(max-width, 200px);
-      flex-wrap: wrap;
-      &-installments{
+      font-weight: 500;
+      &-installments,
+      &-price,
+      &-discount {
         @include rem(padding-left, $gap-small);
-        
+      }
+      &-old-price{
+        color: $color-gray;
+      }
+      &-discount{
+        color: $color-red;
       }
     }
     &-color{
@@ -64,7 +70,7 @@
         border-radius: 100%;
         > img{
           @include rem(padding, $gap-smallest);
-          @include rem(left, 1px);
+          left: 0;
           position: relative;
           border-radius: 50%;
         }

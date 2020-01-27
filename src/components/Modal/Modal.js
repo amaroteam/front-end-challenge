@@ -1,16 +1,43 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
+import { Creators as QuickViewActionsCreator } from '../../store/ducks/quickview';
+
 import '../../styles/components/Modal.scss';
 
 import Button from '../Button';
 
-const Modal = ({ children, onClick, className }) => {
+const Modal = ({
+  children,
+  className,
+  overlayActions,
+  quickViewActions,
+}) => {
+  const { toggleOverlay } = overlayActions;
+  const { toggleQuickView } = quickViewActions;
+  const handleClose = () => {
+    toggleOverlay(false);
+    toggleQuickView();
+  };
   return (
     <div className={`am-modal ${className}`}>
-      <Button className="am-modal__close" onClick={onClick} />
+      <Button
+        className="am-modal__close"
+        onClick={() => handleClose()}
+      />
       {children}
     </div>
   );
 };
 
-export default Modal;
+const mapDispatchToProps = dispatch => ({
+  overlayActions: bindActionCreators(OverlayActionsCreator, dispatch),
+  quickViewActions: bindActionCreators(
+    QuickViewActionsCreator,
+    dispatch,
+  ),
+});
+
+export default connect(null, mapDispatchToProps)(Modal);
