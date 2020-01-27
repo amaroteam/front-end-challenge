@@ -19,6 +19,9 @@ const Shelf = ({
       <button type="button" onClick={onClick}>
         <figure className="am-shelf__image">
           <img src={image} alt={name} />
+          {discount && (
+            <span className="am-shelf__image-flag">{`${discount} off`}</span>
+          )}
         </figure>
         <h4 className="am-shelf__name">{name}</h4>
         <div className="am-shelf__pricing">

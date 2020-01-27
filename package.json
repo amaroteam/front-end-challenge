@@ -6,7 +6,8 @@
   "author": "Rodrigo Reis <roreis99@gmail.com>",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "yarn json-server --watch products.json -p 3333"
   },
   "license": "MIT",
   "dependencies": {

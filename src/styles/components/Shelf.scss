@@ -20,6 +20,29 @@
     position: relative;
     background-color: $color-gray-2;
     cursor: pointer;
+    &-flag{
+      @include rem(width, $gap-biggest);
+      @include rem(height, $gap-biggest);
+      @include rem(font-size, $font-small);
+      @include rem(padding, $gap-normal);
+      @include rem(line-height, $gap-medium);
+      @extend %flex-centered;
+      background-color: $color-black;
+      color: $color-white;
+      font-weight: bold;
+      position: absolute;
+      text-transform: uppercase;
+      left: 0;
+      bottom: 0;
+      &:before{
+        content: '';
+        @include rem(height, $gap-smallest);
+        @include rem(width, $gap-great);
+        @include rem(bottom, $gap-small);
+        background-color: $color-white;
+        position: absolute;
+      }
+    }
   }
 
   &__name{
