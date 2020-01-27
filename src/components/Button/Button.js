@@ -1,8 +1,17 @@
 import React from 'react';
 
-const Button = ({ children, role, onClick, className, onSubmit }) => (
+import '../../styles/components/Button.scss';
+
+const Button = ({
+  children,
+  role,
+  onClick,
+  variant,
+  onSubmit,
+  className = '',
+}) => (
   <button
-    className={className}
+    className={`am-button${variant} ${className}`}
     type="button"
     role={role}
     onClick={onClick}

@@ -27,21 +27,21 @@ export default function reducer(state = INITIAL_STATE, action) {
         data: [],
         loading: true,
         error: false,
-        changed: false,
+        changed: '',
       };
     case Types.successGetProducts:
       return {
         data: action.data,
         loading: false,
         error: false,
-        changed: false,
+        changed: '',
       };
     case Types.errorGetProducts:
       return {
         data: [],
         loading: false,
         error: true,
-        changed: false,
+        changed: '',
       };
 
     case Types.productOrderByBestPrice:
@@ -53,7 +53,7 @@ export default function reducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: orderByBestPrice,
-        changed: 'best price',
+        changed: 'BEST_PRICE',
       };
 
     case Types.productOrderByBiggestPrice:
@@ -65,7 +65,7 @@ export default function reducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: orderBiggestPrice,
-        changed: 'biggest price',
+        changed: 'BIGGEST_PRICE',
       };
 
     case Types.productOrderByDiscount:
@@ -77,23 +77,12 @@ export default function reducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         data: orderByDiscount,
-        changed: 'best discount',
+        changed: 'BEST_DISCOUNT',
       };
     default:
       return state;
   }
 }
-
-// export const Creators = {
-//   toggleFilter: boolean => ({
-//     type: Types.TOGGLE_FILTER,
-//     payload: boolean,
-//   }),
-//   filterOption: option => ({
-//     type: Types.FILTER_OPTION,
-//     payload: option,
-//   }),
-// };
 
 export const Creators = {
   initGetProducts: () => ({

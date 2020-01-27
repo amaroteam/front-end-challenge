@@ -88,7 +88,7 @@ const Toolbar = ({
 };
 
 const mapStateToProps = state => ({
-  visible: state.filter.toggle,
+  visible: state.filter,
   overlay: state.overlay,
 });
 

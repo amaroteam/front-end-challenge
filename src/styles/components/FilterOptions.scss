@@ -50,6 +50,7 @@
       @include rem(border-bottom, 1px solid $color-gray);
     }
     &.is--active{
+      color: $color-gray;
       &::after{
         content: '';
         @include rem(width, 14px);

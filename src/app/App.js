@@ -7,7 +7,7 @@ import '../styles/app.scss';
 import store from '../store';
 
 import HeaderAmaro from '../containers/HeaderAmaro';
-import Routes from '../routes';
+// import Routes from '../routes';
 import HomePage from '../pages/HomePage';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
       <BrowserRouter>
         <HeaderAmaro />
         <HomePage />
-        <Routes />
+        {/* <Routes /> */}
       </BrowserRouter>
     </Provider>
   );

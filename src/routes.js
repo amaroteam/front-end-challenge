@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import ProductPage from './pages/ProductPage';
+import QuickView from './pages/QuickView';
 
 const Routes = () => (
   <Switch>
-    <Route path="/p/:id" component={ProductPage} />
+    <Route path="/p/:id" component={QuickView} />
   </Switch>
 );
 

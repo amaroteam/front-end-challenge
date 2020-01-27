@@ -1,0 +1,93 @@
+@import '../settings/index.scss';
+
+
+.am-product{
+  @extend %flex-centered;
+  flex-wrap: wrap;
+  &__image,
+  &__info{
+    @media(min-width: 1025px){
+      height: 100%;
+    }  
+  }
+  &__image{
+    @extend %flex-centered;
+    @media(min-width: 1025px){
+      flex: 2;
+    }
+  }
+  &__info{
+    @extend %flex-centered;
+    flex-direction: column;
+    @media(max-width: 768px){
+      @include rem(margin-top, $gap-great)
+    }
+    @media(min-width: 1025px){
+      flex: 1;
+    }
+    &-name{
+      @include rem(font-size, $font-great);
+      @include rem(margin-bottom, $gap-medium);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &-pricing,
+    &-color,
+    &-size{
+      @include rem(font-size, $font-normal);
+      @include rem(margin-bottom, $gap-medium);
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      strong{
+        @include rem(margin-left, $gap-small);
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+    &-pricing{
+      @extend %flex-centered;
+      @include rem(max-width, 200px);
+      flex-wrap: wrap;
+      &-installments{
+        @include rem(padding-left, $gap-small);
+        
+      }
+    }
+    &-color{
+      @extend %flex-column;
+      align-items: center;
+      &-bullet{
+        @extend %flex-centered;
+        @include rem(border, 2px solid $color-black);
+        @include rem(margin-top, $gap-medium);
+        border-radius: 100%;
+        > img{
+          @include rem(padding, $gap-smallest);
+          @include rem(left, 1px);
+          position: relative;
+          border-radius: 50%;
+        }
+      }
+    }
+    &-size{
+      @extend %flex-centered;
+      flex-direction: column;
+      @include rem(max-width, 280px);
+      &-bullets{
+        @include rem(margin-top, $gap-medium);
+       
+      }
+    }
+    &-button{
+      @media(min-width: 1025px){
+        @include rem(margin-top, $gap-biggest);
+      }
+      @media(max-width: 768px){
+        @include rem(padding, $gap-half-biggest);
+        position: fixed;
+        bottom: 0;
+      }
+    }
+  }
+}

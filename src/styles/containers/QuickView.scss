@@ -1,3 +1,8 @@
 @import '../settings/index.scss';
 
 
+.am-quick-view{
+  @extend %flex-column;
+  justify-content: center;
+  @include rem(padding, $gap-great);
+}

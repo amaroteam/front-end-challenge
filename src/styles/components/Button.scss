@@ -1,0 +1,17 @@
+@import '../settings/index.scss';
+
+
+.am-button{
+  &--primary{
+    @include rem(font-size, $font-medium);
+    @include rem(padding, $gap-normal);
+    text-transform: uppercase;
+    color: $color-white;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    background-color: $color-black;
+    user-select: none;
+    outline: none;
+  }
+}

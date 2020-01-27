@@ -8,7 +8,7 @@ import '../../styles/pages/HomePage.scss';
 import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
 import Overlay from '../../components/Overlay/Overlay';
-// import QuickView from '../../containers/QuickView';
+import QuickView from '../QuickView';
 
 const HomePage = ({ getProducts, products, changed }) => {
   useEffect(() => {
@@ -26,7 +26,7 @@ const HomePage = ({ getProducts, products, changed }) => {
       <Toolbar intro="Produtos" />
       {memoizedShef}
       {/* <ProductsShelf content={products} /> */}
-      {/* <QuickView /> */}
+      <QuickView />
     </>
   );
 };

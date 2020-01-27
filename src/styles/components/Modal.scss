@@ -8,14 +8,21 @@
   background-color: $color-white;
   top: 0;
   left: 0;
-  width: 95vw;
-  height: 90vh;
+  width: 80vw;
   left: 50%;
   top: 50%;
   transform: translate(-200%, -50%);
   visibility: hidden;
   opacity: 0;
   transition: transform 300ms linear;
+  @media(min-width: 1025px){
+    height: 70vh;
+  }
+  @media(max-width: 768px){
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: scroll;
+  }
   &.is--active{
     opacity: 1;
     visibility: visible;
@@ -24,9 +31,10 @@
   &__close{
     @include rem(width, $gap-greatest);
     @include rem(height, $gap-greatest);
+    @include rem(top, $gap-normal);
+    @include rem(right, $gap-medium);
     @include icon-more(20px, 1px, $color-black);
-    margin-left: auto;
-    position: relative;
+    position: absolute;
     display: block;
     outline: none;
     transform: rotate(45deg);
