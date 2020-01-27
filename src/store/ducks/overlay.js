@@ -1,19 +1,39 @@
 export const Types = {
   TOGGLE: '@overlay/TOGGLE',
+  TOOLBAR: '@overlay/TOOLBAR',
 };
 
-const INITIAL_STATE = false;
+const INITIAL_STATE = {
+  toggle: false,
+  toolbar: false,
+};
 
 export default function reducer(state = INITIAL_STATE, action) {
-  if (action.type === Types.TOGGLE) {
-    return action.payload;
+  switch (action.type) {
+    case Types.TOGGLE:
+      return {
+        ...state,
+        toggle: action.payload,
+      };
+    case Types.TOOLBAR:
+      return {
+        ...state,
+        toolbar: action.payload,
+      };
+
+    default:
+      return state;
   }
-  return state;
 }
 
 export const Creators = {
   toggleOverlay: boolean => ({
     type: Types.TOGGLE,
+    payload: boolean,
+  }),
+
+  overlayToolBar: boolean => ({
+    type: Types.TOOLBAR,
     payload: boolean,
   }),
 };

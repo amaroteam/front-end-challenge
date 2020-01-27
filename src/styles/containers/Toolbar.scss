@@ -1,37 +1,39 @@
 @import '../settings/index.scss';
 
-.am-toolbar{
+.am-toolbar {
   width: 100%;
-  &__wrapper{
+  &__wrapper {
     @include rem(border-bottom, 1px solid $color-gray);
-    @include z-index(header);
     @include rem(padding-top, $gap-medium);
     @include rem(padding-bottom, $gap-medium);
     @extend %flex-centered;
     background-color: $color-white;
     width: 100%;
     flex-direction: column;
-    &:first-of-type{
+    &.is--active {
       @include z-index(header);
-      position: relative;
+      &:first-of-type {
+        @include z-index(header);
+        position: relative;
+      }
     }
   }
-  &__nav{
+  &__nav {
     width: 100%;
     @extend %flex-spaced;
-    &-itens{
+    &-itens {
       @include rem(font-size, $font-normal);
       color: $color-gray-1;
     }
-    &-filter{
+    &-filter {
       position: relative;
-      &-button{
+      &-button {
         @include rem(font-size, $font-normalest);
         @include rem(margin-left, $gap-half-biggest);
         text-transform: uppercase;
         position: relative;
         outline: none;
-        &:after{
+        &:after {
           @include rem(height, 1px);
           content: '';
           position: absolute;
@@ -41,17 +43,17 @@
           background-color: $color-black;
           transition: width 400ms ease-in-out;
         }
-        &:before{
+        &:before {
           @include rem(left, -15px);
           @include arrow(bottom, $color-black);
           top: 0;
           transition: all 200ms linear;
         }
-        &.is--active{
-          &:after{
+        &.is--active {
+          &:after {
             width: 100%;
           }
-          &:before{
+          &:before {
             @include arrow(top, $color-black);
             @include rem(top, 4px);
           }
@@ -59,7 +61,7 @@
       }
     }
   }
-  &__intro{
+  &__intro {
     @include rem(font-size, $font-medium);
     text-align: center;
     text-transform: uppercase;

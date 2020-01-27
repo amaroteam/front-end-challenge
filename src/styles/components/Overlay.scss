@@ -1,6 +1,6 @@
 @import '../settings/index.scss';
 
-.am-overlay{
+.am-overlay {
   @extend %flex-centered;
   @include z-index(overlay);
   width: 100vw;

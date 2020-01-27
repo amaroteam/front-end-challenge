@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
+import { connect } from 'react-redux';
 
 import '../../styles/containers/HeaderAmaro.scss';
 
@@ -10,9 +11,9 @@ import CartIcon from '../../assets/icons/shopping-bag.svg';
 import Button from '../../components/Button';
 import Container from '../../layout/Container';
 
-const HeaderAmaro = () => {
+const HeaderAmaro = ({ toolbar }) => {
   return (
-    <header className="am-header">
+    <header className={`am-header ${toolbar ? 'is--active' : ''}`}>
       <div className="am-header__top">
         <p className="am-header__top-text">Amaro Teste Front-End</p>
       </div>
@@ -34,4 +35,8 @@ const HeaderAmaro = () => {
   );
 };
 
-export default HeaderAmaro;
+const mapStateToProps = state => ({
+  toolbar: state.overlay.toolbar,
+});
+
+export default connect(mapStateToProps, null)(HeaderAmaro);

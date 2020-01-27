@@ -1,40 +1,42 @@
 @import '../settings/index.scss';
 
-.am-header{
+.am-header {
   @extend %flex-centered;
   @include rem(border-bottom, 1px solid $color-gray);
-  @include z-index(header);
   width: 100%;
   background-color: $color-white;
   display: flex;
   flex-direction: column;
   position: relative;
-  &__top{
+  &.is--active {
+    @include z-index(header);
+  }
+  &__top {
     @include rem(height, $gap-great);
     @extend %flex-centered;
     width: 100%;
     background-color: $color-pink;
-    &-text{
+    &-text {
       @include rem(font-size, $font-small);
       text-decoration: underline;
       text-transform: uppercase;
-    }    
+    }
   }
-  &__wrapper{
+  &__wrapper {
     @extend %flex-centered;
     @include rem(padding-bottom, $gap-great);
     @include rem(padding-top, $gap-great);
     &-logo,
-    &-cart{
+    &-cart {
       margin-left: auto;
     }
-    &-cart{
+    &-cart {
       display: flex;
       position: relative;
-      &-icon{
+      &-icon {
         @include rem(width, $gap-half-biggest);
       }
-      &-qty{
+      &-qty {
         @include rem(font-size, $font-small);
         @include rem(width, $gap-medium);
         @include rem(height, $gap-medium);

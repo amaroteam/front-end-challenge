@@ -16,23 +16,25 @@ const Overlay = ({
   ariaLabel,
   tabIndex,
   toggle,
+  toolbar,
   filterActions,
   overlayActions,
   quickViewActions,
 }) => {
   const { toggleFilter } = filterActions;
-  const { toggleOverlay } = overlayActions;
+  const { toggleOverlay, overlayToolBar } = overlayActions;
   const { toggleQuickView, sizeProductQuickView } = quickViewActions;
   const handleCloseAll = () => {
     toggleFilter(false);
     toggleOverlay(false);
     toggleQuickView(false);
     sizeProductQuickView(false);
+    overlayToolBar(false);
   };
   return (
     <div
       className={`am-overlay ${className} ${
-        toggle ? 'is--active' : ''
+        toggle || toolbar ? 'is--active' : ''
       }`}
       onClick={() => handleCloseAll()}
       onKeyDown={onKeyDown}
@@ -46,7 +48,8 @@ const Overlay = ({
 };
 
 const mapStateToProps = state => ({
-  toggle: state.overlay,
+  toggle: state.overlay.toggle,
+  toolbar: state.overlay.toolbar,
 });
 
 const mapDispatchToProps = dispatch => ({

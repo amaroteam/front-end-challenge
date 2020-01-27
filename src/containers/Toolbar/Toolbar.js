@@ -20,11 +20,12 @@ const Toolbar = ({
   overlayActions,
   productsActions,
   quantity,
+  overlay,
 }) => {
   const [active, setActive] = useState(-1);
 
   const { toggleFilter } = filterActions;
-  const { toggleOverlay } = overlayActions;
+  const { overlayToolBar } = overlayActions;
   const {
     orderByBestPrice,
     orderByBiggestPrice,
@@ -34,10 +35,10 @@ const Toolbar = ({
   const handleToggleFilters = () => {
     if (visible) {
       toggleFilter(false);
-      toggleOverlay(false);
+      overlayToolBar(false);
     } else {
       toggleFilter(true);
-      toggleOverlay(true);
+      overlayToolBar(true);
     }
   };
 
@@ -45,7 +46,7 @@ const Toolbar = ({
     const { value, index } = ev.target.dataset;
     setActive(index);
     toggleFilter(false);
-    toggleOverlay(false);
+    overlayToolBar(false);
     if (value === 'BEST_PRICE') {
       orderByBestPrice();
     }
@@ -59,7 +60,11 @@ const Toolbar = ({
 
   return (
     <div className="am-toolbar">
-      <Container className="am-toolbar__wrapper">
+      <Container
+        className={`am-toolbar__wrapper ${
+          overlay ? 'is--active' : ''
+        }`}
+      >
         <nav className="am-toolbar__nav">
           <span className="am-toolbar__nav-itens">
             <strong>{quantity}</strong>
@@ -91,7 +96,7 @@ const Toolbar = ({
 
 const mapStateToProps = state => ({
   visible: state.filter,
-  overlay: state.overlay,
+  overlay: state.overlay.toolbar,
   quantity: state.products.data.length,
 });
 
