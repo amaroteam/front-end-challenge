@@ -20,7 +20,7 @@ const Modal = ({
   const handleClose = () => {
     toggleOverlay(false);
     toggleQuickView(false);
-    sizeProductQuickView('');
+    sizeProductQuickView(false);
   };
   return (
     <div className={`am-modal ${className}`}>

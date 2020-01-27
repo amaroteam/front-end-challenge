@@ -19,6 +19,7 @@ const ProductInfo = ({
   colorName,
   sizes,
   sizeProductQuickView,
+  sizeSelected,
 }) => {
   const [active, setActive] = useState(-1);
   const [size, setSize] = useState();
@@ -26,9 +27,9 @@ const ProductInfo = ({
   const handleSizeSelected = ev => {
     const { index } = ev.target.dataset;
     const { value } = ev.target;
+    sizeProductQuickView(true);
     setSize(value);
     setActive(index);
-    sizeProductQuickView(value);
   };
   return (
     <div className="am-product">
@@ -81,7 +82,7 @@ const ProductInfo = ({
         <div className="am-product__info-size">
           <span className="am-product__info-size-name">
             Tamanho:
-            <strong>{size}</strong>
+            <strong>{sizeSelected && size}</strong>
           </span>
           <SizeBullets
             onClick={ev => handleSizeSelected(ev)}
@@ -102,7 +103,14 @@ const ProductInfo = ({
   );
 };
 
+const mapStateToProps = state => ({
+  sizeSelected: state.quickview.size,
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(QuickViewActionsCreator, dispatch);
 
-export default connect(null, mapDispatchToProps)(ProductInfo);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProductInfo);

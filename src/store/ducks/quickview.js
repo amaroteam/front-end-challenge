@@ -45,8 +45,8 @@ export const Creators = {
     type: Types.TOGGLE_QUICK_VIEW,
     payload: boolean,
   }),
-  sizeProductQuickView: size => ({
+  sizeProductQuickView: boolean => ({
     type: Types.SIZE,
-    payload: size,
+    payload: boolean,
   }),
 };

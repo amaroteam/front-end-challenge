@@ -27,7 +27,7 @@ const Overlay = ({
     toggleFilter(false);
     toggleOverlay(false);
     toggleQuickView(false);
-    sizeProductQuickView('');
+    sizeProductQuickView(false);
   };
   return (
     <div
