@@ -17,6 +17,7 @@ const Modal = ({
 }) => {
   const { toggleOverlay } = overlayActions;
   const { toggleQuickView, sizeProductQuickView } = quickViewActions;
+
   const handleClose = () => {
     toggleOverlay(false);
     toggleQuickView(false);
