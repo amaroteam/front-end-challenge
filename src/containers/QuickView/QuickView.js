@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import '../../styles/containers/QuickView.scss';
 
 import Modal from '../../components/Modal';
-import ProductInfos from '../../containers/ProductInfos';
+import ProductInfo from '../../components/ProductInfo';
 
 const QuickView = ({ toggle, product = {} }) => {
   const {
@@ -22,7 +22,7 @@ const QuickView = ({ toggle, product = {} }) => {
 
   return (
     <Modal className={`am-quick-view ${toggle ? 'is--active' : ''}`}>
-      <ProductInfos
+      <ProductInfo
         name={name}
         image={image}
         regularPrice={regularPrice}

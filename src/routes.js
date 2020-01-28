@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import QuickView from './pages/QuickView';
+import HomePage from './pages/HomePage';
 
 const Routes = () => (
   <Switch>
-    <Route path="/p/:id" component={QuickView} />
+    <Route path="/" exact component={HomePage} />
   </Switch>
 );
 

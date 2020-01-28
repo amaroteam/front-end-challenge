@@ -6,17 +6,13 @@ import '../styles/app.scss';
 
 import store from '../store';
 
-import HeaderAmaro from '../containers/HeaderAmaro';
-// import Routes from '../routes';
-import HomePage from '../pages/HomePage';
+import Routes from '../routes';
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <HeaderAmaro />
-        <HomePage />
-        {/* <Routes /> */}
+        <Routes />
       </BrowserRouter>
     </Provider>
   );

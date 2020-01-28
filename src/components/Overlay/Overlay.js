@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as FilterActionsCreator } from '../../store/ducks/filter';
 import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
 import { Creators as QuickViewActionsCreator } from '../../store/ducks/quickview';
+import { Creators as MinicartActionsCreator } from '../../store/ducks/minicart';
 
 import '../../styles/components/Overlay.scss';
 
@@ -20,14 +21,18 @@ const Overlay = ({
   filterActions,
   overlayActions,
   quickViewActions,
+  minicartActions,
 }) => {
   const { toggleFilter } = filterActions;
   const { toggleOverlay, overlayToolBar } = overlayActions;
   const { toggleQuickView, sizeProductQuickView } = quickViewActions;
+  const { toggleMinicart } = minicartActions;
+
   const handleCloseAll = () => {
     toggleFilter(false);
     toggleOverlay(false);
     toggleQuickView(false);
+    toggleMinicart(false);
     sizeProductQuickView(false);
     overlayToolBar(false);
   };
@@ -57,6 +62,10 @@ const mapDispatchToProps = dispatch => ({
   overlayActions: bindActionCreators(OverlayActionsCreator, dispatch),
   quickViewActions: bindActionCreators(
     QuickViewActionsCreator,
+    dispatch,
+  ),
+  minicartActions: bindActionCreators(
+    MinicartActionsCreator,
     dispatch,
   ),
 });

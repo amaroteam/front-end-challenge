@@ -5,11 +5,12 @@ import { Creators as ProductsActionsCreator } from '../../store/ducks/products';
 
 import '../../styles/pages/HomePage.scss';
 
-import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
+import ProductsShelf from '../../containers/ProductsShelf';
 import Overlay from '../../components/Overlay/Overlay';
-import QuickView from '../QuickView';
+import QuickView from '../../containers/QuickView';
 import Minicart from '../../containers/Minicart';
+import HeaderAmaro from '../../containers/HeaderAmaro/HeaderAmaro';
 
 const HomePage = ({ getProducts, products, changed }) => {
   useEffect(() => {
@@ -23,11 +24,11 @@ const HomePage = ({ getProducts, products, changed }) => {
 
   return (
     <>
-      <Overlay />
+      <HeaderAmaro />
       <Toolbar intro="Produtos" />
+      <Overlay />
       {memoizedShef}
       <Minicart />
-      {/* <ProductsShelf content={products} /> */}
       <QuickView />
     </>
   );

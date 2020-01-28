@@ -5,8 +5,8 @@ import { Creators as QuickViewActionsCreator } from '../../store/ducks/quickview
 
 import '../../styles/containers/ProductInfo.scss';
 
-import Button from '../../components/Button';
-import SizeBullets from '../../components/SizeBullets/sizeBullets';
+import Button from '../Button';
+import SizeBullets from '../SizeBullets';
 
 const ProductInfo = ({
   image,

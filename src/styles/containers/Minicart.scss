@@ -4,11 +4,17 @@
 .am-minicart{
   @include rem(width, 300px);
   @extend %flex-column;
+  @include z-index(minicart);
   background-color: $color-white;
   position: fixed;
   right: 0;
   top: 0;
   height: 100vh;
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out;
+  &.is--active{
+    transform: translateX(0);
+  }
   &__header{
     @extend %flex-centered;
     @include rem(height, $gap-biggest);

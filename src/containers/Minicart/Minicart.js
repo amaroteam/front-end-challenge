@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { bindActionCreators } from 'redux';
+import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
+import { Creators as MinicartActionsCreator } from '../../store/ducks/minicart';
 
 import '../../styles/containers/Minicart.scss';
 
@@ -13,11 +18,25 @@ const Minicart = ({
   amount = 1,
   price = 'R$ 30,00',
   totalPrice = 'R$ 30,00',
+  toggle,
+  overlayActions,
+  minicartActions,
 }) => {
+  const { toggleOverlay } = overlayActions;
+  const { toggleMinicart } = minicartActions;
+
+  const handleCloseCart = () => {
+    toggleMinicart(false);
+    toggleOverlay(false);
+  };
+
   return (
-    <div className="am-minicart">
+    <div className={`am-minicart ${toggle ? 'is--active' : ''}`}>
       <div className="am-minicart__header">
-        <Button className="am-minicart__header-close" />
+        <Button
+          className="am-minicart__header-close"
+          onClick={() => handleCloseCart()}
+        />
         <h3 className="am-minicart__header-title">
           Sacola
           {` (${quantity})`}
@@ -86,4 +105,16 @@ const Minicart = ({
   );
 };
 
-export default Minicart;
+const mapStateToProps = state => ({
+  toggle: state.minicart.toggle,
+});
+
+const mapDispatchToProps = dispatch => ({
+  minicartActions: bindActionCreators(
+    MinicartActionsCreator,
+    dispatch,
+  ),
+  overlayActions: bindActionCreators(OverlayActionsCreator, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Minicart);
