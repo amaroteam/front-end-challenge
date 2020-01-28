@@ -12,6 +12,11 @@
   }
   &__image{
     @extend %flex-centered;
+    @media(max-width: 768px){ 
+      > img {
+        max-width: 50%;
+      }
+    };
     @media(min-width: 1025px){
       flex: 2;
       > img {

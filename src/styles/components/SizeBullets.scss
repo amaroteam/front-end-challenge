@@ -16,6 +16,11 @@
     background-color: $color-white;
     font-weight: bold;
     border-radius: 50%;
+    @media(max-width: 768px){
+      @include rem(height, $gap-big);
+      @include rem(width, $gap-big);
+      @include rem(line-height, $gap-big);
+    }
     &.is--selected{
       border-color: $color-black;
       background-color: $color-black;;

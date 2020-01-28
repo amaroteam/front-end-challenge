@@ -10,21 +10,29 @@
   width: 80vw;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(0);
   visibility: hidden;
   opacity: 0;
   transition: transform 300ms ease-in-out;
   @media (min-width: 1025px) {
     height: 90vh;
+    transform: translate(-50%, -50%) scale(0);
   }
   @media (max-width: 768px) {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
   }
   &.is--active {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+    @media (max-width: 768px) {
+      transform: translateX(0);
+    }
+    @media (min-width: 1025px) {
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
   &__close {
     @include rem(width, $gap-greatest);
