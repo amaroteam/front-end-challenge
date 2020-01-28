@@ -10,11 +10,11 @@
   width: 80vw;
   left: 50%;
   top: 50%;
-  visibility: hidden;
-  opacity: 0;
-  transition: transform 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
   @media (min-width: 1025px) {
     height: 90vh;
+    opacity: 0;
+    visibility: hidden;
     transform: translate(-50%, -50%) scale(0);
   }
   @media (max-width: 768px) {
@@ -25,12 +25,12 @@
     transform: translateX(100%);
   }
   &.is--active {
-    opacity: 1;
-    visibility: visible;
     @media (max-width: 768px) {
       transform: translateX(0);
     }
     @media (min-width: 1025px) {
+      opacity: 1;
+      visibility: visible;
       transform: translate(-50%, -50%) scale(1);
     }
   }

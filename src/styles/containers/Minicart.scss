@@ -1,1 +1,121 @@
 @import '../settings/index.scss';
+
+
+.am-minicart{
+  @include rem(width, 300px);
+  @extend %flex-column;
+  background-color: $color-white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  &__header{
+    @extend %flex-centered;
+    @include rem(height, $gap-biggest);
+    @include rem(border-bottom, 1px solid $color-gray);
+    position: relative;
+    &-title{
+      @include rem(font-size, $font-great);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    &-close{
+      @include rem(width, $gap-medium);
+      @include rem(height, $gap-medium);
+      @include icon-more($gap-medium, 1px, $color-black);
+      @include rem(left, 15px);
+      position: absolute;
+      transform: rotate(45deg);
+    }
+  }
+  &__items{
+    height: calc(100vh - 76px - 184px);
+    overflow-y: auto;
+  }
+  &__item{
+    display: flex;
+    @include rem(font-size, $font-normalest);
+    @include rem(padding, $gap-medium $gap-normal);
+    @include rem(border-bottom, 1px solid $color-gray);
+    &-left{
+      @include rem(margin-right, $gap-normal);
+    }
+    &-image {
+      > img {
+        @include rem(max-width, 60px);
+      }
+    }
+    &-right{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-name{
+      width: calc(100% - 25px);
+      @include rem(margin-bottom, $gap-small);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $color-black;
+      text-transform: uppercase;
+    }
+    &-size,
+    &-color{
+      color: $color-gray;
+      > span {
+        text-transform: uppercase;
+      }
+    }
+    &-color{
+      @include rem(padding-left, $gap-normal);
+    }
+    &-wrapper{
+      @include rem(height, 22px);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &-qty {
+      display: flex;
+    }
+    &-qty-btn{
+      @include rem(border, 1px solid $color-black);
+      @include rem(width, 22px);
+      @include rem(height, 22px);
+      position: relative;
+      &.has--minus{
+        @include icon-less($gap-normal, 1px, $color-black);
+      }
+      &.has--plus{
+        @include icon-more($gap-normal, 1px, $color-black);
+      }
+    }
+    &-qty-val{
+      text-align: center;
+      @include rem(width, 22px);
+    }
+    &-price{
+      white-space: nowrap;
+    }
+    &-remove{
+      @include rem(width, $gap-normal);
+      @include rem(height, $gap-normal);
+      @include icon-more($gap-normal, 1px, $color-black);
+      @include rem(right, 15px);
+      position: absolute;
+      transform: rotate(45deg);
+    }
+  }
+  &__footer{
+    @include rem(padding, $gap-normal);
+    @include rem(border-top, 1px solid $color-gray);
+    margin-top: auto;
+    &-subtotal{
+      @include rem(border-bottom, 1px solid $color-gray);
+      @include rem(margin-bottom, $gap-normal);
+      @include rem(font-size, $font-normal);
+      @include rem(padding-bottom, $gap-normal);
+      @extend %flex-spaced;
+    }
+  }
+
+}

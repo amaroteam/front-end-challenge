@@ -104,3 +104,16 @@ $z-index: (
     transform: translate(-50%, -50%) rotate(90deg);
   }
 }
+
+@mixin icon-less($width, $size, $color) {
+  &::after{
+    content: '';
+    width: $width;
+    height: $size;
+    background-color: $color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

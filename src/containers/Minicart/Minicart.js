@@ -6,13 +6,13 @@ import Button from '../../components/Button';
 
 const Minicart = ({
   quantity = 3,
-  image,
-  name,
-  size,
-  color,
-  amount,
-  price,
-  totalPrice,
+  image = 'https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912',
+  name = 'camisa bonitona da amaro',
+  size = 'M',
+  color = 'LARANJA',
+  amount = 1,
+  price = 'R$ 30,00',
+  totalPrice = 'R$ 30,00',
 }) => {
   return (
     <div className="am-minicart">
@@ -20,7 +20,7 @@ const Minicart = ({
         <Button className="am-minicart__header-close" />
         <h3 className="am-minicart__header-title">
           Sacola
-          {`(${quantity}`}
+          {` (${quantity})`}
         </h3>
       </div>
       <ul className="am-minicart__items">
@@ -32,16 +32,16 @@ const Minicart = ({
           </div>
           <div className="am-minicart__item-right">
             <h2 className="am-minicart__item-name">{name}</h2>
-            <span className="am-minicart__item-size">
+            <p className="am-minicart__item-size">
               Tam.:
-              <strong>{size}</strong>
-            </span>
-            <span className="am-minicart__item-color">
+              <span>{` ${size}`}</span>
+            </p>
+            <p className="am-minicart__item-color">
               Cor:
-              <strong>{color}</strong>
-            </span>
+              <span>{` ${color}`}</span>
+            </p>
             <div className="am-minicart__item-wrapper">
-              <div className="am-minicart__qty">
+              <div className="am-minicart__item-qty">
                 <Button
                   className="am-minicart__item-qty-btn has--minus"
                   type="button"
