@@ -13,7 +13,6 @@ const SizeBullets = ({
   activeIndex,
   onClick,
 }) => {
-  console.log(sizeSelected);
   return (
     <div className={`am-sizes ${className}`}>
       {sizes.map(({ size, available }, index) => (

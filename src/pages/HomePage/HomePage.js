@@ -9,6 +9,7 @@ import ProductsShelf from '../../containers/ProductsShelf';
 import Toolbar from '../../containers/Toolbar';
 import Overlay from '../../components/Overlay/Overlay';
 import QuickView from '../QuickView';
+import Minicart from '../../containers/Minicart';
 
 const HomePage = ({ getProducts, products, changed }) => {
   useEffect(() => {
@@ -25,6 +26,7 @@ const HomePage = ({ getProducts, products, changed }) => {
       <Overlay />
       <Toolbar intro="Produtos" />
       {memoizedShef}
+      <Minicart />
       {/* <ProductsShelf content={products} /> */}
       <QuickView />
     </>
