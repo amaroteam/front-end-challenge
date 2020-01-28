@@ -1,13 +1,15 @@
 export const Types = {
   QUICK_VIEW: '@quickView/PRODUCT_QUICK_VIEW',
   TOGGLE_QUICK_VIEW: '@quickView/TOGGLE_SHOW',
-  SIZE: '@quickView/PRODUCT_SIZE',
+  PRODUCT_SIZE: '@quickView/PRODUCT_SIZE',
+  SIZE_ERROR: '@quickView/SIZE_ERROR',
 };
 
 const INITIAL_STATE = {
   data: [],
   size: '',
   toggle: false,
+  errorSize: false,
 };
 
 export default function reducer(state = INITIAL_STATE, action) {
@@ -24,13 +26,18 @@ export default function reducer(state = INITIAL_STATE, action) {
         toggle: action.payload,
       };
 
-    case Types.SIZE: {
+    case Types.PRODUCT_SIZE: {
       return {
         ...state,
         size: action.payload,
       };
     }
-
+    case Types.SIZE_ERROR: {
+      return {
+        ...state,
+        sizeError: action.payload,
+      };
+    }
     default:
       return state;
   }
@@ -45,8 +52,12 @@ export const Creators = {
     type: Types.TOGGLE_QUICK_VIEW,
     payload: boolean,
   }),
-  sizeProductQuickView: boolean => ({
-    type: Types.SIZE,
+  sizeProductQuickView: size => ({
+    type: Types.PRODUCT_SIZE,
+    payload: size,
+  }),
+  errorSizeBullets: boolean => ({
+    type: Types.SIZE_ERROR,
     payload: boolean,
   }),
 };

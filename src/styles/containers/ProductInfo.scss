@@ -93,6 +93,16 @@
        
       }
     }
+    &-error{
+      @include rem(font-size, $font-normal);
+      color: $color-red;
+      opacity: 0;
+      visibility: hidden;
+      &.is--active{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
     &-button{
       @media(min-width: 1025px){
         @include rem(margin-top, $gap-biggest);

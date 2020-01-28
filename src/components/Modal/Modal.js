@@ -16,11 +16,16 @@ const Modal = ({
   quickViewActions,
 }) => {
   const { toggleOverlay } = overlayActions;
-  const { toggleQuickView, sizeProductQuickView } = quickViewActions;
+  const {
+    toggleQuickView,
+    sizeProductQuickView,
+    errorSizeBullets,
+  } = quickViewActions;
 
   const handleClose = () => {
     toggleOverlay(false);
     toggleQuickView(false);
+    errorSizeBullets(false);
     sizeProductQuickView(false);
   };
   return (

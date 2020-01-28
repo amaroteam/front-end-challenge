@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as QuickViewActionsCreator } from '../../store/ducks/quickview';
+import { Creators as MinicartActionsCreator } from '../../store/ducks/minicart';
 
 import '../../styles/containers/ProductInfo.scss';
 
@@ -18,19 +20,36 @@ const ProductInfo = ({
   color,
   colorName,
   sizes,
-  sizeProductQuickView,
+  // product,
   sizeSelected,
+  sizeError,
+  quickviewActions,
+  minicartActions,
 }) => {
+  const { toggleMinicart } = minicartActions;
+  const {
+    sizeProductQuickView,
+    errorSizeBullets,
+    toggleQuickView,
+  } = quickviewActions;
   const [active, setActive] = useState(-1);
-  const [size, setSize] = useState();
 
   const handleSizeSelected = ev => {
     const { index } = ev.target.dataset;
     const { value } = ev.target;
-    sizeProductQuickView(true);
-    setSize(value);
+    sizeProductQuickView(value);
     setActive(index);
   };
+
+  const handleAddToCart = () => {
+    if (!sizeSelected) return errorSizeBullets(true);
+    errorSizeBullets(false);
+    sizeProductQuickView(false);
+    toggleQuickView(false);
+    toggleMinicart(true);
+    return false;
+  };
+
   return (
     <div className="am-product">
       <figure className="am-product__image">
@@ -82,7 +101,7 @@ const ProductInfo = ({
         <div className="am-product__info-size">
           <span className="am-product__info-size-name">
             Tamanho:
-            <strong>{sizeSelected && size}</strong>
+            <strong>{sizeSelected}</strong>
           </span>
           <SizeBullets
             onClick={ev => handleSizeSelected(ev)}
@@ -91,10 +110,18 @@ const ProductInfo = ({
             activeIndex={active}
           />
         </div>
+        <p
+          className={`am-product__info-error ${
+            sizeError && !sizeSelected ? 'is--active' : ''
+          }`}
+        >
+          Selecione um tamanho!
+        </p>
         <Button
           variant="--primary"
           className="am-product__info-button"
           type="button"
+          onClick={() => handleAddToCart()}
         >
           Comprar
         </Button>
@@ -105,10 +132,19 @@ const ProductInfo = ({
 
 const mapStateToProps = state => ({
   sizeSelected: state.quickview.size,
+  sizeError: state.quickview.sizeError,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(QuickViewActionsCreator, dispatch);
+const mapDispatchToProps = dispatch => ({
+  quickviewActions: bindActionCreators(
+    QuickViewActionsCreator,
+    dispatch,
+  ),
+  minicartActions: bindActionCreators(
+    MinicartActionsCreator,
+    dispatch,
+  ),
+});
 
 export default connect(
   mapStateToProps,

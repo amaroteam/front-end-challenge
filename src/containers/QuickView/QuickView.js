@@ -19,10 +19,10 @@ const QuickView = ({ toggle, product = {} }) => {
     discount_percentage: discount,
     bullet_color: bulletColor,
   } = product;
-
   return (
     <Modal className={`am-quick-view ${toggle ? 'is--active' : ''}`}>
       <ProductInfo
+        product={product}
         name={name}
         image={image}
         regularPrice={regularPrice}
