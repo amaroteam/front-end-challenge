@@ -17,6 +17,7 @@ import Container from '../../layout/Container';
 
 const HeaderAmaro = ({
   toolbar,
+  quantity,
   minicartActions,
   overlayActions,
 }) => {
@@ -42,7 +43,11 @@ const HeaderAmaro = ({
             className="am-header__wrapper-cart"
             onClick={() => handleToggleMinicart()}
           >
-            <span className="am-header__wrapper-cart-qty">5</span>
+            {quantity >= 1 && (
+              <span className="am-header__wrapper-cart-qty">
+                {quantity}
+              </span>
+            )}
             <ReactSVG
               className="am-header__wrapper-cart-icon"
               src={CartIcon}
@@ -56,6 +61,10 @@ const HeaderAmaro = ({
 
 const mapStateToProps = state => ({
   toolbar: state.overlay.toolbar,
+  quantity: state.minicart.data.reduce(
+    (total, product) => total + product.amount,
+    0,
+  ),
 });
 
 const mapDispatchToProps = dispatch => ({

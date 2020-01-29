@@ -60,79 +60,92 @@ const Minicart = ({
           {` (${quantity})`}
         </h3>
       </div>
-      <ul className="am-minicart__items">
-        {products.map(
-          ({ image, name, size, color, amount, price }, index) => (
-            <li
-              className="am-minicart__item"
-              key={shortid.generate()}
-            >
-              <div className="am-minicart__item-left">
-                <figure className="am-minicart__item-image">
-                  <img src={image} alt={name} />
-                </figure>
-              </div>
-              <div className="am-minicart__item-right">
-                <h2 className="am-minicart__item-name">{name}</h2>
-                <p className="am-minicart__item-size">
-                  Tam.:
-                  <span>{` ${size}`}</span>
-                </p>
-                <p className="am-minicart__item-color">
-                  Cor:
-                  <span>{` ${color}`}</span>
-                </p>
-                <div className="am-minicart__item-wrapper">
-                  <div className="am-minicart__item-qty">
+      {quantity >= 1 ? (
+        <>
+          <ul className="am-minicart__items">
+            {products.map(
+              (
+                { image, name, size, color, amount, price },
+                index,
+              ) => (
+                <li
+                  className="am-minicart__item"
+                  key={shortid.generate()}
+                >
+                  <div className="am-minicart__item-left">
+                    <figure className="am-minicart__item-image">
+                      <img src={image} alt={name} />
+                    </figure>
+                  </div>
+                  <div className="am-minicart__item-right">
+                    <h2 className="am-minicart__item-name">{name}</h2>
+                    <p className="am-minicart__item-size">
+                      Tam.:
+                      <span>{` ${size}`}</span>
+                    </p>
+                    <p className="am-minicart__item-color">
+                      Cor:
+                      <span>{` ${color}`}</span>
+                    </p>
+                    <div className="am-minicart__item-wrapper">
+                      <div className="am-minicart__item-qty">
+                        <Button
+                          className={`am-minicart__item-qty-btn has--minus ${
+                            amount <= 1 ? 'is--inactive' : ''
+                          }`}
+                          type="button"
+                          onClick={() => handleDecrement(index)}
+                        />
+                        <input
+                          className="am-minicart__item-qty-val"
+                          type="text"
+                          value={amount}
+                          readOnly
+                        />
+                        <Button
+                          type="button"
+                          className="am-minicart__item-qty-btn has--plus"
+                          onClick={() => handleIncrement(index)}
+                        />
+                      </div>
+                      <span className="am-minicart__item-price">
+                        {price}
+                      </span>
+                    </div>
                     <Button
-                      className={`am-minicart__item-qty-btn has--minus ${
-                        amount <= 1 ? 'is--inactive' : ''
-                      }`}
+                      className="am-minicart__item-remove"
                       type="button"
-                      onClick={() => handleDecrement(index)}
-                    />
-                    <input
-                      className="am-minicart__item-qty-val"
-                      type="text"
-                      value={amount}
-                      readOnly
-                    />
-                    <Button
-                      type="button"
-                      className="am-minicart__item-qty-btn has--plus"
-                      onClick={() => handleIncrement(index)}
+                      onClick={() => handleRemove(index)}
                     />
                   </div>
-                  <span className="am-minicart__item-price">
-                    {price}
-                  </span>
-                </div>
-                <Button
-                  className="am-minicart__item-remove"
-                  type="button"
-                  onClick={() => handleRemove(index)}
-                />
-              </div>
-            </li>
-          ),
-        )}
-      </ul>
-      <div className="am-minicart__footer">
-        <div className="am-minicart__footer-subtotal">
-          <p className="am-minicart__footer-subtotal-text">
-            Subtotal
+                </li>
+              ),
+            )}
+          </ul>
+          <div className="am-minicart__footer">
+            <div className="am-minicart__footer-subtotal">
+              <p className="am-minicart__footer-subtotal-text">
+                Subtotal
+              </p>
+              <span className="am-minicart__footer-subtotal-price">
+                {total}
+              </span>
+            </div>
+            <Button
+              className="am-minicart__footer-checkout"
+              variant="--primary"
+            >
+              Ir para o pagamento
+            </Button>
+          </div>
+        </>
+      ) : (
+        <div className="am-minicart__empy">
+          <p className="am-minicart__empy-text">
+            Sua sacola está vazia :(
           </p>
-          <span className="am-minicart__footer-subtotal-price">
-            {total}
-          </span>
         </div>
-        <Button
-          className="am-minicart__footer-checkout"
-          variant="--primary"
-        >
-          Ir para o pagamento
-        </Button>
-      </div>
+      )}
     </div>
   );
 };

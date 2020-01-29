@@ -34,6 +34,14 @@
       transform: rotate(45deg);
     }
   }
+  &__empy{
+    height: 100%;
+    @extend %flex-centered;
+    &-text{
+      @include rem(font-size, $font-medium);
+      text-transform: uppercase;
+    }
+  }
   &__items{
     height: calc(100vh - 76px - 90px);
     overflow-y: auto;
