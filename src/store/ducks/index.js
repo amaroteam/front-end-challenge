@@ -7,9 +7,9 @@ import quickview from './quickview';
 import minicart from './minicart';
 
 export default combineReducers({
+  minicart,
   overlay,
   filter,
   products,
   quickview,
-  minicart,
 });

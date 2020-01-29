@@ -42,8 +42,6 @@ const ProductInfo = ({
     setActive(index);
   };
 
-  console.log('product', product);
-
   const handleAddToCart = () => {
     if (!sizeSelected) return errorSizeBullets(true);
     errorSizeBullets(false);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import shortid from 'shortid';
 
 import { connect } from 'react-redux';
@@ -26,10 +26,6 @@ const Minicart = ({
     removeFromCart,
     updateAmount,
   } = minicartActions;
-
-  useEffect(() => {
-    console.log('LOGGG', total);
-  }, [products]);
 
   const handleCloseCart = () => {
     toggleMinicart(false);
