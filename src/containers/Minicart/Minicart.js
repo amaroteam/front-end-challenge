@@ -1,6 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import shortid from 'shortid';
 
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as OverlayActionsCreator } from '../../store/ducks/overlay';
 import { Creators as MinicartActionsCreator } from '../../store/ducks/minicart';
@@ -8,26 +9,43 @@ import { Creators as MinicartActionsCreator } from '../../store/ducks/minicart';
 import '../../styles/containers/Minicart.scss';
 
 import Button from '../../components/Button';
+import priceToNumber from '../../utils/priceToNumber';
+import formatPrice from '../../utils/formatPrice';
 
 const Minicart = ({
-  quantity = 3,
-  image = 'https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912',
-  name = 'camisa bonitona da amaro',
-  size = 'M',
-  color = 'LARANJA',
-  amount = 1,
-  price = 'R$ 30,00',
-  totalPrice = 'R$ 30,00',
+  products,
+  total,
+  quantity,
   toggle,
   overlayActions,
   minicartActions,
 }) => {
   const { toggleOverlay } = overlayActions;
-  const { toggleMinicart } = minicartActions;
+  const {
+    toggleMinicart,
+    removeFromCart,
+    updateAmount,
+  } = minicartActions;
+
+  useEffect(() => {
+    console.log('LOGGG', total);
+  }, [products]);
 
   const handleCloseCart = () => {
     toggleMinicart(false);
     toggleOverlay(false);
+  };
+
+  const handleRemove = index => {
+    removeFromCart(index);
+  };
+
+  const handleIncrement = index => {
+    updateAmount(index, products[index].amount + 1);
+  };
+
+  const handleDecrement = index => {
+    updateAmount(index, products[index].amount - 1);
   };
 
   return (
@@ -43,47 +61,61 @@ const Minicart = ({
         </h3>
       </div>
       <ul className="am-minicart__items">
-        <li className="am-minicart__item">
-          <div className="am-minicart__item-left">
-            <figure className="am-minicart__item-image">
-              <img src={image} alt={name} />
-            </figure>
-          </div>
-          <div className="am-minicart__item-right">
-            <h2 className="am-minicart__item-name">{name}</h2>
-            <p className="am-minicart__item-size">
-              Tam.:
-              <span>{` ${size}`}</span>
-            </p>
-            <p className="am-minicart__item-color">
-              Cor:
-              <span>{` ${color}`}</span>
-            </p>
-            <div className="am-minicart__item-wrapper">
-              <div className="am-minicart__item-qty">
+        {products.map(
+          ({ image, name, size, color, amount, price }, index) => (
+            <li
+              className="am-minicart__item"
+              key={shortid.generate()}
+            >
+              <div className="am-minicart__item-left">
+                <figure className="am-minicart__item-image">
+                  <img src={image} alt={name} />
+                </figure>
+              </div>
+              <div className="am-minicart__item-right">
+                <h2 className="am-minicart__item-name">{name}</h2>
+                <p className="am-minicart__item-size">
+                  Tam.:
+                  <span>{` ${size}`}</span>
+                </p>
+                <p className="am-minicart__item-color">
+                  Cor:
+                  <span>{` ${color}`}</span>
+                </p>
+                <div className="am-minicart__item-wrapper">
+                  <div className="am-minicart__item-qty">
+                    <Button
+                      className={`am-minicart__item-qty-btn has--minus ${
+                        amount <= 1 ? 'is--inactive' : ''
+                      }`}
+                      type="button"
+                      onClick={() => handleDecrement(index)}
+                    />
+                    <input
+                      className="am-minicart__item-qty-val"
+                      type="text"
+                      value={amount}
+                      readOnly
+                    />
+                    <Button
+                      type="button"
+                      className="am-minicart__item-qty-btn has--plus"
+                      onClick={() => handleIncrement(index)}
+                    />
+                  </div>
+                  <span className="am-minicart__item-price">
+                    {price}
+                  </span>
+                </div>
                 <Button
-                  className="am-minicart__item-qty-btn has--minus"
+                  className="am-minicart__item-remove"
                   type="button"
-                />
-                <input
-                  className="am-minicart__item-qty-val"
-                  type="text"
-                  value={amount}
-                  readOnly
-                />
-                <Button
-                  type="button"
-                  className="am-minicart__item-qty-btn has--plus"
+                  onClick={() => handleRemove(index)}
                 />
               </div>
-              <span className="am-minicart__item-price">{price}</span>
-            </div>
-            <Button
-              className="am-minicart__item-remove"
-              type="button"
-            />
-          </div>
-        </li>
+            </li>
+          ),
+        )}
       </ul>
       <div className="am-minicart__footer">
         <div className="am-minicart__footer-subtotal">
@@ -91,7 +123,7 @@ const Minicart = ({
             Subtotal
           </p>
           <span className="am-minicart__footer-subtotal-price">
-            {totalPrice}
+            {total}
           </span>
         </div>
         <Button
@@ -107,6 +139,18 @@ const Minicart = ({
 
 const mapStateToProps = state => ({
   toggle: state.minicart.toggle,
+  products: state.minicart.data,
+  quantity: state.minicart.data.reduce(
+    (total, product) => total + product.amount,
+    0,
+  ),
+  total: formatPrice(
+    state.minicart.data.reduce(
+      (total, product) =>
+        total + (priceToNumber(product.price) * product.amount) / 100,
+      0,
+    ),
+  ),
 });
 
 const mapDispatchToProps = dispatch => ({

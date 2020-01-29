@@ -20,20 +20,21 @@ const ProductInfo = ({
   color,
   colorName,
   sizes,
-  // product,
+  product,
   sizeSelected,
   sizeError,
   quickviewActions,
   minicartActions,
 }) => {
-  const { toggleMinicart } = minicartActions;
+  const { toggleMinicart, addToCart } = minicartActions;
   const {
     sizeProductQuickView,
     errorSizeBullets,
     toggleQuickView,
   } = quickviewActions;
-  const [active, setActive] = useState(-1);
 
+  const [active, setActive] = useState(-1);
+  // const [currentProduct, setCurrentProduct] = useState();
   const handleSizeSelected = ev => {
     const { index } = ev.target.dataset;
     const { value } = ev.target;
@@ -41,13 +42,22 @@ const ProductInfo = ({
     setActive(index);
   };
 
+  console.log('product', product);
+
   const handleAddToCart = () => {
     if (!sizeSelected) return errorSizeBullets(true);
     errorSizeBullets(false);
     sizeProductQuickView(false);
     toggleQuickView(false);
     toggleMinicart(true);
-    return false;
+    return addToCart({
+      name: product.name,
+      image: product.image,
+      price: product.actual_price,
+      color: product.color,
+      size: sizeSelected,
+      amount: 1,
+    });
   };
 
   return (

@@ -35,7 +35,7 @@
     }
   }
   &__items{
-    height: calc(100vh - 76px - 184px);
+    height: calc(100vh - 76px - 90px);
     overflow-y: auto;
   }
   &__item{
@@ -88,6 +88,11 @@
       @include rem(width, 22px);
       @include rem(height, 22px);
       position: relative;
+      &.is--inactive{
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
       &.has--minus{
         @include icon-less($gap-normal, 1px, $color-black);
       }

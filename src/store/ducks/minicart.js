@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-case-declarations */
+/* eslint-disable no-fallthrough */
 export const Types = {
   ADD_TO_CART: '@minicart/ADD_TO_CART',
   REMOVE_FROM_CART: '@minicart/REMOVE_FROM_PRODUCT',
@@ -18,29 +21,32 @@ export default function reducer(state = INITIAL_STATE, action) {
         toggle: action.payload,
       };
     case Types.ADD_TO_CART:
-      return [
-        {
+      const productIndex = state.data.findIndex(
+        test => test.name === action.product.name,
+      );
+      if (productIndex === -1) {
+        return {
           ...state,
-          toggle: action.payload,
-        },
-      ];
+          data: [...state.data, action.product],
+        };
+      }
+      return {
+        ...state,
+      };
+
     case Types.REMOVE_FROM_CART:
-      return [
-        {
-          ...state,
-          toolbar: action.payload,
-        },
-      ];
+      state.data.splice(action.id, 1);
+      return { ...state };
 
     case Types.UPDATE_AMOUNT:
-      return [
-        {
-          ...state,
-          amount: action.amount,
-        },
-      ];
+      if (state.data[action.id].amount < 1) {
+        return { ...state };
+      }
+      state.data[action.id].amount = action.amount;
+      return { ...state };
+
     default:
-      return state;
+      return { ...state };
   }
 }
 
