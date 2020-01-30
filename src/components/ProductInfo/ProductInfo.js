@@ -34,7 +34,6 @@ const ProductInfo = ({
   } = quickviewActions;
 
   const [active, setActive] = useState(-1);
-  // const [currentProduct, setCurrentProduct] = useState();
   const handleSizeSelected = ev => {
     const { index } = ev.target.dataset;
     const { value } = ev.target;

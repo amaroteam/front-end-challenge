@@ -10,8 +10,8 @@ import rootReducer from './ducks';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['minicart', 'quickview'],
-  blacklist: ['overlay'],
+  whitelist: ['minicart'],
+  blacklist: ['overlay', 'quickview'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

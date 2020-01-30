@@ -25,7 +25,11 @@ const Overlay = ({
 }) => {
   const { toggleFilter } = filterActions;
   const { toggleOverlay, overlayToolBar } = overlayActions;
-  const { toggleQuickView, sizeProductQuickView } = quickViewActions;
+  const {
+    toggleQuickView,
+    sizeProductQuickView,
+    errorSizeBullets,
+  } = quickViewActions;
   const { toggleMinicart } = minicartActions;
 
   const handleCloseAll = () => {
@@ -34,6 +38,7 @@ const Overlay = ({
     toggleQuickView(false);
     toggleMinicart(false);
     sizeProductQuickView(false);
+    errorSizeBullets(false);
     overlayToolBar(false);
   };
   return (
